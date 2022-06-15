@@ -1,6 +1,6 @@
 <?php
     // スーパークラスであるDbdataを利用するため
-    require_once __DIR__ . 'dbdata.php';
+    require_once __DIR__ . '/dbdata.php';
 
     class User extends DbData{
         // ログイン認証
