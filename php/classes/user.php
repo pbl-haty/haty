@@ -6,7 +6,7 @@
         // ログイン認証
         public function authUser($mailaddress, $password){
             $sql = "select * from user where mailaddress = ? and password = ?";
-            $stmt = $this->query($sql, $mailaddress, $password);
+            $stmt = $this->query($sql, [$mailaddress, $password]);
             return $stmt->fetch();
         }
     }

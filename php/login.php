@@ -17,7 +17,7 @@
         $result = $user->authUser($login_email, $login_pass);
 
         if(empty($result['uid'])){
-            $errorMessage = 'メールアドレスとパスワードを確認してください。';
+            $errorMessage = 'メールアドレスとパスワードが正しいか確認してください。';
         }else{
             // ユーザー情報をセッションに保存する
             $_SESSION['uid'] = $result['uid'];
@@ -26,6 +26,10 @@
             $_SESSION['comment'] = $result['comment'];
             $_SESSION['icon'] = $result['icon'];
             $_mailaddress = $result['mailaddress'];
+
+            // ホーム画面に遷移する
+            header('Location: home.php');
+            exit();
         }
     }
 ?>
@@ -40,10 +44,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>login</title>
+    <title>ログイン</title>
 </head>
 <body>
-    <form action="">
+    <div>
+        <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
+    </div>
+    <form method="POST" action="" >
         <input type="text" class="id" name="login_email" placeholder="メールアドレス"><br>
         <input type="password" class="pass" name="login_pass" placeholder="パスワード">
 
@@ -52,22 +59,10 @@
             <label for="login">次回から自動ログイン</label>
         </div>
 
-        <input type="button" class="btn-login" id="check" name="login" value="login">
+        <input type="submit" class="btn-login" id="check" name="login" value="login">
         <br>
     </form>
 
-    <!-- <script>
-        $(document).ready(function() {
-            $('#check').click(function() {
-                var val1st = $('#id').val();
-                if (!val1st) {
-                    alert("テキストが入力されていません。")
-                return false;
-                }
-            });
-        });
-    </script> -->
-
-    <a href="#" class="lnk-sakusei">アカウントを作成</a>  
+    <a href="NewAccount.html" class="lnk-sakusei">アカウントを作成</a>  
 </body>
 </html>
