@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="home.css">
 <head>
     <meta charset="UTF-8">
     <title>ホーム画面</title>
