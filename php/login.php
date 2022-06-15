@@ -1,48 +1,34 @@
 <?php
-    // セッションの開始
+    // セッションを開始する
     session_start();
-
-    $db['host'] = "localhost";  // DBサーバのURL
-    $db['user'] = "haty";       // ユーザー名
-    $db['pass'] = "haty";       // ユーザー名のパスワード
-    $db['dbname'] = "haty";     // データベース名
+    // user.phpを読み込む
+    require_once __DIR__ . '\classes\user.php';
 
     // エラーメッセージの初期化
-    $php_errormsg = '';
+    $errorMessage = ""; 
 
     // ログインボタンが押されたとき
     if(isset($_POST['login'])){
-        // 入力されたメールアドレスとパスワードのチェック
-        if(empty($_POST['login_email'])){
-            $php_errormsg = "メールアドレスが入力されていません";
-        }else if(empty($_POST['login_pass'])){
-            $php_errormsg = "パスワードが入力されていません";
-        }
+        $login_email = $_POST['login_email'];
+        $login_pass = $_POST['login_pass'];
 
-        // メールアドレスとパスワードが入力されている場合
-        if(!empty($_POST['login_email']) && !empty($_POST['login_pass'])){
-            // 入力されたメールアドレスを変数に格納
-            $login_email = $_POST['login_email'];
+        // ユーザーオブジェクトを生成し、「authUser()メソッド」を呼び出し、認証結果を受け取る
+        $user = new User();
+        $result = $user->authUser($login_email, $login_pass);
 
-            // PDOオブジェクトの生成
-            $dsn = 'mysql:host=localhost;dbname=login;charset=utf8';
-            $pdo = new PDO($dsn, $db['pass'], $db['dbname'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-
-            // エラー処理
-            try{
-
-            }catch(PDOException $e){
-                $php_errormsg = "データベースのエラーで発生しました";
-            }
+        if(empty($result['uid'])){
+            $errorMessage = 'メールアドレスとパスワードを確認してください。';
+        }else{
+            // ユーザー情報をセッションに保存する
+            $_SESSION['uid'] = $result['uid'];
+            $_SESSION['name'] = $result['name'];
+            $_SESSION['password'] = $result['password'];
+            $_SESSION['comment'] = $result['comment'];
+            $_SESSION['icon'] = $result['icon'];
+            $_mailaddress = $result['mailaddress'];
         }
     }
 ?>
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="jp">
@@ -58,25 +44,8 @@
 </head>
 <body>
     <form action="">
-        <input type="text" class="id" name="login_email" placeholder="メールアドレス">&ensp;&ensp;&ensp;<br>
+        <input type="text" class="id" name="login_email" placeholder="メールアドレス"><br>
         <input type="password" class="pass" name="login_pass" placeholder="パスワード">
-        <i id="eye" class="fa-solid fa-eye"></i>
-
-        <!-- パスワード確認動作 -->
-        <script>
-            let eye = document.getElementById("eye");
-            eye.addEventListener('click', function () {
-                if (this.previousElementSibling.getAttribute('type') == 'password') {
-                    this.previousElementSibling.setAttribute('type', 'text');
-                    this.classList.toggle('fa-eye');
-                    this.classList.toggle('fa-eye-slash');
-                } else {
-                    this.previousElementSibling.setAttribute('type', 'password');
-                    this.classList.toggle('fa-eye');
-                    this.classList.toggle('fa-eye-slash');
-                }
-            })
-        </script>
 
         <div>
             <input type="checkbox" id="login" class="login">
@@ -87,7 +56,7 @@
         <br>
     </form>
 
-    <script>
+    <!-- <script>
         $(document).ready(function() {
             $('#check').click(function() {
                 var val1st = $('#id').val();
@@ -97,7 +66,7 @@
                 }
             });
         });
-    </script>
+    </script> -->
 
     <a href="#" class="lnk-sakusei">アカウントを作成</a>  
 </body>
