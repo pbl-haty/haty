@@ -2,7 +2,6 @@
     require_once __DIR__ . './header.php';
     $userId = 2;
 ?>
-<header>
     <link rel="stylesheet" href="../css/home.css">
 </header>
 
