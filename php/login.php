@@ -11,9 +11,11 @@
     <title>Haty</title>
 </head>
 <body>
+    <form action="post">
     <input type="text" class="id" placeholder="メールアドレス">&ensp;&ensp;&ensp;<br>
     <input type="password" class="pass" placeholder="パスワード">
     <i id="eye" class="fa-solid fa-eye"></i>
+    </form>
     <script>
         let eye = document.getElementById("eye");
         eye.addEventListener('click', function () {
@@ -46,6 +48,5 @@
 
     </script>
     <a href="#" class="lnk-sakusei">アカウントを作成</a>
-    
 </body>
 </html>
