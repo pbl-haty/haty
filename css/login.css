@@ -1,0 +1,22 @@
+body{
+    background-color: #fce5cdfe;
+    text-align: center;
+    margin: 50px 0px;
+    display: block;
+}
+.id{
+    margin-top: 30px;
+}
+.pass{
+    margin-top: 30px;
+}
+.login{
+    margin-top: 30px;
+}
+.btn-login{
+    margin-top: 30px;
+}
+.lnk-sakusei{
+    display: block;
+    margin-top: 30px;
+}
