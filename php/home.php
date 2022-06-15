@@ -1,39 +1,12 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <link rel="stylesheet" href="../css/home.css">
-<head>
-    <meta charset="UTF-8">
-    <title>ホーム画面</title>
-</head>
+<?php
+    require_once __DIR__ . './header.php';
+    $userId = 2;
+?>
 <header>
-    <h1 class="title" >HATY</h1>
-    <div class="hamburger-menu">
-        <input type="checkbox" id="menu-btn-check">
-        <label for="menu-btn-check" class="menu-btn"><span></span></label>
-        <div class="menu-content">
-            <ul>
-                <li>
-                    <a href="#">ホーム</a>
-                </li>
-                <li>
-                    <a href="#">マイページ</a>
-                </li>
-                <li>
-                    <a href="#">投稿</a>
-                </li>
-                <li>
-                    <a href="#">通知</a>
-                </li>
-                <li>
-                    <a href="#">ログアウト</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <link rel="stylesheet" href="../css/home.css">
 </header>
 
 <br>
-
 <body>
     <div style="display: flex; justify-content:space-around; align-items: flex-start; margin-top: 120px;">
         <h1 style="display: block;">グループ一覧</h1>
@@ -44,40 +17,91 @@
     </div>
     <hr>
 
+
+
+
+
+
+
+<?php // グループに所属しているか判定・・・A
+    require_once __DIR__ . './classes/group.php';
+    $group = new Group();
+
+    // $group_joins = $Group->groupjoin($_SESSION['userId']);
+    $group_join = $group->groupjoin($userId);
+
+    if(empty($group_join)){
+        echo '<h4>グループを作成して友達とギフトを贈りあおう！</h4>';
+    } else {
+        foreach($group_join as $join){
+            
+?>
+
     <div>
-        <div class="home"
-            style="padding:50px; margin: auto; width: 770px; height: 150px; border-radius:10px;">
-            <p style="margin-top: -20px; font-size: 25px; text-align: left; color: #000000;">グループ1 ></p>
+        <div class="home" style="padding:50px; margin: auto; width: 770px; height: 150px; border-radius:10px;">
+            <p style="margin-top: -20px; font-size: 25px; text-align: left; color: #000000;"><?= $join['groupname'] ?> ></p>
             <div style="position: absolute;">
-                <a href="home_sub.html" style="text-decoration: none; color: #000000;">
+
+<?php // ギフトが送られているか判定・・・B
+            $gift_group = $group->giftgroup( (int)$join['group_id'], $userId);
+            if(empty($gift_group)){
+                echo '<h4>グループに商品を投稿しましょう！</h4>';
+            } else {
+                $cnt = 0;
+                foreach($gift_group as $gift){
+                    $img = base64_encode($gift['image']);
+                    if($cnt == 0) {
+                    
+?>
+         
+                <a href="home_sub.html" style="text-decoration: none; color: #000000;"> <!-- ギフト詳細画面遷移 -->
                     <table border="1" align="left" class="home"
                         style=" width: 250px; border-radius:10px; border: 2px solid #000000;background-color: #FFFFFF;">
                         <tr>
-                            <td colspan="2" style="font-size: 20px; border: none;" align=center><img src="blcut_glasses.jpg"
+                            <td colspan="2" style="font-size: 20px; border: none;" align=center><img src="data:;base64,<?php echo $img; ?>"
                                     width="180px;" height="180px">
-                                <h5>ブルーライトカットメガネ</h5>
+                                <h5><?= $gift['gift_name'] ?></h5>
                             </td>
                         </tr>
                     </table>
                 </a>
+<?php
+                    }
+                    if($cnt == 1) {
+?>
+
+                <a href="home_sub.html" style="text-decoration: none; color: #000000;"> <!-- ギフト詳細画面遷移 -->
                 <table border="1" align="left" class="home"
                     style=" width: 250px; border-radius:10px; border: 2px solid #000000;background-color: #ffffff;">
                     <tr>
-                        <td colspan="2" style="font-size: 20px; border: none;" align=center><img src="blcut_glasses.jpg"
+                        <td colspan="2" style="font-size: 20px; border: none;" align=center><img src="data:;base64,<?php echo $img; ?>"
                             width="180px;" height="180px">
-                        <h5>ブルーライトカットメガネ</h5>
+                        <h5><?= $gift['gift_name'] ?></h5>
                     </td>
                     </tr>
                 </table>
+                </a>
+<?php
+                    }
+                    if($cnt == 2) {
+?>
+
+                <a href="home_sub.html" style="text-decoration: none; color: #000000;"> <!-- ギフト詳細画面遷移 -->
                 <table border="1" align="left" class="home"
                     style=" width: 250px; border-radius:10px; border: 2px solid #000000;background-color: #ffffff;">
                     <tr>
-                        <td colspan="2" style="font-size: 20px; border: none;" align=center><img src="blcut_glasses.jpg"
+                        <td colspan="2" style="font-size: 20px; border: none;" align=center><img src="data:;base64,<?php echo $img; ?>"
                             width="180px;" height="180px">
-                        <h5>ブルーライトカットメガネ</h5>
+                        <h5><?= $gift['gift_name'] ?></h5>
                     </td>
                     </tr>
                 </table>
+                </a>
+<?php // B'
+                    }
+                } 
+?>
+
             </div>
         </div>
         <div style="text-align: center;">
@@ -87,82 +111,12 @@
         </div>
     </div>
 
-    <div>
-        <div class="home" style="padding:100px; margin: auto; width: 770px; height: 150px; border-radius:10px;">
-            <p style="margin-top: -20px; font-size: 25px; text-align: left; color: #000000;">グループ2 ></p>
-            <div style="position: absolute;">
-                <a href="home_sub.html" style="text-decoration: none; color: #000000;">
-                    <table border="1" align="left" class="home"
-                        style=" width: 250px; border-radius:10px; border: 2px solid #000000;background-color: #FFFFFF;">
-                        <tr>
-                            <td colspan="2" style="font-size: 20px; border: none;" align=center><img src="rooter.png"
-                                    width="55px;">
-                                <h5>ルーター4</h5>
-                            </td>
-                        </tr>
-                    </table>
-                </a>
-                <table border="1" align="left" class="home"
-                    style=" width: 250px; border-radius:10px; border: 2px solid #000000;background-color: #ffffff;">
-                    <tr>
-                        <td colspan="2" style="font-size: 20px; border: none;" align=center><img src="rooter.png"
-                                width="55px;">
-                            <h5>ルーター5</h5>
-                        </td>
-                    </tr>
-                </table>
-                <table border="1" align="left" class="home"
-                    style=" width: 250px; border-radius:10px; border: 2px solid #000000;background-color: #ffffff;">
-                    <tr>
-                        <td colspan="2" style="font-size: 20px; border: none;" align=center><img src="rooter.png"
-                                width="55px;">
-                            <h5>ルーター6</h5>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div style="text-align: center;">
-            <p style="display: inline-block; border: 4px double #000000; padding: 15px; text-align: left;">
-                もっと見る +</p>
-        </div>
-    </div>
-
-    <br>
-
-    <div class="home"
-        style="padding:50px; margin: auto; margin-top: 50px; width: 770px; height: 150px; border-radius:10px; border: 2px solid #000000;background-color: #949495;">
-        <p style="margin-top: -25px; text-align: right;"><u>もっと見る +</u></p>
-        <div style="position: absolute;">
-            <a href="home_sub.html" style="text-decoration: none;">
-                <table border="1" align="left" class="home"
-                    style=" width: 250px; border-radius:10px; border: 2px solid #000000;background-color: #FFFFFF;">
-                    <tr>
-                        <td colspan="2" style="border: none;" align=center><img src="rooter.png" width="55px;">
-                            <h5>ルーター1</h5>
-                        </td>
-                    </tr>
-                </table>
-            </a>
-            <table border="1" align="left" class="home"
-                style=" width: 250px; border-radius:10px; border: 2px solid #000000;background-color: #ffffff;">
-                <tr>
-                    <td colspan="2" style="border: none;" align=center><img src="rooter.png" width="55px;">
-                        <h5>ルーター2</h5>
-                    </td>
-                </tr>
-            </table>
-            <table border="1" align="left" class="home"
-                style=" width: 250px; border-radius:10px; border: 2px solid #000000;background-color: #ffffff;">
-                <tr>
-                    <td colspan="2" style="border: none;" align=center><img src="rooter.png" width="55px;">
-                        <h5>ルーター3</h5>
-                    </td>
-                </tr>
-            </table>
-            <p style="font-size: 25px; text-align: center; color: #000000;">グループ2</p>
-        </div>
-    </div>
+<?php // A'
+            }
+        }
+    }  
+?>
+    
 </body>
 
 </html>
