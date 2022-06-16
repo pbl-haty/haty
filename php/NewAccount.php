@@ -64,7 +64,7 @@
     <?php
         if($signUpMessage == ''){
     ?>
-        <h1>新規会員登録</h1>
+        <h1>新規アカウント登録</h1>
         <div>
             <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
         </div>
