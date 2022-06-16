@@ -1,0 +1,30 @@
+body{
+    background-color: #fce5cdfe;
+    text-align: center;
+    margin: 50px 0px;
+    display: block;
+}
+.name{
+    width: calc(100vw - 100px);
+    height: 30px;
+}
+.id{
+    width: calc(100vw - 100px);
+    height: 30px;
+    margin-top: 30px;
+}
+.pass{
+    width: calc(100vw - 100px);
+    height: 30px;
+    margin-top: 30px;
+}
+.check{
+    width: calc(100vw - 100px);
+    height: 30px;
+    margin-top: 30px;
+}
+.btn-create{
+    width: calc(100vw - 100px);
+    height: 30px;
+    margin-top: 30px;
+}
