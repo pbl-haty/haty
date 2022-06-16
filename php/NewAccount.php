@@ -17,21 +17,34 @@
         }elseif($_POST['password'] != $_POST['password2']){                 // 入力されたそれぞれのパスワードのチェック
             $errorMessage = "入力されたパスワードに誤りがあります。";
         }else{
-            $singup_name = $_POST['singup_name'];
+            $signup_name = $_POST['signup_name'];
             $signup_email = $_POST['signup_email'];
-            $password = $_POST['signup_password'];
+            $password = $_POST['password'];
+
+            // パスワードのハッシュ化
+            $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
             // ユーザーオブジェクトを生成し、「signUpメソッド()」を呼び出し、その結果のメッセージを受け取る
             $user = new User();
-            $errorMessage = $user->signup($signup_name, $password, $signup_email);
+            $errorMessage = $user->signup($signup_name, $password_hash, $signup_email);
         }
 
+
         if($errorMessage == ''){
-            // 新規アカウント登録完了のコメントの表示
+            // 新規アカウント登録完了のコメントを受け取る
             $signUpMessage = $signup_name . 'さん、hatyへようこそ!!';
 
+            // ユーザーオブジェクトを生成し、「authUser()メソッド」を呼び出し、認証結果を受け取る
+            $user = new User();
+            $result = $user->authUser($signup_email, $password);
+
             // ユーザー情報をセッションに保存する
-            
+            $_SESSION['uid'] = $result['uid'];
+            $_SESSION['name'] = $result['name'];
+            $_SESSION['password'] = $result['password'];
+            $_SESSION['comment'] = $result['comment'];
+            $_SESSION['icon'] = $result['icon'];
+            $_SESSION['mailaddress'] = $result['mailaddress'];
         }
 
     }
@@ -47,21 +60,41 @@
     <title>新規アカウント登録</title>
 </head>
 <body>
-    <h1>新規会員登録</h1>
-    <form action="" method="post">
+    <!-- 登録完了のメッセージを受け取っていない時 -->
+    <?php
+        if($signUpMessage == ''){
+    ?>
+        <h1>新規会員登録</h1>
         <div>
-            <input type="text" class="name" name="signup_name" placeholder="ユーザーネーム" required>
+            <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
         </div>
-        <div>
-            <input type="email" class="id" name="signup_email" placeholder="メールアドレス" required>
-        </div>
-        <div>
-            <input type="password" class="pass" name="password" placeholder="パスワード" required>
-        </div>
-        <div>
-            <input type="password" class="check" name="password2" placeholder="パスワード再入力" required>
-        </div>
-        <input type="submit" class="btn-create" name="signup" value="アカウント登録">
-    </form>
+        <form action="" method="POST">
+            <div>
+                <input type="text" class="name" name="signup_name" maxlength="30" placeholder="ユーザーネーム" required>
+            </div>
+            <div>
+                <input type="email" class="id" name="signup_email" maxlength="100" placeholder="メールアドレス" required>
+            </div>
+            <div>
+                <input type="password" class="pass" name="password" maxlength="64" placeholder="パスワード" required>
+            </div>
+            <div>
+                <input type="password" class="check" name="password2" maxlength="64" placeholder="パスワード再入力" required>
+            </div>
+            <input type="submit" class="btn-create" name="signup" value="アカウント登録">
+        </form>
+
+        <a href="login.php" class="lnk-sakusei">ログイン</a>
+
+    <!-- 登録完了のメッセージを受け取っているとき -->
+    <?php
+        }else{
+    ?>
+        <h1><?php echo htmlspecialchars($signUpMessage, ENT_QUOTES); ?></h1>
+        <h2>この画面は数秒後にホーム画面に遷移します。</h2>
+    <?php
+        header( "refresh:3;url=home.php" );
+        }
+    ?>
 </body>
 </html>

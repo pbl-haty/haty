@@ -54,7 +54,7 @@
     
     <form method="POST" action="" >
         <input type="email" class="id" name="login_email" placeholder="メールアドレス" maxlength="100" required><br>
-        <input type="password" class="pass" name="login_pass" placeholder="パスワード" maxlenght="400" required>
+        <input type="password" class="pass" name="login_pass" placeholder="パスワード" maxlenght="64" required>
 
         <div>
             <input type="checkbox" id="login" class="login">
@@ -65,6 +65,6 @@
         <br>
     </form>
 
-    <a href="NewAccount.html" class="lnk-sakusei">アカウントを作成</a>  
+    <a href="NewAccount.php" class="lnk-sakusei">アカウントを作成</a>  
 </body>
 </html>

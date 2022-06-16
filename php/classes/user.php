@@ -4,9 +4,9 @@
 
     class User extends DbData{
         // ログイン認証
-        public function authUser($mailaddress, $password){
-            $sql = "select * from user where mailaddress = ? and password = ?";
-            $stmt = $this->query($sql, [$mailaddress, $password]);
+        public function authUser($mailaddress){
+            $sql = "select * from user where mailaddress = ?";
+            $stmt = $this->query($sql, [$mailaddress]);
             return $stmt->fetch();
         }
 
