@@ -50,7 +50,7 @@
     <div>
         <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
     </div>
-    
+
     <form method="POST" action="" >
         <input type="email" class="id" name="login_email" placeholder="メールアドレス" maxlength="100" required><br>
         <input type="password" class="pass" name="login_pass" placeholder="パスワード" maxlenght="400" required>
@@ -64,6 +64,6 @@
         <br>
     </form>
 
-    <a href="NewAccount.html" class="lnk-sakusei">アカウントを作成</a>  
+    <a href="NewAccount.php" class="lnk-sakusei">アカウントを作成</a>  
 </body>
 </html>
