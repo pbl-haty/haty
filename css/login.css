@@ -5,9 +5,13 @@ body{
     display: block;
 }
 .id{
+    width: calc(100vw - 100px);
+    height: 30px;
     margin-top: 30px;
 }
 .pass{
+    width: calc(100vw - 100px);
+    height: 30px;
     margin-top: 30px;
 }
 .login{
