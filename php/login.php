@@ -25,7 +25,7 @@
             $_SESSION['password'] = $result['password'];
             $_SESSION['comment'] = $result['comment'];
             $_SESSION['icon'] = $result['icon'];
-            $_mailaddress = $result['mailaddress'];
+            $_SESSION['mailaddress'] = $result['mailaddress'];
 
             // ホーム画面に遷移する
             header('Location: home.php');
