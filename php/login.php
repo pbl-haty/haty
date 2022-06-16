@@ -50,9 +50,10 @@
     <div>
         <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
     </div>
+    
     <form method="POST" action="" >
-        <input type="email" class="id" name="login_email" placeholder="メールアドレス" required><br>
-        <input type="password" class="pass" name="login_pass" placeholder="パスワード" required>
+        <input type="email" class="id" name="login_email" placeholder="メールアドレス" maxlength="100" required><br>
+        <input type="password" class="pass" name="login_pass" placeholder="パスワード" maxlenght="400" required>
 
         <div>
             <input type="checkbox" id="login" class="login">
