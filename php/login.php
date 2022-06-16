@@ -1,3 +1,39 @@
+<?php
+    // セッションを開始する
+    session_start();
+    // user.phpを読み込む
+    require_once __DIR__ . '\classes\user.php';
+
+    // エラーメッセージの初期化
+    $errorMessage = ""; 
+
+    // ログインボタンが押されたとき
+    if(isset($_POST['login'])){
+        $login_email = $_POST['login_email'];
+        $login_pass = $_POST['login_pass'];
+
+        // ユーザーオブジェクトを生成し、「authUser()メソッド」を呼び出し、認証結果を受け取る
+        $user = new User();
+        $result = $user->authUser($login_email, $login_pass);
+
+        if(empty($result['uid'])){
+            $errorMessage = 'メールアドレスとパスワードが正しいか確認してください。';
+        }else{
+            // ユーザー情報をセッションに保存する
+            $_SESSION['uid'] = $result['uid'];
+            $_SESSION['name'] = $result['name'];
+            $_SESSION['password'] = $result['password'];
+            $_SESSION['comment'] = $result['comment'];
+            $_SESSION['icon'] = $result['icon'];
+            $_mailaddress = $result['mailaddress'];
+
+            // ホーム画面に遷移する
+            header('Location: home.php');
+            exit();
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -8,44 +44,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Haty</title>
+    <title>ログイン</title>
 </head>
 <body>
-    <input type="text" class="id" placeholder="メールアドレス">&ensp;&ensp;&ensp;<br>
-    <input type="password" class="pass" placeholder="パスワード">
-    <i id="eye" class="fa-solid fa-eye"></i>
-    <script>
-        let eye = document.getElementById("eye");
-        eye.addEventListener('click', function () {
-             if (this.previousElementSibling.getAttribute('type') == 'password') {
-                  this.previousElementSibling.setAttribute('type', 'text');
-                  this.classList.toggle('fa-eye');
-                  this.classList.toggle('fa-eye-slash');
-             } else {
-                  this.previousElementSibling.setAttribute('type', 'password');
-                  this.classList.toggle('fa-eye');
-                  this.classList.toggle('fa-eye-slash');
-             }
-        })
-   </script>
     <div>
-        <input type="checkbox" id="login" class="login">
-        <label for="login">次回から自動ログイン</label>
+        <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
     </div>
-    <button class="btn-login" id="check">login</button><br>
-    <script>
-        $(document).ready(function() {
-        $('#check').click(function() {
-        var val1st = $('#id').val();
-        if (!val1st) {
-            alert("テキストが入力されていません。")
-            return false;
-        }
-    });
-});
-
-    </script>
-    <a href="#" class="lnk-sakusei">アカウントを作成</a>
     
+    <form method="POST" action="" >
+        <input type="email" class="id" name="login_email" placeholder="メールアドレス" maxlength="100" required><br>
+        <input type="password" class="pass" name="login_pass" placeholder="パスワード" maxlenght="400" required>
+
+        <div>
+            <input type="checkbox" id="login" class="login">
+            <label for="login">次回から自動ログイン</label>
+        </div>
+
+        <input type="submit" class="btn-login" id="check" name="login" value="login">
+        <br>
+    </form>
+
+    <a href="NewAccount.html" class="lnk-sakusei">アカウントを作成</a>  
 </body>
 </html>
