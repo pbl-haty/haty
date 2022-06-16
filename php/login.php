@@ -14,11 +14,10 @@
 
         // ユーザーオブジェクトを生成し、「authUser()メソッド」を呼び出し、認証結果を受け取る
         $user = new User();
-        $result = $user->authUser($login_email, $login_pass);
+        $result = $user->authUser($login_email);
 
-        if(empty($result['uid'])){
-            $errorMessage = 'メールアドレスとパスワードが正しいか確認してください。';
-        }else{
+        // password_verify関数でハッシュの認証
+        if(password_verify($login_pass, $result['password'])){
             // ユーザー情報をセッションに保存する
             $_SESSION['uid'] = $result['uid'];
             $_SESSION['name'] = $result['name'];
@@ -30,7 +29,9 @@
             // ホーム画面に遷移する
             header('Location: home.php');
             exit();
-        }
+        }else{
+            $errorMessage = 'メールアドレスとパスワードが正しいか確認してください。';
+        } 
     }
 ?>
 
