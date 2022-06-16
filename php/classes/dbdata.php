@@ -26,4 +26,4 @@
           $stmt = $this->pdo->prepare( $sql );                      
           return  $stmt->execute( $array_params );        // 成功：true、失敗：false
       }                     
-  }   
+  }                     
