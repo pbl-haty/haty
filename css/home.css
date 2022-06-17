@@ -1,3 +1,8 @@
+.home_title {
+    padding:50px;
+    width: calc(100% - 100px);
+}
+
 .home_1 {
     display: flex;
     justify-content: space-around;
@@ -41,6 +46,11 @@
     border: none;
 }
 
+.gift-display-image {
+    height: calc(100vw / 3 - 33px);
+    width: calc(100vw / 3 - 33px);
+}
+
 .detail_look_1 {
     text-align: center;
 }
@@ -51,7 +61,7 @@
     width: calc(100% - 100px);
     border: 2px solid #000000;
     border-radius: 30px;
-    margin-top: 270px;
+    margin-top: calc(100vw / 3 + 60px);
     text-align: center;
     font-size: 40px;
 }
