@@ -14,23 +14,24 @@
 
         // ユーザーオブジェクトを生成し、「authUser()メソッド」を呼び出し、認証結果を受け取る
         $user = new User();
-        $result = $user->authUser($login_email, $login_pass);
+        $result = $user->authUser($login_email);
 
-        if(empty($result['uid'])){
-            $errorMessage = 'メールアドレスとパスワードが正しいか確認してください。';
-        }else{
+        // password_verify関数でハッシュの認証
+        if(password_verify($login_pass, $result['password'])){
             // ユーザー情報をセッションに保存する
             $_SESSION['uid'] = $result['uid'];
             $_SESSION['name'] = $result['name'];
             $_SESSION['password'] = $result['password'];
             $_SESSION['comment'] = $result['comment'];
             $_SESSION['icon'] = $result['icon'];
-            $_mailaddress = $result['mailaddress'];
+            $_SESSION['mailaddress'] = $result['mailaddress'];
 
             // ホーム画面に遷移する
             header('Location: home.php');
             exit();
-        }
+        }else{
+            $errorMessage = 'メールアドレスとパスワードが正しいか確認してください。';
+        } 
     }
 ?>
 
@@ -57,7 +58,7 @@
 
     <form method="POST" action="" >
         <input type="email" class="id" name="login_email" placeholder="メールアドレス" maxlength="100" required><br>
-        <input type="password" class="pass" name="login_pass" placeholder="パスワード" maxlenght="400" required>
+        <input type="password" class="pass" name="login_pass" placeholder="パスワード" maxlenght="64" required>
 
         <div class="autologin-div">
             <input type="checkbox" id="login" class="login">
@@ -67,7 +68,5 @@
         <input type="submit" class="btn-login" id="check" name="login" value="ログイン">
         <br>
     </form>
-
-
 </body>
 </html>
