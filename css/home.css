@@ -56,24 +56,14 @@
     text-align: center;
 }
 
-.group_itiran {
-    display: block;
-    padding: 0.5em;
-    /*文字周りの余白*/
-    color: #494949;
-    /*文字色*/
-    background: #f3ebe2;
-    /*背景色*/
-    border-left: solid 5px #ec8e29;
-}
+
 
 .group_btn {
     font-size: 20px;
     display: inline-block;
-    padding: 0.5em 1em;
+    padding: 0.5em;
     text-decoration: none;
     background: #668ad8;
-    /*ボタン色*/
     color: #FFF;
     border-bottom: solid 4px #627295;
     border-radius: 5px;
@@ -98,11 +88,11 @@ hr {
 .prompt_1 {
     text-align: center;
     font-size: 50px;
-    color:rgba(119, 29, 29, 0.534);
+    color: rgba(119, 29, 29, 0.534);
 }
 
 .prompt_2 {
     text-align: center;
     font-size: 50px;
-    color:rgba(119, 29, 29, 0.534);
+    color: rgba(119, 29, 29, 0.534);
 }
