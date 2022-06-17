@@ -14,18 +14,19 @@
 
         // ユーザーオブジェクトを生成し、「authUser()メソッド」を呼び出し、認証結果を受け取る
         $user = new User();
-        $result = $user->authUser($login_email, $login_pass);
+        $result = $user->authUser($login_email);
+
 
         if(empty($result['uid'])){
             $errorMessage = 'メールアドレスとパスワードが正しいか確認してください。';
-        }else{
+        }else if(password_verify($login_pass, $result['password'])){     // password_verify関数でハッシュの認証
             // ユーザー情報をセッションに保存する
             $_SESSION['uid'] = $result['uid'];
             $_SESSION['name'] = $result['name'];
             $_SESSION['password'] = $result['password'];
             $_SESSION['comment'] = $result['comment'];
             $_SESSION['icon'] = $result['icon'];
-            $_mailaddress = $result['mailaddress'];
+            $_SESSION['mailaddress'] = $result['mailaddress'];
 
             // ホーム画面に遷移する
             header('Location: home.php');
@@ -50,20 +51,22 @@
     <div>
         <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
     </div>
-    
+  
+    <div class="lnk-sakusei-div">
+        <a href="NewAccount.html" class="lnk-sakusei">アカウント作成</a> 
+    </div>
+
     <form method="POST" action="" >
         <input type="email" class="id" name="login_email" placeholder="メールアドレス" id="lg-effect" maxlength="100" required><br>
-        <input type="password" class="pass" name="login_pass" placeholder="パスワード" id="lg-effect" maxlenght="400" required>
+        <input type="password" class="pass" name="login_pass" placeholder="パスワード" id="lg-effect" maxlenght="64" required>
 
-        <div>
+        <div class="autologin-div">
             <input type="checkbox" id="login" class="login">
             <label for="login">次回から自動ログイン</label>
         </div>
 
-        <input type="submit" class="btn-login" id="check" name="login" value="login">
+        <input type="submit" class="btn-login" id="check" name="login" value="ログイン">
         <br>
     </form>
-
-    <a href="NewAccount.html" class="lnk-sakusei">アカウントを作成</a>  
 </body>
 </html>
