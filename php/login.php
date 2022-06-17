@@ -51,23 +51,22 @@
     <div>
         <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
     </div>
-
+  
     <div class="lnk-sakusei-div">
-        <a href="NewAccount.php" class="lnk-sakusei">アカウント作成</a> 
+        <a href="NewAccount.html" class="lnk-sakusei">アカウント作成</a> 
     </div>
 
     <form method="POST" action="" >
         <input type="email" class="id" name="login_email" placeholder="メールアドレス" maxlength="100" required><br>
         <input type="password" class="pass" name="login_pass" placeholder="パスワード" maxlenght="64" required>
 
-        <div>
+        <div class="autologin-div">
             <input type="checkbox" id="login" class="login">
             <label for="login">次回から自動ログイン</label>
         </div>
 
-        <input type="submit" class="btn-login" id="check" name="login" value="login">
+        <input type="submit" class="btn-login" id="check" name="login" value="ログイン">
         <br>
     </form>
-
 </body>
 </html>
