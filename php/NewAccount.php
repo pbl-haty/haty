@@ -57,17 +57,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/NewAccount.css">
-    <title>新規アカウント登録</title>
+    <title>アカウント作成</title>
 </head>
 <body>
     <!-- 登録完了のメッセージを受け取っていない時 -->
     <?php
         if($signUpMessage == ''){
     ?>
-        <h1>新規アカウント登録</h1>
+        <h1>アカウント作成</h1>
         <div>
             <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
         </div>
+
+        <div class="lnk-sakusei-div">
+            <a href="login.php" class="lnk-sakusei">ログイン</a>
+        </div>
+
         <form action="" method="POST">
             <div>
                 <input type="text" class="name" name="signup_name" maxlength="30" id="NA-effect" placeholder="ユーザーネーム" required>
@@ -81,10 +86,8 @@
             <div>
                 <input type="password" class="check" name="password2" maxlength="64" id="NA-effect" placeholder="パスワード再入力" required>
             </div>
-            <input type="submit" class="btn-create" name="signup" value="アカウント登録">
+            <input type="submit" class="btn-create" name="signup" value="アカウント作成">
         </form>
-
-        <a href="login.php" class="lnk-sakusei">ログイン</a>
 
     <!-- 登録完了のメッセージを受け取っているとき -->
     <?php

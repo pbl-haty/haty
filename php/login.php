@@ -48,12 +48,15 @@
     <title>ログイン</title>
 </head>
 <body>
+
+    <h1>ログイン</h1>
+
     <div>
         <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
     </div>
   
     <div class="lnk-sakusei-div">
-        <a href="NewAccount.html" class="lnk-sakusei">アカウント作成</a> 
+        <a href="NewAccount.php" class="lnk-sakusei">アカウント作成</a> 
     </div>
 
     <form method="POST" action="" >

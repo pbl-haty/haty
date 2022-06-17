@@ -7,7 +7,13 @@ body{
 .btn-create{
     width: calc(100vw - 100px);
     height: 30px;
-    margin-top: 30px;
+    margin-top: 100px;
+    font-size: 16px;
+    color: black;
+    border: solid 1px black;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
 }
 #NA-effect{
     width: calc(100vw - 100px);
@@ -24,4 +30,27 @@ body{
 #NA-effect:focus{
     outline: 0;
     border-color: aqua;
+}
+
+
+.autologin-div {
+    margin: 0 50px;
+    text-align: left;
+}
+
+.lnk-sakusei-div{
+    margin: 0 50px;
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.lnk-sakusei{
+    font-size: 10px;
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    background-color: white;
+    padding: 5px 20px;
+    border-radius: 5px;
 }
