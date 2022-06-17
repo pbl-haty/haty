@@ -56,7 +56,13 @@
     text-align: center;
 }
 
-
+.group_itiran {
+    display: block;
+    padding: 0.5em;
+    color: #494949;
+    background: #f3ebe2;
+    border-left: solid 5px #ec8e29;
+}
 
 .group_btn {
     font-size: 20px;
