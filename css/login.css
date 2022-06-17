@@ -17,13 +17,41 @@ body{
 .login{
     margin-top: 30px;
 }
+
+.autologin-div {
+    margin: 0 50px;
+    text-align: left;
+}
+
 .btn-login{
-    margin-top: 30px;
+    width: calc(100vw - 100px);
+    height: 30px;
+    margin-top: 186px;
+    font-size: 16px;
+    color: black;
+    border: solid 1px black;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
 }
+
+.lnk-sakusei-div{
+    margin: 0 50px;
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
 .lnk-sakusei{
-    display: block;
-    margin-top: 30px;
+    font-size: 10px;
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
 }
+
 #lg-effect{
     width: calc(100vw - 100px);
     height: 30px;
