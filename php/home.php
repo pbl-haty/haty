@@ -14,8 +14,8 @@ $userId = $_SESSION['uid'];
         <h1 class="group_itiran">グループ一覧</h1>
         <div>
             <br>
-            <button class="group_btn">作成</button>
-            <button class="group_btn">参加</button>
+            <button class="group_btn"><div class="group_btn_above">グループを</div><br><div class="group_btn_under">作成</div></button>
+            <button class="group_btn"><div class="group_btn_above">グループに</div><br><div class="group_btn_under">参加</div></button>
         </div>
     </div>
     <hr>

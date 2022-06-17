@@ -57,22 +57,35 @@
 }
 
 .group_itiran {
+    margin-left:-100px;
     display: block;
     padding: 0.5em;
     color: #494949;
     background: #f3ebe2;
     border-left: solid 5px #ec8e29;
+    font-size:40px;
 }
 
-.group_btn {
-    font-size: 20px;
+.group_btn{
     display: inline-block;
     padding: 0.5em;
     text-decoration: none;
     background: #668ad8;
-    color: #FFF;
     border-bottom: solid 4px #627295;
     border-radius: 5px;
+}
+
+.group_btn_under {
+    font-size: 40px;
+    background: #668ad8;
+    color: #FFF;
+}
+
+.group_btn_above {
+    font-size:10px;
+    background: #668ad8;
+    color: #FFF;
+    text-align: center;
 }
 
 .group_btn:active {
