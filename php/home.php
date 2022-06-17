@@ -10,10 +10,9 @@ $userId = $_SESSION['uid'];
 <br>
 
 <body>
-    <div class="home_1">
+    <div style="display: flex; justify-content:space-around; align-items: flex-start; margin-top: 120px;">
         <h1 class="group_itiran">グループ一覧</h1>
         <div>
-            <br>
             <button class="group_btn">作成</button>
             <button class="group_btn">参加</button>
         </div>
@@ -44,8 +43,8 @@ $userId = $_SESSION['uid'];
 
             <div>
                 <div class="home" style="padding:50px; margin: auto; width: 770px; height: 150px; border-radius:10px;">
-                    <p class="home_groupname"><?= $join['groupname'] ?> ></p>
-                    <div class="display">
+                    <p style="margin-top: -20px; font-size: 25px; text-align: left; color: #000000;"><?= $join['groupname'] ?> ></p>
+                    <div style="position: absolute;">
 
                         <?php // ギフトが送られているか判定・・・B
                         $gift_group = $group->giftgroup((int)$join['group_id'], $userId);
@@ -63,9 +62,9 @@ $userId = $_SESSION['uid'];
 
                                     <a href="home_sub.html" style="text-decoration: none; color: #000000;">
                                         <!-- ギフト詳細画面遷移 -->
-                                        <table border="1" align="left" class="home_3">
+                                        <table border="1" align="left" class="home" style=" width: 250px; border-radius:10px; border: 2px solid #000000;background-color: #FFFFFF;">
                                             <tr>
-                                                <td colspan="2" class="gift_display" align=center><img src="data:;base64,<?php echo $img; ?>" width="180px;" height="180px">
+                                                <td colspan="2" style="font-size: 20px; border: none;" align=center><img src="data:;base64,<?php echo $img; ?>" width="180px;" height="180px">
                                                     <h5><?= $gift['gift_name'] ?></h5>
                                                 </td>
                                             </tr>
@@ -76,11 +75,11 @@ $userId = $_SESSION['uid'];
                                 if ($cnt == 1) {
                                 ?>
 
-                                    <a href="home_sub.html" class="detail_display">
+                                    <a href="home_sub.html" style="text-decoration: none; color: #000000;">
                                         <!-- ギフト詳細画面遷移 -->
-                                        <table border="1" align="left" class="home" class="home_3">
+                                        <table border="1" align="left" class="home" style=" width: 250px; border-radius:10px; border: 2px solid #000000;background-color: #ffffff;">
                                             <tr>
-                                                <td colspan="2" class="gift_display" align=center><img src="data:;base64,<?php echo $img; ?>" width="180px;" height="180px">
+                                                <td colspan="2" style="font-size: 20px; border: none;" align=center><img src="data:;base64,<?php echo $img; ?>" width="180px;" height="180px">
                                                     <h5><?= $gift['gift_name'] ?></h5>
                                                 </td>
                                             </tr>
@@ -91,11 +90,11 @@ $userId = $_SESSION['uid'];
                                 if ($cnt == 2) {
                                 ?>
 
-                                    <a href="home_sub.html" class="detail_display">
+                                    <a href="home_sub.html" style="text-decoration: none; color: #000000;">
                                         <!-- ギフト詳細画面遷移 -->
-                                        <table border="1" align="left" class="home" class="home_3">
+                                        <table border="1" align="left" class="home" style=" width: 250px; border-radius:10px; border: 2px solid #000000;background-color: #ffffff;">
                                             <tr>
-                                                <td colspan="2" class="gift_display" align=center><img src="data:;base64,<?php echo $img; ?>" width="180px;" height="180px">
+                                                <td colspan="2" style="font-size: 20px; border: none;" align=center><img src="data:;base64,<?php echo $img; ?>" width="180px;" height="180px">
                                                     <h5><?= $gift['gift_name'] ?></h5>
                                                 </td>
                                             </tr>
@@ -108,8 +107,8 @@ $userId = $_SESSION['uid'];
 
                     </div>
                 </div>
-                <div class="detail_look_1s">
-                    <p class="detail_look">
+                <div style="text-align: center;">
+                    <p style="display: inline-block; width: 200px; height:30px; border: 2px solid #000000; border-radius: 30px; padding: auto; margin-top: 160px; text-align: center;">
                         もっと見る +</p>
                 </div>
             </div>
