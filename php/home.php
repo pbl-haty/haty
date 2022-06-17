@@ -108,7 +108,7 @@ $userId = $_SESSION['uid'];
 
                     </div>
                 </div>
-                <div class="detail_look_1s">
+                <div class="detail_look_1">
                     <p class="detail_look">
                         もっと見る +</p>
                 </div>
