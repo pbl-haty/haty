@@ -15,7 +15,7 @@
 
 .home_groupname {
     margin-top: -20px;
-    font-size: 25px;
+    font-size: 50px;
     text-align: left;
     color: #000000;
 }
@@ -47,12 +47,13 @@
 
 .detail_look {
     display: inline-block;
-    width: 200px;
-    height: 30px;
+    padding: 5px;
+    width: calc(100% - 100px);
     border: 2px solid #000000;
     border-radius: 30px;
-    margin-top: 160px;
+    margin-top: 200px;
     text-align: center;
+    font-size: 40px;
 }
 
 .group_itiran {
