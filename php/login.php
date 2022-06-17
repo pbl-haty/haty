@@ -16,8 +16,10 @@
         $user = new User();
         $result = $user->authUser($login_email);
 
-        // password_verify関数でハッシュの認証
-        if(password_verify($login_pass, $result['password'])){
+
+        if(empty($result['uid'])){
+            $errorMessage = 'メールアドレスとパスワードが正しいか確認してください。';
+        }else if(password_verify($login_pass, $result['password'])){     // password_verify関数でハッシュの認証
             // ユーザー情報をセッションに保存する
             $_SESSION['uid'] = $result['uid'];
             $_SESSION['name'] = $result['name'];
@@ -29,9 +31,7 @@
             // ホーム画面に遷移する
             header('Location: home.php');
             exit();
-        }else{
-            $errorMessage = 'メールアドレスとパスワードが正しいか確認してください。';
-        } 
+        }
     }
 ?>
 
@@ -51,7 +51,7 @@
     <div>
         <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
     </div>
-    
+  
     <div class="lnk-sakusei-div">
         <a href="NewAccount.html" class="lnk-sakusei">アカウント作成</a> 
     </div>
