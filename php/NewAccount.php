@@ -70,16 +70,16 @@
         </div>
         <form action="" method="POST">
             <div>
-                <input type="text" class="name" name="signup_name" maxlength="30" placeholder="ユーザーネーム" required>
+                <input type="text" class="name" name="signup_name" maxlength="30" id="NA-effect" placeholder="ユーザーネーム" required>
             </div>
             <div>
-                <input type="email" class="id" name="signup_email" maxlength="100" placeholder="メールアドレス" required>
+                <input type="email" class="id" name="signup_email" maxlength="100" id="NA-effect" placeholder="メールアドレス" required>
             </div>
             <div>
-                <input type="password" class="pass" name="password" maxlength="64" placeholder="パスワード" required>
+                <input type="password" class="pass" name="password" maxlength="64" id="NA-effect" placeholder="パスワード" required>
             </div>
             <div>
-                <input type="password" class="check" name="password2" maxlength="64" placeholder="パスワード再入力" required>
+                <input type="password" class="check" name="password2" maxlength="64" id="NA-effect" placeholder="パスワード再入力" required>
             </div>
             <input type="submit" class="btn-create" name="signup" value="アカウント登録">
         </form>

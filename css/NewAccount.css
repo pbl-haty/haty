@@ -4,37 +4,24 @@ body{
     margin: 50px 0px;
     display: block;
 }
-
-.name{
-    width: calc(100vw - 100px);
-    height: 30px;
-}
-
-.id{
-    width: calc(100vw - 100px);
-    height: 30px;
-    margin-top: 30px;
-}
-
-.pass{
-    width: calc(100vw - 100px);
-    height: 30px;
-    margin-top: 30px;
-}
-
-.check{
-    width: calc(100vw - 100px);
-    height: 30px;
-    margin-top: 30px;
-}
-
 .btn-create{
     width: calc(100vw - 100px);
     height: 30px;
     margin-top: 30px;
 }
-
-.lnk-sakusei{
-    display: block;
+#NA-effect{
+    width: calc(100vw - 100px);
+    height: 30px;
     margin-top: 30px;
+    border-radius: 20px;
+    border: 3px solid#000;
+    text-indent: 20px;
+    font-size: 16px;
+}
+#NA-effect::placeholder{
+    text-indent: 20px;
+}
+#NA-effect:focus{
+    outline: 0;
+    border-color: aqua;
 }
