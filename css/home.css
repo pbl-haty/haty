@@ -1,3 +1,11 @@
+.home {
+    padding: 50px;
+    margin: auto;
+    width: 770px;
+    height: 150px;
+    text-align: left;
+}
+
 .home_1 {
     display: flex;
     justify-content: space-around;
@@ -21,8 +29,8 @@
 }
 
 .display {
-    position: absolute;
-}
+    position:fixed;
+} 
 
 .detail_display {
     text-decoration: none;
@@ -57,16 +65,16 @@
 }
 
 .group_itiran {
-    margin-left:-100px;
+    margin-left: -40px;
     display: block;
     padding: 0.5em;
     color: #494949;
     background: #f3ebe2;
-    border-left: solid 5px #ec8e29;
-    font-size:40px;
+    border-left: solid 10px #ec8e29;
+    font-size: 70px;
 }
 
-.group_btn{
+.group_btn {
     display: inline-block;
     padding: 0.5em;
     text-decoration: none;
@@ -76,13 +84,13 @@
 }
 
 .group_btn_under {
-    font-size: 40px;
+    font-size: 60px;
     background: #668ad8;
     color: #FFF;
 }
 
 .group_btn_above {
-    font-size:10px;
+    font-size: 30px;
     background: #668ad8;
     color: #FFF;
     text-align: center;
@@ -111,11 +119,12 @@ hr {
 }
 
 .prompt_2 {
-    text-align: center;
+    text-align: left;
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
 }
-img{
+
+img {
     border: 3px solid aqua;
     border-radius: 30%;
 }
