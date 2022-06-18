@@ -1,8 +1,20 @@
-
+.text-span-all {
+    letter-spacing: 0.12em;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+}
 .home_title {
-    padding:50px;
-    width: calc(100% - 100px);
+    padding: 30px 20px;
+    width: calc(100% - 60px);
+    vertical-align: middle;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 10px;
+    background: #f7f7f7;
+}
 
+.home-title-top {
+    display: flex;
+    align-items: center;
 }
 
 .home_1 {
@@ -12,59 +24,45 @@
     margin-top: 120px;
 }
 
-.home_2 {
-    padding: 50px;
-    margin: auto;
-    width: 770px;
-    height: 150px;
-    border-radius: 10px;
-}
-
 .home_groupname {
-    margin-top: -20px;
+    width: calc(100vw - 40px);
+    margin-top: 30px;
     font-size: 60px;
     text-align: left;
     color: #000000;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .display {
-    position:fixed;
-} 
+    display: flex;
+}
 
 .detail_display {
     text-decoration: none;
     color: #000000;
-}
-
-.home_3 {
-    width: 250px;
-    border-radius: 10px;
-    border: 2px solid #000000;
-    background-color: #FFFFFF;
-}
-
-.gift_display {
-    font-size: 20px;
-    border: none;
+    margin: auto;
 }
 
 .gift-display-image {
-    height: calc(100vw / 3 - 33px);
-    width: calc(100vw / 3 - 33px);
+    height: calc( ( 100vw - 70px ) / 3);
+    width: calc( ( 100vw - 70px ) / 3);
+    object-fit: cover;
 }
 
 .detail_look_1 {
-    text-align: center;
+    text-align: right;
 }
 
 .detail_look {
     display: inline-block;
-    padding: 5px;
-    width: calc(100% - 100px);
-    border: 2px solid #000000;
-    border-radius: 30px;
-    margin-top: calc(100vw / 3 + 60px);
+    padding: 30px 0;
+    width: calc(30vw - 40px);
+    border-radius: 10px;
     text-align: center;
+    margin: 0 0 30px 0;
     font-size: 40px;
 }
 
@@ -110,12 +108,6 @@
     border-bottom: none;
 }
 
-hr {
-    height: 10px;
-    border: 0;
-    box-shadow: 0 10px 10px -10px #bbb inset;
-}
-
 .prompt_1 {
     text-align: center;
     font-size: 50px;
@@ -123,12 +115,33 @@ hr {
 }
 
 .prompt_2 {
-    text-align: left;
+    text-align: center;
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
 }
 
 img {
-    border: 3px solid aqua;
-    border-radius: 30%;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.home-image-title {
+    height: 100px;
+    font-size: 30px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    width: calc( ( 100vw - 70px ) / 3);
+    display:flex;
+    align-items:center;
+    margin-top: 30px;
+    background: white;
+}
+
+.home-image-title-span{
+    text-align: center;
+    width: calc(100% - 100px);
+    padding: 0 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
