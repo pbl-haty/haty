@@ -36,15 +36,13 @@ $userId = $_SESSION['uid'];
             foreach ($group_join as $join) {
 
     ?>
+        <hr>
+
             <div>
 
                 <div class="home_title">
-                    <div class="home-title-top">
-                        <p class="home_groupname"><?= $join['groupname'] ?></p>
-                        <div class="detail_look_1">
-                            <p class="detail_look">もっと見る</p>
-                        </div>
-                    </div>
+
+                    <p class="home_groupname"><?= $join['groupname'] ?></p>
 
                     <?php // ギフトが送られているか判定・・・B
                         $gift_group = $group->giftgroup((int)$join['group_id'], $userId);
@@ -81,7 +79,10 @@ $userId = $_SESSION['uid'];
                         }
 ?>
 
-
+                    <div class="detail_look_1">
+                        <p class="detail_look">
+                            もっと見る</p>
+                    </div>
 
 <?php // A'
             }
