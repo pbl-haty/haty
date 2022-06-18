@@ -1,6 +1,8 @@
+
 .home_title {
     padding:50px;
     width: calc(100% - 100px);
+
 }
 
 .home_1 {
@@ -26,8 +28,8 @@
 }
 
 .display {
-    position: absolute;
-}
+    position:fixed;
+} 
 
 .detail_display {
     text-decoration: none;
@@ -67,22 +69,35 @@
 }
 
 .group_itiran {
+    margin-left: -40px;
     display: block;
     padding: 0.5em;
     color: #494949;
     background: #f3ebe2;
-    border-left: solid 5px #ec8e29;
+    border-left: solid 10px #ec8e29;
+    font-size: 70px;
 }
 
 .group_btn {
-    font-size: 20px;
     display: inline-block;
     padding: 0.5em;
     text-decoration: none;
     background: #668ad8;
-    color: #FFF;
     border-bottom: solid 4px #627295;
     border-radius: 5px;
+}
+
+.group_btn_under {
+    font-size: 60px;
+    background: #668ad8;
+    color: #FFF;
+}
+
+.group_btn_above {
+    font-size: 30px;
+    background: #668ad8;
+    color: #FFF;
+    text-align: center;
 }
 
 .group_btn:active {
@@ -108,7 +123,12 @@ hr {
 }
 
 .prompt_2 {
-    text-align: center;
+    text-align: left;
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
+}
+
+img {
+    border: 3px solid aqua;
+    border-radius: 30%;
 }

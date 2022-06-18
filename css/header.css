@@ -3,7 +3,7 @@ header {
     position: fixed;
     display: flex;
     width: 100%;
-    height: 100px;
+    height: 150px;
     background-color: darkgrey;
     align-items: center;
 }
@@ -19,7 +19,7 @@ html {
 .title {
     margin-left: 130px;
     font-family: cursive;
-    font-size: 60px;
+    font-size: 100px;
     color: #114f917b;
     text-shadow: 2px 4px 6px #000000;
 }
@@ -36,7 +36,7 @@ html {
     top: 0px;
     right: 0px;
     display: flex;
-    height: 100px;
+    height: 150px;
     width: 100px;
     justify-content: center;
     align-items: center;
@@ -103,9 +103,10 @@ html {
 }
 
 .menu-content ul li a {
+    margin-top: 60px;
     display: block;
     width: 100%;
-    font-size: 15px;
+    font-size: 40px;
     box-sizing: border-box;
     color: #ffffff;
     text-decoration: none;
