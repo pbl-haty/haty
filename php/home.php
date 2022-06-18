@@ -13,7 +13,7 @@ $userId = $_SESSION['uid'];
     <div class="home_1">
         <h1 class="group_itiran">グループ一覧</h1>
         <div>
-            <br>
+            <br><br>
             <button class="group_btn"><div class="group_btn_above">グループを</div><br><div class="group_btn_under">作成</div></button>
             <button class="group_btn"><div class="group_btn_above">グループに</div><br><div class="group_btn_under">参加</div></button>
         </div>
@@ -43,7 +43,7 @@ $userId = $_SESSION['uid'];
     ?>
 
             <div>
-                <div class="home" style="padding:50px; margin: auto; width: 770px; height: 150px; border-radius:10px;">
+                <div class="home">
                     <p class="home_groupname"><?= $join['groupname'] ?> ></p>
                     <div class="display">
 
@@ -61,7 +61,7 @@ $userId = $_SESSION['uid'];
 
                         ?>
 
-                                    <a href="home_sub.html" style="text-decoration: none; color: #000000;">
+                                    <a href="home_sub.html" class="detail_display">
                                         <!-- ギフト詳細画面遷移 -->
                                         <table border="1" align="left" class="home_3">
                                             <tr>
