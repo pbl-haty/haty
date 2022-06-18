@@ -43,7 +43,9 @@ $userId = $_SESSION['uid'];
     ?>
 
             <div>
-                <div class="home">
+
+                <div class="home_title">
+
                     <p class="home_groupname"><?= $join['groupname'] ?> ></p>
                     <div class="display">
 
@@ -65,7 +67,8 @@ $userId = $_SESSION['uid'];
                                         <!-- ギフト詳細画面遷移 -->
                                         <table border="1" align="left" class="home_3">
                                             <tr>
-                                                <td colspan="2" class="gift_display" align=center><img src="data:;base64,<?php echo $img; ?>" width="180px;" height="180px">
+                                                <td colspan="2" class="gift_display" align=center>
+                                                    <img class="gift-display-image" src="data:;base64,<?php echo $img; ?>">
                                                     <h5><?= $gift['gift_name'] ?></h5>
                                                 </td>
                                             </tr>
@@ -80,7 +83,7 @@ $userId = $_SESSION['uid'];
                                         <!-- ギフト詳細画面遷移 -->
                                         <table border="1" align="left" class="home" class="home_3">
                                             <tr>
-                                                <td colspan="2" class="gift_display" align=center><img src="data:;base64,<?php echo $img; ?>" width="180px;" height="180px">
+                                            <td colspan="2" class="gift_display" align=center><img class="gift-display-image" src="data:;base64,<?php echo $img; ?>">
                                                     <h5><?= $gift['gift_name'] ?></h5>
                                                 </td>
                                             </tr>
@@ -95,7 +98,7 @@ $userId = $_SESSION['uid'];
                                         <!-- ギフト詳細画面遷移 -->
                                         <table border="1" align="left" class="home" class="home_3">
                                             <tr>
-                                                <td colspan="2" class="gift_display" align=center><img src="data:;base64,<?php echo $img; ?>" width="180px;" height="180px">
+                                                <td colspan="2" class="gift_display" align=center><img class="gift-display-image" src="data:;base64,<?php echo $img; ?>">
                                                     <h5><?= $gift['gift_name'] ?></h5>
                                                 </td>
                                             </tr>
