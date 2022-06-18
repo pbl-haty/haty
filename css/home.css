@@ -114,13 +114,13 @@ hr {
 
 img {
     border: 1px solid gray;
-    border-radius: 10px;
+    border-radius: 50px;
 }
 
 .home-image-title {
     height: 90px;
     font-size: 30px;
-    border-radius: 10px;
+    border-radius: 50px;
     border: 1px solid gray;
     width: calc( ( 100vw - 70px ) / 3);
     display:flex;
