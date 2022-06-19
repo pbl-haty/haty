@@ -35,5 +35,12 @@
                 return '新規アカウント登録できませんでした。管理者にお問い合わせください。';
             }
         }
+
+        
+        // ログアウト処理
+        public function logout(){
+            $_SESSION = array();
+            session_destroy();
+        }
     }
 ?>
