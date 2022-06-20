@@ -38,10 +38,10 @@ $userId = $_SESSION['uid'];
 
     <div class="home_1">
         <h1 class="group_itiran"><?= $group_conf['groupname'] ?></h1>
-        <div>
-            <br><br>
-            <button class="group_btn"><div class="group_btn_above">グループを</div><br><div class="group_btn_under">作成</div></button>
-            <button class="group_btn"><div class="group_btn_above">グループに</div><br><div class="group_btn_under">参加</div></button>
+        <div class="group-option">
+            <a>
+                <img class="group-option-image" src="../static/user.png">
+            </a>
         </div>
     </div>
 

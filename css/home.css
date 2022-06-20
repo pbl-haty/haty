@@ -20,6 +20,9 @@
     font-size: 60px;
     text-align: left;
     color: #000000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .display {
@@ -36,6 +39,8 @@
     height: calc( ( 100vw - 70px ) / 3);
     width: calc( ( 100vw - 70px ) / 3);
     object-fit: cover;
+    border: 1px solid gray;
+    border-radius: 10px 10px 0 0;
 }
 
 .detail_look_1 {
@@ -114,11 +119,6 @@ hr {
     text-align: center;
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
-}
-
-img {
-    border: 1px solid gray;
-    border-radius: 10px 10px 0 0;
 }
 
 .home-image-title {
