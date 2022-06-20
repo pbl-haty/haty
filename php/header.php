@@ -25,7 +25,7 @@
                     <a href="#">通知</a>
                 </li>
                 <li>
-                    <a href="#">ログアウト</a>
+                    <a href="logout.php">ログアウト</a>
                 </li>
             </ul>
         </div>
