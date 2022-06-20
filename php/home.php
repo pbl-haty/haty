@@ -48,7 +48,7 @@ $userId = $_SESSION['uid'];
                         $gift_group = $group->giftgroup((int)$join['group_id'], $userId);
                         if (empty($gift_group)) {
                             echo '<div class = prompt_2>';
-                            echo '<h4>グループに商品を投稿しましょう！</h4>';
+                            echo '<h4>メンバーがギフトを投稿していません。</h4>';
                             echo '</div>';
                         } else {
                             echo '<div class="display">';
@@ -80,8 +80,7 @@ $userId = $_SESSION['uid'];
 ?>
 
                     <div class="detail_look_1">
-                        <p class="detail_look">
-                            もっと見る</p>
+                        <a href="group.php?groupid=<?php echo $join['group_id']; ?>" class=detail_look>もっと見る</a>
                     </div>
 
 <?php // A'

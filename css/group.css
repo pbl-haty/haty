@@ -2,11 +2,6 @@
     letter-spacing: 0.12em;
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
 }
-.home_title {
-    padding: 10px 20px;
-    width: calc(100% - 40px);
-    vertical-align: middle;
-}
 
 .home_1 {
     display: flex;
@@ -15,21 +10,18 @@
     margin-top: 120px;
 }
 
-.home_groupname {
-    margin: 30px 0 60px 0;
-    font-size: 60px;
-    text-align: left;
-    color: #000000;
-}
-
 .display {
     display: flex;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    width: calc(100% - 40px);
+    vertical-align: middle;
 }
 
 .detail_display {
     text-decoration: none;
     color: #000000;
-    margin: 0 4px;
+    margin: 30px 4px 0 4px;
 }
 
 .gift-display-image {
@@ -37,24 +29,6 @@
     width: calc( ( 100vw - 70px ) / 3);
     object-fit: cover;
 }
-
-.detail_look_1 {
-    text-align: center;
-}
-
-.detail_look {
-    display: inline-block;
-    padding: 30px 0;
-    margin: 30px 0;
-    width: calc(100% - 40px);
-    border: 1px solid grey;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 40px;
-    text-decoration: none;
-    color: #000000;
-}
-
 
 .group_itiran {
     margin-left: -40px;
@@ -105,6 +79,8 @@ hr {
 }
 
 .prompt_1 {
+    padding: 0 20px;
+    margin-top: 150px;
     text-align: center;
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
