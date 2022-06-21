@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
     <link rel="stylesheet" href="../css/header.css">
-<head>
-    <meta charset="UTF-8">
-    <title>ホーム画面</title>
-</head>
+
 <header>
     <h1 class="title">HATY</h1>
     <div class="hamburger-menu">
