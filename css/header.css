@@ -19,7 +19,7 @@ html {
 }
 
 .title {
-    margin: 0 0 0 130px;
+    margin: 0;
     font-family: cursive;
     font-size: 100px;
     color: #114f917b;
@@ -27,6 +27,7 @@ html {
 }
 
 .title-textdec-edit {
+    margin-left: 130px;
     text-decoration: none;
 }
 
