@@ -6,26 +6,53 @@
     <title>ホーム画面</title>
 </head>
 <header>
-    <h1 class="title">HATY</h1>
+    <a href="home.php" class="title-textdec-edit">
+        <h1 class="title">HATY</h1>
+    </a>
     <div class="hamburger-menu">
         <input type="checkbox" id="menu-btn-check">
         <label for="menu-btn-check" class="menu-btn"><span></span></label>
         <div class="menu-content">
             <ul>
                 <li>
-                    <a href="#">ホーム</a>
+                    <a href="home.php">
+                        <div class="menu-content-border-none">
+                            <img src="../static/user.png"></img>    
+                            ホーム
+                        </div>
+                    </a>
                 </li>
                 <li>
-                    <a href="#">マイページ</a>
+                    <a href="#">
+                        <div>
+                            <img src="../static/user.png"></img>     
+                            マイページ
+                        </div>
+                    </a>
                 </li>
                 <li>
-                    <a href="#">投稿</a>
+                    <a href="#">
+                        <div>
+                            <img src="../static/user.png"></img> 
+                            投稿
+                        </div>
+                    </a>
                 </li>
                 <li>
-                    <a href="#">通知</a>
+                    <a href="#">
+                        <div>
+                            <img src="../static/user.png"></img> 
+                            通知
+                        </div>
+                    </a>
                 </li>
                 <li>
-                    <a href="logout.php">ログアウト</a>
+                    <a href="logout.php">
+                        <div>
+                            <img src="../static/user.png"></img> 
+                            ログアウト
+                        </div>
+                    </a>
                 </li>
             </ul>
         </div>

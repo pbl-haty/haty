@@ -1,13 +1,8 @@
-.text-span-all {
-    letter-spacing: 0.12em;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
 .home_1 {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    margin-top: 120px;
+    margin: 150px auto 0 auto;
+    width: calc(100vw - 40px);
+
 }
 
 .display {
@@ -28,48 +23,29 @@
     height: calc( ( 100vw - 70px ) / 3);
     width: calc( ( 100vw - 70px ) / 3);
     object-fit: cover;
+    border: 1px solid gray;
+    border-radius: 10px 10px 0 0;
+}
+
+.group-option {
+  width: 35%;
+  text-align: right;
+}
+
+.group-option-image {
+    margin-top: 5px;
+    width: 100px;
 }
 
 .group_itiran {
-    margin-left: -40px;
-    display: block;
-    padding: 0.5em;
+    width: 65%;
+    margin: 0;
+    padding: 30px 0;
     color: #494949;
-    background: #f3ebe2;
-    border-left: solid 10px #ec8e29;
-    font-size: 70px;
-}
-
-.group_btn {
-    display: inline-block;
-    padding: 0.5em;
-    text-decoration: none;
-    background: #668ad8;
-    border-bottom: solid 4px #627295;
-    border-radius: 5px;
-}
-
-.group_btn_under {
-    font-size: 60px;
-    background: #668ad8;
-    color: #FFF;
-}
-
-.group_btn_above {
-    font-size: 30px;
-    background: #668ad8;
-    color: #FFF;
-    text-align: center;
-}
-
-.group_btn:active {
-    /*ボタンを押したとき*/
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-    /*下に動く*/
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
-    /*影を小さく*/
-    border-bottom: none;
+    font-size: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 hr {
@@ -90,11 +66,6 @@ hr {
     text-align: center;
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
-}
-
-img {
-    border: 1px solid gray;
-    border-radius: 10px 10px 0 0;
 }
 
 .home-image-title {

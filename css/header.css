@@ -10,6 +10,8 @@ header {
 
 body,
 html {
+    letter-spacing: 0.12em;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
     margin: 0;
     /* ヘッダーと画面の空白除去 */
     padding: 0;
@@ -17,11 +19,16 @@ html {
 }
 
 .title {
-    margin-left: 130px;
+    margin: 0;
     font-family: cursive;
     font-size: 100px;
     color: #114f917b;
     text-shadow: 2px 4px 6px #000000;
+}
+
+.title-textdec-edit {
+    margin-left: 130px;
+    text-decoration: none;
 }
 
 .menu-item {
@@ -37,7 +44,7 @@ html {
     right: 0px;
     display: flex;
     height: 150px;
-    width: 100px;
+    width: 150px;
     justify-content: center;
     align-items: center;
     z-index: 90;
@@ -50,18 +57,19 @@ html {
     content: '';
     display: block;
     height: 3px;
-    width: 25px;
+    width: 75px;
     border-radius: 3px;
     background-color: #ffffff;
     position: absolute;
+    transition: all 0.4s;
 }
 
 .menu-btn span:before {
-    bottom: 8px;
+    bottom: 25px;
 }
 
 .menu-btn span:after {
-    top: 8px;
+    top: 25px;
 }
 
 #menu-btn-check:checked~.menu-btn span {
@@ -88,54 +96,49 @@ html {
     height: 100%;
     position: fixed;
     top: 0;
-    left: 0;
-    z-index: 80;
-    background-color: #04375c;
-}
-
-.menu-content ul {
-    padding: 70px 10px 0;
-}
-
-.menu-content ul li {
-    border-bottom: solid 1px #ffffff;
-    list-style: none;
-}
-
-.menu-content ul li a {
-    margin-top: 60px;
-    display: block;
-    width: 100%;
-    font-size: 40px;
-    box-sizing: border-box;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 9px 15px 10px 0;
-    position: relative;
-}
-
-.menu-content ul li a::before {
-    content: "";
-    width: 7px;
-    height: 7px;
-    border-top: solid 2px #ffffff;
-    border-right: solid 2px #ffffff;
-    transform: rotate(45deg);
-    position: absolute;
-    right: 11px;
-    top: 16px;
-}
-
-.menu-content {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
     left: 100%;
     z-index: 80;
     background-color: #04375c;
     transition: all 0.5s;
     /*アニメーション設定*/
+}
+
+.menu-content ul {
+    padding: 50% 0;
+    margin: 0;
+}
+
+.menu-content ul li {
+    list-style: none;
+}
+
+.menu-content ul li a {
+    display: flex;
+    width: 100%;
+    font-size: 40px;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 15%;
+    position: relative;
+    align-items: center;
+}
+
+.menu-content ul li a div{
+    width: 100%;
+    display: flex;
+    border-top: 1px solid white;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.menu-content-border-none{
+    border-top: none !important;
+}
+
+.menu-content ul li a div img{
+    width: 125px;
+    margin: 0 15% 0 0;
 }
 
 #menu-btn-check:checked~.menu-content {

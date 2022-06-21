@@ -18,7 +18,7 @@
             $sql = "select gift.id, gift.gift_name, gift.image, gift.post
                     from giftgroup join gift on giftgroup.gift_id = gift.id
                     where giftgroup.group_id = ?
-                    order by gift.post desc";
+                    order by gift.post desc, gift.id desc";
             $stmt = $this->query($sql, [$groupId]);
             $items = $stmt->fetchAll();
             return $items;
