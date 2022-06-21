@@ -16,7 +16,7 @@ $userId = $_SESSION['uid'];
 <br>
 
 <!-- グループ名、各種ボタン -->
-<body class="text-span-all">
+<body>
 
 
 
@@ -40,7 +40,7 @@ $userId = $_SESSION['uid'];
         <h1 class="group_itiran"><?= $group_conf['groupname'] ?></h1>
         <div class="group-option">
             <a>
-                <img class="group-option-image" src="../static/user.png">
+                <img class="group-option-image" src="../static/haguruma.png">
             </a>
         </div>
     </div>

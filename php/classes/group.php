@@ -18,7 +18,7 @@
             $sql = "select gift.id, gift.gift_name, gift.image, gift.post
                     from giftgroup join gift on giftgroup.gift_id = gift.id
                     where giftgroup.group_id = ? and gift.user_id != ?
-                    order by gift.post desc
+                    order by gift.post desc, gift.id desc
                     limit 3";
             $stmt = $this->query($sql, [$groupId, $userId]);
             $items = $stmt->fetchAll();
