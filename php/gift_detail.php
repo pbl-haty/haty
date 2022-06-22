@@ -3,6 +3,8 @@
     require_once __DIR__ . '/header.php';
     // gift.phpを読み込む
     require_once __DIR__ . '/classes/gift.php';
+    // user.phpを読み込む
+    require_once __DIR__ . '/classes/user.php';
     
     // セッションを開始する
     session_start();
@@ -11,20 +13,33 @@
     $userId = $_SESSION['uid'];
     $giftId = $_GET['id'];
 
-    // ユーザーオブジェクトを生成し、「getGift()メソッド」を呼び出す
+    // ギフトオブジェクトを生成し、「getGift()メソッド」を呼び出す
     $gift = new Gift();
     $gift_info = $gift->getGift($giftId);
 
-    // 画像情報を取得
+    // ユーザーオブジェクトを生成し、「getUser()メソッド」を呼び出す
+    $user = new User();
+    $post_user = $user->getUser($gift_info['user_id']);
+
+    // 引き渡し条件分岐(変更予定)
+    if($gift_info['conditions'] == 1){
+        $derivery_conditions = '手渡し';
+    }else if($gift_info['conditions'] == 2){
+        $derivery_conditions = '郵送';
+    }else if($gift_info['conditions'] == 3){
+        $derivery_conditions = '手渡し・郵送';
+    }
+
+    // ギフト画像情報を取得（1枚目のみ・変更予定）
     $gift_image = base64_encode($gift_info['image']);
 
     // 「getGood()メソッド」を呼び出し、いいね数といいねを押した人の情報を取得する。
     list($good, $good_name) = $gift->getGood($giftId);
 
-    // // いいね数・いいね押した人を取得
-    // foreach ($good_name as $good){
-    //     echo $good['name'];
-    // }
+    if(isset($_POST['favorite'])){
+        $gift->changeGood($giftId, $userId, $good);
+        list($good, $good_name) = $gift->getGood($giftId);
+    }
 
     // // いいねをおす・けす
     // $gift->changeGood($giftId, $userId);
@@ -64,7 +79,7 @@
         <!-- <h2 class="syosai">ギフト詳細</h2> -->
 
         <ul class="slider">
-            <li><img class="gift_display_detail" src="" alt=""></li>
+            <li><img class="gift_display_detail" src="data:;base64,<?php echo $gift_image; ?>" alt=""></li>
             <li><img class="gift_display_detail" src="" alt=""></li>
             <li><img class="gift_display_detail" src="" alt=""></li>
         </ul>
@@ -73,16 +88,23 @@
 
 
         <div class="gift_post">
-            <h4>投稿者：</h4>
-            <p class="gift_contributor"><?php echo $gift_info['']; ?>さん</p>
+            <h4>投稿者</h4>
+            <!-- ユーザーのプロフィール画面が出来次第遷移 -->
+            <a href="#">
+                <img src="" alt="">
+                <p class="gift_contributor"><?php echo $post_user['name']; ?>さん</p>
+            </a>
         </div>
 
         <div class="good_count">
             <div class="good_sentence">
-                <input type="checkbox" id="2" name="good_sentence"><label for="2">💗いいね</label>
+                <form action="#" method="post">
+                    <input type="hidden" name="post_id">
+                    <button type="submit" name="favorite" class="favorite_btn">いいね</button>
+                </form>
             </div>
             <div class="good_number">
-                <p><?php echo $good; ?></p>
+                <a href="#"><?php echo $good; ?></a>
             </div>
         </div>
 
@@ -95,8 +117,8 @@
 
         <table class="gift_table">
             <tr>
-                <th>条件</th>
-                <td>手渡し・郵送</td>
+                <th>受け渡し条件</th>
+                <td><?php echo $derivery_conditions ?></td>
             </tr>
             <tr>
                 <th>ジャンル</th>
@@ -108,13 +130,17 @@
             </tr>
             <tr>
                 <th>申請状況</th>
-                <td>申請可</td>
+                <td>
+                    <?php
+
+                    ?>
+                </td>
             </tr>
         </table>
 
-        <div class="gift_sentence">
+        <form class="gift_sentence">
             <input type="button" class="request_sentence" value="ギフト申請">
-        </div>
+        </form>
 
         <hr>
 
@@ -144,8 +170,10 @@
 
         <!-- コメント入力 -->
         <p>コメントを入力</p>
-        <textarea class="comment_box" placeholder="コメントを入力してください"></textarea>
-        <input type="submit" class="comment-send_btn" value="送信">
+        <form action="">
+            <textarea class="comment_box" placeholder="コメントを入力してください"></textarea>
+            <input type="submit" class="comment-send_btn" value="送信">
+        </form>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

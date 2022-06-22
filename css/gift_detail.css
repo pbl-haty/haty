@@ -33,7 +33,6 @@ body {
 }
 
 .gift_post{
-    display: flex;
     align-items: center;
     margin-bottom: 50px;
     padding: 0 30px;
@@ -103,7 +102,7 @@ body {
 }
 
 .gift_table td{
-    text-align: left;
+    text-align: center;
     width: 85%;
 }
 
