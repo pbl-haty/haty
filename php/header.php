@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
     <link rel="stylesheet" href="../css/header.css">
-<head>
-    <meta charset="UTF-8">
-    <title>ホーム画面</title>
-</head>
+
 <header>
     <a href="home.php" class="title-textdec-edit">
         <h1 class="title">HATY</h1>
