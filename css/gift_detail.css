@@ -1,7 +1,9 @@
 body {
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 0 20px;
     font-size: 40px;
+}
+.gift_padding{
+    padding: 0 20px;
 }
 
 .syosai {
