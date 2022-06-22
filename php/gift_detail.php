@@ -1,45 +1,50 @@
 <?php
-session_start();
+    // ヘッダーを読み込む
+    require_once __DIR__ . '/header.php';
+    // gift.phpを読み込む
+    require_once __DIR__ . '/classes/gift.php';
+    
+    // セッションを開始する
+    session_start();
 
-$userId = $_SESSION['uid'];
-$giftId = $_GET['id'];
+    // ユーザーIDとギフトIDを所得する
+    $userId = $_SESSION['uid'];
+    $giftId = $_GET['id'];
 
-require_once __DIR__ . '/classes/gift.php';
+    // ユーザーオブジェクトを生成し、「getGift()メソッド」を呼び出す
+    $gift = new Gift();
+    $gift_info = $gift->getGift($giftId);
 
-$gift = new Gift();
-// ギフト情報の取得
-$gift_info = $gift->getGift($giftId);
-// いいね情報の取得
-list($good, $good_name) = $gift->getGood($giftId);
+    // 画像情報を取得
+    $gift_image = base64_encode($gift_info['image']);
 
-// いいね数・いいね押した人を取得
-echo $good;
-foreach ($good_name as $good){
-    echo $good['name'];
-}
+    // 「getGood()メソッド」を呼び出し、いいね数といいねを押した人の情報を取得する。
+    list($good, $good_name) = $gift->getGood($giftId);
 
-// 画像情報を取得
-$gift_image = base64_encode($gift_info['image']);
+    // // いいね数・いいね押した人を取得
+    // foreach ($good_name as $good){
+    //     echo $good['name'];
+    // }
 
-// いいねをおす・けす
-$gift->changeGood($giftId, $userId);
+    // // いいねをおす・けす
+    // $gift->changeGood($giftId, $userId);
 
-// 申請
-$gift->applyGift($giftId, $userId);
+    // // 申請
+    // $gift->applyGift($giftId, $userId);
 
-// 申請削除
-$gift->cancelGift($giftId, $userId);
+    // // 申請削除
+    // $gift->cancelGift($giftId, $userId);
 
-// コメント追加
-// $comment_info = "こんにちは";
-// $gift->addTalk($userId, $giftId, $comment_info);
+    // コメント追加
+    // $comment_info = "こんにちは";
+    // $gift->addTalk($userId, $giftId, $comment_info);
 
-$comment_all = $gift->getComment($giftId);
-foreach($comment_all as $comment){
-    echo $comment['name'];
-    echo $comment['comment'];
-    echo $comment['post'];
-}
+    // $comment_all = $gift->getComment($giftId);
+    // foreach($comment_all as $comment){
+    //     echo $comment['name'];
+    //     echo $comment['comment'];
+    //     echo $comment['post'];
+    // }
 ?>
 <link rel="stylesheet" href="../css/home.css">
 <link rel="stylesheet" href="../css/gift_detail.css">
@@ -55,39 +60,60 @@ foreach($comment_all as $comment){
 
 
 <body>
-    <div class="gift_padding">
-        <h2 class="syosai">ギフト詳細画面</h2>
+    <div class="gift_detail">
+        <!-- <h2 class="syosai">ギフト詳細</h2> -->
 
         <ul class="slider">
             <li><img class="gift_display_detail" src="" alt=""></li>
             <li><img class="gift_display_detail" src="" alt=""></li>
             <li><img class="gift_display_detail" src="" alt=""></li>
         </ul>
-        <p class="gift_name">AirPad</p>
-        <br>
-        <p class="gift-t_name">神戸太郎</p>
-        <p class="gift_connect">が投稿</p>
-        <br>
+
+        <p class="gift_name"><?php echo $gift_info['gift_name']; ?></p>
+
+
+        <div class="gift_post">
+            <h4>投稿者：</h4>
+            <p class="gift_contributor"><?php echo $gift_info['']; ?>さん</p>
+        </div>
+
         <div class="good_count">
             <div class="good_sentence">
                 <input type="checkbox" id="2" name="good_sentence"><label for="2">💗いいね</label>
             </div>
             <div class="good_number">
-                <p>いいね数</p>
-                <p>1</p>
+                <p><?php echo $good; ?></p>
             </div>
         </div>
+
         <hr>
-        <p class="explain_sentence">説明</p>
-        <p class="once_sentence">スイッチのジョイコンです。～のボタンが効かなくなってしまっているため投稿しました。だれでもいいので貰ってください。</p>
-        <div class="gift_sentence">
-            <p class="gift_category">手渡し・郵送</p>
-            <p class="gift_category">電子機器</p>
+
+        <div class="gift_explain">
+            <p class="explain_sentence">説明</p>
+            <p class="once_sentence"><?php echo $gift_info['giftcomment']; ?></p>
         </div>
-        <p class="gift_date">2022年6月25日</p>
-        <hr>
+
+        <table class="gift_table">
+            <tr>
+                <th>条件</th>
+                <td>手渡し・郵送</td>
+            </tr>
+            <tr>
+                <th>ジャンル</th>
+                <td><?php echo $gift_info['category'] ?></td>
+            </tr>
+            <tr>
+                <th>ギフト投稿日時</th>
+                <td><?php echo $gift_info['post'] ?></td>
+            </tr>
+            <tr>
+                <th>申請状況</th>
+                <td>申請可</td>
+            </tr>
+        </table>
+
         <div class="gift_sentence">
-            <p class="request_possible">申請可</p><input type="button" class="request_sentence" value="ギフト申請へ">
+            <input type="button" class="request_sentence" value="ギフト申請">
         </div>
 
         <hr>
@@ -117,18 +143,16 @@ foreach($comment_all as $comment){
         <!--吹き出し終わり-->
 
         <!-- コメント入力 -->
-        <div>
-            <p>コメントを入力</p>
-            <textarea class="comment_box" placeholder="コメントを入力してください"></textarea>
-        </div>
-        <br>
+        <p>コメントを入力</p>
+        <textarea class="comment_box" placeholder="コメントを入力してください"></textarea>
         <input type="submit" class="comment-send_btn" value="送信">
     </div>
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
+    
+    
     <script type="text/javascript">
         $(document).ready(function() {
             $('.slider').bxSlider({

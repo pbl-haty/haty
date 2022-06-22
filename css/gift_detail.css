@@ -1,13 +1,14 @@
 body {
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 40px;
+    margin-bottom: 100px;
 }
-.gift_padding{
+
+.gift_detail{
     padding: 0 20px;
 }
 
-.syosai {
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+/* .syosai {
     text-align: center;
     font-size: 60px;
     display: block;
@@ -16,44 +17,41 @@ body {
     background: #f3ebe2;
     margin-top: 60px;
     padding: 0.5em;
-    ;
-
-}
+} */
 
 .gift_sentence {
     display: flex;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 .gift_name {
     text-align: center;
+    font-weight: bold;
     font-size: 60px;
-    margin:0 0 30px 0;
-}
-.gift-t_name {
-    font-size: 60px;
-    margin:0 0 30px 0;
+    margin: 50px 0;
 }
 
-.gift_connect {
-    bottom: 0;
-    text-align: right;
+.gift_post{
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    padding: 0 30px;
+}
+
+.gift_post h4{
+    white-space: nowrap;
+}
+
+.gift_explain{
+    margin: 20px 0 50px 0;
 }
 
 .explain_sentence {
-    margin: 10px 0 10px 0;
-    border-bottom: double;
-    border-color: #FF0000;
-    border-width: 3mm;
-    width: 120px;
+    display: inline-block;
+    font-weight: bold;
     font-size: 60px;
-}
-
-.gift_category{
-    margin:100px 30px 30px 100px;
-}
-
-.gift_date{
-    text-align: right;
+    border-bottom: double 3mm #FF0000;
 }
 
 .request_possible{
@@ -61,25 +59,52 @@ body {
 }
 
 .request_sentence {
-    margin:10px 0 10px 100px;
     border-radius: 60px;
     padding: 2em;
-    text-align: center;
-    justify-content: center;
+    margin: 0 auto;
     width: 500px;
+    color: #FFFAFA;
     background-color: #668ad8;
 }
 
 .once_sentence {
-    font-size: 40px;
-    margin-bottom: 50px;
+    margin-top: 20px;
 }
 
 .good_count {
+    align-items: center;
     text-align: center;
     margin: 0 0 30px 0;
     display: flex;
+    padding: 30px;
+}
+
+.gift_table{
+    margin: 100px 0;
     width: 100%;
+}
+
+.gift_table th{
+    position: relative;
+    text-align: left;
+    width: 40%;
+    white-space: nowrap;
+}
+
+.gift_table th:after{
+    display: block;
+    content: "";
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    position: absolute;
+    top:calc(50% - 1px);
+    right:20px;
+}
+
+.gift_table td{
+    text-align: left;
+    width: 85%;
 }
 
 .good_sentence {
@@ -88,14 +113,11 @@ body {
 }
 
 .good_sentence label {
-    margin: 0 0 30px 0;
     width: 200px;
-    height: 150px;
     line-height: 150px;
     background-color: grey;
-    border-radius: 50%;
+    border-radius: 60%;
     color: #fff;
-    text-align: center;
 }
 
 .good_sentence input:checked+label {
@@ -111,7 +133,7 @@ body {
 .good_number {
     text-align: center;
     font-size: 40px;
-    margin: 20px 100px;
+    padding: 0px 20px;
 }
 
 .comment_sentence {
@@ -138,14 +160,13 @@ body {
 .comment_box {
     width: 100%;
     height: 300px;
-
     border: solid 5px black;
 }
 
 .comment-send_btn {
-    display: inline-block;
     padding: 0.5em;
     text-decoration: none;
+    color: #FFFAFA;
     background: #668ad8;
     border-bottom: solid 4px #627295;
     border-radius: 5px;
