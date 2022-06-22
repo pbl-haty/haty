@@ -28,7 +28,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="GiftPost.php">
                         <div>
                             <img src="../static/user.png"></img> 
                             投稿
