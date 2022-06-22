@@ -1,8 +1,45 @@
 <?php
-require_once __DIR__ . './header.php';
 session_start();
 
 $userId = $_SESSION['uid'];
+$giftId = $_GET['id'];
+
+require_once __DIR__ . '/classes/gift.php';
+
+$gift = new Gift();
+// ギフト情報の取得
+$gift_info = $gift->getGift($giftId);
+// いいね情報の取得
+list($good, $good_name) = $gift->getGood($giftId);
+
+// いいね数・いいね押した人を取得
+echo $good;
+foreach ($good_name as $good){
+    echo $good['name'];
+}
+
+// 画像情報を取得
+$gift_image = base64_encode($gift_info['image']);
+
+// いいねをおす・けす
+$gift->changeGood($giftId, $userId);
+
+// 申請
+$gift->applyGift($giftId, $userId);
+
+// 申請削除
+$gift->cancelGift($giftId, $userId);
+
+// コメント追加
+// $comment_info = "こんにちは";
+// $gift->addTalk($userId, $giftId, $comment_info);
+
+$comment_all = $gift->getComment($giftId);
+foreach($comment_all as $comment){
+    echo $comment['name'];
+    echo $comment['comment'];
+    echo $comment['post'];
+}
 ?>
 <link rel="stylesheet" href="../css/home.css">
 <link rel="stylesheet" href="../css/gift_detail.css">
