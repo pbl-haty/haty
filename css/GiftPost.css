@@ -1,0 +1,49 @@
+body{
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: 0.12em;
+    padding:0 20px;
+    display: block;
+    text-align: center;
+}
+.gift-img{
+    margin: auto;
+    width:250px;
+    height: 250px;
+    background-color: white;
+    border:2px dotted black;
+}
+.gift-img-text{
+    margin-top: 40%;
+}
+.gift-title{
+    width: calc(100vw - 100px);
+    height: 30px;
+    border-radius: 20px;
+    border: 2px solid#000;
+    text-indent: 20px;
+    font-size: 16px;
+}
+.gift-title::placeholder{
+    text-indent: 20px;
+}
+.gift-title:focus{
+    outline: 0;
+    border-color: aqua;
+}
+.trade{
+    display: flex;
+}
+.trade-box{
+    margin: auto;
+}
+.Detailed-information{
+    width: calc(100vw - 100px);
+}
+.btn-plus{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: 3px solid#000;
+    font-size: 16px;
+    font-weight: bold;
+}
