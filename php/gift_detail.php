@@ -13,12 +13,27 @@
     $userId = $_SESSION['uid'];
     $giftId = $_GET['id'];
 
-    // ギフトオブジェクトを生成し、「getGift()メソッド」を呼び出す
+    // ギフトオブジェクトとユーザーオブジェクトを生成
     $gift = new Gift();
+    $user = new User();
+
+    //ボタン処理
+    if(isset($_POST['applygift'])){
+        $gift->applyGift($giftId, $userId);
+    }elseif(isset($_POST['cancelgift'])){
+        $gift->cancelGift($giftId, $userId);
+    }elseif(isset($_POST['send_comment'])){
+        $comment_info = $_POST['comment'];
+        if($comment_info){
+            $gift->addTalk($userId, $giftId, $comment_info);
+        }
+        $comment_info = '';
+    }
+
+    // 「getGift()メソッド」を呼び出す
     $gift_info = $gift->getGift($giftId);
 
-    // ユーザーオブジェクトを生成し、「getUser()メソッド」を呼び出す
-    $user = new User();
+    // 「getUser()メソッド」を呼び出す
     $post_user = $user->getUser($gift_info['user_id']);
 
     // 引き渡し条件分岐(変更予定)
@@ -36,30 +51,8 @@
     // 「getGood()メソッド」を呼び出し、いいね数といいねを押した人の情報を取得する。
     list($good, $good_name) = $gift->getGood($giftId);
 
-    if(isset($_POST['favorite'])){
-        $gift->changeGood($giftId, $userId, $good);
-        list($good, $good_name) = $gift->getGood($giftId);
-    }
-
-    // // いいねをおす・けす
-    // $gift->changeGood($giftId, $userId);
-
-    // // 申請
-    // $gift->applyGift($giftId, $userId);
-
-    // // 申請削除
-    // $gift->cancelGift($giftId, $userId);
-
-    // コメント追加
-    // $comment_info = "こんにちは";
-    // $gift->addTalk($userId, $giftId, $comment_info);
-
-    // $comment_all = $gift->getComment($giftId);
-    // foreach($comment_all as $comment){
-    //     echo $comment['name'];
-    //     echo $comment['comment'];
-    //     echo $comment['post'];
-    // }
+    // 全てのコメント情報を取得
+    $comment_all = $gift->getComment($giftId);
 ?>
 <link rel="stylesheet" href="../css/home.css">
 <link rel="stylesheet" href="../css/gift_detail.css">
@@ -131,48 +124,58 @@
             <tr>
                 <th>申請状況</th>
                 <td>
-                    <?php
-
+                    <?php if(empty($gift_info['applicant'])){
+                        echo '申請可';
+                    }else{
+                        echo '申請不可';
+                    }
                     ?>
                 </td>
             </tr>
         </table>
 
-        <form class="gift_sentence">
-            <input type="button" class="request_sentence" value="ギフト申請">
-        </form>
+
+        <?php if(empty($gift_info['applicant'])){?>
+            <form class="gift_sentence" method="post" action="">
+                <button type="submit" class="request_sentence" name="applygift">ギフト申請</button>
+            </form>
+        <?php }elseif($gift_info['applicant'] == $userId){?>
+            <form class="gift_sentence" method="post" action="">
+                <button type="submit" class="request_sentence" name="cancelgift">申請をキャンセル</button>
+            </form>
+        <?php }?>
 
         <hr>
 
         <!--吹き出しはじまり-->
         <p class="comment_sentence">コメント</p>
         <div class="chatting_place">
-            <div class="faceicon">
-                <!-- アイコンor名前？ -->
+            <?php foreach($comment_all as $comment){ 
+                // ギフト画像情報を取得（1枚目のみ・変更予定）
+                $comment_icon = base64_encode($comment['icon']);
+            ?>
+            <div class="onechat">
+                <div class="faceicon">
+                    <!-- アイコン選択でプロフィール画面に遷移予定 -->
+                    <a href="#"><img src="data:;base64,<?php echo $comment_icon; ?>" alt=""></a>
+                </div>
+                <div class="says">
+                    <p class="comment_username"><?php echo $comment['name']; ?></p>
+                    <p><?php echo $comment['comment']; ?></p>
+                    <p class="comment_postdata"><?php echo $comment['post']; ?></p>
+                </div>
             </div>
-            <div class="chatting">
-                <div class="says">
-                    <p>コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント</p>
-                </div>
-                <input type="button" class="comment_reply" value="返信">
-                <div class="says">
-                    <p>コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント</p>
-                </div>
-                <input type="button" class="comment_reply" value="返信">
-                <div class="says">
-                    <p>コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント</p>
-                </div>
-                <input type="button" class="comment_reply" value="返信">
-            </div>
+            <?php } ?>
         </div>
+
         <br>
         <!--吹き出し終わり-->
 
         <!-- コメント入力 -->
         <p>コメントを入力</p>
-        <form action="">
-            <textarea class="comment_box" placeholder="コメントを入力してください"></textarea>
-            <input type="submit" class="comment-send_btn" value="送信">
+        <form action="" method="post">
+            <textarea class="comment_box" name="comment" placeholder="コメントを入力してください"></textarea>
+            <button type="submit" class="comment-send_btn" name="send_comment">送信</button>
         </form>
     </div>
 

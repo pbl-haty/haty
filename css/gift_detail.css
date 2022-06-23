@@ -1,6 +1,6 @@
 body {
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     margin-bottom: 100px;
 }
 
@@ -51,10 +51,6 @@ body {
     font-weight: bold;
     font-size: 60px;
     border-bottom: double 3mm #FF0000;
-}
-
-.request_possible{
-    margin:30px 0 0 30px;
 }
 
 .request_sentence {
@@ -158,8 +154,10 @@ body {
 
 .comment_box {
     width: 100%;
-    height: 300px;
+    min-height: 100px;
+    padding: 10px;
     border: solid 5px black;
+    margin: 0 auto;
 }
 
 .comment-send_btn {
@@ -198,16 +196,18 @@ body {
     width: 100%;
 }
 
+.onechat{
+    padding: 10px;
+}
+
 .says {
     display: inline-block;
     position: relative;
-    margin: 20px 10px 0 100px;
-    padding: 20px 10px;
+    margin: 0px 10px 0 100px;
+    padding: 10px 10px;
     border-radius: 12px;
     background: #d7ebfe;
-    font-size: 40px;
-    max-width: 70%;
-    max-height: 70%;
+    max-width: 95%;
 }
 
 .says:after {
@@ -220,9 +220,17 @@ body {
     border-right: 12px solid #d7ebfe;
 }
 
-.says p {
-    margin: 0;
-    padding: 0;
+.says p{
+    margin:10px;
+}
+
+.comment_username{
+    font-weight: bold;
+}
+
+.comment_postdata{
+    font-size:20px;
+    color: #696969;
 }
 
 .comment_reply {
