@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 body{
     display: block;
     text-align: center;
@@ -9,6 +11,8 @@ body{
 }
 
 .sample-img {
+    border: solid 2px black;
+    border-radius: 20px;
     overflow-x: scroll;
     white-space: nowrap;
     width: calc(100vw - 40px);
@@ -44,23 +48,58 @@ body{
     outline: 0;
     border-color: aqua;
 }
-.trade{
-    display: flex;
-    height: 60px;
-}
+
 .trade-box{
-    margin: auto;
+    margin: auto auto 15px auto;
+    font-size: 30px; /* フォントサイズ */
+    border-radius: 20px; /* 角の丸み */
+    border: 2px black solid;
+    text-align: left;
 }
 
-.trade-box label{
-    font-size: 40px;
-    resize: none;
+.trade-box input[type="checkbox"] { 
+    display: none;
 }
 
-.trade-box input[type=checkbox] {
-	margin: 0 30px 0 0;
-    height: 50px;
-    width: 50px;
+.trade-box input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding: 30px 130px;
+  font-size: 30px; 
+  color: black;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trade-box input[type="checkbox"] + label:last-child { 
+    margin-bottom: 0;
+}
+
+.trade-box input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 88px;
+  height: 88px;
+  border: 2px solid black;
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  transition: all .12s, border-color .08s;
+}
+
+.trade-box input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 45px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(45deg);
 }
 
 .Detailed-information{
@@ -71,15 +110,6 @@ body{
     width: calc(100% - 42px);
     border: 2px solid#000;
     resize: none;
-}
-
-.btn-plus{
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-    border: 3px solid#000;
-    font-size: 16px;
-    font-weight: bold;
 }
 
 .form-btn {
@@ -94,14 +124,22 @@ body{
 
 .upload-label {
     display: inline-block;
-    margin: 30px; /* まわりの余白 */
-    padding: 20px; /* 文字まわりの余白 */
+    margin: 30px 0 0 0; /* まわりの余白 */
+    padding: 30px 0; /* 文字まわりの余白 */
     color: black; /* 文字色 */
     font-size: 30px; /* フォントサイズ */
     border-radius: 20px; /* 角の丸み */
     border: 2px black solid;
+    width: 100%;
 }
 
 .upload-label input {
     display: none;
+}
+
+
+
+
+body {
+    font-size: 50px;
 }

@@ -14,7 +14,7 @@
                 <li>
                     <a href="home.php">
                         <div class="menu-content-border-none">
-                            <img src="../static/user.png"></img>    
+                            <img src="../static/home.png"></img>    
                             ホーム
                         </div>
                     </a>
@@ -30,7 +30,7 @@
                 <li>
                     <a href="GiftPost.php">
                         <div>
-                            <img src="../static/user.png"></img> 
+                            <img src="../static/post.png"></img> 
                             投稿
                         </div>
                     </a>
@@ -38,7 +38,7 @@
                 <li>
                     <a href="#">
                         <div>
-                            <img src="../static/user.png"></img> 
+                            <img src="../static/notification.png"></img> 
                             通知
                         </div>
                     </a>
@@ -46,7 +46,7 @@
                 <li>
                     <a href="logout.php">
                         <div>
-                            <img src="../static/user.png"></img> 
+                            <img src="../static/logout.png"></img> 
                             ログアウト
                         </div>
                     </a>

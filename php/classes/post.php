@@ -5,14 +5,13 @@
     class Post extends DbData {
     // 商品をカートに入れる ・・ テーブルcartに登録する
 
-        /* 追加写真あり public function giftpost($userId, $conditions, $gift_name, $giftcomment, $image, $addimage1, $addimage2, $addimage3){ */
         public function giftpost($userId, $conditions, $gift_name, $giftcomment, $image){
             /* カテゴリあり */
             /* $sql = 'insert into gift(user_id, conditions, gift_name, giftcomment, category, image) values(?, ?, ?, ?, ?, ?)'; */
             /* カテゴリなし */
             $sql = 'insert into gift(user_id, conditions, gift_name, giftcomment, image) values(?, ?, ?, ?, ?)';
             $result = $this->exec($sql, [$userId, $conditions, $gift_name, $giftcomment, $image]);
-            return $result;
+            return $result->lastInsertId();
         }
 
         public function grouppost($gift_id, $group_id){
