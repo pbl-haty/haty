@@ -1,5 +1,5 @@
 <?php
-    // require_once __DIR__ . './header.php';
+    require_once __DIR__ . './header.php';
     require_once __DIR__ . '\classes\post.php';
     require_once __DIR__ . './classes/group.php';
 
@@ -26,23 +26,24 @@
                 foreach($condi as $key => $value){
                     $conditions += (int)$value;
                 }
-                $image = $_POST['image'];
-        
-                $result = $post->giftpost($userId, $conditions, $giftname, $giftcomment, $image[0]);
-                echo "test:" . $result;
-                foreach($group_name as $key => $groupid){
-                    $result2 = $post->grouppost($result['id'], (int)$groupid);
+               
+                for($i = 0; $i < count($_FILES["image"]["name"]) && $i < 4; $i++ ){
+                    $fp = fopen($_FILES['image']['tmp_name'][$i], "rb");
+                    $image = fread($fp, filesize($_FILES['image']['tmp_name'][$i]));
+                    fclose($fp);
+
+                    if($i == 0){
+                        $result = $post->giftpost($userId, $conditions, $giftname, $giftcomment, $image);
+                    } else {
+                        $post->imagepost($result, $image);
+                    }
                 }
-                
-                for($i = 1; $i < 4 && $image[$i] != null; $i++ ) {
-                    $result3 = $post->imagepost($result['id'], $image[$i]);
+
+                foreach($group_name as $key => $groupid){
+                    $post->grouppost($result, (int)$groupid);
                 }
             }
-
         }
-
-
-
     }
 
 
@@ -57,14 +58,13 @@
 </header>
 <body>
     <br>
-    <form method="POST" action="" class="header-margin-top">
-        <a href="GiftPost.php">再読み込み<a>
+    <form method="POST" action="" class="header-margin-top" enctype="multipart/form-data">
         <h1 class="content-margin">商品画像</h1>
 
         <div id="sample-img" class="sample-img"></div>
             <label class="upload-label">
                 画像を選択
-                <input type="file" id="input-img" onchange="loadImage(this);" name="image" accept="image/*" multiple required>
+                <input type="file" id="input-img" onchange="loadImage(this);" name="image[]" accept="image/*" multiple required>
             </label>
 
         <h1 class="content-margin">商品名</h1>

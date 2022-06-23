@@ -11,16 +11,16 @@
             /* カテゴリなし */
             $sql = 'insert into gift(user_id, conditions, gift_name, giftcomment, image) values(?, ?, ?, ?, ?)';
             $result = $this->exec($sql, [$userId, $conditions, $gift_name, $giftcomment, $image]);
-            return $result->lastInsertId();
+            return $this->pdo->lastInsertId();
         }
 
         public function grouppost($gift_id, $group_id){
             $sql = 'insert into giftgroup(gift_id, group_id) values(?, ?)';
-            $result = $this->exec($sql, [$gift_id, $group_id]);
+            $this->exec($sql, [$gift_id, $group_id]);
         }
 
         public function imagepost($gift_id, $image){
-            $sql = 'insert into giftgroup(gift_id, image) values(?, ?)';
-            $result = $this->exec($sql, [$gift_id, $image]);
+            $sql = 'insert into giftimage(gift_id, image) values(?, ?)';
+            $this->exec($sql, [$gift_id, $image]);
         }
     }
