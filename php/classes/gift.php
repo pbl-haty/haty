@@ -23,22 +23,24 @@
             return array($count, $result);
         }
 
-
-        // いいねを追加・削除する
-        public function changeGood($gift_id, $user_id){
-            // goodテーブルに既にデータが追加されているか確認する
+        // 自分が現在表示されている投稿にいいねを押しているか
+        public function checkGood($gift_id, $user_id){
             $sql = "select * from good where gift_id = ? and user_id = ?";
             $stmt = $this->query($sql, [$gift_id, $user_id]);
             $result = $stmt->fetch();
+            return $result;
+        }
 
-            // 存在する場合（いいねを削除する）
-            if($result){
-                $sql = "delete from good where gift_id = ? and user_id = ?";
-                $result = $this->exec($sql, [$gift_id, $user_id]);
-            }else{      // 存在しない場合（いいねを追加する）
-                $sql = "insert into good(gift_id, user_id) values(?, ?)";
-                $result = $this->exec($sql, [$gift_id, $user_id]);
-            }
+        // いいねを追加する
+        public function addGood($gift_id, $user_id){
+            $sql = "insert into good(gift_id, user_id) values(?, ?)";
+            $this->exec($sql, [$gift_id, $user_id]);
+        }
+
+        // いいねを削除する
+        public function deleteGood($gift_id, $user_id){
+            $sql = "delete from good where gift_id = ? and user_id = ?";
+            $this->exec($sql, [$gift_id, $user_id]);
         }
 
 

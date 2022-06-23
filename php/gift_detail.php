@@ -17,7 +17,7 @@
     $gift = new Gift();
     $user = new User();
 
-    //ボタン処理
+    // ボタン処理
     if(isset($_POST['applygift'])){
         $gift->applyGift($giftId, $userId);
     }elseif(isset($_POST['cancelgift'])){
@@ -27,7 +27,10 @@
         if($comment_info){
             $gift->addTalk($userId, $giftId, $comment_info);
         }
-        $comment_info = '';
+    }elseif(isset($_POST['favorite_before'])){
+        $gift->addGood($giftId, $userId);
+    }elseif(isset($_POST['favorite_after'])){
+        $gift->deleteGood($giftId, $userId);
     }
 
     // 「getGift()メソッド」を呼び出す
@@ -90,13 +93,16 @@
         </div>
 
         <div class="good_count">
-            <div class="good_sentence">
-                <form action="#" method="post">
-                    <input type="hidden" name="post_id">
-                    <button type="submit" name="favorite" class="favorite_btn">いいね</button>
-                </form>
-            </div>
+            <form action="#" method="post" class="good_sentence">
+                <!-- 既にいいねを押しているかを確認 -->
+                <?php if(empty($gift->checkGood($giftId, $userId))){?>
+                    <button type="submit" name="favorite_before" class="favorite_before">💗いいね</button>
+                <?php }else{ ?>
+                    <button type="submit" name="favorite_after" class="favorite_after">💗いいね</button>
+                <?php } ?>
+            </form>
             <div class="good_number">
+                <!-- いいねを押した人の一覧に遷移する（予定） -->
                 <a href="#"><?php echo $good; ?></a>
             </div>
         </div>

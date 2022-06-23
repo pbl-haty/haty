@@ -42,6 +42,11 @@ body {
     white-space: nowrap;
 }
 
+.gift_post a{
+    color: blue;
+    text-decoration: none;
+}
+
 .gift_explain{
     margin: 20px 0 50px 0;
 }
@@ -103,21 +108,23 @@ body {
 }
 
 .good_sentence {
-    display: flex;
     outline: none;
 }
 
-.good_sentence label {
+.favorite_before{
+    background-color: grey;
+    color: #fff;
+    border-radius: 60%;
     width: 200px;
     line-height: 150px;
-    background-color: grey;
-    border-radius: 60%;
-    color: #fff;
 }
 
-.good_sentence input:checked+label {
+.favorite_after{
     background: greenyellow;
     color: #000;
+    border-radius: 60%;
+    width: 200px;
+    line-height: 150px;
 }
 
 .good_sentence input {
@@ -127,8 +134,12 @@ body {
 
 .good_number {
     text-align: center;
-    font-size: 40px;
     padding: 0px 20px;
+}
+
+.good_number a{
+    color: blue;
+    text-decoration: none;
 }
 
 .comment_sentence {
