@@ -9,29 +9,13 @@
     // セッションを開始する
     session_start();
 
-    // ユーザーIDとギフトIDを所得する
+    // ユーザーIDとギフトIDを取得する
     $userId = $_SESSION['uid'];
     $giftId = $_GET['id'];
 
     // ギフトオブジェクトとユーザーオブジェクトを生成
     $gift = new Gift();
     $user = new User();
-
-    // ボタン処理
-    if(isset($_POST['applygift'])){
-        $gift->applyGift($giftId, $userId);
-    }elseif(isset($_POST['cancelgift'])){
-        $gift->cancelGift($giftId, $userId);
-    }elseif(isset($_POST['send_comment'])){
-        $comment_info = $_POST['comment'];
-        if($comment_info){
-            $gift->addTalk($userId, $giftId, $comment_info);
-        }
-    }elseif(isset($_POST['favorite_before'])){
-        $gift->addGood($giftId, $userId);
-    }elseif(isset($_POST['favorite_after'])){
-        $gift->deleteGood($giftId, $userId);
-    }
 
     // 「getGift()メソッド」を呼び出す
     $gift_info = $gift->getGift($giftId);
@@ -63,12 +47,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>詳細画面</title>
+    <title>ギフト詳細</title>
 </head>
 </header>
-<div id="header"></div>
-<div id="relative1"></div>
-
 
 <body>
     <div class="gift_detail">
@@ -85,15 +66,17 @@
 
         <div class="gift_post">
             <h4>投稿者</h4>
-            <!-- ユーザーのプロフィール画面が出来次第遷移 -->
-            <a href="#">
+            <!-- ユーザーのプロフィール画面が出来次第遷移（予定） -->
+            <a href="#" class=>
                 <img src="" alt="">
                 <p class="gift_contributor"><?php echo $post_user['name']; ?>さん</p>
             </a>
         </div>
 
         <div class="good_count">
-            <form action="#" method="post" class="good_sentence">
+            <form action="gift_detail_backend.php" method="post" class="good_sentence">
+                <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
+                <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
                 <!-- 既にいいねを押しているかを確認 -->
                 <?php if(empty($gift->checkGood($giftId, $userId))){?>
                     <button type="submit" name="favorite_before" class="favorite_before">💗いいね</button>
@@ -140,29 +123,31 @@
             </tr>
         </table>
 
-
-        <?php if(empty($gift_info['applicant'])){?>
-            <form class="gift_sentence" method="post" action="">
-                <button type="submit" class="request_sentence" name="applygift">ギフト申請</button>
-            </form>
-        <?php }elseif($gift_info['applicant'] == $userId){?>
-            <form class="gift_sentence" method="post" action="">
-                <button type="submit" class="request_sentence" name="cancelgift">申請をキャンセル</button>
-            </form>
-        <?php }?>
+        <!-- ギフトに投稿があるか確認 -->
+        <!-- なし・・・ギフト申請ボタン　あり（自分）・・・キャンセルボタン　あり（他人）・・・ボタン表示 -->
+        <form class="gift_sentence" method="post" action="gift_detail_backend.php">
+            <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
+            <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
+            <?php if(empty($gift_info['applicant'])){?>
+                    <button type="submit" class="request_sentence" name="applygift">ギフト申請</button>
+            <?php }elseif($gift_info['applicant'] == $userId){?>
+                    <button type="submit" class="request_sentence" name="cancelgift">申請をキャンセル</button>
+            <?php }?>
+        </form>
 
         <hr>
 
         <!--吹き出しはじまり-->
         <p class="comment_sentence">コメント</p>
         <div class="chatting_place">
+            <!-- コメントのループ -->
             <?php foreach($comment_all as $comment){ 
-                // ギフト画像情報を取得（1枚目のみ・変更予定）
+                // コメントを投稿したユーザの画像処理
                 $comment_icon = base64_encode($comment['icon']);
             ?>
             <div class="onechat">
                 <div class="faceicon">
-                    <!-- アイコン選択でプロフィール画面に遷移予定 -->
+                    <!-- アイコン選択でプロフィール画面に遷移（予定） -->
                     <a href="#"><img src="data:;base64,<?php echo $comment_icon; ?>" alt=""></a>
                 </div>
                 <div class="says">
@@ -179,7 +164,9 @@
 
         <!-- コメント入力 -->
         <p>コメントを入力</p>
-        <form action="" method="post">
+        <form action="gift_detail_backend.php" method="post">
+            <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
+            <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
             <textarea class="comment_box" name="comment" placeholder="コメントを入力してください"></textarea>
             <button type="submit" class="comment-send_btn" name="send_comment">送信</button>
         </form>
@@ -188,8 +175,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
-    
-    
     <script type="text/javascript">
         $(document).ready(function() {
             $('.slider').bxSlider({

@@ -4,13 +4,12 @@
 
 
     class Gift extends DbData {
-        // 選択された商品を取り出す
+        // 選択されたギフトの情報を取り出す
         public function getGift($gift_id){
             $sql = "select * from gift where id = ?";
             $stmt = $this->query($sql, [$gift_id]);
             return $stmt->fetch();
         }
-
 
         // いいね数といいねを押したユーザー名を取り出す
         public function getGood($gift_id){
@@ -43,7 +42,6 @@
             $this->exec($sql, [$gift_id, $user_id]);
         }
 
-
         // ギフトの申請
         public function applyGift($gift_id, $applicant){
             $sql = "update gift set applicant = ? where id = ?";
@@ -72,7 +70,6 @@
             }
         }
 
-
         //　コメントを取り出す
         public function getComment($gift_id){
             $sql = 'select user.uid, user.name, user.icon, talk.comment, talk.post
@@ -83,7 +80,6 @@
             $result = $stmt->fetchAll();
             return $result;
         }
-
 
         // コメントを追加する
         public function addTalk($user_id, $gift_id, $comment){
