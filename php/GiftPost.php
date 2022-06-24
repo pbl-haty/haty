@@ -86,6 +86,10 @@
 
         <h1 class="content-margin">公開範囲</h1>
 
+        <div class ="prompt_2">
+            <h4><?= $errormsg1 ?></h4>
+        </div>
+
         <div class="content-check">
 
 <?php 
