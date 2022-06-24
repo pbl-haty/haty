@@ -1,0 +1,41 @@
+body{
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+    display: block;
+}
+.user-name-object{
+    display: flex;
+    margin-left: 50px;
+}
+.img-icon{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+.user-name{
+    font-size: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.user-id{
+    font-size: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+textarea{
+    resize: vertical;
+    margin-top: 30px;
+    font-size: 30px;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+    width: calc(100vw - 100px);
+    height: 200px;
+}
+.tab-swhich{
+    text-align: center;
+}
+button{
+    width: calc(50vw - 50px);
+    height: 50px;
+}
