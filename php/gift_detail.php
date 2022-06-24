@@ -27,9 +27,9 @@
     if($gift_info['conditions'] == 1){
         $derivery_conditions = '手渡し';
     }else if($gift_info['conditions'] == 2){
-        $derivery_conditions = '郵送';
+        $derivery_conditions = '配送';
     }else if($gift_info['conditions'] == 3){
-        $derivery_conditions = '手渡し・郵送';
+        $derivery_conditions = '手渡し・配送';
     }
 
     // ギフト画像情報を取得（1枚目のみ・変更予定）
@@ -121,12 +121,12 @@
                 <td><?php echo $gift_info['post'] ?></td>
             </tr>
             <tr>
-                <th>申請状況</th>
+                <th>受け取り申請状況</th>
                 <td>
                     <?php if(empty($gift_info['applicant'])){
-                        echo '申請可';
+                        echo '受け取り申請可';
                     }else{
-                        echo '申請不可';
+                        echo '受け取り申請不可';
                     }
                     ?>
                 </td>
@@ -139,9 +139,9 @@
             <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
             <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
             <?php if(empty($gift_info['applicant'])){?>
-                    <button type="submit" class="request_sentence" name="applygift">ギフト申請</button>
+                    <button type="submit" class="request_sentence" name="applygift">受け取り申請</button>
             <?php }elseif($gift_info['applicant'] == $userId){?>
-                    <button type="submit" class="request_sentence" name="cancelgift">申請をキャンセル</button>
+                    <button type="submit" class="request_sentence" name="cancelgift">受け取り申請をキャンセル</button>
             <?php }?>
         </form>
 
