@@ -52,13 +52,23 @@
 </header>
 
 <body>
+
+    <br>
+
     <div class="gift_detail">
         <!-- <h2 class="syosai">ギフト詳細</h2> -->
 
         <ul class="slider">
             <li><img class="gift_display_detail" src="data:;base64,<?php echo $gift_image; ?>" alt=""></li>
-            <li><img class="gift_display_detail" src="" alt=""></li>
-            <li><img class="gift_display_detail" src="" alt=""></li>
+            <?php
+                $gift_addimage = $gift->getaddimage($giftId);
+                foreach($gift_addimage as $addimage) {
+                    $addimg = base64_encode($addimage['image']);        
+            ?>
+                    <li><img class="gift_display_detail" src="data:;base64,<?= $addimg ?>" alt=""></li>
+            <?php
+                }
+            ?>
         </ul>
 
         <p class="gift_name"><?php echo $gift_info['gift_name']; ?></p>

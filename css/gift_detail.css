@@ -5,6 +5,7 @@ body {
 }
 
 .gift_detail{
+    margin-top: 150px;
     padding: 0 20px;
 }
 
@@ -345,13 +346,11 @@ textarea {
 スライダーのためのcss
 ===================================*/
 .slider {
-    /*横幅94%で左右に余白を持たせて中央寄せ*/
-    width: 94%;
     margin: 0 auto;
 }
 
 .slider img {
-    width: 100%;
-    /*スライダー内の画像を横幅100%に*/
-    height: 1000px;
+    width: calc(100vw - 40px);
+    height: calc(100vw - 40px);
+    object-fit: cover;
 }
