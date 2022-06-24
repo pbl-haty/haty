@@ -94,4 +94,14 @@
             }
         }
 
+        // ２枚目以降の写真を取得
+        public function getaddimage($gift_id){
+            $sql = "select image 
+                    from giftimage
+                    where gift_id = ?";
+            $stmt = $this->query($sql, [$gift_id]);
+            $result = $stmt->fetchAll();
+            return $result;
+        }
+
     }
