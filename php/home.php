@@ -38,7 +38,7 @@ $userId = $_SESSION['uid'];
 
         if (empty($group_join)) {
             echo '<hr>';
-            echo '<div class = prompt_1>';
+            echo '<div class ="prompt_1">';
             echo '<h4>グループを作成して友達とギフトを贈りあおう！</h4>';
             echo '</div>';
         } else {
@@ -56,7 +56,7 @@ $userId = $_SESSION['uid'];
                     <?php // ギフトが送られているか判定・・・B
                         $gift_group = $group->giftgroup((int)$join['group_id'], $userId);
                         if (empty($gift_group)) {
-                            echo '<div class = prompt_2>';
+                            echo '<div class ="prompt_2">';
                             echo '<h4>メンバーがギフトを投稿していません。</h4>';
                             echo '</div>';
                         } else {

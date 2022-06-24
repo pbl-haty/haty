@@ -6,6 +6,9 @@
     session_start();
 
     $userId = $_SESSION['uid'];
+    $completionmsg = "";
+    $errormsg1 = "";
+    $errormsg2 = "";
 
     $post = new Post();
     if(isset($_POST['giftpost'])){
@@ -15,12 +18,12 @@
 
         $group_name = filter_input(INPUT_POST, 'groupname', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
         if (empty($group_name)) {
-            echo "グループを選択してください";
+            $errormsg1 = 'グループを選択してください。';
         } else {
 
             $condi = filter_input(INPUT_POST, 'conditions', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
             if(empty($condi)) {
-                echo "手渡しか郵送を選んでください";
+                $errormsg2 = "手渡しか配送を選んでください。";
             } else {
                 $conditions = 0;
                 foreach($condi as $key => $value){
@@ -42,6 +45,9 @@
                 foreach($group_name as $key => $groupid){
                     $post->grouppost($result, (int)$groupid);
                 }
+
+                $completionmsg = "投稿が完了しました。";
+
             }
         }
     }
@@ -59,6 +65,11 @@
 <body>
     <br>
     <form method="POST" action="" class="header-margin-top" enctype="multipart/form-data">
+
+        <div class ="prompt_2">
+                <h4><?= $completionmsg ?></h4>
+        </div>
+
         <h1 class="content-margin">商品画像</h1>
 
         <div id="sample-img" class="sample-img"></div>
@@ -75,6 +86,10 @@
 
         <h1 class="content-margin">公開範囲</h1>
 
+        <div class ="prompt_2">
+            <h4><?= $errormsg1 ?></h4>
+        </div>
+
         <div class="content-check">
 
 <?php 
@@ -82,12 +97,11 @@
     $group_join = $group->groupjoin($userId);
 
     if (empty($group_join)) {
-        // グループに所属していないメッセージを表示
+        echo '<div class ="prompt_2"><h4>グループに所属していません。</h4></div>';
     } else {
         $cnt = 0;
         foreach ($group_join as $join) {
 ?>
-
             <div class="trade-box">
                 <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" value="<?= $join['group_id'] ?>">
                 <label for="groupname-<?= $cnt ?>"><?= $join['groupname'] ?></label>
@@ -102,6 +116,9 @@
         </div>
 
         <h1 class="content-margin">取引条件</h1>
+        <div class ="prompt_2">
+            <h4><?= $errormsg2 ?></h4>
+        </div>
 
         <div class="content-check">
             <div class="trade-box">
@@ -110,7 +127,7 @@
             </div>
             <div class="trade-box">
                 <input type="checkbox" id="trade2-conditions" name="conditions[]" value="2">
-                <label for="trade2-conditions">郵送</label>
+                <label for="trade2-conditions">配送</label>
             </div>
         </div>
         
