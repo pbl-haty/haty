@@ -59,7 +59,7 @@ $userId = $_SESSION['uid'];
                 $img = base64_encode($gift['image']);
     ?>
 
-                    <a href="home_sub.html" class="detail_display">
+                    <a href="gift_detail.php?id=<?php echo $gift['id']; ?>" class="detail_display">
                         <!-- ギフト詳細画面遷移 -->
                         <div>
                             <img class="gift-display-image" src="data:;base64,<?php echo $img; ?>">

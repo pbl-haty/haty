@@ -10,6 +10,12 @@
             return $stmt->fetch();
         }
 
+        // ユーザーIDからユーザー情報を取得
+        public function getUser($user_id){
+            $sql = "select * from user where uid = ?";
+            $stmt = $this->query($sql, [$user_id]);
+            return $stmt->fetch();
+        }
 
         // ユーザー登録処理
         public function signUp($name, $password, $mailaddress){
