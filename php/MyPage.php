@@ -17,11 +17,12 @@ $userId = $_SESSION['uid'];
 
 <body>
         <div class="user-name-object">
-            <img class="img-icon" src="../static/user_icon.png" style="margin-top: 200px;">
-            <div>
-                <p class="user-name" style="margin-top: 275px; margin-left: 50px;">山岡・A・ドラゴンHey</p>
+            <img class="img-icon" src="../static/user_icon.png" style="margin-top: 260px;">
+            <div class="user-nameid">
+                <p class="user-name" style="margin-top: 330px; margin-left: 50px;">山岡・A・ドラゴンHey</p>
                 <p class="user-id" style="margin-left: 50px;">@okaryuhey7123</p>
             </div>
+            <div class="btn-div-edit"><button class="btn-edit">編集</button></div>
         </div>
         <textarea style="margin-left: 50px;margin-right: 50px;"></textarea>
         <div tab-swihch>
