@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
-<link rel="stylesheet" href="../css/profile_edit.css">
-
-<head>
-    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/profile_edit.css">
     <title>プロフィール編集画面</title>
 </head>
 

@@ -1,6 +1,4 @@
 <?php
-    // セッションを開始する
-    session_start();
     // user.phpを読み込む
     require_once __DIR__ . '\classes\user.php';
 
@@ -46,6 +44,7 @@
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>ログイン</title>
 </head>
+
 <body>
     <div>
         <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
