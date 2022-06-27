@@ -10,14 +10,14 @@
 <body>
     <div class="edit_edit_icon">
         <div>
-            <p class="current_icon">※現在のアイコンを表示
-                <img src="変更前アイコン" alt="">
+            <p class="current_icon">現在のアイコン<br><br>
+                <img src="../static/user.png" class="img_icon"></img>
             </p>
             <label>
                 <p class="edit_icon_place_sentence">アイコンを<br>選んでください</p>
                 <input type="file" class="edit_icon_place" name="edit_icon_place"></p>
             </label>
-            <p class="present_icon">※選択後のアイコン表示<img src="変更後アイコン" alt=""></p>
+            <p class="present_icon">変更後のアイコン<br><br><img src="../static/user.png" class="img_icon"></img></p>
         </div>
     </div>
 
