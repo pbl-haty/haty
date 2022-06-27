@@ -4,6 +4,9 @@
     // user.phpを読み込む
     require_once __DIR__ . '/classes/user.php';
 
+    // セッションを開始する
+    session_start();
+
     // ユーザーIDとギフトIDを取得する
     $userId = $_SESSION['uid'];
 
