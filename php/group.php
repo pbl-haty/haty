@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . './header.php';
-session_start();
 
 $userId = $_SESSION['uid'];
 /* if($_SERVER["REQUEST_METHOD"] === "POST"){
@@ -10,8 +9,8 @@ $userId = $_SESSION['uid'];
 /* }  */
 
 ?>
-<link rel="stylesheet" href="../css/group.css">
-</header>
+    <link rel="stylesheet" href="../css/group.css">
+</head>
 
 <br>
 

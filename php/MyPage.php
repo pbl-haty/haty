@@ -1,19 +1,13 @@
 <?php
-require_once __DIR__ . './header.php';
-session_start();
+    require_once __DIR__ . './header.php';
 
-$userId = $_SESSION['uid'];
-/* if($_SERVER["REQUEST_METHOD"] === "POST"){
-    $groupid = $_POST['groupid'];
-}else{ */
-    $groupId = $_GET['groupid'];
-/* }  */
+    $userId = $_SESSION['uid'];
 
 ?>
     <link rel="stylesheet" href="../css/MyPage.css">
-    <title>Document</title>
+    <title>マイページ</title>
 <link rel="stylesheet" href="../css/group.css">
-</header>
+</head>
 
 <body>
         <div class="user-name-object">
@@ -26,7 +20,8 @@ $userId = $_SESSION['uid'];
         </div>
         <textarea style="margin-left: 50px;margin-right: 50px;"></textarea>
         <div tab-swihch>
-            <button class="btn-iine" style="margin-left: 50px;" onclick="click_iine_event()">いいね</button><button class="btn-gift" style="margin-left: 5px;"onclick="click_gift_event()">ギフト</button>
+            <button class="btn-iine" style="margin-left: 50px;" onclick="click_iine_event()">いいね</button>
+            <button class="btn-gift" style="margin-left: 5px;"onclick="click_gift_event()">ギフト</button>
         </div>
         <script>
             function click_iine_event() {
@@ -38,7 +33,7 @@ $userId = $_SESSION['uid'];
                 p2.style.visibility ="visible";
             }
         </script>
-        <?php // グループに所属しているか判定・・・A
+    <?php // グループに所属しているか判定・・・A
         require_once __DIR__ . './classes/groupdetail.php';
         $group = new GroupDetail();
 
@@ -53,7 +48,7 @@ $userId = $_SESSION['uid'];
         } else {
 
     ?>
-        <?php
+    <?php
         $gift_group_all = $group->giftgroupall($groupId);
         if (empty($gift_group_all)) {
             echo '<div class = prompt_2>';

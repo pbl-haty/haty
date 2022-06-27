@@ -3,7 +3,6 @@
     require_once __DIR__ . '\classes\post.php';
     require_once __DIR__ . './classes/group.php';
 
-    session_start();
 
     $userId = $_SESSION['uid'];
     $completionmsg = "";
@@ -57,11 +56,10 @@
 
 
 ?>
-<head>
     <link rel="stylesheet" href="../css/GiftPost.css">
     <title>Document</title>
 </head>
-</header>
+
 <body>
     <br>
     <form method="POST" action="" class="header-margin-top" enctype="multipart/form-data">

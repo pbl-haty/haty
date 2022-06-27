@@ -6,9 +6,6 @@
     // user.phpを読み込む
     require_once __DIR__ . '/classes/user.php';
     
-    // セッションを開始する
-    session_start();
-
     // ユーザーIDとギフトIDを取得する
     $userId = $_SESSION['uid'];
     $giftId = $_GET['id'];
@@ -41,15 +38,11 @@
     // 全てのコメント情報を取得
     $comment_all = $gift->getComment($giftId);
 ?>
-<link rel="stylesheet" href="../css/home.css">
-<link rel="stylesheet" href="../css/gift_detail.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-
-<head>
-    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/gift_detail.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <title>ギフト詳細</title>
 </head>
-</header>
 
 <body>
 
