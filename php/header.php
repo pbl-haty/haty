@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                <a href="MyPage.php?id=<?php echo $_SESSION['uid']; ?>">
+                    <a href="MyPage.php?id=<?php echo $_SESSION['uid']; ?>">
                         <div>
                             <img src="../static/user.png"></img>     
                             マイページ
