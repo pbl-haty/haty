@@ -42,6 +42,24 @@
             }
         }
 
+        // メールアドレスとパスワードの確認
+        public function checkPass($user_id, $password){
+            $sql = 'select * from user where uid = ? and password = ?';
+            $stmt = $this->query($sql, [$user_id, $password]);
+            $result = $stmt->fetch();
+
+            if($result){
+                return '';
+            }else{
+                return '入力した現在のパスワードが間違っています。';
+            }
+        }
+
+        // パスワードの変更
+        public function editPassword($user_id, $password){
+
+        }
+
         
         // ログアウト処理
         public function logout(){

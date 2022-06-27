@@ -1,3 +1,6 @@
+<?php
+    require_once __DIR__ . './header.php';
+?>
     <link rel="stylesheet" href="../css/profile_edit.css">
     <title>プロフィール編集画面</title>
 </head>
@@ -24,7 +27,6 @@
                 <input type="text" class="edit_name_place" name="edit_name" value="神戸太郎"></p>
             </div>
         </div>
-
         <div class="edit_edit">
             <p class="edit_mailaddress">メール<br>アドレス<br>編集</p>
             <div>
@@ -32,7 +34,6 @@
                 <input type="text" class="edit_mailaddress_place" name="edit_mailaddress" value="an@kobedenshi.ac.jp"></p>
             </div>
         </div>
-
         <div class="edit_edit">
             <p class="edit_mailaddress">コメント<br>編集</p>
             <div>
@@ -41,6 +42,7 @@
             </div>
         </div>
     </div>
+    
     <div class="edit_btn_center"><input type="submit" class="edit_btn" name="edit_btn" value="編集"></p>
     </div>
 </body>
