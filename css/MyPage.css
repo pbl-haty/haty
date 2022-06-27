@@ -1,5 +1,4 @@
 body{
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
     display: block;
 }
 .user-nameid{
@@ -10,12 +9,15 @@ body{
     margin-left: 50px;
 }
 .img-icon{
+    margin-top: 260px;
     width: 250px;
     height: 250px;
     object-fit: cover;
     border-radius: 100%;
 }
 .user-name{
+    margin-top: 330px;
+    margin-left: 50px;
     font-size: 40px;
     white-space: nowrap;
     overflow: hidden;
@@ -23,35 +25,39 @@ body{
 }
 .user-id{
     font-size: 40px;
+    margin-left: 50px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-textarea{
+.textarea-content{
     resize: vertical;
     margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
     font-size: 30px;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
     width: calc(100vw - 100px);
     height: 200px;
 }
-.tab-swhich{
+.tab-swihch{
     text-align: center;
+    margin-bottom: 30px;
 }
 .btn-iine{
     width: calc(50vw - 50px);
     height: 50px;
+    margin: 0;
 }
 .btn-gift{
     width: calc(50vw - 50px);
     height: 50px;
+    margin: 0;
 }
 .btn-edit{
     margin-top:200px;
     width: 140px;
     height: 60px;
     font-size: 40px;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .btn-div-edit{
     margin-left: auto;
