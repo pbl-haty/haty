@@ -22,11 +22,11 @@ $userId = $_SESSION['uid'];
                 <p class="user-name" style="margin-top: 330px; margin-left: 50px;">山岡・A・ドラゴンHey</p>
                 <p class="user-id" style="margin-left: 50px;">@okaryuhey7123</p>
             </div>
-            <div class="btn-div-edit"><button class="btn-edit">編集</button></div>
+            <div class="btn-div-edit"><button class="btn-edit btn-style">編集</button></div>
         </div>
-        <textarea style="margin-left: 50px;margin-right: 50px;"></textarea>
+        <textarea style="margin-left: 50px;margin-right: 50px;">フルスピードで走ることが俺の人生だった…</textarea>
         <div tab-swihch>
-            <button class="btn-iine" style="margin-left: 50px;" onclick="click_iine_event()">いいね</button><button class="btn-gift" style="margin-left: 5px;"onclick="click_gift_event()">ギフト</button>
+            <button class="btn-iine btn-style" style="margin-left: 50px;" onclick="click_iine_event()">いいね</button><button class="btn-gift btn-style" style="margin-left: 5px;"onclick="click_gift_event()">ギフト</button>
         </div>
         <script>
             function click_iine_event() {

@@ -41,10 +41,12 @@ textarea{
 .btn-iine{
     width: calc(50vw - 50px);
     height: 50px;
+    font-size: 40px;
 }
 .btn-gift{
     width: calc(50vw - 50px);
     height: 50px;
+    font-size: 40px;
 }
 .btn-edit{
     margin-top:200px;
@@ -57,3 +59,23 @@ textarea{
     margin-left: auto;
     margin-right: 20px;
 }
+.btn-style{
+    min-width: 130px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #efefef;
+    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    color: #585858;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .btn-style:active {
+    box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
+  }
