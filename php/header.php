@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <link rel="stylesheet" href="../css/header.css">
+<meta charset="UTF-8">
 
+<?php
+    session_start();
+?>
 <header>
     <a href="home.php" class="title-textdec-edit">
         <h1 class="title">HATY</h1>
@@ -20,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="MyPage.php">
                         <div>
                             <img src="../static/user.png"></img>     
                             マイページ
@@ -54,3 +57,7 @@
             </ul>
         </div>
     </div>
+</header>
+
+<head>
+    <link rel="stylesheet" href="../css/header.css">

@@ -25,15 +25,23 @@ body {
 }
 
 .current_icon {
-    margin: 30px 0 0 0;
+    margin: 30px 0 60px 0;
     width: 100%;
     float: left;
     text-align: center;
 }
-.present_icon{
-    margin: 30px 0 30px 0;
+
+img.img_icon {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 9px solid gray;
+}
+
+.present_icon {
+    margin: 30px 0 60px 0;
     width: 100%;
-    
+
     text-align: center;
 }
 

@@ -1,15 +1,11 @@
 <?php
 require_once __DIR__ . './header.php';
-session_start();
 
 $userId = $_SESSION['uid'];
 ?>
-<link rel="stylesheet" href="../css/home.css">
-<head>
-    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/home.css">
     <title>ホーム画面</title>
 </head>
-</header>
 
 <br>
 
