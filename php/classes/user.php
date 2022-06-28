@@ -55,6 +55,20 @@
             }
         }
 
+        // プロフィールの変更
+        public function editProfile($uid, $name, $icon, $mailaddress){
+            $sql = 'update user set name = ? and icon = ? and mailaddress = ? where uid = ?';
+            $result = $this->exec($sql, [$name, $icon, $mailaddress, $uid]);
+
+            if($result){
+                // プロフィールの変更が出来た場合
+                return '';
+            }else{
+                // 何かしらの原因で失敗した場合
+                return 'プロフィールの変更が出来ませんでした。';
+            }
+        }
+
         // パスワードの変更
         public function editPassword($user_id, $password){
             $sql = "update user set password = ? where uid = ?";
