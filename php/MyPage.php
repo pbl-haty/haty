@@ -1,8 +1,20 @@
 <?php
     require_once __DIR__ . './header.php';
+    require_once __DIR__ . './classes/user.php';
+    require_once __DIR__ . './classes/getdata.php';
+
+    $user = new User();
+    $getdata = new GetData();
 
     $userId = $_SESSION['uid'];
+    $get_user = $user->getUser($userId);
 
+    // タブごとの情報取得
+    $good_list = $getdata->goodlist($userId);
+    $judge_list = $getdata->judgelist($userId);
+
+    // タブの情報を一括にまとめる
+    $view_list_all = [$good_list, $judge_list];
 ?>
     <link rel="stylesheet" href="../css/MyPage.css">
     <title>マイページ</title>
@@ -11,74 +23,63 @@
 
 <body>
         <div class="user-name-object">
-            <img class="img-icon" src="../static/user_icon.png" style="margin-top: 260px;">
+            <img class="img-icon" src="<?php
+                                            if(is_null($get_user['icon'])) {
+                                                echo '../static/user.png';
+                                            } else {
+                                                $img = base64_encode($get_user['icon']);
+                                                echo 'data:;base64,' . $img;
+                                            }
+                                        ?>
+            ">
             <div class="user-nameid">
-                <p class="user-name" style="margin-top: 330px; margin-left: 50px;">山岡・A・ドラゴンHey</p>
-                <p class="user-id" style="margin-left: 50px;">@okaryuhey7123</p>
+                <p class="user-name"><?= $get_user['name'] ?></p>
+                <p class="user-id"><?= $get_user['mailaddress'] ?></p>
             </div>
             <div class="btn-div-edit"><button class="btn-edit">編集</button></div>
         </div>
-        <textarea style="margin-left: 50px;margin-right: 50px;"></textarea>
-        <div tab-swihch>
-            <button class="btn-iine" style="margin-left: 50px;" onclick="click_iine_event()">いいね</button>
-            <button class="btn-gift" style="margin-left: 5px;"onclick="click_gift_event()">ギフト</button>
+        <textarea class="textarea-content"><?= $get_user['comment'] ?></textarea>
+        <div class="tab-swihch">
+            <button class="btn-iine" onclick="click_list_event(0)">いいね</button>
+            <button class="btn-gift" onclick="click_list_event(1)">履歴</button>
         </div>
-        <script>
-            function click_iine_event() {
-                p2.style.visibility ="hidden";
-            }
-        </script>
-        <script>
-            function click_gift_event() {
-                p2.style.visibility ="visible";
-            }
-        </script>
-    <?php // グループに所属しているか判定・・・A
-        require_once __DIR__ . './classes/groupdetail.php';
-        $group = new GroupDetail();
 
-        // $group_joins = $Group->groupjoin($_SESSION['userId']);
-        $group_conf = $group->groupjoinconf($userId, $groupId);
+        <hr>
 
-        if (empty($group_conf)) {
-            echo '<hr>';
-            echo '<div class = prompt_1>';
-            echo '<h4>URLが間違っているか<br>既に解散されたグループです。</h4>';
-            echo '</div>';
-        } else {
-
-    ?>
     <?php
-        $gift_group_all = $group->giftgroupall($groupId);
-        if (empty($gift_group_all)) {
-            echo '<div class = prompt_2>';
-            echo '<h4>グループに商品を投稿しましょう！</h4>';
-            echo '</div>';
-        } else {
-            echo '<div class="display" id="p2">';
-            foreach ($gift_group_all as $gift) {
-                $img = base64_encode($gift['image']);
+        $cnt = 0;
+        foreach($view_list_all as $view_list) {
+            echo '<div class="display" id=p' . $cnt . '>';
+            if (empty($view_list)) {
+                echo '<div class = prompt_1>';
+                echo '<h4>該当する商品がありません。</h4>';
+                echo '</div>';
+            } else {
+                foreach ($view_list as $gift) {
+                    $img = base64_encode($gift['image']);
     ?>
 
-                    <a href="home_sub.html" class="detail_display">
-                        <!-- ギフト詳細画面遷移 -->
-                        <div>
-                            <img class="gift-display-image" src="data:;base64,<?php echo $img; ?>">
-                            <div class="home-image-title">
-                                    <p class="home-image-title-span"><?= $gift['gift_name'] ?></p>
+                        <a href="gift_detail.php?id=<?php echo $gift['id']; ?>" class="detail_display">
+                            <!-- ギフト詳細画面遷移 -->
+                            <div>
+                                <img class="gift-display-image" src="data:;base64,<?php echo $img; ?>">
+                                <div class="home-image-title">
+                                        <p class="home-image-title-span"><?= $gift['gift_name'] ?></p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
 
     <?php
+                }
             }
             echo '</div>';
+            $cnt++;
         }
     ?>
 
-<?php // A'
-            
-        }
-?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="../js/MyPage.js"></script>
+
 </body>
 </html>
