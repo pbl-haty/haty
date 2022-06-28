@@ -36,8 +36,9 @@
                 <p class="user-name"><?= $get_user['name'] ?></p>
                 <p class="user-id"><?= $get_user['mailaddress'] ?></p>
             </div>
-            <div class="btn-div-edit"><button class="btn-edit">編集</button></div>
+            <div class="btn-div-edit"><button class="btn-edit btn-style">編集</button></div>
         </div>
+
         <textarea class="textarea-content"><?= $get_user['comment'] ?></textarea>
         <div class="tab-swihch">
             <button class="btn-iine" onclick="click_list_event(0)">いいね</button>
