@@ -10,6 +10,8 @@
     $get_user = $user->getUser($userId);
 
     // タブごとの情報取得
+    $post_list = $getdata->postlist($userId);
+
     // 自分から相手
     $my_good_list = $getdata->mygoodlist($userId);
     $my_judge_list = $getdata->myjudgelist($userId);
@@ -25,7 +27,7 @@
     // $view_your_list = [$your_good_list, $your_judge_list, $your_application_list];
 
     // タブの情報を一括にまとめる
-    $view_list_all = [$my_good_list, $my_judge_list, $my_application_list, $your_good_list, $your_judge_list, $your_application_list];
+    $view_list_all = [$post_list, $my_good_list, $my_judge_list, $my_application_list, $your_good_list, $your_judge_list, $your_application_list];
     
 
 
@@ -37,9 +39,8 @@
 
 <body>
         <br>
-
         <div class="btn-div-edit">
-            <button class="btn-style">編集</button>
+            <p class="btn-style">編集</p>
         </div>
 
         <div class="user-name-object">
@@ -62,12 +63,13 @@
 
         <div class="nav-wrap">
             <div class="scroll-nav">
-                <button onclick="click_list_event(0)">自分いいね</button>
-                <button onclick="click_list_event(1)">自分履歴</button>
-                <button onclick="click_list_event(2)">自分申請</button>
-                <button onclick="click_list_event(3)">相手いいね</button>
-                <button onclick="click_list_event(4)">相手履歴</button>
-                <button onclick="click_list_event(5)">相手申請</button>
+                <button onclick="click_list_event(0)">投稿中</button>
+                <button onclick="click_list_event(1)">自分いいね</button>
+                <button onclick="click_list_event(2)">自分履歴</button>
+                <button onclick="click_list_event(3)">自分申請</button>
+                <button onclick="click_list_event(4)">相手いいね</button>
+                <button onclick="click_list_event(5)">相手履歴</button>
+                <button onclick="click_list_event(6)">相手申請</button>
             </div>
         </div>
 

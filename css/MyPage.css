@@ -2,7 +2,9 @@ body{
     display: block;
 }
 .user-nameid{
+    margin-left: 20px;
     width: calc(100vw - 310px);
+    display: inline-block;
 }
 .user-name-object{
     display: flex;
@@ -17,20 +19,16 @@ body{
     border: solid 1px gray;
 }
 .user-info{
+    display: flex;
+    align-items: center;
     height: 125px;
-    padding: 0;
+    margin: 0;
     font-size: 40px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.user-info{
-    font-size: 40px;
-    margin-left: 20px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+
 .textarea-content{
     resize: vertical;
     margin-top: 30px;
@@ -46,18 +44,18 @@ body{
 }
 
 .btn-div-edit {
-    margin-top: 180px;
-    width: 140px;
+    margin: 180px 0 30px 0;
     height: 60px;
     font-size: 40px;
 }
 
 .btn-style {
+    text-align: center;
+    margin: 0 20px 0 auto;
     width: 140px;
     font-size: 40px;
     min-width: 130px;
-    color: #fff;
-    padding: 5px 10px;
+    padding: 30px 20px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -74,7 +72,9 @@ body{
 }
 
 .nav-wrap {
-    width: 100%;
+    position: sticky;/*固定する*/
+    position: -webkit-sticky;/*Safari用ベンダープレフィックス*/
+    top: 150px;/*ブラウザの上からの距離はゼロ*/
     -ms-overflow-style: none;
     overflow-x: auto;
     margin: 30px 0;
@@ -84,7 +84,7 @@ body{
 .scroll-nav {
     margin: 0 20px;
     border-radius: 15px;
-    width: 1500px;
+    width: 1750px;
     min-width: 100%;
     -webkit-overflow-scrolling: touch;
     display: flex;
@@ -95,13 +95,10 @@ body{
     width: 250px;
     padding: 30px 0;
     background-color: white;
+    color: gray;
     border: none;
 }
 
 .scroll-nav button:hover {
-    font-size: 40px;
-    width: 250px;
-    padding: 30px 0;
-    background-color: #efefef;
-    border: none;
+    color: black;
 }
