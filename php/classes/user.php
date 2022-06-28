@@ -57,7 +57,16 @@
 
         // パスワードの変更
         public function editPassword($user_id, $password){
+            $sql = "update user set password = ? where uid = ?";
+            $result = $this->exec($sql, [$password, $user_id]);
 
+            if($result){
+                // パスワードの変更が出来た場合
+                return '';
+            }else{
+                // 何かしらの原因で失敗した場合
+                return 'パスワードの変更が出来ませんでした。';
+            }
         }
 
         

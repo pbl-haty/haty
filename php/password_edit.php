@@ -23,6 +23,10 @@
         }elseif($_POST['current_password'] == $_POST['new_password1']){
             $errorMessage = "現在のパスワードと同じパスワードを設定することは出来ません。";
         }else{
+            // パスワードのハッシュ化
+            $password_hash = password_hash($_POST['new_password1'], PASSWORD_DEFAULT);
+            // 「editPassword()メソッド」を呼び出し、パスワード変更の結果を受け取る
+            $errorMessage = $user -> editPassword($_SESSION['uid'], $password_hash);
             $completionMessage = "パスワードを変更しました。";
         }
     }
