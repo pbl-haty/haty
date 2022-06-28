@@ -10,11 +10,25 @@
     $get_user = $user->getUser($userId);
 
     // タブごとの情報取得
-    $good_list = $getdata->goodlist($userId);
-    $judge_list = $getdata->judgelist($userId);
+    // 自分から相手
+    $my_good_list = $getdata->mygoodlist($userId);
+    $my_judge_list = $getdata->myjudgelist($userId);
+    $my_application_list = $getdata->myapplicationlist($userId);
+
+    // $view_my_list = [$my_good_list, $my_judge_list, $my_application_list];
+
+    // 相手から自分
+    $your_good_list = $getdata->yourgoodlist($userId);
+    $your_judge_list = $getdata->yourjudgelist($userId);
+    $your_application_list = $getdata->yourapplicationlist($userId);
+    
+    // $view_your_list = [$your_good_list, $your_judge_list, $your_application_list];
 
     // タブの情報を一括にまとめる
-    $view_list_all = [$good_list, $judge_list];
+    $view_list_all = [$my_good_list, $my_judge_list, $my_application_list, $your_good_list, $your_judge_list, $your_application_list];
+    
+
+
 ?>
     <link rel="stylesheet" href="../css/MyPage.css">
     <title>マイページ</title>
@@ -41,8 +55,12 @@
 
         <textarea class="textarea-content"><?= $get_user['comment'] ?></textarea>
         <div class="tab-swihch">
-            <button class="btn-iine" onclick="click_list_event(0)">いいね</button>
-            <button class="btn-gift" onclick="click_list_event(1)">履歴</button>
+            <button class="btn-iine" onclick="click_list_event(0)">自分いいね</button>
+            <button class="btn-gift" onclick="click_list_event(1)">自分履歴</button>
+            <button class="btn-gift" onclick="click_list_event(2)">自分申請</button>
+            <button class="btn-iine" onclick="click_list_event(3)">相手いいね</button>
+            <button class="btn-gift" onclick="click_list_event(4)">相手履歴</button>
+            <button class="btn-gift" onclick="click_list_event(5)">相手申請</button>
         </div>
 
         <hr>
