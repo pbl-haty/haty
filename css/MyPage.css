@@ -2,30 +2,31 @@ body{
     display: block;
 }
 .user-nameid{
-    width: calc(100% - 430px);
+    width: calc(100vw - 310px);
 }
 .user-name-object{
     display: flex;
-    margin-left: 50px;
+    margin-top: 30px;
+    margin-left: 20px;
 }
 .img-icon{
-    margin-top: 260px;
     width: 250px;
     height: 250px;
     object-fit: cover;
     border-radius: 100%;
+    border: solid 1px gray;
 }
-.user-name{
-    margin-top: 330px;
-    margin-left: 50px;
+.user-info{
+    height: 125px;
+    padding: 0;
     font-size: 40px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.user-id{
+.user-info{
     font-size: 40px;
-    margin-left: 50px;
+    margin-left: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -33,55 +34,74 @@ body{
 .textarea-content{
     resize: vertical;
     margin-top: 30px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
     font-size: 30px;
-    width: calc(100vw - 100px);
+    width: calc(100vw - 40px);
     height: 200px;
 }
 .tab-swihch{
     text-align: center;
     margin-bottom: 30px;
 }
-.btn-iine{
-    width: calc(50vw - 50px);
-    height: 50px;
-    font-size: 40px;
-    margin: 0;
-}
-.btn-gift{
-    width: calc(50vw - 50px);
-    height: 50px;
-    font-size: 40px;
-    margin: 0;
-}
-.btn-edit{
-    margin-top:200px;
+
+.btn-div-edit {
+    margin-top: 180px;
     width: 140px;
     height: 60px;
     font-size: 40px;
 }
-.btn-div-edit{
-    margin-left: auto;
-    margin-right: 20px;
-}
-.btn-style{
+
+.btn-style {
+    width: 140px;
+    font-size: 40px;
     min-width: 130px;
     color: #fff;
     padding: 5px 10px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
     outline: none;
     border-radius: 5px;
     border: none;
     background: #efefef;
     box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
     color: #585858;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  .btn-style:active {
+}
+
+.btn-style:active {
     box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
-  }
+}
+
+.nav-wrap {
+    width: 100%;
+    -ms-overflow-style: none;
+    overflow-x: auto;
+    margin: 30px 0;
+}
+
+/* タブ */
+.scroll-nav {
+    margin: 0 20px;
+    border-radius: 15px;
+    width: 1500px;
+    min-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+}
+
+.scroll-nav button {
+    font-size: 40px;
+    width: 250px;
+    padding: 30px 0;
+    background-color: white;
+    border: none;
+}
+
+.scroll-nav button:hover {
+    font-size: 40px;
+    width: 250px;
+    padding: 30px 0;
+    background-color: #efefef;
+    border: none;
+}

@@ -36,6 +36,12 @@
 </head>
 
 <body>
+        <br>
+
+        <div class="btn-div-edit">
+            <button class="btn-style">編集</button>
+        </div>
+
         <div class="user-name-object">
             <img class="img-icon" src="<?php
                                             if(is_null($get_user['icon'])) {
@@ -47,20 +53,22 @@
                                         ?>
             ">
             <div class="user-nameid">
-                <p class="user-name"><?= $get_user['name'] ?></p>
-                <p class="user-id"><?= $get_user['mailaddress'] ?></p>
+                <p class="user-info"><?= $get_user['name'] ?></p>
+                <p class="user-info"><?= $get_user['mailaddress'] ?></p>
             </div>
-            <div class="btn-div-edit"><button class="btn-edit btn-style">編集</button></div>
         </div>
 
         <textarea class="textarea-content"><?= $get_user['comment'] ?></textarea>
-        <div class="tab-swihch">
-            <button class="btn-iine" onclick="click_list_event(0)">自分いいね</button>
-            <button class="btn-gift" onclick="click_list_event(1)">自分履歴</button>
-            <button class="btn-gift" onclick="click_list_event(2)">自分申請</button>
-            <button class="btn-iine" onclick="click_list_event(3)">相手いいね</button>
-            <button class="btn-gift" onclick="click_list_event(4)">相手履歴</button>
-            <button class="btn-gift" onclick="click_list_event(5)">相手申請</button>
+
+        <div class="nav-wrap">
+            <div class="scroll-nav">
+                <button onclick="click_list_event(0)">自分いいね</button>
+                <button onclick="click_list_event(1)">自分履歴</button>
+                <button onclick="click_list_event(2)">自分申請</button>
+                <button onclick="click_list_event(3)">相手いいね</button>
+                <button onclick="click_list_event(4)">相手履歴</button>
+                <button onclick="click_list_event(5)">相手申請</button>
+            </div>
         </div>
 
         <hr>

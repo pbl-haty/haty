@@ -10,6 +10,10 @@
                 <li><a href="#">いいね</a></li>
                 <li><a href="#">申請済</a></li>
                 <li><a href="#">予備タブ</a></li>
+                <li><a href="#">取引履歴</a></li>
+                <li><a href="#">いいね</a></li>
+                <li><a href="#">申請済</a></li>
+                <li><a href="#">予備タブ</a></li>
             </ul>
         </div>
     </div>
