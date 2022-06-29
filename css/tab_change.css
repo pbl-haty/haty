@@ -1,59 +1,19 @@
-body {
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
-    margin: 10px;
-    font-size: 40px;
-}
-
 .nav-wrap {
-    position: relative;
+    width: 100vw;
+    font-size: 40px;
     -ms-overflow-style: none;
+    overflow: auto;
+    height: 60px;
 }
 
 /* タブ */
 .scroll-nav {
+    margin: 30px 20px;
     border-radius: 15px;
-    width: 100%;
+    width: 1500px;
+    min-width: 100%;
     background: skyblue;
-    overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
+    display: flex;
+    position: relative;
 }
-
-.scroll-nav ul {
-    height: 40px;
-    line-height: 80px;
-    margin: 0 auto;
-    list-style: none;
-    padding-right: 25px;
-    padding:0;
-}
-
-.scroll-nav ul li {
-    float: left;
-    width: 110px;
-    text-align: center;
-    font-size: 50px;
-}
-
-/* マウスホバー時動作 */
-.scroll-nav ul li:hover {
-    background: blue;
-}
-
-.scroll-nav ul li a {
-    display: inline-block;
-    color: #fff;
-    text-decoration: none;
-    
-}
-
-.scroll-nav ul li {
-    border-left: 3px solid #fff;
-    border-right: 3px solid #fff;
-    box-sizing: border-box;
-    width: 25%;
-}
-
-.scroll-nav ul li+li {
-    border-left: none;
-}
-

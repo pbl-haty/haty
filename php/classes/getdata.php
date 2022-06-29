@@ -5,6 +5,17 @@
     class GetData extends DbData {
     // 商品をカートに入れる ・・ テーブルcartに登録する
 
+        // 自分が現在投稿している商品で未申請一覧
+        public function postlist($userId){
+            $sql = "select gift.id, gift.gift_name, gift.image, gift.post
+                    from gift
+                    where gift.user_id = ? and gift.applicant is null
+                    order by gift.post desc, gift.id desc";
+            $stmt = $this->query($sql, [$userId]);
+            $items = $stmt->fetchAll();
+            return $items;
+        }    
+
         // 自分が「いいね」している商品を取得(未取引の物のみ表示)
         public function mygoodlist($userId){
             $sql = "select gift.id, gift.gift_name, gift.image, gift.post
