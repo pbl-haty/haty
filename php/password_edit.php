@@ -58,6 +58,7 @@
             <div class="edit_password">
                 <div class="edit_password_title">
                     <p>パスワード変更</p>
+                    <a href="profile_edit.php">プロフィール変更はこちら</a>
                 </div>
                 <div class="password_input">
                     <p>現在のパスワードを入力</p>

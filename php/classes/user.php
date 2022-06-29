@@ -55,10 +55,10 @@
             }
         }
 
-        // プロフィールの変更
-        public function editProfile($uid, $name, $icon, $mailaddress){
-            $sql = 'update user set name = ? and icon = ? and mailaddress = ? where uid = ?';
-            $result = $this->exec($sql, [$name, $icon, $mailaddress, $uid]);
+        //　プロフィールの変更（アイコン以外）
+        public function editProfile($user_id, $name, $email, $comment){
+            $sql = 'update user set name = ?, mailaddress = ?, comment = ? where uid = ?';
+            $result = $this->exec($sql, [$name, $email, $comment, $user_id]);
 
             if($result){
                 // プロフィールの変更が出来た場合
@@ -66,6 +66,20 @@
             }else{
                 // 何かしらの原因で失敗した場合
                 return 'プロフィールの変更が出来ませんでした。';
+            }
+        }
+
+        // プロフィールの変更（アイコン）
+        public function editIcon($uid, $icon){
+            $sql = 'update user set icon = ? where uid = ?';
+            $result = $this->exec($sql, [$icon, $uid]);
+
+            if($result){
+                // プロフィールの変更が出来た場合
+                return '';
+            }else{
+                // 何かしらの原因で失敗した場合
+                return 'アイコンの変更が出来ませんでした。';
             }
         }
 

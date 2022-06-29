@@ -9,17 +9,42 @@
     // 変更完了メッセージの初期化
     $completionMessage = "";
 
-    // ユーザーオブジェクトを生成し、「authUser()メソッド」を呼び出し、認証結果を受け取る
+    // ユーザーオブジェクトを生成
     $user = new User();
+
+    // 変更ボタンが押されたとき
+    if(isset($_POST['edit_btn'])){
+        // ポストされた内容を保存
+        $name = $_POST['name_edit'];
+        $email = $_POST['email_edit'];
+        $comment = $_POST['comment_edit'];
+
+        // アイコンが変更されているか
+        if(empty($_FILES['image']['tmp_name'])){
+            //　アイコンを変更していない場合、入力内容のみデータベースを変更
+            $errorMessage = $user->editProfile($_SESSION['uid'], $name, $email, $comment);
+        }else{
+            // アイコンを変更時、アイコンの画像をバイナリー形式に変換
+            $fp = fopen($_FILES['image']['tmp_name'], "rb");
+            $img = fread($fp, filesize($_FILES['image']['tmp_name']));
+            fclose($fp);
+            // アイコン画像と入力内容のデータベースを変更
+            $errorMessage = $user->editIcon($_SESSION['uid'], $img);
+            $errorMessage = $user->editProfile($_SESSION['uid'], $name, $email, $comment);
+        }
+
+        if(empty($errorMessage)){
+            $completionMessage = "プロフィールを変更しました。";
+        }
+
+    }
+    // 「authUser()メソッド」を呼び出し、認証結果を受け取る
     $result = $user->getUser($_SESSION['uid']);
 
     // 画像処理
-    $current_icon = base64_encode($_SESSION['icon']);
-
-    if(isset($_POST['edit_btn'])){
-        
-    }
+    $current_icon = base64_encode($result['icon']);
 ?>
+
     <link rel="stylesheet" href="../css/profile_edit.css">
     <title>プロフィール編集</title>
 </head>
@@ -27,9 +52,24 @@
 <body>
     <br>
     <div class="profile_edit">
-        <form method="POST" action="">
+
+        <!-- エラーメッセージもしくは変更完了メッセージの表示 -->
+        <?PHP if(!empty($errorMessage)){ ?>
+        <div class="error_message">
+            <p><?php echo $errorMessage;?></p>
+            <?php $errorMessage =""; ?>
+        </div>
+        <?php }elseif(!empty($completionMessage)){ ?>
+        <div class="completion_message">
+            <p><?php echo $completionMessage;?></p>
+            <?php $completionMessage ="";?>
+        </div>
+        <?php } ?>
+
+        <form method="POST" action=""  enctype="multipart/form-data">
             <div class="profile_edit_title">
                 <p>プロフィール変更</p>
+                <a href="password_edit.php">パスワードの変更はこちら</a>
             </div>
 
             <div class="display-icon">

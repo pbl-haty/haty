@@ -27,8 +27,45 @@
     color: #494949;
 }
 
+.profile_edit_title a{
+    font-size: 30px;
+    text-decoration: none;
+    color: blue;
+}
+
+.error_message{
+    margin: 2em 1em;
+    padding: 0.5em 1em;
+    text-align: center;
+    background: #FFF;
+    border: solid 5px red;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.error_message p{
+    font-size: 50px;
+    margin: 0; 
+    padding: 0;
+}
+
+.completion_message{
+    margin: 2em 1em;
+    padding: 0.5em 1em;
+    text-align: center;
+    background: #FFF;
+    border: solid 5px blue;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.completion_message p{
+    font-size: 50px;
+    margin: 0; 
+    padding: 0;
+}
+
 .display-icon{
     display: flex;
+    margin-top: 50px;
 }
 
 .current_icon{
@@ -105,7 +142,7 @@
     font-size: 60px;
     padding: 0.5em;
     width: 250px;
-    height: 200px;
+    height: 150px;
     color: #fff;
     background: #5bbee5;
     background: linear-gradient(to right, #5bbee5, #52ddae);
@@ -114,4 +151,21 @@
 
 .edit_btn_center {
     text-align: center;
+}
+
+/* 追加 */
+.icon-flame{
+    border: dotted 2px black;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 260px;
+    width: calc(40vw - 20px);
+    height: calc(40vw - 20px);
+}
+.icon-img {
+    border-radius: 50%;
+    margin: 0 auto;
+    width: calc(40vw - 20px);
+    height: calc(40vw - 20px);
+    object-fit: cover;
 }
