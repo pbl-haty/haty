@@ -37,6 +37,8 @@ body{
     font-size: 30px;
     width: calc(100vw - 40px);
     height: 200px;
+    border: 1px solid gray;
+    border-radius: 20px;
 }
 .tab-swihch{
     text-align: center;

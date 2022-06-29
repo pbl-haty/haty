@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <textarea class="textarea-content"><?= $get_user['comment'] ?></textarea>
+        <p class="textarea-content"><?= $get_user['comment'] ?></p>
 
         <div class="nav-wrap">
             <div class="scroll-nav">
