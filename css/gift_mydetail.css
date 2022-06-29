@@ -1,0 +1,400 @@
+body {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 30px;
+    margin-bottom: 100px;
+}
+
+.gift_detail {
+    margin-top: 150px;
+    padding: 0 20px;
+}
+
+.btn_center {
+    text-align: center;
+}
+
+.btn_right {
+    text-align: right;
+}
+
+/* .syosai {
+    text-align: center;
+    font-size: 60px;
+    display: block;
+    letter-spacing: 0.12em;
+    color: #494949;
+    background: #f3ebe2;
+    margin-top: 60px;
+    padding: 0.5em;
+} */
+
+.gift_complete {
+    margin: 0 0 10px 0;
+    padding: 0.5em;
+    text-decoration: none;
+    color: #FFFAFA;
+    background: #668ad8;
+    border-bottom: solid 4px #627295;
+    border-radius: 5px;
+    font-size: 60px;
+}
+
+.look_gift {
+    margin: 0 0 10px 0;
+    padding: 0.5em;
+    text-decoration: none;
+    color: #FFFAFA;
+    background: #668ad8;
+    border-bottom: solid 4px #627295;
+    border-radius: 5px;
+    font-size: 40px;
+}
+
+.gift_sentence {
+    display: flex;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.gift_name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    margin: 50px 0;
+}
+
+.gift_post {
+    align-items: center;
+    margin-bottom: 50px;
+    padding: 0 30px;
+}
+
+.gift_post h4 {
+    white-space: nowrap;
+}
+
+.gift_post a {
+    color: blue;
+    text-decoration: none;
+}
+
+.gift_explain {
+    margin: 20px 0 50px 0;
+}
+
+.explain_sentence {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 60px;
+    border-bottom: double 3mm #FF0000;
+}
+
+.request_sentence {
+    border-radius: 60px;
+    font-size: 50px;
+    padding: 1em 1em;
+    margin: 0 auto;
+    width: 500px;
+    color: #FFFAFA;
+    background-color: #668ad8;
+}
+
+.once_sentence {
+    margin-top: 20px;
+}
+
+.good_count {
+    align-items: center;
+    text-align: center;
+    margin: 0 0 30px 0;
+    display: flex;
+    padding: 30px;
+}
+
+.gift_table {
+    margin: 100px 0;
+    width: 100%;
+}
+
+.gift_table th {
+    position: relative;
+    text-align: left;
+    width: 40%;
+    white-space: nowrap;
+}
+
+.gift_table th:after {
+    display: block;
+    content: "";
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 20px;
+}
+
+.gift_table td {
+    text-align: center;
+    width: 85%;
+}
+
+.good_sentence {
+    outline: none;
+}
+
+.favorite_before {
+    background-color: grey;
+    color: #fff;
+    border-radius: 60%;
+    width: 200px;
+    line-height: 150px;
+}
+
+.favorite_after {
+    background: greenyellow;
+    color: #000;
+    border-radius: 60%;
+    width: 200px;
+    line-height: 150px;
+}
+
+.good_sentence input {
+    display: none;
+}
+
+
+.good_number {
+    text-align: center;
+    padding: 0px 20px;
+}
+
+.good_number a {
+    color: blue;
+    text-decoration: none;
+}
+
+.comment_sentence {
+    padding: 15px 30px;
+    font-size: 40px;
+    text-align: left;
+    background-color: rgba(61, 106, 161, 0.447);
+}
+
+
+.comment_box {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: solid 5px black;
+    margin: 0 auto;
+}
+
+.comment-send_btn {
+    padding: 0.5em;
+    text-decoration: none;
+    color: #FFFAFA;
+    background: #668ad8;
+    border-bottom: solid 4px #627295;
+    border-radius: 5px;
+    font-size: 50px;
+}
+
+/* 以下、チャット */
+.chatting_place {
+    width: 100%;
+    height: 500px;
+    overflow: scroll;
+    border-bottom: solid 8px rgba(61, 106, 161, 0.447);
+    border-right: solid 8px rgba(61, 106, 161, 0.447);
+    border-left: solid 8px rgba(61, 106, 161, 0.447);
+}
+
+.chatting_place .faceicon {
+    float: left;
+    margin-right: -90px;
+    width: 80px;
+}
+
+.chatting_place .faceicon img {
+    width: 100%;
+    height: auto;
+    border: solid 3px #d7ebfe;
+    border-radius: 50%;
+}
+
+.onechat {
+    padding: 10px;
+}
+
+.says {
+    display: inline-block;
+    position: relative;
+    margin: 0px 10px 0 100px;
+    padding: 10px 10px;
+    border-radius: 12px;
+    background: #d7ebfe;
+    max-width: 95%;
+}
+
+.says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    left: -24px;
+    border: 12px solid transparent;
+    border-right: 12px solid #d7ebfe;
+}
+
+.says p {
+    margin: 10px;
+}
+
+.comment_username {
+    font-weight: bold;
+}
+
+.comment_postdata {
+    font-size: 20px;
+    color: #696969;
+}
+
+.gift_delete {
+    margin: 30px 0 0 0;
+    padding: 0.5em;
+    text-decoration: none;
+    color: rgb(139, 9, 9);
+    background: #668ad8;
+    border-bottom: solid 4px #627295;
+    border-radius: 5px;
+    font-size: 50px;
+}
+
+/* .comment_reply {
+    text-align: left;
+    font-size: 30px;
+    margin: 5px 0 30px 105px;
+    border-radius: 10px;
+    padding: 0.5em;
+    background-color: rgba(61, 106, 161, 0.447);
+} */
+
+/* 以下、画像スライド*/
+
+/* # =================================================================
+   # Global selectors
+   # ================================================================= */
+
+html {
+    box-sizing: border-box;
+    overflow-y: scroll;
+    /* All browsers without overlaying scrollbars */
+    -webkit-text-size-adjust: 100%;
+    /* iOS 8+ */
+}
+
+*,
+::before,
+::after {
+    background-repeat: no-repeat;
+    /* Set `background-repeat: no-repeat` to all elements and pseudo elements */
+    box-sizing: inherit;
+}
+
+::before,
+::after {
+    text-decoration: inherit;
+    /* Inherit text-decoration and vertical align to ::before and ::after pseudo elements */
+    vertical-align: inherit;
+}
+
+* {
+    padding: 0;
+    /* Reset `padding` and `margin` of all elements */
+    margin: 0;
+}
+
+a {
+    background-color: transparent;
+    /* Remove the gray background on active links in IE 10 */
+    -webkit-text-decoration-skip: objects;
+    /* Remove gaps in links underline in iOS 8+ and Safari 8+ */
+}
+
+/* # =================================================================
+     # Forms
+     # ================================================================= */
+
+input {
+    border-radius: 0;
+}
+
+/* Apply cursor pointer to button elements */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"],
+[role="button"] {
+    cursor: pointer;
+}
+
+textarea {
+    overflow: auto;
+    /* Internet Explorer 11+ */
+    resize: vertical;
+    /* Specify textarea resizability */
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font: inherit;
+    /* Specify font inheritance of form elements */
+}
+
+
+button {
+    overflow: visible;
+    /* Address `overflow` set to `hidden` in IE 8/9/10/11 */
+}
+
+button,
+html [type="button"],
+/* Prevent a WebKit bug where (2) destroys native `audio` and `video`controls in Android 4 */
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+    /* Correct the inability to style clickable types in iOS */
+}
+
+button,
+select {
+    text-transform: none;
+    /* Firefox 40+, Internet Explorer 11- */
+}
+
+/* Remove the default button styling in all browsers */
+button,
+input,
+select,
+textarea {
+    background-color: transparent;
+    border-style: none;
+    color: inherit;
+}
+
+/*==================================================
+スライダーのためのcss
+===================================*/
+.slider {
+    margin: 0 auto;
+}
+
+.slider img {
+    width: calc(100vw - 40px);
+    height: calc(100vw - 40px);
+    object-fit: cover;
+}
