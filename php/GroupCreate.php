@@ -14,9 +14,14 @@
 
             $code = $groupoption->codeuniq();          
             
-            $fp = fopen($_FILES['image']['tmp_name'], "rb");
-            $image = fread($fp, filesize($_FILES['image']['tmp_name']));
-            fclose($fp);
+            if(empty($_FILES['image']['tmp_name'])) {
+                $filePath = '../static/user.png';
+                $image = file_get_contents($filePath);
+            } else {
+                $fp = fopen($_FILES['image']['tmp_name'], "rb");
+                $image = fread($fp, filesize($_FILES['image']['tmp_name']));
+                fclose($fp);
+            }
 
             $grouppass_hash = password_hash($grouppass, PASSWORD_DEFAULT);
 
@@ -40,7 +45,7 @@
         </div>
             <label class="btn-style btn-select">
                 画像を選択
-                <input type="file" id="input-img" onchange="loadImage(this);" name="image" accept="image/*" required>
+                <input type="file" id="input-img" onchange="loadImage(this);" name="image" accept="image/*">
             </label>
         <div>
             <input class="text-box" type="text" style="margin-top: 50px;" name="group_name" placeholder="グループ名" required>

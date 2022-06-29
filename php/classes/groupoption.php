@@ -32,6 +32,9 @@
 
             $sql = 'insert into groupdb(groupname, code, password, icon) values(?, ?, ?, ?)';
             $this->exec($sql, [$groupname, $code, $grouppass, $image]);
+            $id = $this->pdo->lastInsertId();
+            $sql = 'insert into groupjoin(user_id, group_id) values(?, ?)';
+            $this->exec($sql, [$userId , $id]);
         }
 
     }
