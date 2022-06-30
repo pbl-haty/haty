@@ -4,20 +4,15 @@ body{
     margin: 50px 0px;
     display: block;
 }
-.id{
-    width: calc(100vw - 100px);
-    height: 30px;
-    /* margin-top: 30px; */
-}
-.pass{
-    width: calc(100vw - 100px);
-    height: 30px;
-    margin-top: 30px;
-}
 .login{
     margin-top: 30px;
 }
-
+.login-text{
+    margin: 0px;
+    margin-top: 20px;
+    padding-left: 70px;
+    text-align: left;
+}
 .autologin-div {
     margin: 0 50px;
     text-align: left;
@@ -65,5 +60,5 @@ body{
 }
 #lg-effect:focus{
     outline: 0;
-    border-color: aqua;
+    border-color: hotpink;
 }
