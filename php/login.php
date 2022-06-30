@@ -59,6 +59,7 @@
     </div>
 
     <form method="POST" action="" >
+        <p>メールアドレス</p>
         <input type="email" class="id" name="login_email" placeholder="メールアドレス" id="lg-effect" maxlength="100" required><br>
         <input type="password" class="pass" name="login_pass" placeholder="パスワード" id="lg-effect" maxlenght="64" required>
 
