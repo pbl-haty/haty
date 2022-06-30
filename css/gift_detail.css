@@ -4,9 +4,17 @@ body {
     margin-bottom: 100px;
 }
 
-.gift_detail{
+.gift_detail {
     margin-top: 150px;
     padding: 0 20px;
+}
+
+.btn_center {
+    text-align: center;
+}
+
+.btn_right {
+    text-align: right;
 }
 
 /* .syosai {
@@ -33,22 +41,22 @@ body {
     margin: 50px 0;
 }
 
-.gift_post{
+.gift_post {
     align-items: center;
     margin-bottom: 50px;
     padding: 0 30px;
 }
 
-.gift_post h4{
+.gift_post h4 {
     white-space: nowrap;
 }
 
-.gift_post a{
+.gift_post a {
     color: blue;
     text-decoration: none;
 }
 
-.gift_explain{
+.gift_explain {
     margin: 20px 0 50px 0;
 }
 
@@ -61,7 +69,8 @@ body {
 
 .request_sentence {
     border-radius: 60px;
-    padding: 2em;
+    font-size: 50px;
+    padding: 1em 1em;
     margin: 0 auto;
     width: 500px;
     color: #FFFAFA;
@@ -80,30 +89,30 @@ body {
     padding: 30px;
 }
 
-.gift_table{
+.gift_table {
     margin: 100px 0;
     width: 100%;
 }
 
-.gift_table th{
+.gift_table th {
     position: relative;
     text-align: left;
     width: 40%;
     white-space: nowrap;
 }
 
-.gift_table th:after{
+.gift_table th:after {
     display: block;
     content: "";
     width: 30px;
     height: 2px;
     background-color: #333;
     position: absolute;
-    top:calc(50% - 1px);
-    right:20px;
+    top: calc(50% - 1px);
+    right: 20px;
 }
 
-.gift_table td{
+.gift_table td {
     text-align: center;
     width: 85%;
 }
@@ -112,7 +121,7 @@ body {
     outline: none;
 }
 
-.favorite_before{
+.favorite_before {
     background-color: grey;
     color: #fff;
     border-radius: 60%;
@@ -120,8 +129,8 @@ body {
     line-height: 150px;
 }
 
-.favorite_after{
-    background: greenyellow;
+.favorite_after {
+    background: rgb(6, 171, 236);
     color: #000;
     border-radius: 60%;
     width: 200px;
@@ -138,10 +147,15 @@ body {
     padding: 0px 20px;
 }
 
-.good_number a{
+.good_number a {
     color: blue;
     text-decoration: none;
 }
+
+.comment_nyuryoku {
+    margin: 0 0 0 15px;
+}
+
 
 .comment_sentence {
     font-size: 40px;
@@ -165,6 +179,7 @@ body {
     background: #668ad8;
     border-bottom: solid 4px #627295;
     border-radius: 5px;
+    font-size: 50px;
 }
 
 /* 以下、チャット */
@@ -190,7 +205,7 @@ body {
     border-radius: 50%;
 }
 
-.onechat{
+.onechat {
     padding: 10px;
 }
 
@@ -202,6 +217,7 @@ body {
     border-radius: 12px;
     background: #d7ebfe;
     max-width: 95%;
+    word-break: break-all;
 }
 
 .says:after {
@@ -214,16 +230,16 @@ body {
     border-right: 12px solid #d7ebfe;
 }
 
-.says p{
-    margin:10px;
+.says p {
+    margin: 10px;
 }
 
-.comment_username{
+.comment_username {
     font-weight: bold;
 }
 
-.comment_postdata{
-    font-size:20px;
+.comment_postdata {
+    font-size: 20px;
     color: #696969;
 }
 

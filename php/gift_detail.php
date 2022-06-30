@@ -166,12 +166,12 @@
         <!--吹き出し終わり-->
 
         <!-- コメント入力 -->
-        <p>コメントを入力</p>
+        <p class="comment_nyuryoku">コメントを入力</p>
         <form action="gift_detail_backend.php" method="post">
             <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
             <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
             <textarea class="comment_box" name="comment" placeholder="コメントを入力してください"></textarea>
-            <button type="submit" class="comment-send_btn" name="send_comment">送信</button>
+            <div class="btn_right"><button type="submit" class="comment-send_btn" name="send_comment">送信</button></div>
         </form>
     </div>
 

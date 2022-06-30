@@ -168,7 +168,7 @@ $comment_all = $gift->getComment($giftId);
         <!--吹き出し終わり-->
 
         <!-- コメント入力 -->
-        <p>コメントを入力</p>
+        <p class="comment_nyuryoku">コメントを入力</p>
         <form action="gift_detail_backend.php" method="post">
             <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
             <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
