@@ -38,7 +38,7 @@ $userId = $_SESSION['uid'];
     <div class="home_1">
         <h1 class="group_itiran"><?= $group_conf['groupname'] ?></h1>
         <div class="group-option">
-            <a href="group_list.php">
+            <a href="group_list.php?groupid=<?php echo $groupId; ?>">
                 <img class="group-option-image" src="../static/haguruma.png">
             </a>
         </div>

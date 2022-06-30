@@ -1,8 +1,6 @@
-body {
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+.body {
     font-size: 40px;
-    letter-spacing: 0.12em;
-    margin-top: 30px;
+    margin-top: 180px;
     padding: 0 20px
 }
 
@@ -125,6 +123,7 @@ body {
     font-size: 40px;
     text-decoration: none;
     color: #000000;
+    background-color: #fff;
 }
 
 /* 脱退 */
@@ -139,4 +138,12 @@ body {
     font-size: 40px;
     text-decoration: none;
     color: #000000;
+}
+
+.prompt_1 {
+    padding: 0 20px;
+    margin-top: 150px;
+    text-align: center;
+    font-size: 50px;
+    color: rgba(119, 29, 29, 0.534);
 }
