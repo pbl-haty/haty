@@ -27,7 +27,7 @@
             $grouppass_hash = password_hash($grouppass, PASSWORD_DEFAULT);
             $groupoption->groupcreate($userId, $groupname, $code, $grouppass_hash, $image);            
             
-            $completionmsg = "投稿が完了しました。";
+            $completionmsg = "グループが作成されました。";
         } else {
             $errlog = 'パスワードが一致しません';
         }
