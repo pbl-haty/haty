@@ -14,7 +14,7 @@ body{
     height: calc(40vw - 20px);
     object-fit: cover;
 }
-.input-pass{
+.input-style{
     margin-top: 50px;
     height: calc(10vw - 10px);
     width: calc(100vw - 100px);
