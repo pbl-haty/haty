@@ -23,7 +23,6 @@
             // ユーザー情報をセッションに保存する
             $_SESSION['uid'] = $result['uid'];
             $_SESSION['name'] = $result['name'];
-            $_SESSION['password'] = $result['password'];
             $_SESSION['comment'] = $result['comment'];
             $_SESSION['icon'] = $result['icon'];
             $_SESSION['mailaddress'] = $result['mailaddress'];

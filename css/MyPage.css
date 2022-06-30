@@ -51,6 +51,10 @@ body{
     font-size: 40px;
 }
 
+.btn-div-edit a{
+    text-decoration: none;
+}
+
 .btn-style {
     text-align: center;
     margin: 0 20px 0 auto;
