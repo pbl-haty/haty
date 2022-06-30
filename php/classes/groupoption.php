@@ -62,4 +62,20 @@
                 return 'あなたは既にこのグループに参加しています。';
             }
         }
+
+        public function groupwithdrawal($userId, $groupId) {
+            $sql = 'delete from groupjoin where user_id = ? and group_id = ?';
+            $this->exec($sql, [$userId, $groupId]);
+
+            // グループに誰も所属していない場合そのグループを削除
+            $sql = 'select * 
+                    from groupdb join groupjoin on groupdb.id = groupjoin.group_id
+                    where groupdb.id = ?';
+            $stmt = $this->query($sql, [$groupId]);
+            $items = $stmt->fetchAll();
+            if(empty($items)) {
+                $sql = 'delete from groupdb where id = ?';
+                $this->exec($sql, [$groupId]);
+            }
+        }
     }
