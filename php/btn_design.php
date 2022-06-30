@@ -10,6 +10,7 @@
     <input type="submit" class="edit_btn" name="edit_btn" value="編集"></p><br><br>
     <button class="btn-create btn-style" style="margin-top: 100px;">作成</button><br><br>
     <!-- 以下追加デザイン -->
+    <p>追加したボタンデザイン</p>
     <a href="#" class="sample01">送信</a><br><br>
     <div class="sample02">
         <a href="#" class="sample02">送信</a>
