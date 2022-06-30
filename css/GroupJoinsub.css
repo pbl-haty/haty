@@ -1,0 +1,88 @@
+body{
+    display: block;
+    text-align: center;
+}
+.join-title{
+    font-size: 70px;
+}
+.img-join{
+    margin-top: 50px;
+    border-radius: 50%;
+    margin: 0 auto;
+    width: calc(40vw - 20px);
+    height: calc(40vw - 20px);
+    object-fit: cover;
+}
+.input-style{
+    margin-top: 50px;
+    height: calc(10vw - 10px);
+    width: calc(100vw - 100px);
+    border: solid 2px black;
+    font-size: 40px;
+    padding: 20px;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.btn-join{
+    margin-top: 100px;
+    width: calc(30vw);
+    height: calc(10vw);
+    font-size: 40px;
+}
+.btn-style{
+    min-width: 130px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #efefef;
+    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    color: #585858;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.btn-style:active {
+    box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
+}
+
+.groupjoinsub{
+    width: 100%;
+    margin-top: 260px;
+}
+
+.error_message{
+    margin: 2em 1em;
+    padding: 0.5em 1em;
+    text-align: center;
+    background: #FFF;
+    border: solid 5px red;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.error_message p{
+    font-size: 50px;
+    margin: 0; 
+    padding: 0;
+    word-wrap: break-word;
+}
+
+.completion_message{
+    margin: 2em 1em;
+    padding: 0.5em 1em;
+    text-align: center;
+    background: #FFF;
+    border: solid 5px blue;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.completion_message p{
+    font-size: 50px;
+    margin: 0; 
+    padding: 0;
+    word-wrap: break-word;
+}

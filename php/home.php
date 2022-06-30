@@ -17,7 +17,7 @@ $userId = $_SESSION['uid'];
                 <img class="group-option-image" src="../static/user.png">
                 <p class="group-option-text">作成</p>
             </a>
-            <a class="group-option-move">
+            <a href="GroupJoinsub.php" class="group-option-move">
                 <img class="group-option-image" src="../static/user.png">
                 <p class="group-option-text">参加</p>
             </a>
