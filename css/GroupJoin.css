@@ -49,3 +49,10 @@ body{
 .btn-style:active {
     box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
 }
+
+.prompt_2 {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 50px;
+    color: rgba(119, 29, 29, 0.534);
+}

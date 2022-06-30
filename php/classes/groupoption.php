@@ -37,4 +37,24 @@
             $this->exec($sql, [$userId , $id]);
         }
 
+        public function groupjoin($userId, $groupId) {
+            $sql = "insert into groupjoin(user_id, group_id) values(?, ?)";
+            $this->exec($sql, [$userId, $groupId]);
+            return $item;
+        }
+
+        public function groupjoin_room($code) {
+            $sql = 'select * from groupdb where code = ?';
+            $stmt = $this->query($sql, [$code]);
+            $item = $stmt->fetch();
+            return $item;
+        }
+
+        public function groupjoin_member($userId, $groupId) {
+            $sql = 'select * from groupjoin where user_id = ? and group_id = ?';
+            $stmt = $this->query($sql, [$userId, $groupId]);
+            $item = $stmt->fetch();
+            return $item;
+        }
+
     }
