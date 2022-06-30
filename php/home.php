@@ -13,7 +13,7 @@ $userId = $_SESSION['uid'];
     <div class="home_1">
         <h1 class="group_itiran">グループ一覧</h1>
         <div class="group-option">
-            <a class="group-option-move">
+            <a href="GroupCreate.php" class="group-option-move">
                 <img class="group-option-image" src="../static/user.png">
                 <p class="group-option-text">作成</p>
             </a>
