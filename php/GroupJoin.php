@@ -11,10 +11,9 @@
     if(isset($_POST['groupjoin'])) {
         $item = $groupoption->groupjoin_room($code);
         $password = $_POST['password'];
-        password_verify($password, $item['password'])
         
         if(password_verify($password, $item['password'])) {
-            $groupoption->groupjoin($userId, $groupId);
+            $groupoption->groupjoin($userId, $item['id']);
             $msg = 'グループに参加しました。';
         } else {
             $msg = 'パスワードが間違っています。';
@@ -32,15 +31,16 @@
 
 
     <?php // グループに所属しているか判定・・・A
-        $item = $groupoption->groupjoin_room($code);
-        if(empty($item)) {
-            echo '<div class ="prompt_2"><h4>リンクが間違っているか存在しないグループです。</h4></div>';
-        } else {
-            $groupId = $item['id'];
-            $item2 = $groupoption->groupjoin_member($userId, $groupId);
-            if(!empty($item2)) {
-                echo '<div class ="prompt_2"><h4>既に参加しているグループです。</h4></div>';
+        if(empty($msg)) {
+            $item = $groupoption->groupjoin_room($code);
+            if(empty($item)) {
+                echo '<div class ="prompt_3"><h4>リンクが間違っているか存在しないグループです。</h4></div>';
             } else {
+                $groupId = $item['id'];
+                $item2 = $groupoption->groupjoin_member($userId, $groupId);
+                if(!empty($item2)) {
+                    echo '<div class ="prompt_3"><h4>既に参加しているグループです。</h4></div>';
+                } else {
     ?>
 
         <h1 class="join-title"><?= $item['groupname'] ?></h1>
@@ -53,11 +53,15 @@
             <input type="submit" class="btn-join btn-style" name="groupjoin" value="参加">
         </form>
 
-        <div class ="prompt_2">
+    <?php
+                }
+            }
+        } else {
+    ?>
+        <div class ="prompt_3">
             <h4><?= $msg ?></h4>
         </div>
     <?php
-            }
         }
     ?>
 </body>

@@ -40,7 +40,6 @@
         public function groupjoin($userId, $groupId) {
             $sql = "insert into groupjoin(user_id, group_id) values(?, ?)";
             $this->exec($sql, [$userId, $groupId]);
-            return $item;
         }
 
         public function groupjoin_room($code) {
