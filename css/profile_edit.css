@@ -1,134 +1,140 @@
-body {
-    font-size: 50px;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+.sample-img{
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 9px solid gray;
+    margin: 0 auto;
 }
 
-.edit_edit_icon {
+.sample-img-size {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.profile_edit{
+    font-size: 30px;
+    margin-top: 250px;
+    margin-bottom: 100px;
     text-align: center;
+    padding: 0 20px;
 }
 
-.edit_edit {
+.profile_edit_title{
+    font-size: 50px;
+    color: #494949;
+}
+
+.profile_edit_title a{
+    font-size: 30px;
+    text-decoration: none;
+    color: blue;
+}
+
+.error_message{
+    margin: 2em 1em;
+    padding: 0.5em 1em;
+    text-align: center;
+    background: #FFF;
+    border: solid 5px red;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.error_message p{
+    font-size: 50px;
+    margin: 0; 
+    padding: 0;
+}
+
+.completion_message{
+    margin: 2em 1em;
+    padding: 0.5em 1em;
+    text-align: center;
+    background: #FFF;
+    border: solid 5px blue;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.completion_message p{
+    font-size: 50px;
+    margin: 0; 
+    padding: 0;
+}
+
+.display-icon{
     display: flex;
+    margin-top: 50px;
+}
+
+.current_icon{
+    display: block;
+    width: 50%;
+}
+
+.new_icon{
+    display: block;
+    width: 50%;
+}
+
+.upload-label{
+    display: inline-block;
+    margin: 30px 0 0 0;
+    padding: 30px 0;
+    color: black;
+    font-size: 30px;
+    border-radius: 20px;
+    border: 2px black solid;
+    width: 100%;
 }
 
 .edit_border {
     border: solid 10px #52ddae;
     border-radius: 50px;
-    padding: 0 0 50px 0;
-
+    margin-top: 1em;
+    padding: 1em;
+    text-align: initial;
 }
 
-/* アイコン編集 */
-.edit_icon {
-    margin: 0 auto 0 auto;
-    text-align: center;
-}
-
-.current_icon {
-    margin: 30px 0 60px 0;
-    width: 100%;
-    float: left;
-    text-align: center;
-}
-
-img.img_icon {
+.img_icon {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     border: 9px solid gray;
 }
 
-.present_icon {
-    margin: 30px 0 60px 0;
+.name_edit{
     width: 100%;
-
-    text-align: center;
-}
-
-.edit_icon_place[type="file"] {
-    margin: 60px 80px 0 0;
+    height: 60px;
+    border: 5px solid #999;
+    text-indent: 5px;
     font-size: 30px;
-    width: 500px;
-    display: none;
-}
-
-.edit_icon_place_sentence {
-    /* background-color: #f2f2f2;
-    border: 5px solid #999; */
-    color: blue;
-    box-sizing: border-box;
-    margin: 100px 10px 0 0;
-    padding: 0.5em;
-    /* border-radius: 2em; */
-}
-
-/* 氏名編集 */
-.edit_name {
-    margin: 80px 80px 0 40px;
-    width: 300px;
-}
-
-.current_name {
-    margin: 80px 80px 0 0;
-    width: 500px;
-}
-
-.edit_name_place {
-    display: inline-block;
-    width: 500px;
-    height: 100px;
-    font-size: 60px;
-    padding: 0.5em;
-    border: 5px solid #999;
-    box-sizing: border-box;
     background: #f2f2f2;
-    margin: 0.5em 0;
-}
-
-/* ユーザーID編集 */
-.edit_mailaddress {
-    margin: 80px 80px 0 40px;
-    width: 300px;
-}
-
-.current_mailaddress {
-    margin: 80px 80px 0 0;
-    width: 500px;
-}
-
-.edit_mailaddress_place {
-    display: inline-block;
-    width: 500px;
-    height: 100px;
-    font-size: 60px;
-    padding: 0.5em;
-    border: 5px solid #999;
     box-sizing: border-box;
+}
+
+.email_edit{
+    width: 100%;
+    height: 60px;
+    border: 5px solid #999;
+    text-indent: 5px;
+    font-size: 30px;
     background: #f2f2f2;
-    margin: 0.5em 0;
+    box-sizing: border-box;
 }
 
-/* コメント編集 */
-.edit_profile-comment {
-    margin: 80px 80px 0 40px;
-    width: 300px;
-}
-
-.current_profile-comment {
-    margin: 80px 80px 0 0;
-    width: 500px;
-}
-
-.edit_profile-comment_place {
-    display: inline-block;
-    width: 500px;
+.comment_edit{
+    width: 100%;
     height: 300px;
-    font-size: 60px;
+    font-size: 25px;
     padding: 0.5em;
     border: 5px solid #999;
     box-sizing: border-box;
     background: #f2f2f2;
     margin: 0;
+    font-weight: normal;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", "Meiryo", -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 .edit_btn[type="submit"] {
@@ -136,7 +142,7 @@ img.img_icon {
     font-size: 60px;
     padding: 0.5em;
     width: 250px;
-    height: 200px;
+    height: 150px;
     color: #fff;
     background: #5bbee5;
     background: linear-gradient(to right, #5bbee5, #52ddae);
@@ -147,7 +153,19 @@ img.img_icon {
     text-align: center;
 }
 
-/* .edit_item {
-    margin: 50px 80px 0 40px;
-    width: 30%;
-} */
+/* 追加 */
+.icon-flame{
+    border: dotted 2px black;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 260px;
+    width: calc(40vw - 20px);
+    height: calc(40vw - 20px);
+}
+.icon-img {
+    border-radius: 50%;
+    margin: 0 auto;
+    width: calc(40vw - 20px);
+    height: calc(40vw - 20px);
+    object-fit: cover;
+}

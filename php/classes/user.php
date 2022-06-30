@@ -42,6 +42,61 @@
             }
         }
 
+        // メールアドレスとパスワードの確認
+        public function checkPass($user_id, $password){
+            $sql = 'select * from user where uid = ? and password = ?';
+            $stmt = $this->query($sql, [$user_id, $password]);
+            $result = $stmt->fetch();
+
+            if($result){
+                return '';
+            }else{
+                return '入力した現在のパスワードが間違っています。';
+            }
+        }
+
+        //　プロフィールの変更（アイコン以外）
+        public function editProfile($user_id, $name, $email, $comment){
+            $sql = 'update user set name = ?, mailaddress = ?, comment = ? where uid = ?';
+            $result = $this->exec($sql, [$name, $email, $comment, $user_id]);
+
+            if($result){
+                // プロフィールの変更が出来た場合
+                return '';
+            }else{
+                // 何かしらの原因で失敗した場合
+                return 'プロフィールの変更が出来ませんでした。';
+            }
+        }
+
+        // プロフィールの変更（アイコン）
+        public function editIcon($uid, $icon){
+            $sql = 'update user set icon = ? where uid = ?';
+            $result = $this->exec($sql, [$icon, $uid]);
+
+            if($result){
+                // プロフィールの変更が出来た場合
+                return '';
+            }else{
+                // 何かしらの原因で失敗した場合
+                return 'アイコンの変更が出来ませんでした。';
+            }
+        }
+
+        // パスワードの変更
+        public function editPassword($user_id, $password){
+            $sql = "update user set password = ? where uid = ?";
+            $result = $this->exec($sql, [$password, $user_id]);
+
+            if($result){
+                // パスワードの変更が出来た場合
+                return '';
+            }else{
+                // 何かしらの原因で失敗した場合
+                return 'パスワードの変更が出来ませんでした。';
+            }
+        }
+
         
         // ログアウト処理
         public function logout(){

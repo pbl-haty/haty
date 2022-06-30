@@ -34,7 +34,7 @@
 ?>
     <link rel="stylesheet" href="../css/MyPage.css">
     <title>マイページ</title>
-<link rel="stylesheet" href="../css/group.css">
+    <link rel="stylesheet" href="../css/group.css">
 </head>
 
 <body>
