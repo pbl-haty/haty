@@ -63,13 +63,18 @@
         </div>
 
         <a href="group.php?groupid=<?php echo $groupId; ?>" class="gift-list-sentence">商品一覧へ</a>
-        <p class="inv-link-sentence">招待リンク</p>
+        <div class="inv-link-sentence" data-clipboard-text="http://localhost/haty/php/GroupJoin.php?<?= $conf['code'] ?>">招待リンク</div>
         <a href="dattai.php?groupid=<?php echo $groupId; ?>" class="leave-sentece">脱退する</a> <!--確認のため別画面(dattai.php)へ遷移-->
     </div>
 
     <?php
         }
     ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.13/clipboard.min.js"></script>
+
+    <script type="text/javascript" src="../js/group_list.js"></script>
 
 </body>
 
