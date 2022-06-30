@@ -152,7 +152,7 @@ body {
 }
 
 .favorite_after {
-    background: greenyellow;
+    background: rgb(6, 171, 236);
     color: #000;
     border-radius: 60%;
     width: 200px;
@@ -235,6 +235,7 @@ body {
     border-radius: 12px;
     background: #d7ebfe;
     max-width: 95%;
+    word-break: break-all;
 }
 
 .says:after {

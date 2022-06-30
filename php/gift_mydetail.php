@@ -39,7 +39,7 @@ list($good, $good_name) = $gift->getGood($giftId);
 $comment_all = $gift->getComment($giftId);
 ?>
 <link rel="stylesheet" href="../css/home.css">
-<link rel="stylesheet" href="../css/gift_detail.css">
+<link rel="stylesheet" href="../css/gift_mydetail.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <title>ギフト詳細</title>
 </head>
