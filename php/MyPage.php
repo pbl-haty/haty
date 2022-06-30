@@ -40,7 +40,9 @@
 <body>
         <br>
         <div class="btn-div-edit">
-            <p class="btn-style">編集</p>
+            <a href="profile_edit.php">
+                <p class="btn-style">編集</p>
+            </a>
         </div>
 
         <div class="user-name-object">
