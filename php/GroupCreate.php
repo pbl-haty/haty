@@ -3,6 +3,7 @@
     require_once __DIR__ . './classes/groupoption.php';
 
     $userId = $_SESSION['uid'];
+    $completionmsg = "";
     $errlog = "";
 
     $groupoption = new Groupoption();
@@ -24,8 +25,9 @@
             }
 
             $grouppass_hash = password_hash($grouppass, PASSWORD_DEFAULT);
-
             $groupoption->groupcreate($userId, $groupname, $code, $grouppass_hash, $image);            
+            
+            $completionmsg = "投稿が完了しました。";
         } else {
             $errlog = 'パスワードが一致しません';
         }
@@ -38,6 +40,11 @@
 <body>
 <br>
     <form method="POST" action="" class="header-margin-top" enctype="multipart/form-data">
+        
+        <div class ="prompt_2">
+                <h4><?= $completionmsg ?></h4>
+        </div>
+    
         <div class="icon-flame" id="icon-flame">
 
                 <img class="icon-img" src="../static/user.png" id="icon-flame2">
@@ -51,10 +58,10 @@
             <input class="text-box" type="text" style="margin-top: 50px;" name="group_name" placeholder="グループ名" required>
         </div>
         <div>
-            <input class="text-box" type="pass" style="margin-top: 50px;" name="group_pass" placeholder="パスワード" required>
+            <input class="text-box" type="password" style="margin-top: 50px;" name="group_pass" placeholder="パスワード" required>
         </div>
         <div>
-            <input class="text-box" type="pass" style="margin-top: 10px;" name="group_repass" placeholder="再入力" required>
+            <input class="text-box" type="password" style="margin-top: 10px;" name="group_repass" placeholder="再入力" required>
         </div>
 
         <div class ="prompt_2">
