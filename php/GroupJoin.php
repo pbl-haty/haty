@@ -9,8 +9,8 @@
 <body>
     <h1 class="join-title">右端のやつら</h1>
     <form action="">
-    <img src="../static/user_icon.png" alt="">
-    <div><input type="pass" class="input-pass" placeholder="パスワード"></div>
+    <img src="../static/user_icon.png" class="img-join" alt="">
+    <div><input type="password" class="input-pass" placeholder="パスワード"></div>
     <button class="btn-join btn-style">参加</button>
     </form>
 </body>
