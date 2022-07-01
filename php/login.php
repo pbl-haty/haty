@@ -55,11 +55,13 @@
     </div>
   
     <div class="lnk-sakusei-div">
-        <a href="NewAccount.php" class="lnk-sakusei">アカウント作成</a> 
+        <a href="NewAccount.php" class="lnk-sakusei btn-style">アカウント作成</a> 
     </div>
 
     <form method="POST" action="" >
+        <p class="login-text">メールアドレス</p>
         <input type="email" class="id" name="login_email" placeholder="メールアドレス" id="lg-effect" maxlength="100" required><br>
+        <p class="login-text">パスワード</p>
         <input type="password" class="pass" name="login_pass" placeholder="パスワード" id="lg-effect" maxlenght="64" required>
 
         <div class="autologin-div">
@@ -67,7 +69,7 @@
             <label for="login">次回から自動ログイン</label>
         </div>
 
-        <input type="submit" class="btn-login" id="check" name="login" value="ログイン">
+        <input type="submit" class="btn-login btn-style" id="check" name="login" value="ログイン">
         <br>
     </form>
 </body>
