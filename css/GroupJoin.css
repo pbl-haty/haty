@@ -63,3 +63,13 @@ body{
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
 }
+
+.input-pass{
+    margin-top: 50px;
+    height: calc(10vw - 10px);
+    width: calc(100vw - 100px);
+    border: solid 2px black;
+    font-size: 40px;
+    padding: 20px;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+}
