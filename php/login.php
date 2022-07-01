@@ -55,7 +55,7 @@
     </div>
   
     <div class="lnk-sakusei-div">
-        <a href="NewAccount.php" class="lnk-sakusei">アカウント作成</a> 
+        <a href="NewAccount.php" class="lnk-sakusei btn-style">アカウント作成</a> 
     </div>
 
     <form method="POST" action="" >
@@ -69,7 +69,7 @@
             <label for="login">次回から自動ログイン</label>
         </div>
 
-        <input type="submit" class="btn-login" id="check" name="login" value="ログイン">
+        <input type="submit" class="btn-login btn-style" id="check" name="login" value="ログイン">
         <br>
     </form>
 </body>
