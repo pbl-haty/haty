@@ -2,9 +2,7 @@ body{
     display:block;
     text-align: center;
 }
-html{
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
-}
+
 .icon-flame{
     border: dotted 2px black;
     border-radius: 50%;

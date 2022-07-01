@@ -1,15 +1,51 @@
-<!DOCTYPE html>
-<html lang="ja">
-<link rel="stylesheet" href="../css/dattai.css">
+<?php
+    require_once __DIR__ . './header.php';
+    require_once __DIR__ . './classes/groupoption.php';
+
+    $userId = $_SESSION['uid'];
+    $groupId = $_GET['groupid'];
+
+    $groupoption = new Groupoption();
+    if(isset($_POST['groupcreate'])) {
+        $groupoption->groupwithdrawal($userId, $groupId);
+        header('Location: home.php');
+    }
+?>
+    <link rel="stylesheet" href="../css/dattai.css">
+</head>
 
 <body>
-    <p class="final-check">右端の奴らを脱退します</p>
 
-    <form method="POST" action="example.cgi" onSubmit="return check()">
-        <div class=leave-btn-center>
-            <p><input type="submit" class="leave-btn" value="脱退"></p>
-        </div>
-    </form>
+    <br>
+    <div class="body">
+
+        <?php // グループに所属しているか判定・・・A
+            require_once __DIR__ . './classes/groupdetail.php';
+            $group = new GroupDetail();
+
+            // $group_joins = $Group->groupjoin($_SESSION['userId']);
+            $group_conf = $group->groupjoinconf($userId, $groupId);
+
+            if (empty($group_conf)) {
+                echo '<div class = prompt_1>';
+                echo '<h4>URLが間違っているか<br>既に解散されたグループです。</h4>';
+                echo '</div>';
+            } else {
+
+        ?>
+
+        <p class="final-check"><?= $group_conf['groupname'] ?>を脱退します</p>
+
+        <form method="POST" onSubmit="return check()">
+            <div class=leave-btn-center>
+                <button class="leave-btn" name="groupcreate">脱退</button>
+            </div>
+        </form>
+
+    <?php
+            }
+    ?>
+    </div>
 </body>
 <script type="text/javascript">
     function check() {
