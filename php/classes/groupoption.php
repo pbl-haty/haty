@@ -37,6 +37,32 @@
             $this->exec($sql, [$userId , $id]);
         }
 
+        // グループコードからグループ情報を取得
+        public function getGroupdb($code){
+            $sql = 'select * from groupdb where code = ?';
+            $stmt = $this->query($sql, [$code]);
+            return $stmt->fetch();
+        }
+
+        // コードで入力からグループに参加する
+        public function joinGroupCode($user_id, $group_id){
+            $sql = 'select * from groupjoin where user_id = ? and group_id = ?';
+            $stmt = $this->query($sql, [$user_id, $group_id]);
+            $check_result = $stmt->fetch();
+
+            if(empty($check_result)){
+                $sql = 'insert into groupjoin(user_id, group_id) values(?, ?)';
+                $result = $this->exec($sql, [$user_id, $group_id]);
+                if($result){
+                    return '';
+                }else{
+                    return 'グループの参加が出来ませんでした。再度入力してください。';
+                }
+            }else{
+                return 'あなたは既にこのグループに参加しています。';
+            }
+        }
+
         public function groupwithdrawal($userId, $groupId) {
             $sql = 'delete from groupjoin where user_id = ? and group_id = ?';
             $this->exec($sql, [$userId, $groupId]);
@@ -52,5 +78,4 @@
                 $this->exec($sql, [$groupId]);
             }
         }
-
     }
