@@ -41,12 +41,13 @@
                 if(!empty($item2)) {
                     echo '<div class ="prompt_3"><h4>既に参加しているグループです。</h4></div>';
                 } else {
+                    $img = base64_encode($item['icon']);
     ?>
 
         <h1 class="join-title"><?= $item['groupname'] ?></h1>
         <form method="POST" action="">
             <input type="hidden" name="code" value="<?= $code ?>"> 
-            <img src="../static/user_icon.png" class="img-join" alt="">
+            <img src="data:;base64,<?php echo $img; ?>" class="img-join" alt="">
             <div>
                 <input type="password" class="input-pass" placeholder="パスワード" name="password">
             </div>
