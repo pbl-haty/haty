@@ -19,7 +19,7 @@
     $get_user = $user->getUser($user_profile_id);
 
     // タブごとの情報取得
-    $post_list = $getdata->getGiftList($user_profile_Id, $groupid);
+    $post_list = $getdata->getGiftList($user_profile_id, $groupid);
 
     // 自分から相手
     $my_good_list = $getdata->mygoodlist($user_profile_id);
