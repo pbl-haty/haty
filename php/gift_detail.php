@@ -55,11 +55,17 @@
             <li><img class="gift_display_detail" src="data:;base64,<?php echo $gift_image; ?>" alt=""></li>
             <?php
                 $gift_addimage = $gift->getaddimage($giftId);
-                foreach($gift_addimage as $addimage) {
-                    $addimg = base64_encode($addimage['image']);        
+                if(empty($gift_addimage)) {
+            ?>
+                    <li><img class="gift_display_detail" src="data:;base64,<?php echo $gift_image; ?>" alt=""></li>
+            <?php    
+                } else {
+                    foreach($gift_addimage as $addimage) {
+                        $addimg = base64_encode($addimage['image']);        
             ?>
                     <li><img class="gift_display_detail" src="data:;base64,<?= $addimg ?>" alt=""></li>
             <?php
+                    }
                 }
             ?>
         </ul>
