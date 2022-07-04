@@ -20,20 +20,20 @@
         if (empty($group_name)) {
             $errormsg1 = 'グループを選択してください。';
         } else {
-
-            $condi = filter_input(INPUT_POST, 'conditions', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
-            if(empty($condi)) {
-                $errormsg2 = "手渡しか配送を選んでください。";
+            if (!isset($_POST['category'])) {
+                $errormsg3 = 'カテゴリを選択してください。';
             } else {
-                $conditions = 0;
-                foreach($condi as $key => $value){
-                    $conditions += (int)$value;
-                }
+                $category_id = $_POST['category'];
                
-                if (!isset($_POST['category'])) {
-                    $errormsg3 = 'カテゴリを選択してください。';
+                $condi = filter_input(INPUT_POST, 'conditions', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+                if(empty($condi)) {
+                    $errormsg2 = "手渡しか配送を選んでください。";
                 } else {
-                    $category_id = $_POST['category'];
+                    $conditions = 0;
+                    foreach($condi as $key => $value){
+                        $conditions += (int)$value;
+                    }
+
                     for($i = 0; $i < count($_FILES["image"]["name"]) && $i < 4; $i++ ){
                         $fp = fopen($_FILES['image']['tmp_name'][$i], "rb");
                         $image = fread($fp, filesize($_FILES['image']['tmp_name'][$i]));
@@ -133,9 +133,8 @@
     foreach ($gift_category as $category) {
 ?>
         <div class="trade-box">
-            <label>
-                <input type="radio" name="category" value="<?= $category['id'] ?>"><?= $category['category_name'] ?>
-            </label>
+            <input type="radio" id="category-<?= $cnt ?>" name="category" value="<?= $category['id'] ?>">
+            <label for="category-<?= $cnt ?>"><?= $category['category_name'] ?></label>
         </div>
 
 <?php 
