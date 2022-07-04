@@ -70,7 +70,7 @@
         <div class="gift_post">
             <h4>投稿者</h4>
             <!-- ユーザーのプロフィール画面が出来次第遷移（予定） -->
-            <a href="#" class=>
+            <a href="user_profile.php?id=<?php echo $post_user['uid']; ?>" class=>
                 <img src="" alt="">
                 <p class="gift_contributor"><?php echo $post_user['name']; ?>さん</p>
             </a>

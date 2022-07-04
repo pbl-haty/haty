@@ -17,6 +17,13 @@
             return $stmt->fetch();
         }
 
+        // ユーザーIDから参加しているグループ情報を取得
+        public function getGroupId($user_id){
+            $sql = "select group_id from groupjoin where user_id = ?";
+            $stmt = $this->query($sql, [$user_id]);
+            return $stmt->fetchAll(PDO::FETCH_COLUMN);
+        }
+
         // ユーザー登録処理
         public function signUp($name, $password, $mailaddress){
             // 既にメールアドレスが登録されているかの確認

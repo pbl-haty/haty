@@ -81,4 +81,15 @@
             $items = $stmt->fetchAll();
             return $items;
         }
+
+        // ログイン中のユーザーと同じグループに投稿されていて、未申請のギフト一覧
+        public function getGiftList($user_id, $group_id){
+            $sql = "select gift.id, gift.gift_name, gift.image, gift.post
+                    from gift join giftgroup on gift.id = giftgroup.gift_id
+                    where gift.user_id = ? and gift.applicant is null and giftgroup.group_id in (".implode(",",$group_id).");
+                    order by gift.post desc, gift.id desc";
+            $stmt = $stmt = $this->query($sql, [$user_id]);
+            $items = $stmt->fetchAll();
+            return $items;
+        }
     }
