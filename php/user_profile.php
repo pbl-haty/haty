@@ -22,7 +22,7 @@
     $post_list = $getdata->getGiftList($user_profile_id, $groupid);
 
     // 自分から相手
-    $my_good_list = $getdata->mygoodlist($user_profile_id);
+    $my_good_list = $getdata->getGoodGiftlist($user_profile_id, $groupid);
     $my_judge_list = $getdata->myjudgelist($user_profile_id);
     $my_application_list = $getdata->myapplicationlist($user_profile_id);
  
@@ -55,7 +55,6 @@
             ">
             <div class="user-nameid">
                 <p class="user-info"><?= $get_user['name'] ?></p>
-                <p class="user-info"><?php echo $groupid[0] ?></p>
             </div>
         </div>
 
@@ -65,7 +64,7 @@
             <div class="nav-contents">
                 <button onclick="click_list_event(0)">投稿中</button>
                 <button onclick="click_list_event(1)">いいね</button>
-                <button onclick="click_list_event(2)">投稿履歴</button>
+                <button onclick="click_list_event(2)">過去の投稿</button>
             </div>
         </div>
 

@@ -53,7 +53,7 @@
                 <input id="acd-check<?= $cnt ?>" class="acd-check" type="checkbox">
                 <label class="acd-label" for="acd-check<?= $cnt ?>"><?= $mem['name'] ?></label>
                 <div class="acd-content">
-                    <a href="" class="member-profile">プロフィールを見る</a> <!--名前タップで「プロフィールを見る」を開く-->
+                    <a href="user_profile.php?id=<?php echo $mem['uid']; ?>" class="member-profile">プロフィールを見る</a> <!--名前タップで「プロフィールを見る」を開く-->
                 </div>
             <?php
                     $cnt++;
