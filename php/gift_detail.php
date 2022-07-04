@@ -106,8 +106,8 @@
                 <td><?php echo $derivery_conditions ?></td>
             </tr>
             <tr>
-                <th>ジャンル</th>
-                <td><?php echo $gift_info['category'] ?></td>
+                <th>カテゴリ</th>
+                <td><?php echo $gift_info['category_name'] ?></td>
             </tr>
             <tr>
                 <th>ギフト投稿日時</th>

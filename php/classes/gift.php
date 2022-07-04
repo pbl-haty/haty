@@ -6,7 +6,9 @@
     class Gift extends DbData {
         // 選択されたギフトの情報を取り出す
         public function getGift($gift_id){
-            $sql = "select * from gift where id = ?";
+            $sql = "select * 
+                    from gift join category on gift.category_id = category.id
+                    where gift.id = ?";
             $stmt = $this->query($sql, [$gift_id]);
             return $stmt->fetch();
         }

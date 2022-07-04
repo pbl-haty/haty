@@ -8,6 +8,7 @@
     $completionmsg = "";
     $errormsg1 = "";
     $errormsg2 = "";
+    $errormsg3 = "";
 
     $post = new Post();
     if(isset($_POST['giftpost'])){
@@ -29,24 +30,28 @@
                     $conditions += (int)$value;
                 }
                
-                for($i = 0; $i < count($_FILES["image"]["name"]) && $i < 4; $i++ ){
-                    $fp = fopen($_FILES['image']['tmp_name'][$i], "rb");
-                    $image = fread($fp, filesize($_FILES['image']['tmp_name'][$i]));
-                    fclose($fp);
+                if (!isset($_POST['category'])) {
+                    $errormsg3 = 'カテゴリを選択してください。';
+                } else {
+                    $category_id = $_POST['category'];
+                    for($i = 0; $i < count($_FILES["image"]["name"]) && $i < 4; $i++ ){
+                        $fp = fopen($_FILES['image']['tmp_name'][$i], "rb");
+                        $image = fread($fp, filesize($_FILES['image']['tmp_name'][$i]));
+                        fclose($fp);
 
-                    if($i == 0){
-                        $result = $post->giftpost($userId, $conditions, $giftname, $giftcomment, $image);
-                    } else {
-                        $post->imagepost($result, $image);
+                        if($i == 0){
+                            $result = $post->giftpost($userId, $conditions, $giftname, $giftcomment, $category_id, $image);
+                        } else {
+                            $post->imagepost($result, $image);
+                        }
                     }
+
+                    foreach($group_name as $key => $groupid){
+                        $post->grouppost($result, (int)$groupid);
+                    }
+
+                    $completionmsg = "投稿が完了しました。";
                 }
-
-                foreach($group_name as $key => $groupid){
-                    $post->grouppost($result, (int)$groupid);
-                }
-
-                $completionmsg = "投稿が完了しました。";
-
             }
         }
     }
@@ -57,7 +62,7 @@
 
 ?>
     <link rel="stylesheet" href="../css/GiftPost.css">
-    <title>Document</title>
+    <title>投稿</title>
 </head>
 
 <body>
@@ -112,6 +117,31 @@
  ?>
 
         </div>
+
+        <h1 class="content-margin">カテゴリ</h1>
+
+        <div class ="prompt_2">
+            <h4><?= $errormsg3 ?></h4>
+        </div>
+
+        <div class="content-check">
+
+<?php 
+    $gift_category = $post->giftcategory();
+
+    $cnt = 0;
+    foreach ($gift_category as $category) {
+?>
+        <div class="trade-box">
+            <label>
+                <input type="radio" name="category" value="<?= $category['id'] ?>"><?= $category['category_name'] ?>
+            </label>
+        </div>
+
+<?php 
+        $cnt++;
+    }
+ ?>
 
         <h1 class="content-margin">取引条件</h1>
         <div class ="prompt_2">
