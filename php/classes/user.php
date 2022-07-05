@@ -17,6 +17,27 @@
             return $stmt->fetch();
         }
 
+        // ユーザーIDから参加しているグループ情報を取得
+        public function getGroupId($user_id){
+            $sql = "select group_id from groupjoin where user_id = ?";
+            $stmt = $this->query($sql, [$user_id]);
+            return $stmt->fetchAll(PDO::FETCH_COLUMN);
+        }
+
+        // ユーザーIDとグループIDから所属しているか確認
+        public function getGroupJoinInfo($user_id, $group_id){
+            $sql = "select * from groupjoin where user_id = ? and group_id in (".implode(",",$group_id).")";
+            $stmt = $this->query($sql, [$user_id]);
+            $result = $stmt->fetchAll();
+
+            if(empty($result)){
+                return 'このユーザーを表示することは<br>出来ません。';
+            }else{
+                return '';
+            }
+
+        }
+
         // ユーザー登録処理
         public function signUp($name, $password, $mailaddress){
             // 既にメールアドレスが登録されているかの確認

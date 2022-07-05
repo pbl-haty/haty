@@ -84,6 +84,7 @@ body{
     -ms-overflow-style: none;
     overflow-x: auto;
     margin: 30px 0;
+    background-color: white;
 }
 
 /* タブ */
@@ -106,5 +107,34 @@ body{
 }
 
 .scroll-nav button:hover {
+    color: black;
+}
+
+
+
+/* ユーザープロフィールナビ 　横スクロール無し*/
+.user-profile-nav{
+    position: sticky;/*固定する*/
+    position: -webkit-sticky;/*Safari用ベンダープレフィックス*/
+    top: 150px;/*ブラウザの上からの距離はゼロ*/
+    -ms-overflow-style: none;
+    margin: 30px 0;
+}
+
+.nav-contents{
+    min-width: 100%;
+    display: flex;
+}
+
+.nav-contents button{
+    font-size: 40px;
+    width : calc(100% / 3);
+    padding: 30px 0;
+    background-color: white;
+    color: gray;
+    border: none;
+}
+
+.nav-contents button:hover{
     color: black;
 }
