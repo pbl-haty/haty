@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 
 <?php
-    session_start();
+session_start();
 ?>
 <header>
     <a href="home.php" class="title-textdec-edit">
@@ -17,7 +17,7 @@
                 <li>
                     <a href="home.php">
                         <div class="menu-content-border-none">
-                            <img src="../static/home.png"></img>    
+                            <img src="../static/home.png"></img>
                             ホーム
                         </div>
                     </a>
@@ -25,7 +25,7 @@
                 <li>
                     <a href="MyPage.php">
                         <div>
-                            <img src="../static/user.png"></img>     
+                            <img src="../static/user.png"></img>
                             マイページ
                         </div>
                     </a>
@@ -33,7 +33,7 @@
                 <li>
                     <a href="GiftPost.php">
                         <div>
-                            <img src="../static/post.png"></img> 
+                            <img src="../static/post.png"></img>
                             投稿
                         </div>
                     </a>
@@ -41,7 +41,7 @@
                 <li>
                     <a href="#">
                         <div>
-                            <img src="../static/notification.png"></img> 
+                            <img src="../static/notification.png"></img>
                             通知
                         </div>
                     </a>
@@ -49,7 +49,7 @@
                 <li>
                     <a href="logout.php">
                         <div>
-                            <img src="../static/logout.png"></img> 
+                            <img src="../static/logout.png"></img>
                             ログアウト
                         </div>
                     </a>
@@ -60,4 +60,5 @@
 </header>
 
 <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Corben:700">
     <link rel="stylesheet" href="../css/header.css">

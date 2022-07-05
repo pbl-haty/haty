@@ -5,12 +5,9 @@
     class Post extends DbData {
     // 商品をカートに入れる ・・ テーブルcartに登録する
 
-        public function giftpost($userId, $conditions, $gift_name, $giftcomment, $image){
-            /* カテゴリあり */
-            /* $sql = 'insert into gift(user_id, conditions, gift_name, giftcomment, category, image) values(?, ?, ?, ?, ?, ?)'; */
-            /* カテゴリなし */
-            $sql = 'insert into gift(user_id, conditions, gift_name, giftcomment, image) values(?, ?, ?, ?, ?)';
-            $result = $this->exec($sql, [$userId, $conditions, $gift_name, $giftcomment, $image]);
+        public function giftpost($userId, $conditions, $gift_name, $giftcomment, $category_id, $image){
+            $sql = 'insert into gift(user_id, conditions, gift_name, giftcomment, category_id, image) values(?, ?, ?, ?, ?, ?)';
+            $result = $this->exec($sql, [$userId, $conditions, $gift_name, $giftcomment, $category_id, $image]);
             return $this->pdo->lastInsertId();
         }
 
@@ -22,5 +19,12 @@
         public function imagepost($gift_id, $image){
             $sql = 'insert into giftimage(gift_id, image) values(?, ?)';
             $this->exec($sql, [$gift_id, $image]);
+        }
+
+        public function giftcategory() {
+            $sql = "select * from category";
+            $stmt = $this->query($sql, []);
+            $items = $stmt->fetchAll();
+            return $items;
         }
     }

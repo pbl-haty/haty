@@ -55,11 +55,17 @@
             <li><img class="gift_display_detail" src="data:;base64,<?php echo $gift_image; ?>" alt=""></li>
             <?php
                 $gift_addimage = $gift->getaddimage($giftId);
-                foreach($gift_addimage as $addimage) {
-                    $addimg = base64_encode($addimage['image']);        
+                if(empty($gift_addimage)) {
+            ?>
+                    <li><img class="gift_display_detail" src="data:;base64,<?php echo $gift_image; ?>" alt=""></li>
+            <?php    
+                } else {
+                    foreach($gift_addimage as $addimage) {
+                        $addimg = base64_encode($addimage['image']);        
             ?>
                     <li><img class="gift_display_detail" src="data:;base64,<?= $addimg ?>" alt=""></li>
             <?php
+                    }
                 }
             ?>
         </ul>
@@ -82,9 +88,9 @@
                 <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
                 <!-- 既にいいねを押しているかを確認 -->
                 <?php if(empty($gift->checkGood($giftId, $userId))){?>
-                    <button type="submit" name="favorite_before" class="favorite_before">💗いいね</button>
+                    <button type="submit" name="favorite_before" class="favorite_before">👍いいね</button>
                 <?php }else{ ?>
-                    <button type="submit" name="favorite_after" class="favorite_after">💗いいね</button>
+                    <button type="submit" name="favorite_after" class="favorite_after">👍いいね</button>
                 <?php } ?>
             </form>
             <div class="good_number">
@@ -106,8 +112,8 @@
                 <td><?php echo $derivery_conditions ?></td>
             </tr>
             <tr>
-                <th>ジャンル</th>
-                <td><?php echo $gift_info['category'] ?></td>
+                <th>カテゴリ</th>
+                <td><?php echo $gift_info['category_name'] ?></td>
             </tr>
             <tr>
                 <th>ギフト投稿日時</th>
@@ -134,7 +140,7 @@
             <?php if(empty($gift_info['applicant'])){?>
                     <button type="submit" class="request_sentence" name="applygift">受け取り申請</button>
             <?php }elseif($gift_info['applicant'] == $userId){?>
-                    <button type="submit" class="request_sentence" name="cancelgift">受け取り申請をキャンセル</button>
+                    <button type="submit" class="request_sentence" name="cancelgift">受け取り申請を<br>キャンセル</button>
             <?php }?>
         </form>
 
