@@ -41,7 +41,7 @@ $comment_all = $gift->getComment($giftId);
 <link rel="stylesheet" href="../css/home.css">
 <link rel="stylesheet" href="../css/gift_mydetail.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-<title>ギフト詳細</title>
+<title>マイギフト詳細</title>
 </head>
 
 <body>
@@ -84,9 +84,9 @@ $comment_all = $gift->getComment($giftId);
                 <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
                 <!-- 既にいいねを押しているかを確認 -->
                 <?php if (empty($gift->checkGood($giftId, $userId))) { ?>
-                    <button type="submit" name="favorite_before" class="favorite_before">💗いいね</button>
+                    <button type="submit" name="favorite_before" class="favorite_before">👍いいね</button>
                 <?php } else { ?>
-                    <button type="submit" name="favorite_after" class="favorite_after">💗いいね</button>
+                    <button type="submit" name="favorite_after" class="favorite_after">👍いいね</button>
                 <?php } ?>
             </form>
             <div class="good_number">
@@ -136,7 +136,7 @@ $comment_all = $gift->getComment($giftId);
             <?php if (empty($gift_info['applicant'])) { ?>
                 <button type="submit" class="request_sentence" name="applygift">受け取り申請</button>
             <?php } elseif ($gift_info['applicant'] == $userId) { ?>
-                <button type="submit" class="request_sentence" name="cancelgift">受け取り申請をキャンセル</button>
+                <button type="submit" class="request_sentence" name="cancelgift">受け取り申請を<br>キャンセル</button>
             <?php } ?>
         </form>
 
