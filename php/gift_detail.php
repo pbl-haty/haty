@@ -13,6 +13,21 @@
     // ギフトオブジェクトとユーザーオブジェクトを生成
     $gift = new Gift();
     $user = new User();
+?>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/gift_detail.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <title>ギフト詳細</title>
+</head>
+
+<?php
+    $giftgroup = $gift->getGiftGroup($userId, $giftId);
+    if(empty($giftgroup)) {
+        echo '<br><div class="gift_detail">';
+        echo '<div class = prompt_1>';
+        echo '<h4>URLが間違っているか<br>投稿が削除されたギフトです。</h4>';
+        echo '</div></div>';
+    } else {
 
     // 「getGift()メソッド」を呼び出す
     $gift_info = $gift->getGift($giftId);
@@ -38,11 +53,6 @@
     // 全てのコメント情報を取得
     $comment_all = $gift->getComment($giftId);
 ?>
-    <link rel="stylesheet" href="../css/home.css">
-    <link rel="stylesheet" href="../css/gift_detail.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <title>ギフト詳細</title>
-</head>
 
 <body>
 
@@ -180,6 +190,10 @@
             <div class="btn_right"><button type="submit" class="comment-send_btn" name="send_comment">送信</button></div>
         </form>
     </div>
+
+        <?php
+            }
+        ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
