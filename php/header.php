@@ -2,6 +2,8 @@
 <html lang="ja">
 <meta charset="UTF-8">
 
+<script src="../js/header.js" charset="utf-8"></script>
+
 <?php
 session_start();
 ?>

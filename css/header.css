@@ -45,6 +45,7 @@ html {
     font-size: 100px;
     color: #114f917b;
     text-shadow: 2px 4px 6px #000000;
+    -webkit-text-stroke: 5px #FFF;
 }
 
 .title-textdec-edit {
@@ -145,7 +146,7 @@ html {
     align-items: center;
 }
 
-.menu-content ul li a div{
+.menu-content ul li a div {
     width: 100%;
     display: flex;
     border-top: 1px solid white;
@@ -153,11 +154,11 @@ html {
     padding: 30px 10%;
 }
 
-.menu-content-border-none{
+.menu-content-border-none {
     border-top: none !important;
 }
 
-.menu-content ul li a div img{
+.menu-content ul li a div img {
     width: 125px;
     margin: 0 15% 0 0;
 }
