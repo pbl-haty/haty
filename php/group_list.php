@@ -52,7 +52,7 @@ $groupId = $_GET['groupid'];
                 foreach ($member as $mem) {
                 ?>
                     <input id="acd-check<?= $cnt ?>" class="acd-check" type="checkbox">
-                    <label class="acd-label" for="acd-check<?= $cnt ?>"><img class="img-icon" src="../static/user.png"><?= $mem['name'] ?></label>
+                    <label class="acd-label" for="acd-check<?= $cnt ?>"><img class="img-icon" src="../static/user.png"><br><?= $mem['name'] ?></label>
                     <div class="acd-content">
                         <a href="" class="member-profile">プロフィールを見る</a>
                         <!--名前タップで「プロフィールを見る」を開く-->
