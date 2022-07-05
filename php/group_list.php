@@ -1,12 +1,12 @@
 <?php
-require_once __DIR__ . './header.php';
-require_once __DIR__ . './classes/groupmember.php';
+    require_once __DIR__ . './header.php';
+    require_once __DIR__ . './classes/groupmember.php';
 
-$userId = $_SESSION['uid'];
+    $userId = $_SESSION['uid'];
 
-$groupmember = new GroupMember();
+    $groupmember = new GroupMember();
 
-$groupId = $_GET['groupid'];
+    $groupId = $_GET['groupid'];
 
 ?>
 <link rel="stylesheet" href="../css/group_list.css">
@@ -38,36 +38,50 @@ $groupId = $_GET['groupid'];
             $link = $conf['code'];
 
         ?>
-            <div>
-                <p class="group-name"><?= $conf['groupname'] ?><br><br>
-                    <img src="data:;base64,<?php echo $img; ?>" class="group-icon"></img>
-                </p>
-            </div>
-            <p class="member-list-sentence">メンバー</p>
 
-            <!-- メンバー表示 -->
-            <div class="member-border">
-                <?php
-                $cnt = 0;
-                foreach($member as $mem) {
-            ?>
-                <input id="acd-check<?= $cnt ?>" class="acd-check" type="checkbox">
-                <label class="acd-label" for="acd-check<?= $cnt ?>"><?= $mem['name'] ?></label>
-                <div class="acd-content">
-                    <a href="user_profile.php?id=<?php echo $mem['uid']; ?>" class="member-profile">プロフィールを見る</a> <!--名前タップで「プロフィールを見る」を開く-->
+        <!-- <div>
+            <p class="group-name"><?= $conf['groupname'] ?><br><br>
+                <img src="data:;base64,<?php echo $img; ?>" class="group-icon"></img>
+            </p>
+        </div> -->
+
+        <div class="group-title">
+            <h1><?= $conf['groupname'] ?></h1>
+            <div class="group-info">
+                <img src="data:;base64,<?php echo $img; ?>" class="group-icon"></img>
+                <div class="group-contents">
+                    <p>グループコード</p>
+                    <p><?= $conf['code'] ?></p>
                 </div>
-            <?php
-                    $cnt++;
-                }
-                ?>
             </div>
+        </div>
 
-            <a href="group.php?groupid=<?php echo $groupId; ?>" class="gift-list-sentence">商品一覧へ</a>
+        <p class="member-list-sentence">メンバー</p>
 
-            <div class="inv-link-sentence" data-clipboard-text="http://localhost/haty/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div>
+        <!-- メンバー表示 -->
+        <div class="member-border">
+            <?php
+            $cnt = 0;
+            foreach ($member as $mem) {
+                $user_icon = base64_encode($mem['icon']);?>
+                <input id="acd-check<?= $cnt ?>" class="acd-check" type="checkbox">
+                <label class="acd-label" for="acd-check<?= $cnt ?>"><img class="img-icon" src="data:;base64,<?php echo $user_icon; ?>"><br><?= $mem['name'] ?></label>
+                <div class="acd-content">
+                    <a href="user_profile.php?id=<?php echo $mem['uid']; ?>" class="member-profile">プロフィールを見る</a>
+                    <!--名前タップで「プロフィールを見る」を開く-->
+                </div>
+                <hr>
+            <?php
+                $cnt++;
+            }?>
+        </div>
 
-            <a href="dattai.php?groupid=<?php echo $groupId; ?>" class="leave-sentece">脱退する</a>
-            <!--確認のため別画面(dattai.php)へ遷移-->
+        <a href="group.php?groupid=<?php echo $groupId; ?>" class="gift-list-sentence">商品一覧へ</a>
+
+        <div class="inv-link-sentence" data-clipboard-text="http://localhost/haty/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div>
+
+        <a href="dattai.php?groupid=<?php echo $groupId; ?>" class="leave-sentece">脱退する</a>
+        <!--確認のため別画面(dattai.php)へ遷移-->
     </div>
 
 <?php

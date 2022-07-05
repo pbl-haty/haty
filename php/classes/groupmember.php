@@ -14,7 +14,7 @@
 
         // グループメンバー表示
         public function member($groupId){
-            $sql = "select user.uid, user.name
+            $sql = "select user.uid, user.name, user.icon
                     from groupjoin join user on groupjoin.user_id = user.uid
                     where groupjoin.group_id = ?
                     order by user.uid desc";
