@@ -58,7 +58,7 @@
         <h2>グループの作成者にグループコードとパスワードを教えてもらい、<br>グループに参加しましょう！<br></h3>
         <form method="post" action="">
             <div>
-                <input type="text" name="group_code" class="input-style" pattern="^[0-9a-zA-Z]+$" placeholder="グループコード" style="ime-mode:disabled;" required>
+                <input type="text" name="group_code" id="text-check" class="input-style" pattern="^[0-9a-zA-Z]+$" placeholder="グループコード" style="ime-mode:disabled;" required>
             </div>
             <div>
                 <input type="password" name="group_password" class="input-style" placeholder="パスワード" required>
@@ -66,5 +66,8 @@
             <button class="btn-join btn-style" name="group_join">参加</button>
         </form>
     </div>
+
+    <script type="text/javascript" src="../js/groupjoinsub.js"></script>
+
 </body>
 </html>
