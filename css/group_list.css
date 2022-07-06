@@ -21,7 +21,8 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 9px solid gray;
+    border: 5px solid gray;
+    margin-top: 60px;   /* 中央に配置したいが、上手くいかず無理やりmarginにしてる */
 }
 
 /* メンバー一覧 */
@@ -38,7 +39,9 @@
     text-align: center;
     font-size: 50px;
     color: #fff;
-    margin: 150px auto 0 auto;
+    margin: 100px auto 0 auto;
+    padding: 10px 0;
+    border-radius: 5px;
     background-color: #074770;
     width: 50%;
 }
@@ -51,6 +54,7 @@
     border-bottom: solid 8px #074770;
     border-right: solid 8px #074770;
     border-left: solid 8px #074770;
+    margin-top: -5px;
 }
 
 /* 名前タップでそのメンバーのプロフィール画面遷移する処理 */
@@ -111,31 +115,39 @@
 
 /* ギフト一覧 */
 .gift-list-sentence {
-    display: inline-block;
-    padding: 30px 0;
-    margin: 100px 0 0 0;
-    width: calc(100%);
-    border: 4px solid grey;
-    border-radius: 10px;
     text-align: center;
     font-size: 40px;
+    min-width: 200px;
+    padding: 30px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #efefef;
+    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    color: #585858;
     text-decoration: none;
-    color: #000000;
 }
 
 /* 招待リンク */
 .inv-link-sentence {
-    display: inline-block;
-    padding: 30px 0;
-    margin: 100px 0 0 0;
-    width: calc(100%);
-    border: 4px solid grey;
-    border-radius: 10px;
     text-align: center;
     font-size: 40px;
+    min-width: 380px;
+    margin-left: 40px;
+    padding: 30px 0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #efefef;
+    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    color: #585858;
     text-decoration: none;
-    color: #000000;
-    background-color: #fff;
 }
 
 /* 脱退 */
@@ -162,7 +174,7 @@
 
 /* グループ情報追加 */
 .group-title h1{
-    margin: 30px 0 60px 0;
+    margin: 30px 0 30px 0;
     font-size: 60px;
     text-align: left;
     color: #000000;
@@ -172,6 +184,16 @@
 }
 
 .group-info{
+    display: flex;
+    width: 100%;
+    min-height: 300px;
+}
+
+.group-contents{
+    margin-left: 50px;
+}
+
+.group-button{
     display: flex;
 }
 

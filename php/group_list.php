@@ -52,6 +52,10 @@
                 <div class="group-contents">
                     <p>グループコード</p>
                     <p><?= $conf['code'] ?></p>
+                    <div class="group-button">
+                        <a href="group.php?groupid=<?php echo $groupId; ?>" class="gift-list-sentence">商品一覧</a>
+                        <div class="inv-link-sentence" data-clipboard-text="http://localhost/haty/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -76,9 +80,9 @@
             }?>
         </div>
 
-        <a href="group.php?groupid=<?php echo $groupId; ?>" class="gift-list-sentence">商品一覧へ</a>
+        <!-- <a href="group.php?groupid=<?php echo $groupId; ?>" class="gift-list-sentence">商品一覧</a> -->
 
-        <div class="inv-link-sentence" data-clipboard-text="http://localhost/haty/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div>
+        <!-- <div class="inv-link-sentence" data-clipboard-text="http://localhost/haty/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div> -->
 
         <a href="dattai.php?groupid=<?php echo $groupId; ?>" class="leave-sentece">脱退する</a>
         <!--確認のため別画面(dattai.php)へ遷移-->
