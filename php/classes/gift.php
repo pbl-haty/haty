@@ -106,4 +106,12 @@
             return $result;
         }
 
+        //　投稿されているギフトが自分が入っているグループか判定
+        public function getGiftGroup($user_id, $gift_id) {
+            $sql = "select * 
+                    from giftgroup join groupjoin on giftgroup.group_id = groupjoin.group_id
+                    where groupjoin.user_id = ? and giftgroup.gift_id = ?";
+            $stmt = $this->query($sql, [$user_id, $gift_id]);
+            return $stmt->fetchAll();
+        }
     }
