@@ -14,7 +14,7 @@
         
         if(password_verify($password, $item['password'])) {
             $groupoption->groupjoin($userId, $item['id']);
-            $msg = 'グループに参加しました。';
+            header('Location: home.php');
         } else {
             $msg = 'パスワードが間違っています。';
         }
