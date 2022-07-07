@@ -61,7 +61,7 @@
             <input class="text-box" type="password" style="margin-top: 50px;" name="group_pass" placeholder="パスワード（最大32文字）" maxlength="30" required>
         </div>
         <div>
-            <input class="text-box" type="password" style="margin-top: 10px;" name="group_repass" placeholder="パスワード再入力" required>
+            <input class="text-box" type="password" style="margin-top: 10px;" name="group_repass" placeholder="パスワード再入力" maxlength="30" required>
         </div>
 
         <div class ="prompt_2">

@@ -55,6 +55,7 @@
     border-bottom: solid 8px #074770;
     border-right: solid 8px #074770;
     border-left: solid 8px #074770;
+    box-sizing: border-box;
     margin-top: -5px;
 }
 
