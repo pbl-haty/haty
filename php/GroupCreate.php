@@ -55,13 +55,13 @@
                 <input type="file" id="input-img" onchange="loadImage(this);" name="image" accept="image/*">
             </label>
         <div>
-            <input class="text-box" type="text" style="margin-top: 50px;" name="group_name" placeholder="グループ名" required>
+            <input class="text-box" type="text" style="margin-top: 50px;" name="group_name" placeholder="グループ名（最大30文字）" maxlength="30" required>
         </div>
         <div>
-            <input class="text-box" type="password" style="margin-top: 50px;" name="group_pass" placeholder="パスワード" required>
+            <input class="text-box" type="password" style="margin-top: 50px;" name="group_pass" placeholder="パスワード（最大32文字）" maxlength="30" required>
         </div>
         <div>
-            <input class="text-box" type="password" style="margin-top: 10px;" name="group_repass" placeholder="再入力" required>
+            <input class="text-box" type="password" style="margin-top: 10px;" name="group_repass" placeholder="パスワード再入力" maxlength="30" required>
         </div>
 
         <div class ="prompt_2">
