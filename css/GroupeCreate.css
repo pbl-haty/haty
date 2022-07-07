@@ -69,5 +69,20 @@ body{
 }
 
 .header-margin-top {
-    margin-top: 180px;
+    margin-top: 260px;
+}
+
+.create-title{
+    font-size: 70px;
+}
+
+.group-create-button{
+    text-decoration: none;
+    background: #668ad8;
+    color: #fff;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px blue;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
 }

@@ -40,6 +40,7 @@
 <br>
     <form method="POST" action="" class="header-margin-top" enctype="multipart/form-data">
         
+        <h1 class="create-title">グループ作成</h1>
         <div class="icon-flame" id="icon-flame">
 
                 <img class="icon-img" src="../static/user.png" id="icon-flame2">
