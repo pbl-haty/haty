@@ -65,26 +65,19 @@
         <!-- メンバー表示 -->
         <div class="member-border">
             <?php
-            $cnt = 0;
             foreach ($member as $mem) {
                 $user_icon = base64_encode($mem['icon']);?>
-                <input id="acd-check<?= $cnt ?>" class="acd-check" type="checkbox">
-                <label class="acd-label" for="acd-check<?= $cnt ?>"><img class="img-icon" src="data:;base64,<?php echo $user_icon; ?>"><br><?= $mem['name'] ?></label>
-                <div class="acd-content">
-                    <a href="user_profile.php?id=<?php echo $mem['uid']; ?>" class="member-profile">プロフィールを見る</a>
-                    <!--名前タップで「プロフィールを見る」を開く-->
-                </div>
+                <a class="acd-label" href="user_profile.php?id=<?php echo $mem['uid']; ?>">
+                        <img class="img-icon" src="data:;base64,<?php echo $user_icon; ?>">
+                        <p><?= $mem['name'] ?></p>
+                </a>
                 <hr>
-            <?php
-                $cnt++;
-            }?>
+            <?php } ?>
         </div>
-
-        <!-- <a href="group.php?groupid=<?php echo $groupId; ?>" class="gift-list-sentence">商品一覧</a> -->
-
-        <!-- <div class="inv-link-sentence" data-clipboard-text="http://localhost/haty/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div> -->
-
-        <a href="dattai.php?groupid=<?php echo $groupId; ?>" class="leave-sentece">脱退する</a>
+        
+        <div>
+            <a href="dattai.php?groupid=<?php echo $groupId; ?>" class="leave-sentece">脱退する</a>
+        </div>
         <!--確認のため別画面(dattai.php)へ遷移-->
     </div>
 

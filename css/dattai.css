@@ -14,9 +14,12 @@
     padding: 0.5em;
     width: 250px;
     height: 150px;
-    color: #000000;
-    background: #5bbee5;
     background: linear-gradient(to bottom, #e5875b, #7f0903);
+    color: #EEEEEE;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: linear-gradient(to bottom, #e5875b, #7f0903);
 }
 
 .leave-btn-center {

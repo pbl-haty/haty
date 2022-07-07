@@ -12,6 +12,7 @@
     }
 ?>
     <link rel="stylesheet" href="../css/dattai.css">
+    <title>脱退</title>
 </head>
 
 <body>
@@ -34,7 +35,7 @@
 
         ?>
 
-        <p class="final-check"><?= $group_conf['groupname'] ?>を脱退します</p>
+        <p class="final-check"><?= $group_conf['groupname'] ?>を脱退しますか？</p>
 
         <form method="POST" onSubmit="return check()">
             <div class=leave-btn-center>
