@@ -3,7 +3,6 @@
     require_once __DIR__ . './classes/groupoption.php';
 
     $userId = $_SESSION['uid'];
-    $completionmsg = "";
     $errlog = "";
 
     $groupoption = new Groupoption();
@@ -27,7 +26,7 @@
             $grouppass_hash = password_hash($grouppass, PASSWORD_DEFAULT);
             $groupoption->groupcreate($userId, $groupname, $code, $grouppass_hash, $image);            
             
-            $completionmsg = "グループが作成されました。";
+            header('Location: home.php');
         } else {
             $errlog = 'パスワードが一致しません';
         }
@@ -41,10 +40,6 @@
 <br>
     <form method="POST" action="" class="header-margin-top" enctype="multipart/form-data">
         
-        <div class ="prompt_2">
-                <h4><?= $completionmsg ?></h4>
-        </div>
-    
         <div class="icon-flame" id="icon-flame">
 
                 <img class="icon-img" src="../static/user.png" id="icon-flame2">
