@@ -27,7 +27,7 @@ session_start();
                 <li>
                     <a href="MyPage.php">
                         <div>
-                            <img src="../static/user.png"></img>
+                            <img src="../static/mypage.png"></img>
                             マイページ
                         </div>
                     </a>
@@ -42,8 +42,8 @@ session_start();
                 </li>
                 <li>
                     <a href="#">
-                        <div>
-                            <img src="../static/notification.png"></img>
+                        <div class="notification">
+                            <img class="" src="../static/notification.png"></img>
                             通知
                         </div>
                     </a>
