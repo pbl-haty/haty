@@ -24,4 +24,14 @@
             return $items;
         }
 
+        public function giftgroupacategory($groupId, $category_id){
+            $sql = "select gift.id, gift.gift_name, gift.image, gift.post
+                    from giftgroup join gift on giftgroup.gift_id = gift.id
+                    where giftgroup.group_id = ?  and gift.applicant is null and gift.category_id = ?
+                    order by gift.post desc, gift.id desc";
+            $stmt = $this->query($sql, [$groupId, $category_id]);
+            $items = $stmt->fetchAll();
+            return $items;
+        }
+
     }
