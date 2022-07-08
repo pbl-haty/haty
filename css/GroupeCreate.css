@@ -69,16 +69,50 @@ body{
 }
 
 .header-margin-top {
-    margin-top: 180px;
+
+    margin-top: 200px;
 }
 
-.join-title{
-    margin-top: 180px;
+.create-title{
     font-size: 70px;
 }
 
-.comment-title {
+.group-create-button{
+    width: calc(30vw);
+    height: calc(10vw);
     font-size: 40px;
-    text-align: left;
-    margin: 30px 0 0 42px;
+    text-decoration: none;
+    background: #668ad8;
+    color: #fff;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px blue;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.must input{
+    caret-color: transparent;
+}
+
+.must::before {
+    content: '＊';
+    color: red;
+    font-size: 30px;
+    text-indent: 10px;
+    display: inline-block;
+    width: 0;
+}
+
+.must input {
+    background: transparent;
+}
+  
+.must input:valid {
+    background: #fff;
+}
+
+.must input::placeholder {
+    text-indent: 15px;
+
 }
