@@ -9,12 +9,15 @@
     padding: 30px 20px;
     margin-top: 150px;
 }
-.position-relative{
-    position:relative;
+
+.position-relative {
+    position: relative;
 }
 
 .home_groupname {
-    margin: 45px 0 60px 30px;
+    margin-bottom: 60px;
+    margin-right: 30px;
+    height: center;
     font-size: 60px;
     text-align: left;
     color: #000000;
@@ -22,10 +25,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.home_groupicon{
+
+.home_groupicon {
     width: 150px;
     height: 150x;
-    margin:10px;
+    margin: 10px;
     color: #ffffff;
     background-color: gray;
     font-size: 1.5rem;
@@ -43,15 +47,15 @@
 }
 
 .gift-display-image {
-    height: calc( ( 100vw - 70px ) / 3);
-    width: calc( ( 100vw - 70px ) / 3);
+    height: calc((100vw - 70px) / 3);
+    width: calc((100vw - 70px) / 3);
     object-fit: cover;
     border: 1px solid gray;
     border-radius: 10px 10px 0 0;
     position: relative;
 }
 
-.gift-display-icon{
+.gift-display-icon {
     width: 50px;
     height: 50px;
     color: #ffffff;
@@ -82,11 +86,12 @@
     text-decoration: none;
     color: #000000;
 }
-.detail_look:active{
+
+.detail_look:active {
     -ms-transform: translateY(5px);
     -webkit-transform: translateY(5px);
     transform: translateY(5px);
-    box-shadow:  none;
+    box-shadow: none;
 }
 
 
@@ -109,18 +114,19 @@
 }
 
 .group-option-move-create {
-    width:100px;
+    width: 100px;
     margin: 0 200px 0 180px;
     text-decoration: none;
     color: #000;
 }
+
 .group-option-move-join {
     width: 100px;
     margin: 0 200px 0 200px;
     text-decoration: none;
     color: #000;
 }
-  
+
 .group-option-image {
     width: 100px;
 }
@@ -155,13 +161,13 @@ hr {
     font-size: 30px;
     border-radius: 0 0 10px 10px;
     border: 1px solid gray;
-    width: calc( ( 100vw - 70px ) / 3);
-    display:flex;
-    align-items:center;
+    width: calc((100vw - 70px) / 3);
+    display: flex;
+    align-items: center;
     margin-top: -5px;
 }
 
-.home-image-title-span{
+.home-image-title-span {
     text-align: center;
     width: calc(100% - 100px);
     padding: 0 50px;
