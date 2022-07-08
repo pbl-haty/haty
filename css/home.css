@@ -27,9 +27,15 @@
 }
 
 .home_groupicon {
+<<<<<<< HEAD
     width: 120px;
     height: 120px;
     margin: 30px;
+=======
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+>>>>>>> 7c1cbf639e8804c3d2988340716eb362e5bfb5a1
     color: #ffffff;
     background-color: gray;
     font-size: 1.5rem;
