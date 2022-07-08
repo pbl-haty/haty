@@ -41,31 +41,38 @@
 </head>
 <body>
     <br>
-    <div class="groupjoinsub">
+    <form method="post" action="">
 
-        <!-- エラーメッセージもしくは変更完了メッセージの表示 -->
-        <?php if(!empty($errormsg)){?>
-            <div class="error_message">
-                <p><?php echo $errormsg;?></p>
-            </div>
-        <?php }elseif(!empty($completionmsg)){ ?>
-            <div class="completion_message">
-                <p><?php echo $completionmsg;?></p>
-            </div>
-        <?php } ?>
+            <h1 class="join-title">グループ参加</h1>
 
-        <h1 class="join-title">グループ参加</h1>
-        <h2>グループの作成者にグループコードとパスワードを教えてもらい、<br>グループに参加しましょう！<br></h3>
-        <form method="post" action="">
+            <!-- エラーメッセージもしくは変更完了メッセージの表示 -->
+            <div class="message-div">
+                <?php if(!empty($errormsg)){?>
+                    <div class="error_message">
+                        <p><?php echo $errormsg;?></p>
+                    </div>
+                <?php }elseif(!empty($completionmsg)){ ?>
+                    <div class="completion_message">
+                        <p><?php echo $completionmsg;?></p>
+                    </div>
+                <?php } ?>
+            </div>
+
+        
+            <h2 class="comment-title">グループコード</h2>
             <div>
                 <input type="text" name="group_code" id="text-check" class="input-style" pattern="^[0-9a-zA-Z]+$" placeholder="グループコード" style="ime-mode:disabled;" required>
             </div>
+            <h2 class="comment-title">パスワード</h2>
             <div>
                 <input type="password" name="group_password" class="input-style" placeholder="パスワード" required>
             </div>
+
+            <h2 class="comment-text"><span>グループコード</span>と<span>パスワード</span>を教えてもらい<br>グループに参加しましょう！<br></h2>
+
             <button class="btn-join btn-style" name="group_join">参加</button>
         </form>
-    </div>
+
 
     <script type="text/javascript" src="../js/groupjoinsub.js"></script>
 
