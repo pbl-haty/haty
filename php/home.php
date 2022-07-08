@@ -39,7 +39,7 @@ $userId = $_SESSION['uid'];
         echo '</div>';
     } else {
         foreach ($group_join as $join) {
-
+            $img = base64_encode($join['icon']);
     ?>
             <hr>
 
@@ -47,7 +47,7 @@ $userId = $_SESSION['uid'];
 
                 <div class="home_title">
                     <div class="display">
-                        <img class="home_groupicon" src=../static/user.png>
+                        <img class="home_groupicon" src="data:;base64,<?php echo $img; ?>">
                         <p class="home_groupname"><?= $join['groupname'] ?></p>
                     </div>
                     <?php // ギフトが送られているか判定・・・B
@@ -60,7 +60,7 @@ $userId = $_SESSION['uid'];
                         echo '<div class="display">';
                         foreach ($gift_group as $gift) {
                             $img = base64_encode($gift['image']);
-
+                            $icon = base64_encode($gift['icon']);
                     ?>
 
                             <a href="gift_detail.php?id=<?php echo $gift['id']; ?>" class="detail_display">
@@ -69,7 +69,8 @@ $userId = $_SESSION['uid'];
                                     <div class="position-relative">
                                         <img class="gift-display-image" src="data:;base64,<?php echo $img; ?>">
                                         <div>
-                                            <img class="gift-display-icon" src=../static/user.png>
+
+                                            <img class="gift-display-icon" src="data:;base64,<?php echo $icon; ?>">
                                         </div>
                                     </div>
                                     <div class="home-image-title">

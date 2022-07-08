@@ -6,7 +6,7 @@
     // 商品をカートに入れる ・・ テーブルcartに登録する
 
         public function groupjoin($userId){
-            $sql = "select groupjoin.user_id, groupjoin.group_id, groupdb.groupname
+            $sql = "select groupjoin.user_id, groupjoin.group_id, groupdb.groupname, groupdb.icon
                     from groupjoin join groupdb on groupjoin.group_id = groupdb.id 
                     where user_id = ?";
             $stmt = $this->query($sql, [$userId]);
@@ -15,8 +15,8 @@
         }
 
         public function giftgroup($groupId, $userId){
-            $sql = "select gift.id, gift.gift_name, gift.image, gift.post
-                    from giftgroup join gift on giftgroup.gift_id = gift.id
+            $sql = "select gift.id, gift.gift_name, gift.image, gift.post, user.icon
+                    from giftgroup join gift on giftgroup.gift_id = gift.id join user on user.uid = gift.user_id
                     where giftgroup.group_id = ? and gift.user_id != ? and gift.applicant is null
                     order by gift.post desc, gift.id desc
                     limit 3";
