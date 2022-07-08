@@ -72,7 +72,7 @@
         <div class ="prompt_2">
                 <h4><?= $completionmsg ?></h4>
         </div>
-        <button type="button" class="next" style="width: 100px;height: 100px;">次</button>
+        <button type="button" class="next" name="giftpost" style="width: 100px;height: 100px;">次</button>
         <div class="box1" id="box1">
             <h1 class="content-margin">商品画像</h1>
 
@@ -188,7 +188,7 @@
         var $box2 = document.getElementById('box2');
         var $box3 = document.getElementById('box3');
         var $box4 = document.getElementById('box4');
-        const btn = document.querySelector('.next');
+        var btn = document.querySelector('.next');
         $box1.style.left = "100%";
         $box2.style.left = "200%";
         $box3.style.left = "300%";
@@ -201,10 +201,7 @@
         
         btn.addEventListener('click', () => {
         /* box.classList.toggle('next') */
-        $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
-        $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
-        $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
-        $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
+        
         if (parseInt($box1.style.left) == -300){
             btn.type = "submit"
             btn.innerHTML = "公開"
@@ -214,6 +211,10 @@
         else if(parseInt($box1.style.left) != -300){
             btn.type = "button"
             btn.innerHTML= "次"
+            $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
+            $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
+            $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
+            $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
         }
         /*  
             
