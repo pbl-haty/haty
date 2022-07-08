@@ -77,22 +77,23 @@ $userId = $_SESSION['uid'];
                                     </div>
                                 </div>
                             </a>
-                        <?php // A'
+
+<?php // B'
+                            }
+                            echo '</div>';
                         }
-                        echo '</div>';
-                        ?>
+?>
+
 
                 </div>
             </div>
             </div>
 
-        <?php // A'
-                    }
-        ?>
 
-        <div class="detail_look_1">
-            <a href="group.php?groupid=<?php echo $join['group_id']; ?>" class=detail_look>もっと見る</a>
-        </div>
+                    <div class="detail_look_1">
+                        <a href="group.php?groupid=<?php echo $join['group_id']; ?>" class=detail_look>もっと見る</a>
+                    </div>
+
 
 <?php // A'
         }
