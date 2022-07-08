@@ -130,6 +130,7 @@ html {
 }
 
 .menu-content {
+    margin-top:150px;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -142,7 +143,7 @@ html {
 }
 
 .menu-content ul {
-    padding: 50% 0;
+    padding: 30% 0;
     margin: 0;
 }
 
@@ -184,9 +185,6 @@ html {
     /*メニューを画面内へ*/
 }
 
-/* .notification{
-    position: relative;
-} */
 /* .notification{
     position: relative;
 } */
