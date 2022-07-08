@@ -3,6 +3,7 @@ body{
     text-align: center;
 }
 .join-title{
+    margin-top: 180px;
     font-size: 70px;
 }
 .img-join{
@@ -23,7 +24,7 @@ body{
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .btn-join{
-    margin-top: 100px;
+    margin-top: 720px;
     width: calc(30vw);
     height: calc(10vw);
     font-size: 40px;
@@ -55,9 +56,14 @@ body{
     margin-top: 260px;
 }
 
+.message-div {
+    height: 170px;
+    margin-bottom: 10px;
+}
+
 .error_message{
-    margin: 2em 1em;
-    padding: 0.5em 1em;
+    margin: 0 20px;
+    padding: 30px 20px;
     text-align: center;
     background: #FFF;
     border: solid 5px red;/*線*/
@@ -72,8 +78,8 @@ body{
 }
 
 .completion_message{
-    margin: 2em 1em;
-    padding: 0.5em 1em;
+    margin: 0 20px;
+    padding: 30px 20px;
     text-align: center;
     background: #FFF;
     border: solid 5px blue;/*線*/
@@ -85,4 +91,18 @@ body{
     margin: 0; 
     padding: 0;
     word-wrap: break-word;
+}
+
+.comment-title {
+    font-size: 40px;
+    text-align: left;
+    margin: 30px 0 0 42px;
+}
+
+.comment-text {
+    font-size: 40px;
+}
+
+.comment-text span{
+    color: #4070ff;
 }
