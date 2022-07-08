@@ -26,6 +26,7 @@
 }
 
 .home_groupicon {
+    border: 1px solid gray;
     width: 120px;
     height: 120px;
     color: #ffffff;
@@ -58,7 +59,7 @@
     width: 80px;
     height: 80px;
     color: #ffffff;
-    background-color: gray;
+    border: 1px solid gray;
     display: flex;
     justify-content: center;
     align-items: center;
