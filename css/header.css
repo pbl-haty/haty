@@ -75,11 +75,10 @@ html {
     z-index: 90;
 }
 
-.menu-btn:after{
-    content:"!";
+.hamburger-notification{
     position: absolute;   
-    top: 10px;
-    right: 10px;
+    top: -15px;
+    right: 5px;
     color: #FFF;
     line-height: 40px;
     font-weight: bold;
@@ -137,7 +136,7 @@ html {
     top: 0;
     left: 100%;
     z-index: 80;
-    background-color: rgba(0, 150, 255, 0.85);
+    background-color: rgba(0, 150, 255);
     transition: all 0.5s;
     /*アニメーション設定*/
 }
@@ -185,15 +184,14 @@ html {
     /*メニューを画面内へ*/
 }
 
-.notification{
+/* .notification{
     position: relative;
-}
-
-.notification:after{
-    content:"!";
-    position: absolute;   
-    top: 10px;
-    right: 10px;
+} */
+/* .notification{
+    position: relative;
+} */
+.notification-notification{
+    margin:0 0 0 10px;
     color: #FFF;
     line-height: 40px;
     font-weight: bold;

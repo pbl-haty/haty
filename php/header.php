@@ -13,7 +13,10 @@ session_start();
     </a>
     <div class="hamburger-menu">
         <input type="checkbox" id="menu-btn-check">
-        <label for="menu-btn-check" class="menu-btn"><span></span></label>
+        <label for="menu-btn-check" class="menu-btn">
+            <p class="hamburger-notification">!</p> <!-- ハンバーメニュー通知 -->
+            <span></span>
+        </label>
         <div class="menu-content">
             <ul>
                 <li>
@@ -42,9 +45,10 @@ session_start();
                 </li>
                 <li>
                     <a href="#">
-                        <div class="notification">
-                            <img class="" src="../static/notification.png"></img>
+                        <div class="position-relative">
+                            <img class="notification" src="../static/notification.png">
                             通知
+                            <p class="notification-notification">!</p>
                         </div>
                     </a>
                 </li>
