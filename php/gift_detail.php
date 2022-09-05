@@ -35,6 +35,9 @@
     // 「getUser()メソッド」を呼び出す
     $post_user = $user->getUser($gift_info['user_id']);
 
+    // 投稿したユーザーのアイコン画像情報を取得
+    $post_user_icon = base64_encode($post_user['icon']);
+
     // 引き渡し条件分岐(変更予定)
     if($gift_info['conditions'] == 1){
         $derivery_conditions = '手渡し';
@@ -86,26 +89,35 @@
         <div class="gift_post">
             <h4>投稿者</h4>
             <!-- ユーザーのプロフィール画面に遷移 -->
-            <a href="user_profile.php?id=<?php echo $post_user['uid']; ?>" class=>
-                <img src="" alt="">
-                <p class="gift_contributor"><?php echo $post_user['name']; ?>さん</p>
-            </a>
+            <div class="gift_post_detail">
+                <a href="user_profile.php?id=<?php echo $post_user['uid']; ?>" >
+                    <img src="data:;base64,<?php echo $post_user_icon; ?>">
+                    <p class="gift_contributor"><?php echo $post_user['name']; ?>さん</p>
+                </a>
+            </div>
         </div>
 
-        <div class="good_count">
-            <form action="gift_detail_backend.php" method="post" class="good_sentence">
-                <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
-                <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
-                <!-- 既にいいねを押しているかを確認 -->
-                <?php if(empty($gift->checkGood($giftId, $userId))){?>
-                    <button type="submit" name="favorite_before" class="favorite_before">👍いいね</button>
-                <?php }else{ ?>
-                    <button type="submit" name="favorite_after" class="favorite_after">👍いいね</button>
-                <?php } ?>
-            </form>
-            <div class="good_number">
-                <!-- いいねを押した人の一覧に遷移する（予定） -->
-                <a href="#"><?php echo $good; ?></a>
+        <div class="button-list">
+            <div class="good_count">
+                <form action="gift_detail_backend.php" method="post" class="good_sentence">
+                    <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
+                    <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
+                    <!-- 既にいいねを押しているかを確認 -->
+                    <?php if(empty($gift->checkGood($giftId, $userId))){?>
+                        <button type="submit" name="favorite_before" class="favorite_before">👍いいね</button>
+                    <?php }else{ ?>
+                        <button type="submit" name="favorite_after" class="favorite_after">👍いいね</button>
+                    <?php } ?>
+                </form>
+                <div class="good_number">
+                    <!-- いいねを押した人の一覧に遷移する（予定） -->
+                    <a href="#"><?php echo $good; ?></a>
+                </div>
+            </div>
+
+            <!-- ギフトの修正ボタン -->
+            <div class="edit_button">
+                <a href="#"><button>編集</button></a>
             </div>
         </div>
 

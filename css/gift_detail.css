@@ -1,12 +1,12 @@
 body {
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 30px;
-    margin-bottom: 100px;
 }
 
 .gift_detail {
+    font-size: 30px;
     margin-top: 150px;
     padding: 0 20px;
+    margin-bottom: 100px;
 }
 
 .btn_center {
@@ -43,17 +43,33 @@ body {
 
 .gift_post {
     align-items: center;
-    margin-bottom: 50px;
     padding: 0 30px;
 }
 
 .gift_post h4 {
+    margin: 0;
     white-space: nowrap;
 }
 
-.gift_post a {
+.gift_post_detail a{
+    height: 120px;
+    margin: 30px 0;
     color: blue;
+    display: flex;
     text-decoration: none;
+}
+
+.gift_post_detail img{
+    width: 120px;
+    height: 120px;
+    border: solid 3px #d7ebfe;
+    border-radius: 50%;
+}
+
+.gift_post_detail p{
+    padding-left: 20px;
+    display:table-cell;
+    vertical-align:middle;
 }
 
 .gift_explain {
@@ -61,6 +77,8 @@ body {
 }
 
 .explain_sentence {
+    margin: 0;
+    margin-bottom: 1em;
     display: inline-block;
     font-weight: bold;
     font-size: 60px;
@@ -87,6 +105,10 @@ body {
     padding:0.3em;
     margin-top: 10px;
     border: 3px solid #000;
+}
+
+.button-list{
+    display: flex;
 }
 
 .good_count {
@@ -133,18 +155,20 @@ body {
 
 .favorite_before {
     background-color: grey;
-    color: #fff;
+    color: #FEFEFE;
+    font-weight: bold;
     border-radius: 20%;
     width: 200px;
-    line-height: 150px;
+    line-height: 120px;
 }
 
 .favorite_after {
-    background: rgb(6, 171, 236);
-    color: #000;
+    background: #668ad8;
+    color: #FEFEFE;
+    font-weight: bold;
     border-radius: 20%;
     width: 200px;
-    line-height: 150px;
+    line-height: 120px;
 }
 
 .good_sentence input {
@@ -162,12 +186,33 @@ body {
     text-decoration: none;
 }
 
+.edit_button{
+    padding: 30px;
+}
+
+.edit_button button {
+    text-align: center;
+    width: 200px;
+    line-height: 120px;
+    font-size: 40px;
+    min-width: 130px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    outline: none;
+    border: none;
+    background: #eef1f2;
+    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    color: rgb(40, 49, 53);
+    border-radius: 20%;
+}
+
 .comment_nyuryoku {
     margin: 0 0 0 15px;
 }
 
 
 .comment_sentence {
+    margin: 0;
     font-size: 40px;
     text-align: left;
     background-color: rgba(61, 106, 161, 0.447);
@@ -295,12 +340,6 @@ html {
     text-decoration: inherit;
     /* Inherit text-decoration and vertical align to ::before and ::after pseudo elements */
     vertical-align: inherit;
-}
-
-* {
-    padding: 0;
-    /* Reset `padding` and `margin` of all elements */
-    margin: 0;
 }
 
 a {
