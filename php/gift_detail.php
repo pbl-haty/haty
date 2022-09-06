@@ -13,11 +13,12 @@
     // ギフトオブジェクトとユーザーオブジェクトを生成
     $gift = new Gift();
     $user = new User();
+
 ?>
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/gift_detail.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <title>ギフト詳細</title>
+
 </head>
 
 <?php
@@ -55,7 +56,16 @@
 
     // 全てのコメント情報を取得
     $comment_all = $gift->getComment($giftId);
+
+    if(empty($gift_info['gift_name'])){ ?>
+        <head><title>Error</title></head>
+    <?php }else{ ?>
+        <head><title><?php echo $gift_info['gift_name']; ?></title></head>
+    <?php }
 ?>
+
+
+<head><title><?php echo $gift_info['gift_name']; ?></title></head>
 
 <body>
 
@@ -92,7 +102,7 @@
             <div class="gift_post_detail">
                 <a href="user_profile.php?id=<?php echo $post_user['uid']; ?>" >
                     <img src="data:;base64,<?php echo $post_user_icon; ?>">
-                    <p class="gift_contributor"><?php echo $post_user['name']; ?>さん</p>
+                    <p class="gift_contributor"><?php echo $post_user['name']; ?>  さん</p>
                 </a>
             </div>
         </div>
@@ -116,15 +126,17 @@
             </div>
 
             <!-- ギフトの修正ボタン -->
+            <?php if($userId == $gift_info['user_id']) { ?>
             <div class="edit_button">
-                <a href="#"><button>編集</button></a>
+                <a href="#"><button>ギフト編集</button></a>
             </div>
+            <?php } ?>
         </div>
 
         <hr>
 
         <div class="gift_explain">
-            <p class="explain_sentence">説明</p>
+            <p class="explain_sentence">ギフト詳細</p>
             <p class="once_sentence"><?php echo $gift_info['giftcomment']; ?></p>
         </div>
 
@@ -156,15 +168,17 @@
 
         <!-- ギフトに投稿があるか確認 -->
         <!-- なし・・・ギフト申請ボタン　あり（自分）・・・キャンセルボタン　あり（他人）・・・ボタン表示 -->
-        <form class="gift_sentence" method="post" action="gift_detail_backend.php">
-            <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
-            <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
-            <?php if(empty($gift_info['applicant'])){?>
-                    <button type="submit" class="request_sentence" name="applygift">受け取り申請</button>
-            <?php }elseif($gift_info['applicant'] == $userId){?>
-                    <button type="submit" class="request_sentence" name="cancelgift">受け取り申請を<br>キャンセル</button>
-            <?php }?>
-        </form>
+        <?php if($userId != $gift_info['user_id']) { ?>
+            <form class="gift_sentence" method="post" action="gift_detail_backend.php">
+                <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
+                <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
+                <?php if(empty($gift_info['applicant'])){?>
+                        <button type="submit" class="request_sentence" name="applygift">受け取り申請</button>
+                <?php }elseif($gift_info['applicant'] == $userId){?>
+                        <button type="submit" class="request_sentence" name="cancelgift">受け取り申請を<br>キャンセル</button>
+                <?php }?>
+            </form>
+        <?php } ?>
 
         <hr>
 
@@ -194,7 +208,7 @@
         <!--吹き出し終わり-->
 
         <!-- コメント入力 -->
-        <p class="comment_nyuryoku">コメントを入力</p>
+        <!-- <p class="comment_nyuryoku">コメントを入力</p> -->
         <form action="gift_detail_backend.php" method="post">
             <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
             <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
