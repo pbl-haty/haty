@@ -28,6 +28,7 @@
         echo '<div class = prompt_1>';
         echo '<h4>URLが間違っているか<br>投稿が削除されたギフトです。</h4>';
         echo '</div></div>';
+        echo '<head><title>Error</title></head>';
     } else {
 
     // 「getGift()メソッド」を呼び出す
@@ -57,6 +58,7 @@
     // 全てのコメント情報を取得
     $comment_all = $gift->getComment($giftId);
 
+    // タイトルの処理
     if(empty($gift_info['gift_name'])){ ?>
         <head><title>Error</title></head>
     <?php }else{ ?>
@@ -99,12 +101,10 @@
         <div class="gift_post">
             <h4>投稿者</h4>
             <!-- ユーザーのプロフィール画面に遷移 -->
-            <div class="gift_post_detail">
-                <a href="user_profile.php?id=<?php echo $post_user['uid']; ?>" >
-                    <img src="data:;base64,<?php echo $post_user_icon; ?>">
-                    <p class="gift_contributor"><?php echo $post_user['name']; ?>  さん</p>
-                </a>
-            </div>
+            <a class="gift_post_detail" href="user_profile.php?id=<?php echo $post_user['uid']; ?>" >
+                <img src="data:;base64,<?php echo $post_user_icon; ?>">
+                <p class="gift_contributor"><?php echo $post_user['name']; ?>  さん</p>
+            </a>
         </div>
 
         <div class="button-list">
@@ -115,20 +115,24 @@
                     <!-- 既にいいねを押しているかを確認 -->
                     <?php if(empty($gift->checkGood($giftId, $userId))){?>
                         <button type="submit" name="favorite_before" class="favorite_before">👍いいね</button>
+                        <div class="good_number good_number_before">
+                            <!-- いいねを押した人の一覧に遷移する（予定） -->
+                            <a href="#" class=""><?php echo $good; ?></a>
+                        </div>
                     <?php }else{ ?>
                         <button type="submit" name="favorite_after" class="favorite_after">👍いいね</button>
+                        <div class="good_number good_number_after">
+                            <!-- いいねを押した人の一覧に遷移する（予定） -->
+                            <a href="#" class=""><?php echo $good; ?></a>
+                        </div>
                     <?php } ?>
                 </form>
-                <div class="good_number">
-                    <!-- いいねを押した人の一覧に遷移する（予定） -->
-                    <a href="#"><?php echo $good; ?></a>
-                </div>
             </div>
 
             <!-- ギフトの修正ボタン -->
             <?php if($userId == $gift_info['user_id']) { ?>
             <div class="edit_button">
-                <a href="#"><button>ギフト編集</button></a>
+                <a href="gift_detail_edit.php?id=<?php echo $giftId; ?>"><button>ギフト編集</button></a>
             </div>
             <?php } ?>
         </div>
