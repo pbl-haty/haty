@@ -1,0 +1,233 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+    display: block;
+    text-align: center;
+}
+
+.edit-title {
+    margin-top: 180px;
+}
+
+.edit-title h1{
+    font-size: 50px;
+}
+
+.header-margin-top {
+    margin-top: 150px;
+    padding: 0 20px;
+}
+
+.sample-img {
+    margin: auto;
+    width: calc(80vw - 40px);
+    height: calc(80vw - 40px);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sample-img-size {
+    width: calc(40vw - 20px);
+    height: calc(40vw - 20px);
+    object-fit: cover;
+}
+
+.frame-img {
+    display: block;
+    width: calc(40vw - 20px);
+    height: calc(40vw - 20px);
+}
+
+.delete-btn {
+    position: relative;
+    top: calc(-40vw + 40px);
+    right: calc(-40vw + 90px);
+    width: 50px;
+    height: 50px;
+    display: block;
+    background: #fefefe;
+    border-radius: 100%;
+}
+   
+.delete-btn::before, .delete-btn::after { /* 共通設定 */
+    content: "";
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px; /* 棒の幅（太さ） */
+    height: 35px; /* 棒の高さ */
+    background: red;
+}
+   
+.delete-btn::before {
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+   
+.delete-btn::after {
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+.content-margin {
+    margin: 30px 0;
+    font-size: 50px;
+    text-align: left;
+}
+
+.gift-title{
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid#000;
+    text-indent: 20px;
+    font-size: 30px;
+    padding: 30px 0;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+.gift-title::placeholder{
+    text-indent: 20px;
+}
+.gift-title:focus{
+    outline: 0;
+    border-color: aqua;
+}
+
+.trade-box{
+    margin: auto auto 15px auto;
+    font-size: 30px; /* フォントサイズ */
+    border-radius: 20px; /* 角の丸み */
+    border: 2px black solid;
+    text-align: left;
+}
+
+.trade-box input[type="checkbox"] { 
+    display: none;
+}
+
+.trade-box input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding: 30px 130px;
+  font-size: 30px; 
+  color: black;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trade-box input[type="checkbox"] + label:last-child { 
+    margin-bottom: 0;
+}
+
+.trade-box input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 88px;
+  height: 88px;
+  border: 2px solid black;
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  transition: all .12s, border-color .08s;
+}
+
+.trade-box input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 45px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(45deg);
+}
+
+
+.trade-box input[type="radio"] { 
+    display: none;
+}
+
+.trade-box input[type="radio"] + label {
+  display: block;
+  position: relative;
+  padding: 30px 130px;
+  font-size: 30px; 
+  color: black;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trade-box input[type="radio"] + label:last-child { 
+    margin-bottom: 0;
+}
+
+.trade-box input[type="radio"] + label:before {
+  content: '';
+  display: block;
+  width: 88px;
+  height: 88px;
+  border: 2px solid black;
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  transition: all .12s, border-color .08s;
+}
+
+.trade-box input[type="radio"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 45px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(45deg);
+}
+
+.Detailed-information{
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 30px;
+    padding: 30px 20px;
+    height: 250px;
+    width: calc(100% - 42px);
+    border: 2px solid#000;
+    resize: none;
+}
+
+.form-btn {
+    margin-top: 30px;
+    font-size: 40px;
+    padding: 30px 20px;
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid#000;
+    width: 100%;
+}
+
+.upload-label {
+    display: inline-block;
+    margin: 30px 0 0 0; /* まわりの余白 */
+    padding: 30px 0; /* 文字まわりの余白 */
+    color: black; /* 文字色 */
+    font-size: 30px; /* フォントサイズ */
+    border-radius: 20px; /* 角の丸み */
+    border: 2px black solid;
+    width: 100%;
+}
+
+.upload-label input {
+    display: none;
+}
+
+.prompt_2 {
+    text-align: center;
+    font-size: 50px;
+    color: rgba(119, 29, 29, 0.534);
+}

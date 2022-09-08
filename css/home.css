@@ -15,6 +15,7 @@
 }
 
 .home_groupname {
+    width: calc(100% - 160px);
     margin: 0;
     margin-left: 20px;
     font-size: 60px;
@@ -32,6 +33,7 @@
     color: #ffffff;
     font-size: 1.5rem;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .display {

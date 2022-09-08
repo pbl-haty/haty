@@ -114,4 +114,11 @@
             $stmt = $this->query($sql, [$user_id, $gift_id]);
             return $stmt->fetchAll();
         }
+
+        //　投稿されているギフトがどのグループに所属しているか取得
+        public function getGiftGroupEdit($gift_id) {
+            $sql = "select group_id from giftgroup where gift_id = ?";
+            $stmt = $this->query($sql, [$gift_id]);
+            return $stmt->fetchAll();
+        }
     }
