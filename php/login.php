@@ -59,9 +59,9 @@
     </div>
 
     <form method="POST" action="" >
-        <p class="login-text">メールアドレス</p>
+        <!-- <p class="login-text">メールアドレス</p> -->
         <input type="email" class="id" name="login_email" placeholder="メールアドレス" id="lg-effect" maxlength="100" required><br>
-        <p class="login-text">パスワード</p>
+        <!-- <p class="login-text">パスワード</p> -->
         <input type="password" class="pass" name="login_pass" placeholder="パスワード" id="lg-effect" maxlenght="64" required>
 
         <div class="autologin-div">

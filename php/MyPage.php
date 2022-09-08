@@ -33,7 +33,7 @@
 
 ?>
     <link rel="stylesheet" href="../css/MyPage.css">
-    <title>マイページ</title>
+    <title><?= $get_user['name'] ?> | マイページ</title>
     <link rel="stylesheet" href="../css/group.css">
 </head>
 
@@ -57,18 +57,20 @@
             ">
             <div class="user-nameid">
                 <p class="user-info"><?= $get_user['name'] ?></p>
-                <p class="user-info"><?= $get_user['mailaddress'] ?></p>
+                <p class="user-info user-mailaddress"><?= $get_user['mailaddress'] ?></p>
             </div>
         </div>
 
-        <p class="textarea-content"><?= $get_user['comment'] ?></p>
+        <div class="textarea-content">
+            <p><?= $get_user['comment'] ?></p>
+        </div>
 
         <div class="nav-wrap">
             <div class="scroll-nav">
                 <button onclick="click_list_event(0)">投稿中</button>
-                <button onclick="click_list_event(1)">自分いいね</button>
-                <button onclick="click_list_event(2)">自分履歴</button>
-                <button onclick="click_list_event(3)">自分申請</button>
+                <button onclick="click_list_event(1)">いいね</button>
+                <button onclick="click_list_event(2)">投稿履歴</button>
+                <button onclick="click_list_event(3)">申請中</button>
                 <button onclick="click_list_event(4)">相手いいね</button>
                 <button onclick="click_list_event(5)">相手履歴</button>
                 <button onclick="click_list_event(6)">相手申請</button>
@@ -83,7 +85,7 @@
             echo '<div class="display" id=p' . $cnt . '>';
             if (empty($view_list)) {
                 echo '<div class = prompt_1>';
-                echo '<h4>該当する商品がありません。</h4>';
+                echo '<h4>該当するギフトがありません。</h4>';
                 echo '</div>';
             } else {
                 foreach ($view_list as $gift) {
