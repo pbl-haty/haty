@@ -54,7 +54,7 @@ session_start();
                 </li>
                 <li>
                     <a href="help.php">
-                        <div class="menu-content-border-none">
+                        <div>
                             <img src="../static/help.png"></img>
                             ヘルプ
                         </div>
