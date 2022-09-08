@@ -64,6 +64,7 @@ body {
     height: 120px;
     border: solid 3px #d7ebfe;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .gift_post_detail p{
