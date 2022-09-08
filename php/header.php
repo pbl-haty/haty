@@ -53,6 +53,14 @@ session_start();
                     </a>
                 </li>
                 <li>
+                    <a href="help.php">
+                        <div class="menu-content-border-none">
+                            <img src="../static/help.png"></img>
+                            ヘルプ
+                        </div>
+                    </a>
+                </li>
+                <li>
                     <a href="logout.php">
                         <div>
                             <img src="../static/logout.png"></img>
