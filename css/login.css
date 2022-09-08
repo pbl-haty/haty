@@ -3,6 +3,7 @@ body{
     text-align: center;
     margin: 50px 0px;
     display: block;
+    background-color: #FEFEFE;
 }
 .login{
     margin-top: 30px;
@@ -42,6 +43,7 @@ body{
     height: 30px;
     text-indent: 20px;
     font-size: 16px;
+    margin-top: 20px;
 }
 #lg-effect::placeholder{
     text-indent: 20px;
@@ -52,7 +54,6 @@ body{
 }
 .btn-style{
     min-width: 130px;
-    color: #fff;
     padding: 5px 10px;
     font-weight: bold;
     cursor: pointer;

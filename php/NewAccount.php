@@ -70,7 +70,7 @@
         </div>
 
         <div class="lnk-sakusei-div">
-            <a href="login.php" class="lnk-sakusei">ログイン</a>
+            <a href="login.php" class="lnk-sakusei btn-style">ログイン</a>
         </div>
 
         <form action="" method="POST">
@@ -86,7 +86,7 @@
             <div>
                 <input type="password" class="check" name="password2" maxlength="64" id="NA-effect" placeholder="パスワード再入力" required>
             </div>
-            <input type="submit" class="btn-create" name="signup" value="アカウント作成">
+            <input type="submit" class="btn-create btn-style" name="signup" value="アカウント作成">
         </form>
 
     <!-- 登録完了のメッセージを受け取っているとき -->
