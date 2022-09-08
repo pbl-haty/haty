@@ -17,6 +17,9 @@
     $gift = new Gift();
     $user = new User();
 
+    // 「getGift()メソッド」を呼び出す
+    $gift_info = $gift->getGift($giftId);
+
     if(isset($_POST['giftpost'])){
         $giftname = $_POST['gift_name'];
         $giftcomment = $_POST['gift_comment'];
@@ -95,15 +98,12 @@
 
     <?php
         $giftgroup = $gift->getGiftGroup($userId, $giftId);
-        if(empty($giftgroup)) {
+        if(empty($giftgroup) || $gift_info['user_id'] != $userId) {
             echo '<br><div class="gift_detail">';
             echo '<div class = prompt_1>';
             echo '<h4>URLが間違っているか<br>投稿が削除されたギフトです。</h4>';
             echo '</div></div>';
         } else {
-
-            // 「getGift()メソッド」を呼び出す
-            $gift_info = $gift->getGift($giftId);
 
             // 「getGiftGroupedit()メソッド」を呼び出す
             $gift_group = $gift->getGiftGroupEdit($giftId);
