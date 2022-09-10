@@ -21,13 +21,13 @@
             $errormsg1 = 'グループを選択してください。';
         } else {
             if (!isset($_POST['category'])) {
-                $errormsg3 = 'カテゴリを選択してください。';
+                $errormsg1 = 'カテゴリを選択してください。';
             } else {
                 $category_id = $_POST['category'];
                
                 $condi = filter_input(INPUT_POST, 'conditions', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
                 if(empty($condi)) {
-                    $errormsg2 = "手渡しか配送を選んでください。";
+                    $errormsg1 = "手渡しか配送を選んでください。";
                 } else {
                     $conditions = 0;
                     foreach($condi as $key => $value){
@@ -71,8 +71,10 @@
 
         <div class ="prompt_2">
                 <h4><?= $completionmsg ?></h4>
+                <h4><?= $errormsg1 ?></h4>
         </div>
-        <button type="button" class="next" name="giftpost" style="width: 100px;height: 100px;">次</button>
+        <button type="button" class="prev form-btn" name="giftpost" style="width: 200px;height: 100px;">前</button>
+        <button type="button" class="next form-btn" name="giftpost" style="width: 200px;height: 100px;">次</button>
         <div class="box1" id="box1">
             <h1 class="content-margin">商品画像</h1>
 
@@ -127,7 +129,7 @@
             <div class ="prompt_2">
                 <h4><?= $errormsg3 ?></h4>
             </div>
-        </div>
+        
             <div class="content-check">
         
 
@@ -146,6 +148,7 @@
         $cnt++;
     }
  ?>
+            </div>
 
             </div>
         <div class="box4" id="box4">
@@ -170,7 +173,7 @@
             <textarea class="Detailed-information" rows="5" name="gift_comment" value=""></textarea>
         </div>
         <br>
-        <input type="submit" name="giftpost" class="form-btn" value="公開">
+        <!-- <input type="submit" name="giftpost" class="form-btn" value="公開"> -->
     </form>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -188,29 +191,42 @@
         var $box2 = document.getElementById('box2');
         var $box3 = document.getElementById('box3');
         var $box4 = document.getElementById('box4');
-        var btn = document.querySelector('.next');
-        $box1.style.left = "100%";
-        $box2.style.left = "200%";
-        $box3.style.left = "300%";
-        $box4.style.left = "400%";
+        var nex = document.querySelector('.next');
+        var pre = document.querySelector('.prev');
+
+        $box1.style.left = "00%";
+        $box2.style.left = "100%";
+        $box3.style.left = "200%";
+        $box4.style.left = "300%";
 
         const $left0 = parseInt($box1.style.left);
         console.log($box1.style.left);
         console.log($box1.style.left);
         console.log($left0 - 100);
         
-        btn.addEventListener('click', () => {
-        /* box.classList.toggle('next') */
+        nex.addEventListener('click', () => {
         
-        if (parseInt($box1.style.left) == -300){
-            btn.type = "submit"
-            btn.innerHTML = "公開"
-            btn.className = "form-btn"
+        if (parseInt($box1.style.left) == -200){
+            nex.innerHTML = "公開"
+            $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
+            $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
+            $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
+            $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
+            
             
         }
-        else if(parseInt($box1.style.left) != -300){
-            btn.type = "button"
-            btn.innerHTML= "次"
+        else if (parseInt($box1.style.left) == -300){
+            nex.type = "submit"
+        }
+        else if(parseInt($box1.style.left) == 00){
+            pre.type = "button"
+            pre.innerHTML= "前"
+            $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
+            $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
+            $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
+            $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
+        }
+        else{
             $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
             $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
             $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
@@ -228,6 +244,36 @@
         $box4.style.left= ($left4 - 100) + "%"; */
         console.log($box1.style.left);
         });
+        pre.addEventListener('click', () => {
+        /* box.classList.toggle('next') */
+        
+        if (parseInt($box1.style.left) == -100){
+            pre.innerHTML = "　"
+            $box1.style.left= (parseInt($box1.style.left) + 100) + "%";
+            $box2.style.left= (parseInt($box2.style.left) + 100) + "%";
+            $box3.style.left= (parseInt($box3.style.left) + 100) + "%";
+            $box4.style.left= (parseInt($box4.style.left) + 100) + "%";
+        }
+        else if (parseInt($box1.style.left) == 00){
+
+            
+}
+        else if(parseInt($box1.style.left) == -300){
+            nex.type = "button"
+            nex.innerHTML= "次"
+            $box1.style.left= (parseInt($box1.style.left) + 100) + "%";
+            $box2.style.left= (parseInt($box2.style.left) + 100) + "%";
+            $box3.style.left= (parseInt($box3.style.left) + 100) + "%";
+            $box4.style.left= (parseInt($box4.style.left) + 100) + "%";
+        }
+        else{
+            $box1.style.left= (parseInt($box1.style.left) + 100) + "%";
+            $box2.style.left= (parseInt($box2.style.left) + 100) + "%";
+            $box3.style.left= (parseInt($box3.style.left) + 100) + "%";
+            $box4.style.left= (parseInt($box4.style.left) + 100) + "%";
+        }
+
+    });
     </script>
 </body>
 </html>
