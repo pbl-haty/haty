@@ -170,19 +170,29 @@
             </tr>
         </table>
 
-        <!-- ギフトに投稿があるか確認 -->
-        <!-- なし・・・ギフト申請ボタン　あり（自分）・・・キャンセルボタン　あり（他人）・・・ボタン表示 -->
-        <?php if($userId != $gift_info['user_id']) { ?>
-            <form class="gift_sentence" method="post" action="gift_detail_backend.php">
-                <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
-                <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
-                <?php if(empty($gift_info['applicant'])){?>
+        <?php if($userId == $gift_info['user_id']){
+            if(isset($gift_info['applicant']) && empty($gift_info['judge'])){?>
+                <div class="done_button_space">
+                    <form action="gift_detail_backend.php" method="post">
+                        <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
+                        <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
+                        <button type="submit" class="request_sentence" name="done_button">取引完了</button>
+                    </form>
+                </div>
+            <?php } 
+        }else{
+            if(empty($gift_info['judge'])){ ?>
+                <form class="gift_sentence" method="post" action="gift_detail_backend.php">
+                    <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
+                    <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
+                    <?php if(empty($gift_info['applicant'])){?>
                         <button type="submit" class="request_sentence" name="applygift">受け取り申請</button>
-                <?php }elseif($gift_info['applicant'] == $userId){?>
+                    <?php }elseif($gift_info['applicant'] == $userId){?>
                         <button type="submit" class="request_sentence" name="cancelgift">受け取り申請を<br>キャンセル</button>
-                <?php }?>
-            </form>
-        <?php } ?>
+                    <?php }?>
+                </form>
+            <?php } 
+        }?>
 
         <hr>
 

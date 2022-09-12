@@ -121,4 +121,17 @@
             $stmt = $this->query($sql, [$gift_id]);
             return $stmt->fetchAll();
         }
+
+        // 取引を終了させる
+        public function doneGift($gift_id){
+            $sql = "update gift set applicant = NULL, judge = 1 where id = ?";
+            $result = $this->exec($sql, [$gift_id]);
+            if($result){
+                // ギフトの取引が完了出来た場合
+                return '';
+            }else{
+                // 何かしらの原因で失敗した場合
+                return 'ギフトの取引を完了出来ませんでした。';
+            }
+        }
     }

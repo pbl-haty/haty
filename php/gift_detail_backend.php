@@ -34,6 +34,8 @@
         $gift->addGood($giftId, $userId);
     }elseif(isset($_POST['favorite_after'])){
         $gift->deleteGood($giftId, $userId);
+    }elseif(isset($_POST['done_button'])){
+        $gift->doneGift($giftId);
     }
 
     header("Location:". $url);
