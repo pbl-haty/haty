@@ -124,7 +124,7 @@
 
         // 取引を終了させる
         public function doneGift($gift_id){
-            $sql = "update gift set applicant = NULL, judge = 1 where id = ?";
+            $sql = "update gift set judge = 1 where id = ?";
             $result = $this->exec($sql, [$gift_id]);
             if($result){
                 // ギフトの取引が完了出来た場合

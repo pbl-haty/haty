@@ -158,25 +158,47 @@
                 <td><?php echo $gift_info['post'] ?></td>
             </tr>
             <tr>
-                <th>受け取り申請状況</th>
+                <th>ギフト状況</th>
                 <td>
-                    <?php if(empty($gift_info['applicant'])){
-                        echo '受け取り申請可';
+                    <?php if(isset($gift_info['judge'])){
+                        echo '取引完了済み';
                     }else{
-                        echo '受け取り申請不可';
+                        if(empty($gift_info['applicant'])){
+                            echo '受け取り申請可';
+                        }else{
+                            echo '受け取り申請不可';
+                        }    
                     }
                     ?>
                 </td>
             </tr>
         </table>
 
+        <hr>
+
         <?php if($userId == $gift_info['user_id']){
-            if(isset($gift_info['applicant']) && empty($gift_info['judge'])){?>
+            if(isset($gift_info['applicant']) && empty($gift_info['judge'])){
+                // 申請者の情報を取得
+                $applicant_info = $user->getUser($gift_info['applicant']);
+                $applicant_icon = base64_encode($applicant_info['icon']);
+                $applicant_name = $applicant_info['name'];
+                ?>
                 <div class="done_button_space">
+                    <div class="applicant_info">
+                        <div class="applicant_icon">
+                            <a href="">
+                                <img src="data:;base64,<?php echo $applicant_icon; ?>">
+                                <p><?php echo $applicant_name; ?>  さん</p>
+                            </a>
+                        </div>
+                        <p>が申請しています。</p>
+                        <p>コメントでやり取りをし、受け渡し後取引完了を押しましょう。</p>
+                    </div>
+
                     <form action="gift_detail_backend.php" method="post">
                         <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
                         <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
-                        <button type="submit" class="request_sentence" name="done_button">取引完了</button>
+                        <button type="submit" class="done_button" name="done_button">取引完了</button>
                     </form>
                 </div>
             <?php } 
@@ -206,7 +228,7 @@
             ?>
             <div class="onechat">
                 <div class="faceicon">
-                    <!-- アイコン選択でプロフィール画面に遷移（予定） -->
+                    <!-- アイコン選択でプロフィール画面に遷移 -->
                     <a href="user_profile.php?id=<?php echo $comment['uid']; ?>"><img src="data:;base64,<?php echo $comment_icon; ?>" alt=""></a>
                 </div>
                 <div class="says">
