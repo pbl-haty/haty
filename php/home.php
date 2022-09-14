@@ -4,7 +4,7 @@ require_once __DIR__ . './header.php';
 $userId = $_SESSION['uid'];
 ?>
 <link rel="stylesheet" href="../css/home.css">
-<title>ホーム画面</title>
+<title>ホーム</title>
 </head>
 
 <br>

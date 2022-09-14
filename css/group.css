@@ -120,3 +120,19 @@ hr {
 .example-category option {
     font-size: 15px;
 }
+
+.gift-display-icon{
+    width: 80px;
+    height: 80px;
+    color: #ffffff;
+    border: 3px solid black;
+    background-color: #FEFEFE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
