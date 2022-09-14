@@ -15,7 +15,7 @@
         }
 
         public function giftgroupall($groupId){
-            $sql = "select gift.id, gift.gift_name, gift.image, gift.post
+            $sql = "select gift.id, gift.gift_name, gift.image, gift.post, gift.user_id
                     from giftgroup join gift on giftgroup.gift_id = gift.id
                     where giftgroup.group_id = ?  and gift.applicant is null
                     order by gift.post desc, gift.id desc";

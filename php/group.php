@@ -22,8 +22,10 @@ $userId = $_SESSION['uid'];
     <?php // グループに所属しているか判定・・・A
         require_once __DIR__ . './classes/groupdetail.php';
         require_once __DIR__ . './classes/post.php';
+        require_once __DIR__ . './classes/user.php';
         $group = new GroupDetail();
         $post = new Post();
+        $user = new User();
 
         // $group_joins = $Group->groupjoin($_SESSION['userId']);
         $group_conf = $group->groupjoinconf($userId, $groupId);
@@ -76,17 +78,23 @@ $userId = $_SESSION['uid'];
             echo '<div class="display" id=p' . $cnt . '>';
             if (empty($gift_group)) {
                 echo '<div class = prompt_2>';
-                echo '<h4>該当する商品がありません。</h4>';
+                echo '<h4>該当するギフトがありません。</h4>';
                 echo '</div>';
             } else {
                 foreach ($gift_group as $gift) {
                     $img = base64_encode($gift['image']);
+                    $user_info = $user->getUser($gift['user_id']);
+                    $icon = base64_encode($user_info['icon']);
     ?>
-
                         <a href="gift_detail.php?id=<?php echo $gift['id']; ?>" class="detail_display">
                             <!-- ギフト詳細画面遷移 -->
                             <div>
-                                <img class="gift-display-image" src="data:;base64,<?php echo $img; ?>">
+                                <div class="position-relative">
+                                    <img class="gift-display-image" src="data:;base64,<?php echo $img; ?>">
+                                    <div>
+                                        <img class="gift-display-icon" src="data:;base64,<?php echo $icon; ?>">
+                                    </div>
+                                </div>
                                 <div class="home-image-title">
                                         <p class="home-image-title-span"><?= $gift['gift_name'] ?></p>
                                 </div>
@@ -109,5 +117,15 @@ $userId = $_SESSION['uid'];
 <script type="text/javascript" src="../js/group_detail.js"></script>
 
 </body>
+
+<head>
+    <?php if(empty($group_conf['groupname'])){
+        echo '<title>Error</title>';
+    }else{
+        echo '<title>';
+        echo $group_conf['groupname'];
+        echo ' | ギフト一覧</title>';
+    } ?>
+</head>
 
 </html>
