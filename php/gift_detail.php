@@ -174,8 +174,6 @@
             </tr>
         </table>
 
-        <hr>
-
         <?php if($userId == $gift_info['user_id']){
             if(isset($gift_info['applicant']) && empty($gift_info['judge'])){
                 // 申請者の情報を取得
@@ -183,6 +181,7 @@
                 $applicant_icon = base64_encode($applicant_info['icon']);
                 $applicant_name = $applicant_info['name'];
                 ?>
+                <hr>
                 <div class="done_button_space">
                     <div class="applicant_info">
                         <div class="applicant_icon">
@@ -248,7 +247,7 @@
         <form action="gift_detail_backend.php" method="post">
             <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
             <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
-            <textarea class="comment_box" name="comment" placeholder="コメントを入力してください"></textarea>
+            <textarea class="comment_box" name="comment" placeholder="（例）・ギフト状態を確認したい ・ギフトの画像を追加して欲しい など"></textarea>
             <div class="btn_right"><button type="submit" class="comment-send_btn" name="send_comment">送信</button></div>
         </form>
     </div>
