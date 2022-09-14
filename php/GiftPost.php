@@ -73,7 +73,7 @@
                 <h4><?= $completionmsg ?></h4>
                 <h4><?= $errormsg1 ?></h4>
         </div>
-        <button type="button" class="prev form-btn" name="giftpost" style="width: 200px;height: 100px;">前</button>
+        <button type="button" class="prev form-btn" name="giftpost" style="width: 200px;height: 100px;">　</button>
         <button type="button" class="next form-btn" name="giftpost" style="width: 200px;height: 100px;">次</button>
         <div class="box1" id="box1">
             <h1 class="content-margin">商品画像</h1>
@@ -87,7 +87,7 @@
             <h1 class="content-margin">商品名</h1>
 
             <div>
-                <input type="text" class="gift-title" maxlength="30" name="gift_name" required>
+                <input type="text" class="gift-title" maxlength="30" name="gift_name" id="gift_name" value="" required>
             </div>
         </div>
 
@@ -112,7 +112,7 @@
         foreach ($group_join as $join) {
 ?>
             <div class="trade-box">
-                <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" value="<?= $join['group_id'] ?>">
+                <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" class="groupcheck" value="<?= $join['group_id'] ?>">
                 <label for="groupname-<?= $cnt ?>"><?= $join['groupname'] ?></label>
             </div>
 
@@ -140,7 +140,7 @@
     foreach ($gift_category as $category) {
 ?>
         <div class="trade-box">
-            <input type="radio" id="category-<?= $cnt ?>" name="category" value="<?= $category['id'] ?>">
+            <input type="radio" id="category-<?= $cnt ?>" name="category" class="categorycheck" value="<?= $category['id'] ?>">
             <label for="category-<?= $cnt ?>"><?= $category['category_name'] ?></label>
         </div>
 
@@ -159,11 +159,11 @@
 
             <div class="content-check">
                 <div class="trade-box">
-                    <input type="checkbox" id="trade1-conditions" name="conditions[]" value="1">
+                    <input type="checkbox" id="trade1-conditions" name="conditions[]" class="contcheck" value="1">
                     <label for="trade1-conditions">手渡し</label>
                 </div>
                 <div class="trade-box">
-                    <input type="checkbox" id="trade2-conditions" name="conditions[]" value="2">
+                    <input type="checkbox" id="trade2-conditions" name="conditions[]" class="tradecheck" value="2">
                     <label for="trade2-conditions">配送</label>
                 </div>
             </div>
@@ -182,10 +182,6 @@
     <script type="text/javascript" src="../js/giftpost.js"></script>
 
     <script>
-/*         const btn = document.querySelector('.next');
-        const $box1 = document.querySelector(".box1");
-        const $box11 = document.querySelector('#box1');
-        const $left0 = parseInt($box1.style.left); */
         
         var $box1 = document.getElementById('box1');
         var $box2 = document.getElementById('box2');
@@ -193,6 +189,7 @@
         var $box4 = document.getElementById('box4');
         var nex = document.querySelector('.next');
         var pre = document.querySelector('.prev');
+        var giname = document.getElementById('gift_name');
 
         $box1.style.left = "00%";
         $box2.style.left = "100%";
@@ -207,30 +204,47 @@
         nex.addEventListener('click', () => {
         
         if (parseInt($box1.style.left) == -200){
-            nex.innerHTML = "公開"
-            $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
-            $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
-            $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
-            $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
-            
-            
+            $(".categorycheck").each(function (index, elm) {
+
+
+                var flg=$(elm).prop('checked');
+                if(flg){
+                    nex.innerHTML = "公開"
+                    $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
+                    $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
+                    $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
+                    $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
+                    return false;
+                }
+            });
         }
         else if (parseInt($box1.style.left) == -300){
-            nex.type = "submit"
+            var flg=$(".contcheck").prop('checked');
+            var flg2=$(".tradecheck").prop('checked');
+                if(flg || flg2){
+                    nex.type = "submit"
+                    return false;
+                }
         }
-        else if(parseInt($box1.style.left) == 00){
-            pre.type = "button"
-            pre.innerHTML= "前"
-            $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
-            $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
-            $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
-            $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
-        }
-        else{
-            $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
-            $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
-            $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
-            $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
+            else if(parseInt($box1.style.left) == 00 && giname.value.trim()){
+                pre.type = "button"
+                pre.innerHTML= "前"
+                $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
+                $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
+                $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
+                $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
+            }
+        else if(parseInt($box1.style.left) == -100){
+            $(".groupcheck").each(function (index, elm) {
+            var flg=$(elm).prop('checked');
+            if(flg){
+                $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
+                $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
+                $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
+                $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
+                return false;
+            }
+        });
         }
         /*  
             
@@ -242,7 +256,6 @@
         $box2.style.left= ($left2 - 100) + "%";
         $box3.style.left= ($left3 - 100) + "%";
         $box4.style.left= ($left4 - 100) + "%"; */
-        console.log($box1.style.left);
         });
         pre.addEventListener('click', () => {
         /* box.classList.toggle('next') */
