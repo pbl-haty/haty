@@ -309,7 +309,7 @@ body {
     padding: 10px 10px;
     border-radius: 12px;
     background: #d7ebfe;
-    max-width: 95%;
+    max-width: 100%;
     word-break: break-all;
 }
 
@@ -334,6 +334,64 @@ body {
 .comment_postdata {
     font-size: 20px;
     color: #696969;
+}
+
+
+/* 完了ボタン */
+.done_button_space{
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.applicant_info{
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.applicant_icon{
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-flow: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.applicant_icon a{
+    display: flex;
+    color: blue;
+    text-decoration: none;
+}
+
+.applicant_icon img{
+    width: 120px;
+    height: 120px;
+    border: solid 3px #d7ebfe;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.applicant_icon p{
+    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.done_button {
+    border-radius: 60px;
+    font-size: 50px;
+    padding: 1em 1em;
+    margin: 0 auto;
+    width: 500px;
+    color: #FFFAFA;
+    background-color: #4db56a;
+}
+.done_button:active {
+    -ms-transform: translateY(5px);
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    box-shadow:  none;
 }
 
 /* .comment_reply {

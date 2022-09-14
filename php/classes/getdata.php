@@ -9,7 +9,7 @@
         public function postlist($userId){
             $sql = "select gift.id, gift.gift_name, gift.image, gift.post
                     from gift
-                    where gift.user_id = ? and gift.applicant is null
+                    where gift.user_id = ? and gift.applicant is null and gift.judge is null
                     order by gift.post desc, gift.id desc";
             $stmt = $this->query($sql, [$userId]);
             $items = $stmt->fetchAll();

@@ -27,7 +27,7 @@
     // $view_your_list = [$your_good_list, $your_judge_list, $your_application_list];
 
     // タブの情報を一括にまとめる
-    $view_list_all = [$post_list, $my_good_list, $my_judge_list, $my_application_list, $your_good_list, $your_judge_list, $your_application_list];
+    $view_list_all = [$post_list, $my_good_list, $your_judge_list, $my_application_list, $your_good_list, $my_judge_list, $your_application_list];
     
 
 

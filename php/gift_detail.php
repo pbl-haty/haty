@@ -158,31 +158,62 @@
                 <td><?php echo $gift_info['post'] ?></td>
             </tr>
             <tr>
-                <th>受け取り申請状況</th>
+                <th>ギフト状況</th>
                 <td>
-                    <?php if(empty($gift_info['applicant'])){
-                        echo '受け取り申請可';
+                    <?php if(isset($gift_info['judge'])){
+                        echo '取引完了済み';
                     }else{
-                        echo '受け取り申請不可';
+                        if(empty($gift_info['applicant'])){
+                            echo '受け取り申請可';
+                        }else{
+                            echo '受け取り申請不可';
+                        }    
                     }
                     ?>
                 </td>
             </tr>
         </table>
 
-        <!-- ギフトに投稿があるか確認 -->
-        <!-- なし・・・ギフト申請ボタン　あり（自分）・・・キャンセルボタン　あり（他人）・・・ボタン表示 -->
-        <?php if($userId != $gift_info['user_id']) { ?>
-            <form class="gift_sentence" method="post" action="gift_detail_backend.php">
-                <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
-                <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
-                <?php if(empty($gift_info['applicant'])){?>
+        <?php if($userId == $gift_info['user_id']){
+            if(isset($gift_info['applicant']) && empty($gift_info['judge'])){
+                // 申請者の情報を取得
+                $applicant_info = $user->getUser($gift_info['applicant']);
+                $applicant_icon = base64_encode($applicant_info['icon']);
+                $applicant_name = $applicant_info['name'];
+                ?>
+                <hr>
+                <div class="done_button_space">
+                    <div class="applicant_info">
+                        <div class="applicant_icon">
+                            <a href="user_profile.php?id=<?php echo $gift_info['applicant']; ?>">
+                                <img src="data:;base64,<?php echo $applicant_icon; ?>">
+                                <p><?php echo $applicant_name; ?>  さん</p>
+                            </a>
+                        </div>
+                        <p>が申請しています。</p>
+                        <p>コメントでやり取りをし、受け渡し後取引完了を押しましょう。</p>
+                    </div>
+
+                    <form action="gift_detail_backend.php" method="post">
+                        <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
+                        <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
+                        <button type="submit" class="done_button" name="done_button">取引完了</button>
+                    </form>
+                </div>
+            <?php } 
+        }else{
+            if(empty($gift_info['judge'])){ ?>
+                <form class="gift_sentence" method="post" action="gift_detail_backend.php">
+                    <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
+                    <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
+                    <?php if(empty($gift_info['applicant'])){?>
                         <button type="submit" class="request_sentence" name="applygift">受け取り申請</button>
-                <?php }elseif($gift_info['applicant'] == $userId){?>
+                    <?php }elseif($gift_info['applicant'] == $userId){?>
                         <button type="submit" class="request_sentence" name="cancelgift">受け取り申請を<br>キャンセル</button>
-                <?php }?>
-            </form>
-        <?php } ?>
+                    <?php }?>
+                </form>
+            <?php } 
+        }?>
 
         <hr>
 
@@ -196,7 +227,7 @@
             ?>
             <div class="onechat">
                 <div class="faceicon">
-                    <!-- アイコン選択でプロフィール画面に遷移（予定） -->
+                    <!-- アイコン選択でプロフィール画面に遷移 -->
                     <a href="user_profile.php?id=<?php echo $comment['uid']; ?>"><img src="data:;base64,<?php echo $comment_icon; ?>" alt=""></a>
                 </div>
                 <div class="says">
@@ -216,7 +247,7 @@
         <form action="gift_detail_backend.php" method="post">
             <input type="hidden" name="giftid" value="<?php echo $giftId;?>">
             <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI'];?>">
-            <textarea class="comment_box" name="comment" placeholder="コメントを入力してください"></textarea>
+            <textarea class="comment_box" name="comment" placeholder="（例）・ギフト状態を確認したい ・ギフトの画像を追加して欲しい など"></textarea>
             <div class="btn_right"><button type="submit" class="comment-send_btn" name="send_comment">送信</button></div>
         </form>
     </div>
