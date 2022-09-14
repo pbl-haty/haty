@@ -78,7 +78,9 @@
         </div>
     </div>
 
-    <p class="textarea-content"><?= $get_user['comment'] ?></p>
+    <div class="textarea-content">
+        <p><?= $get_user['comment'] ?></p>
+    </div>
 
     <div class="user-profile-nav">
         <div class="nav-contents">
