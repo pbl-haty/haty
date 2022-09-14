@@ -185,7 +185,7 @@
                 <div class="done_button_space">
                     <div class="applicant_info">
                         <div class="applicant_icon">
-                            <a href="">
+                            <a href="user_profile.php?id=<?php echo $gift_info['applicant']; ?>">
                                 <img src="data:;base64,<?php echo $applicant_icon; ?>">
                                 <p><?php echo $applicant_name; ?>  さん</p>
                             </a>
