@@ -41,7 +41,7 @@ nex.addEventListener('click', () => {
 		if(giimg.value.trim()) {
 			if(giname.value.trim()) {
 				pre.type = "button"
-				pre.innerHTML= "戻"
+				pre.innerHTML= "戻る"
 				$box1.style.left= (parseInt($box1.style.left) - 100) + "%";
 				$box2.style.left= (parseInt($box2.style.left) - 100) + "%";
 				$box3.style.left= (parseInt($box3.style.left) - 100) + "%";
@@ -91,7 +91,7 @@ nex.addEventListener('click', () => {
 		$box4.style.left= (parseInt($box4.style.left) + 100) + "%";				
 	} else if(parseInt($box1.style.left) == -300){
 		nex.type = "button"
-		nex.innerHTML= "次"
+		nex.innerHTML= "次へ"
 		$box1.style.left= (parseInt($box1.style.left) + 100) + "%";
 		$box2.style.left= (parseInt($box2.style.left) + 100) + "%";
 		$box3.style.left= (parseInt($box3.style.left) + 100) + "%";
@@ -99,9 +99,9 @@ nex.addEventListener('click', () => {
 	}
 });
 
-function loadImage(obj)
-{
+function loadImage(obj) {
 	var cnt = $(".sample-img-size").length;
+	document.getElementById('sample-img').innerHTML = "";
 	
 	/* 複数枚プレビュー可能 for (i = 0 ; i < obj.files.length ; i++) { */
     for (i = 0 ; i + cnt < 4 && i < obj.files.length ; i++) {

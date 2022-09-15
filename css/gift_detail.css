@@ -516,6 +516,17 @@ textarea {
     object-fit: cover;
 }
 
+.slider-none {
+    margin: 0 auto;
+    padding: 0;
+}
+
+.slider-none img {
+    width: calc(100vw - 40px);
+    height: calc(100vw - 40px);
+    object-fit: cover;
+}
+
 .prompt_1 {
     margin-top: 200px;
     text-align: center;

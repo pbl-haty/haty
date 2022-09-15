@@ -15,23 +15,23 @@
 
         $group_name = filter_input(INPUT_POST, 'groupname', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
         if (empty($group_name)) {
-            $msg1 = 'グループを選択してください。';
+            $msg = 'グループを選択してください。';
         } else {
             if (!isset($_POST['category'])) {
-                $msg1 = 'カテゴリを選択してください。';
+                $msg = 'カテゴリを選択してください。';
             } else {
                 $category_id = $_POST['category'];
                
                 $condi = filter_input(INPUT_POST, 'conditions', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
                 if(empty($condi)) {
-                    $msg1 = "手渡しか配送を選んでください。";
+                    $msg = "手渡しか配送を選んでください。";
                 } else {
                     $conditions = 0;
                     foreach($condi as $key => $value){
                         $conditions += (int)$value;
                     }
 
-                    for($i = 0; $i < count($_FILES["image"]["name"]) && $i < 4; $i++ ){
+                    for($i = 0; $i < count($_FILES["image"]["name"]) && $i < 4; $i++ ) {
                         $fp = fopen($_FILES['image']['tmp_name'][$i], "rb");
                         $image = fread($fp, filesize($_FILES['image']['tmp_name'][$i]));
                         fclose($fp);
@@ -43,7 +43,7 @@
                         }
                     }
 
-                    foreach($group_name as $key => $groupid){
+                    foreach($group_name as $key => $groupid) {
                         $post->grouppost($result, (int)$groupid);
                     }
 
@@ -69,8 +69,8 @@
         <div class ="prompt_2">
                 <h4 class="msg-size" id="erms"><?= $msg ?></h4>
         </div>
-        <button type="button" class="prev form-btn" name="giftpost" style="width: 200px;height: 100px;">　</button>
-        <button type="button" class="next form-btn" name="giftpost" style="width: 200px;height: 100px;">次</button>
+        <button type="button" class="prev form-btn" name="giftpost">　</button>
+        <button type="button" class="next form-btn" name="giftpost">次へ</button>
         <div class="box1" id="box1">
             <h1 class="content-margin">商品画像</h1>
 
@@ -84,6 +84,7 @@
 
             <div>
                 <input type="text" class="gift-title" maxlength="30" name="gift_name" id="gift_name" value="" required>
+                <input type="text" style="display: none;"/>
             </div>
         </div>
 
