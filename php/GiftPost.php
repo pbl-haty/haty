@@ -21,13 +21,13 @@
             $errormsg1 = 'グループを選択してください。';
         } else {
             if (!isset($_POST['category'])) {
-                $errormsg3 = 'カテゴリを選択してください。';
+                $errormsg1 = 'カテゴリを選択してください。';
             } else {
                 $category_id = $_POST['category'];
                
                 $condi = filter_input(INPUT_POST, 'conditions', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
                 if(empty($condi)) {
-                    $errormsg2 = "手渡しか配送を選んでください。";
+                    $errormsg1 = "手渡しか配送を選んでください。";
                 } else {
                     $conditions = 0;
                     foreach($condi as $key => $value){
@@ -71,29 +71,35 @@
 
         <div class ="prompt_2">
                 <h4><?= $completionmsg ?></h4>
+                <h4><?= $errormsg1 ?></h4>
+        </div>
+        <button type="button" class="prev form-btn" name="giftpost" style="width: 200px;height: 100px;">　</button>
+        <button type="button" class="next form-btn" name="giftpost" style="width: 200px;height: 100px;">次</button>
+        <div class="box1" id="box1">
+            <h1 class="content-margin">商品画像</h1>
+
+            <div id="sample-img" class="sample-img"></div>
+                <label class="upload-label">
+                    画像を選択
+                    <input type="file" id="input-img" onchange="loadImage(this);" name="image[]" accept="image/*" multiple required>
+                </label>
+
+            <h1 class="content-margin">商品名</h1>
+
+            <div>
+                <input type="text" class="gift-title" maxlength="30" name="gift_name" id="gift_name" value="" required>
+            </div>
         </div>
 
-        <h1 class="content-margin">商品画像</h1>
+        <div class="box2" id="box2">
+            <h1 class="content-margin">グループを選択</h1>
 
-        <div id="sample-img" class="sample-img"></div>
-            <label class="upload-label">
-                画像を選択
-                <input type="file" id="input-img" onchange="loadImage(this);" name="image[]" accept="image/*" multiple required>
-            </label>
+            <div class ="prompt_2">
+                <h4><?= $errormsg1 ?></h4>
+            </div>
 
-        <h1 class="content-margin">商品名</h1>
-
-        <div>
-            <input type="text" class="gift-title" maxlength="30" name="gift_name" required>
+            <div class="content-check">
         </div>
-
-        <h1 class="content-margin">公開範囲</h1>
-
-        <div class ="prompt_2">
-            <h4><?= $errormsg1 ?></h4>
-        </div>
-
-        <div class="content-check">
 
 <?php 
     $group = new Group();
@@ -106,7 +112,7 @@
         foreach ($group_join as $join) {
 ?>
             <div class="trade-box">
-                <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" value="<?= $join['group_id'] ?>">
+                <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" class="groupcheck" value="<?= $join['group_id'] ?>">
                 <label for="groupname-<?= $cnt ?>"><?= $join['groupname'] ?></label>
             </div>
 
@@ -117,14 +123,15 @@
  ?>
 
         </div>
+        <div class="box3" id="box3">
+            <h1 class="content-margin">カテゴリ</h1>
 
-        <h1 class="content-margin">カテゴリ</h1>
-
-        <div class ="prompt_2">
-            <h4><?= $errormsg3 ?></h4>
-        </div>
-
-        <div class="content-check">
+            <div class ="prompt_2">
+                <h4><?= $errormsg3 ?></h4>
+            </div>
+        
+            <div class="content-check">
+        
 
 <?php 
     $gift_category = $post->giftcategory();
@@ -133,7 +140,7 @@
     foreach ($gift_category as $category) {
 ?>
         <div class="trade-box">
-            <input type="radio" id="category-<?= $cnt ?>" name="category" value="<?= $category['id'] ?>">
+            <input type="radio" id="category-<?= $cnt ?>" name="category" class="categorycheck" value="<?= $category['id'] ?>">
             <label for="category-<?= $cnt ?>"><?= $category['category_name'] ?></label>
         </div>
 
@@ -141,28 +148,32 @@
         $cnt++;
     }
  ?>
-
-        <h1 class="content-margin">取引条件</h1>
-        <div class ="prompt_2">
-            <h4><?= $errormsg2 ?></h4>
-        </div>
-
-        <div class="content-check">
-            <div class="trade-box">
-                <input type="checkbox" id="trade1-conditions" name="conditions[]" value="1">
-                <label for="trade1-conditions">手渡し</label>
             </div>
-            <div class="trade-box">
-                <input type="checkbox" id="trade2-conditions" name="conditions[]" value="2">
-                <label for="trade2-conditions">配送</label>
+
             </div>
+        <div class="box4" id="box4">
+            <h1 class="content-margin">取引条件</h1>
+            <div class ="prompt_2">
+                <h4><?= $errormsg2 ?></h4>
+            </div>
+
+            <div class="content-check">
+                <div class="trade-box">
+                    <input type="checkbox" id="trade1-conditions" name="conditions[]" class="contcheck" value="1">
+                    <label for="trade1-conditions">手渡し</label>
+                </div>
+                <div class="trade-box">
+                    <input type="checkbox" id="trade2-conditions" name="conditions[]" class="tradecheck" value="2">
+                    <label for="trade2-conditions">配送</label>
+                </div>
+            </div>
+            
+            <h1 class="content-margin">詳細情報（任意）</h1>
+            
+            <textarea class="Detailed-information" rows="5" name="gift_comment" value=""></textarea>
         </div>
-        
-        <h1 class="content-margin">詳細情報（任意）</h1>
-        
-        <textarea class="Detailed-information" rows="5" name="gift_comment" value=""></textarea>
         <br>
-        <input type="submit" name="giftpost" class="form-btn" value="公開">
+        <!-- <input type="submit" name="giftpost" class="form-btn" value="公開"> -->
     </form>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -171,5 +182,112 @@
     
     <script type="text/javascript" src="../js/giftpost.js"></script>
 
+    <script>
+        
+        var $box1 = document.getElementById('box1');
+        var $box2 = document.getElementById('box2');
+        var $box3 = document.getElementById('box3');
+        var $box4 = document.getElementById('box4');
+        var nex = document.querySelector('.next');
+        var pre = document.querySelector('.prev');
+        var giname = document.getElementById('gift_name');
+
+        $box1.style.left = "00%";
+        $box2.style.left = "100%";
+        $box3.style.left = "200%";
+        $box4.style.left = "300%";
+
+        const $left0 = parseInt($box1.style.left);
+        console.log($box1.style.left);
+        console.log($box1.style.left);
+        console.log($left0 - 100);
+        
+        nex.addEventListener('click', () => {
+        
+        if (parseInt($box1.style.left) == -200){
+            $(".categorycheck").each(function (index, elm) {
+
+
+                var flg=$(elm).prop('checked');
+                if(flg){
+                    nex.innerHTML = "公開"
+                    $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
+                    $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
+                    $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
+                    $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
+                    return false;
+                }
+            });
+        }
+        else if (parseInt($box1.style.left) == -300){
+            var flg=$(".contcheck").prop('checked');
+            var flg2=$(".tradecheck").prop('checked');
+                if(flg || flg2){
+                    nex.type = "submit"
+                    return false;
+                }
+        }
+            else if(parseInt($box1.style.left) == 00 && giname.value.trim()){
+                pre.type = "button"
+                pre.innerHTML= "前"
+                $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
+                $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
+                $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
+                $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
+            }
+        else if(parseInt($box1.style.left) == -100){
+            $(".groupcheck").each(function (index, elm) {
+            var flg=$(elm).prop('checked');
+            if(flg){
+                $box1.style.left= (parseInt($box1.style.left) - 100) + "%";
+                $box2.style.left= (parseInt($box2.style.left) - 100) + "%";
+                $box3.style.left= (parseInt($box3.style.left) - 100) + "%";
+                $box4.style.left= (parseInt($box4.style.left) - 100) + "%";
+                return false;
+            }
+        });
+        }
+        /*  
+            
+        
+            box1が-300の時
+            次へボタンが送信にテキストを変更
+            タイプをsubmitに変更 */
+        /* $box1.style.left= ($left1 - 100) + "%";
+        $box2.style.left= ($left2 - 100) + "%";
+        $box3.style.left= ($left3 - 100) + "%";
+        $box4.style.left= ($left4 - 100) + "%"; */
+        });
+        pre.addEventListener('click', () => {
+        /* box.classList.toggle('next') */
+        
+        if (parseInt($box1.style.left) == -100){
+            pre.innerHTML = "　"
+            $box1.style.left= (parseInt($box1.style.left) + 100) + "%";
+            $box2.style.left= (parseInt($box2.style.left) + 100) + "%";
+            $box3.style.left= (parseInt($box3.style.left) + 100) + "%";
+            $box4.style.left= (parseInt($box4.style.left) + 100) + "%";
+        }
+        else if (parseInt($box1.style.left) == 00){
+
+            
+}
+        else if(parseInt($box1.style.left) == -300){
+            nex.type = "button"
+            nex.innerHTML= "次"
+            $box1.style.left= (parseInt($box1.style.left) + 100) + "%";
+            $box2.style.left= (parseInt($box2.style.left) + 100) + "%";
+            $box3.style.left= (parseInt($box3.style.left) + 100) + "%";
+            $box4.style.left= (parseInt($box4.style.left) + 100) + "%";
+        }
+        else{
+            $box1.style.left= (parseInt($box1.style.left) + 100) + "%";
+            $box2.style.left= (parseInt($box2.style.left) + 100) + "%";
+            $box3.style.left= (parseInt($box3.style.left) + 100) + "%";
+            $box4.style.left= (parseInt($box4.style.left) + 100) + "%";
+        }
+
+    });
+    </script>
 </body>
 </html>

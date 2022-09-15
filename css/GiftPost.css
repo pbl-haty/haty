@@ -188,3 +188,47 @@ body{
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
 }
+.box1{
+    position: fixed;
+    transition: .5s;
+}
+.box1.next{
+    position: fixed;
+    left: 0%;
+}
+.box2{
+    position: fixed;
+    left: 200%;
+}
+.box3{
+    position: fixed;
+    left: 300%;
+}
+.box4{
+    position: fixed;
+    left: 400%;
+}
+#box1{
+    position: fixed;
+    transition: .5s;
+    margin: 0 20px;
+    width: calc(100vw - 40px);
+}
+#box2{
+    position: fixed;
+    transition: .5s;
+    margin: 0 20px;
+    width: calc(100vw - 40px);
+}
+#box3{
+    position: fixed;
+    transition: .5s;
+    margin: 0 20px;
+    width: calc(100vw - 40px);
+}
+#box4{
+    position: fixed;
+    transition: .5s;
+    margin: 0 20px;
+    width: calc(100vw - 40px);
+}
