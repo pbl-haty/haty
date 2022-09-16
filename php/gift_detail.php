@@ -76,22 +76,22 @@
     <div class="gift_detail">
         <!-- <h2 class="syosai">ギフト詳細</h2> -->
 
-        <ul class="slider">
+        <?php
+            $gift_addimage = $gift->getaddimage($giftId);
+            if(empty($gift_addimage)) {
+                echo '<ul class="slider-none">';
+            } else {
+                echo '<ul class="slider">';
+            }
+        ?>
             <li><img class="gift_display_detail" src="data:;base64,<?php echo $gift_image; ?>" alt=""></li>
-            <?php
-                $gift_addimage = $gift->getaddimage($giftId);
-                if(empty($gift_addimage)) {
-            ?>
-                    <li><img class="gift_display_detail" src="data:;base64,<?php echo $gift_image; ?>" alt=""></li>
             <?php    
-                } else {
                     foreach($gift_addimage as $addimage) {
                         $addimg = base64_encode($addimage['image']);        
             ?>
-                    <li><img class="gift_display_detail" src="data:;base64,<?= $addimg ?>" alt=""></li>
-            <?php
+                <li><img class="gift_display_detail" src="data:;base64,<?= $addimg ?>" alt=""></li>
+            <?php    
                     }
-                }
             ?>
         </ul>
 
@@ -141,7 +141,15 @@
 
         <div class="gift_explain">
             <p class="explain_sentence">ギフト詳細</p>
-            <p class="once_sentence"><?php echo $gift_info['giftcomment']; ?></p>
+            <p class="once_sentence">
+                <?php
+                    if(empty($gift_info['giftcomment'])) {
+                        echo '詳細コメントがありません。';
+                    } else {
+                        echo $gift_info['giftcomment'];
+                    }
+                ?>
+            </p>
         </div>
 
         <table class="gift_table">
