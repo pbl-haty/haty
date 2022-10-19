@@ -55,6 +55,7 @@
                     <div class="group-button">
                         <a href="group.php?groupid=<?php echo $groupId; ?>" class="gift-list-sentence">商品一覧</a>
                         <div class="inv-link-sentence" data-clipboard-text="http://localhost/haty/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div>
+                        <!-- <div class="inv-link-sentence" data-clipboard-text="http://ec2-35-78-185-213.ap-northeast-1.compute.amazonaws.com/haty/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div> -->
                     </div>
                 </div>
             </div>
