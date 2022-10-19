@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . './header.php';
+require_once __DIR__ . '/header.php';
 
 $userId = $_SESSION['uid'];
 /* if($_SERVER["REQUEST_METHOD"] === "POST"){
@@ -20,9 +20,9 @@ $userId = $_SESSION['uid'];
 
 
     <?php // グループに所属しているか判定・・・A
-        require_once __DIR__ . './classes/groupdetail.php';
-        require_once __DIR__ . './classes/post.php';
-        require_once __DIR__ . './classes/user.php';
+        require_once __DIR__ . '/classes/groupdetail.php';
+        require_once __DIR__ . '/classes/post.php';
+        require_once __DIR__ . '/classes/user.php';
         $group = new GroupDetail();
         $post = new Post();
         $user = new User();

@@ -7,7 +7,13 @@
           // PDOオブジェクトを生成する                     
           $dsn = 'mysql:host=localhost;dbname=haty;charset=utf8';                     
           $user = 'haty';                    
-          $password = 'haty';                     
+          $password = 'haty';       
+
+// デプロイ          
+//          $dsn = 'mysql:host=database-1.c0ldwtkfy8hi.ap-northeast-1.rds.amazonaws.com;dbname=haty;charset=UTF8';
+//          $user = 'admin';
+//          $password = 'haty_D04';
+
           try{                      
               $this->pdo = new PDO($dsn, $user, $password);                     
           } catch(Exception  $e){                     
