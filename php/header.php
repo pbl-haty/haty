@@ -14,7 +14,7 @@ session_start();
     <div class="hamburger-menu">
         <input type="checkbox" id="menu-btn-check">
         <label for="menu-btn-check" class="menu-btn">
-            <p class="hamburger-notification">!</p> ハンバーメニュー通知
+            <p class="hamburger-notification">!</p> <!-- ハンバーメニュー通知 -->
             <span></span>
         </label>
         <div class="menu-content">
