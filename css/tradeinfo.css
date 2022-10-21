@@ -1,0 +1,215 @@
+body {
+    display: block;
+    text-align: center;
+}
+.textarea-content {
+    resize: vertical;
+    margin: 30px 0px;
+    width: 100%;
+    min-height: 200px;
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+.upload-label {
+    width: 100%;
+    display: inline-block;
+    margin: 30px 0 0 0;
+    padding: 15px 0;
+    color: black;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 1px gray solid;
+}
+.upload-label input {
+    display: none;
+}
+.tittle {
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid gray;
+    text-indent: 20px;
+    font-size: 30px;
+    padding: 15px 0;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+.tradeinfo-button{
+    font-size: 20px;
+}
+.trade-tittle{
+    font-size: 20px;
+}
+.tradeinfo{
+    font-size: 16px;
+    margin: 0%;
+}
+.example-category {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid gray;
+    border-radius: 15px;
+    color: black;
+    position: relative;
+    width: 100%;
+    font-size: 40px;
+    padding: 15px 20px;
+}
+.sample-img {
+    border: solid 1px gray;
+    border-radius: 20px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 100%;
+    height: calc(40vw - 20px);
+}
+.img-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: solid 1px gray;
+}
+.scroll ul{
+	display: flex;
+	overflow-x: scroll;
+	margin: 0;	
+	padding: 0;
+}
+.readmore{
+    position: relative;
+    box-sizing: border-box;
+    /*以下お好み*/
+    /* ボーダーを付ける場合 */
+    padding: 15px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    margin: 15px 0px;
+}
+
+.readmore-content{
+    position: relative;
+    overflow: hidden;
+    /*以下お好み*/
+    /*高さの初期値*/
+    height: 100px;
+}
+.readmore-content::before {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    content: "";
+    /*以下お好み グラデーションの色と高さ 高さはreadmoreのheight以下にすること*/
+    height: 50px;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 50%, #fff 100%);
+    background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 50%, #fff 100%);
+}
+
+/* 続きを読むボタン */
+.readmore-label{
+    display: table;
+    bottom: 5px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin: 0 auto;
+    z-index: 2;
+    padding: 0 10px;
+    background-color: #ff7777;
+    border-radius: 10px;
+    color: #FFF;
+}
+.readmore-label:before{
+    content: '続きを読む';
+}
+
+.readmore-check{
+    display: none;
+}
+/*チェック時にボタンを非表示*/
+.readmore-check:checked ~ .readmore-label{
+    position: static;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    /* 「続きを読む」を押した後、元に戻す必要がない場合は、上のオプションを消してこの1行だけにする */
+    /* display: none; */
+}
+.readmore-check:checked ~ .readmore-label:before{
+    content: '閉じる';
+}
+/*チェック時に高さを自動に戻す*/
+.readmore-check:checked ~ .readmore-content{
+    height: 500px;
+}
+/*チェック時グラデーション等を削除*/
+.readmore-check:checked ~ .readmore-content::before {
+    display: none;
+}
+.upload-label {
+    display: inline-block;
+    margin: 20px 0 0 0; /* まわりの余白 */
+    padding: 15px 0; /* 文字まわりの余白 */
+    color: black; /* 文字色 */
+    font-size: 20px; /* フォントサイズ */
+    border-radius: 20px; /* 角の丸み */
+    border: 1px solid gray;
+    width: 100%;
+}
+.sample-img {
+    border: 1px solid gray;
+    border-radius: 20px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 100%;
+    height: 200px;
+}
+
+.sample-img-size {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* 
+
+.open {
+	cursor:pointer;
+}
+#pop-up {
+	display: none;
+}
+.overlay {
+	display: none;
+}
+#pop-up:checked + .overlay {
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	background: rgba(0, 0, 0, 0.6);
+}
+.window {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 90vw;
+	max-width: 360px;
+    padding: 20px;
+	height: 300px;
+	background-color: #fff;
+	border-radius: 4px;
+	align-items: center;
+	transform: translate(-50%, -50%);
+}
+.close {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	cursor:pointer;
+} */
