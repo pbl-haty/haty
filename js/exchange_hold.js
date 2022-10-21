@@ -2,24 +2,32 @@ function buttonClick_explain() {
     let btnHide = document.getElementById("explain-hide");
     let subForm = document.getElementById("explain-form");
     let txtArea = document.getElementById("explain-area");
+    let explain_check = document.getElementById("explain_check");
     if (btnHide.checked) {
         subForm.style.display = "none";
-        txtArea.value = "";
+        // txtArea.value = "";
+        explain_check.value="No";
     } else {
         subForm.style.display = "";
+        explain_check.value="Ok";
     }
+    console.log(explain_check.value);
 }
 
 function buttonClick_theme() {
     let btnHide = document.getElementById("hide");
     let subForm = document.getElementById("sub-form");
     let txtArea = document.getElementById("txt-area");
+    let theme_check = document.getElementById("theme_check");
     if (btnHide.checked) {
         subForm.style.display = "none";
-        txtArea.value = "";
+        // txtArea.value = "";
+        theme_check.value = 'No';
     } else {
         subForm.style.display = "";
+        theme_check.value = 'Ok';
     }
+    console.log(theme_check.value);
 }
 
 $(function() {

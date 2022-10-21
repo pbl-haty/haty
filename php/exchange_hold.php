@@ -1,6 +1,52 @@
 <?php
 // ヘッダーを読み込む
 require_once __DIR__ . '/header.php';
+// trade.phpを読み込む
+require_once __DIR__ . '/classes/trade.php';
+$trade = New Trade();
+// groupdetail.phpを読み込む
+require_once __DIR__ . '/classes/groupdetail.php';
+$group = new GroupDetail();
+
+// メッセージの初期化
+$msg = "";
+
+// セッションからユーザーIDとグループIDを取得し、グループIDのみ破棄（#2以降で修正）
+// $userId = $_SESSION['uid'];
+// $groupId = $_SESSION['groupId'];
+// unset($_SESSION['groupId']);
+
+// #1ではグループIDは固定値
+$groupId = 1;
+
+// 開催するボタンが押されたとき
+if(isset($_POST['hold'])){
+    // 交換会名前と終了日を格納
+    $trade_name = $_POST['trade_name'];
+    $end_date = $_POST['date-max'];
+    // 交換会ボタンが押されているとき
+    if($_POST['explain_check'] == 'Ok') {
+        $trade_explain = $_POST['explain'];
+    }else{
+        $trade_explain = '';
+    }
+
+    // 開催に必要な情報をtradeテーブルに挿入し、トレードIDを取得
+    $result = $trade->createTrade($groupId, $trade_name, $trade_explain, $end_date);
+
+    // テーマボタンが押されているとき
+    // if($_POST['theme_check'] == 'Ok'){
+    //     $theme_name = filter_input(INPUT_POST, 'theme', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+
+        // for($i = 0; $i < count($theme_name); $i++){
+        //     ${"theme". ($i + 1)} = $theme_name[$i];
+        // }
+        // $trade->createThemes($result, $theme1, $theme2, $theme3);
+    // }
+}
+
+
+
 ?>
 
 <link rel="stylesheet" href="../css/exchange_hold.css">
@@ -9,16 +55,17 @@ require_once __DIR__ . '/header.php';
 </head>
 
 <body>
-    <div class="exchange">
+    <form method="post" action="" class="exchange">
         <!-- 交換会名入力 -->
         <div>
             <p class="exchange-title">交換会名</p>
-            <input type="text" class=exchange-title-name>
+            <input type="text" class=exchange-title-name name="trade_name">
         </div>
 
         <!-- テーマ入力 -->
         <div>
             <p class="exchange-theme">テーマ</p>
+            <input type="hidden" id="theme_check" name="theme_check" value="Ok">
             <input class="exchange-exit" type="radio" id="disp" name="theme" onclick="buttonClick_theme()" checked>あり
             <input class="exchange-none" type="radio" id="hide" name="theme" onclick="buttonClick_theme()">なし
             <div id="sub-form">
@@ -34,11 +81,12 @@ require_once __DIR__ . '/header.php';
         <!-- 説明入力 -->
         <div>
             <p class="exchange-explain">説明文</p>
+            <input type="hidden" id="explain_check" name="explain_check" value="Ok">
             <input class="exchange-exit" type="radio" id="explain-disp" name="explain" onclick="buttonClick_explain()" checked>あり
             <input class="exchange-none" type="radio" id="explain-hide" name="explain" onclick="buttonClick_explain()">なし
             <div id="explain-form">
                 <p>説明文を入力してください</p>
-                <textarea class="exchange-explain-area" id="explain-area" wrap="hard"></textarea><br>
+                <textarea class="exchange-explain-area" id="explain-area" wrap="hard" name="explain"></textarea><br>
             </div>
         </div>
 
@@ -49,11 +97,11 @@ require_once __DIR__ . '/header.php';
         </div>
 
         <div>
-            <input type="submit" class="hold-button" value="開催">
+            <input type="submit" class="hold-button" value="開催" name="hold">
         </div>
 
 
         <script src="https://code.jquery.com/jquery.min.js"></script>
         <script src="../js/exchange_hold.js"></script>
-    </div>
+    </form>
 </body>
