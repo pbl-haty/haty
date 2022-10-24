@@ -96,7 +96,7 @@ if(empty($tradeInfo)){
     <form method="post" action="" class="exchange">
         <!-- 交換会名入力 -->
         <div>
-            <p class="exchange-title">交換会名</p>
+            <p class="exchange-title"><span> * </span>交換会名</p>
             <input type="text" class=exchange-title-name name="trade_name" required>
         </div>
 
@@ -107,7 +107,7 @@ if(empty($tradeInfo)){
             <input class="exchange-exit" type="radio" id="disp" name="theme" onclick="buttonClick_theme()" checked>あり
             <input class="exchange-none" type="radio" id="hide" name="theme" onclick="buttonClick_theme()">なし
             <div id="sub-form">
-                <p>テーマを入力してください（最大3つ）</p>
+                <p>交換会で交換する物のテーマを入力してください（最大3つ）</p>
                 <div id="inputArea">
                     <input type="text" name="theme[]" class="exchange-theme-area" placeholder="3000円以下、身に着けるもの、季節もの 等">
                     <button type="button" id="add" class="exchanege-theme-button">追加</button>
@@ -130,7 +130,7 @@ if(empty($tradeInfo)){
 
         <!-- 終了日入力 -->
         <div>
-            <p class="exchange-finish">終了日（最大4週間）</p>
+            <p class="exchange-finish"><span> * </span>終了日（最大4週間）</p>
             <input class="exchange-calendar" type="date" name="date-max" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('next month')); ?>" required></input><br>
         </div>
 

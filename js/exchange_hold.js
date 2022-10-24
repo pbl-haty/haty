@@ -43,6 +43,7 @@ window.addEventListener('DOMContentLoaded', function() {
             ;
             var l = document.querySelector('#inputArea input:last-of-type');
             document.querySelector('#inputArea').insertBefore(l.cloneNode(), l.nextSibling);
+            document.querySelector('#inputArea input:last-of-type').value = "";
         }
     });
     document.querySelector('#del').addEventListener('click', function() {
