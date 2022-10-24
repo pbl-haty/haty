@@ -4,17 +4,17 @@
 
     class Trade extends DbData {
         // 交換会を作成
-        public function createTrade($group_id, $trade_name, $trade_explain, $end_date){
-            $sql = 'insert into trade(group_id, trade_name, trade_explain, end_date) values(?, ?, ?, ?)';
-            $this->exec($sql, [$group_id, $trade_name, $trade_explain, $end_date]);
+        public function createTrade($group_id, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date){
+            $sql = 'insert into trade(group_id, trade_name, theme1, theme2, theme3, trade_explain, end_date) values(?, ?, ?, ?, ?, ?, ?)';
+            $this->exec($sql, [$group_id, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date]);
             return $this->pdo->lastInsertId();
         }
 
-        // 交換会のテーマを作成
-        public function createThemes($trade_id, $theme1, $theme2, $theme3){
-            $sql = 'insert into trade_theme(trade_id, theme1, theme2, theme3) values(?, ?, ?, ?)';
-            $this->exec($sql, [$trade_id, $theme1, $theme2, $theme3]);
-        }
+        // // 交換会のテーマを作成
+        // public function createThemes($trade_id, $theme1, $theme2, $theme3){
+        //     $sql = 'insert into trade_theme(trade_id, theme1, theme2, theme3) values(?, ?, ?, ?)';
+        //     $this->exec($sql, [$trade_id, $theme1, $theme2, $theme3]);
+        // }
 
         // 交換会にグッズを追加
         public function postGoods($group_id, $pass_id, $goods_name, $goods_hint, $goods_image){
@@ -24,8 +24,8 @@
 
         // グループIDから交換会の情報を取得
         public function tradeInfo($group_id){
-            $sql = 'select trade.trade_id, trade.trade_name, trade.trade_explain, trade.begin_date, trade.end_date, trade_theme.theme1, trade_theme.theme2, trade_theme.theme3
-                    from trade join trade_theme on trade.trade_id = trade_theme.trade_id
+            $sql = 'select trade_id, trade_name, trade_explain, begin_date, end_date, theme1, theme2, theme3
+                    from trade
                     where trade.group_id = ?';
             $stmt = $this->query($sql, [$group_id]);
             $items = $stmt->fetch();
