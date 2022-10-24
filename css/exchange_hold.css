@@ -130,3 +130,16 @@ input {
     background: #cbe8fa;
 
 }
+
+/* エラーメッセージの表示 */
+.prompt_2 {
+    padding: 30px;
+    text-align: center;
+    font-size: 50px;
+    color: rgba(119, 29, 29, 0.534);
+}
+
+.msg-size {
+    height: 50px;
+    margin: 180px 0 30px 0;
+}

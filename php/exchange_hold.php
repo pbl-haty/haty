@@ -16,34 +16,64 @@ $msg = "";
 // $groupId = $_SESSION['groupId'];
 // unset($_SESSION['groupId']);
 
-// #1ではグループIDは固定値
+// #1段階では、グループIDは固定値
 $groupId = 1;
+// グループIDがあるか確認
+if(empty($groupId)){
+    $msg = "このグループでは<br>交換会を開催することは<br>出来ません。";
+}
 
-// 開催するボタンが押されたとき
-if(isset($_POST['hold'])){
-    // 交換会名前と終了日を格納
-    $trade_name = $_POST['trade_name'];
-    $end_date = $_POST['date-max'];
-    // 交換会ボタンが押されているとき
-    if($_POST['explain_check'] == 'Ok') {
-        $trade_explain = $_POST['explain'];
-    }else{
-        $trade_explain = '';
+// tradeテーブルに情報があるか、グループIDで確認
+$tradeInfo = $trade->gettradeInfo($groupId);
+
+// 過去の交換会情報が無い場合（交換会が開催出来る場合）
+if(empty($tradeInfo)){
+    // // 現在の日付が、開催期間であるか
+    // $current_date = date("Y-m-d");
+    // if($tradeInfo['begin_date'] <= $current_date && $current_date <= $tradeInfo['end_date']){
+    //     $msg = '現在このグループでは交換会が開催されており、<br>新たに開催することは出来ません。';
+    // }
+    // 開催するボタンが押されたとき
+    if(isset($_POST['hold'])){
+        // 交換会名前と終了日を格納
+        $trade_name = $_POST['trade_name'];
+        $end_date = $_POST['date-max'];
+        // 変数の初期化
+        $trade_explain = NULL;
+        $theme1 = $theme2 = $theme3 = NULL;
+        // 交換会ボタンが押されているとき
+        if($_POST['explain_check'] == 'Ok') {
+            $trade_explain = $_POST['explain'];
+        }
+        // テーマボタンが押されているとき
+        if($_POST['theme_check'] == 'Ok'){
+            $theme_name = filter_input(INPUT_POST, 'theme', FILTER_DEFAULT,FILTER_REQUIRE_ARRAY);
+            for($i = 0; $i < 3; $i++){
+                ${"theme". ($i + 1)} = $theme_name[$i];
+            }
+        }
+    
+        // 開催に必要な情報をtradeテーブルに挿入
+        $trade_msg = $trade->createTrade($groupId, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date);
+        // tradeテーブルに追加出来たか判定
+        if(empty($trade_msg)){
+            // #2では交換会詳細画面に遷移する
+            header("Location: exchange_hold.php");
+            exit;
+        }else{
+            $msg = $trade_msg;
+        }
     }
 
-    // 開催に必要な情報をtradeテーブルに挿入し、トレードIDを取得
-    $result = $trade->createTrade($groupId, $trade_name, $trade_explain, $end_date);
-
-    // テーマボタンが押されているとき
-    // if($_POST['theme_check'] == 'Ok'){
-    //     $theme_name = filter_input(INPUT_POST, 'theme', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
-
-        // for($i = 0; $i < count($theme_name); $i++){
-        //     ${"theme". ($i + 1)} = $theme_name[$i];
-        // }
-        // $trade->createThemes($result, $theme1, $theme2, $theme3);
-    // }
+// 過去の交換会情報がある場合
+}else{
+    $current_date = date("Y-m-d");
+    // 現在の日付が、開催期間であるか
+    if($tradeInfo['begin_date'] <= $current_date && $current_date <= $tradeInfo['end_date']){
+        $msg = '現在このグループでは<br>交換会が開催されており、<br>新たに開催することは出来ません。';
+    }
 }
+
 
 
 
@@ -55,11 +85,19 @@ if(isset($_POST['hold'])){
 </head>
 
 <body>
+    <?php 
+        // エラーメッセージがある場合
+        if(!empty($msg)){ ?>
+            <div class ="prompt_2">
+                <h4 class="msg-size"><?php echo $msg; ?></h4>
+            </div>
+        <?php }else{?>
+    
     <form method="post" action="" class="exchange">
         <!-- 交換会名入力 -->
         <div>
             <p class="exchange-title">交換会名</p>
-            <input type="text" class=exchange-title-name name="trade_name">
+            <input type="text" class=exchange-title-name name="trade_name" required>
         </div>
 
         <!-- テーマ入力 -->
@@ -71,9 +109,9 @@ if(isset($_POST['hold'])){
             <div id="sub-form">
                 <p>テーマを入力してください（最大3つ）</p>
                 <div id="inputArea">
-                    <input type="text" class="exchange-theme-area" placeholder="3000円以下、身に着けるもの、季節もの 等">
-                    <button id="add" class="exchanege-theme-button">追加</button>
-                    <button id="del" class="exchanege-theme-button">削除</button>
+                    <input type="text" name="theme[]" class="exchange-theme-area" placeholder="3000円以下、身に着けるもの、季節もの 等">
+                    <button type="button" id="add" class="exchanege-theme-button">追加</button>
+                    <button type="button" id="del" class="exchanege-theme-button">削除</button>
                 </div>
             </div>
         </div>
@@ -104,4 +142,6 @@ if(isset($_POST['hold'])){
         <script src="https://code.jquery.com/jquery.min.js"></script>
         <script src="../js/exchange_hold.js"></script>
     </form>
+
+    <?php } ?>
 </body>
