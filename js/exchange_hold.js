@@ -11,7 +11,6 @@ function buttonClick_explain() {
         subForm.style.display = "";
         explain_check.value="Ok";
     }
-    console.log(explain_check.value);
 }
 
 function buttonClick_theme() {
@@ -27,7 +26,6 @@ function buttonClick_theme() {
         subForm.style.display = "";
         theme_check.value = 'Ok';
     }
-    console.log(theme_check.value);
 }
 
 $(function() {
