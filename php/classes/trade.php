@@ -6,8 +6,13 @@
         // 交換会を作成
         public function createTrade($group_id, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date){
             $sql = 'insert into trade(group_id, trade_name, theme1, theme2, theme3, trade_explain, end_date) values(?, ?, ?, ?, ?, ?, ?)';
-            $this->exec($sql, [$group_id, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date]);
-            return $this->pdo->lastInsertId();
+            $result = $this->exec($sql, [$group_id, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date]);
+            // return $this->pdo->lastInsertId();
+
+            // 何かしらの影響で交換会を開催出来なかった場合
+            if(!$result){
+                return '交換会を開催出来ませんでした。';
+            }
         }
 
         // // 交換会のテーマを作成
@@ -23,7 +28,7 @@
         }
 
         // グループIDから交換会の情報を取得
-        public function tradeInfo($group_id){
+        public function gettradeInfo($group_id){
             $sql = 'select trade_id, trade_name, trade_explain, begin_date, end_date, theme1, theme2, theme3
                     from trade
                     where trade.group_id = ?';
