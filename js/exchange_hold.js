@@ -53,11 +53,11 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// 三週間後の日付取得
-var finishWeekDay = new Date(); //現在日
+// // 三週間後の日付取得
+// var finishWeekDay = new Date(); //現在日
 
-finishWeekDay.setDate(finishWeekDay.getDate() + 21);
+// finishWeekDay.setDate(finishWeekDay.getDate() + 21);
 
-var output = nextWeekDay.getFullYear() + finishWeekDay.getMonth() + 1 + finishWeekDay.getDate();
+// var output = nextWeekDay.getFullYear() + finishWeekDay.getMonth() + 1 + finishWeekDay.getDate();
 
-console.log(output); // 三週間後取得
+// console.log(output); // 三週間後取得
