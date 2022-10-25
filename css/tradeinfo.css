@@ -38,6 +38,9 @@ body {
 .trade-tittle{
     font-size: 20px;
 }
+.trade-tittle-a{
+    margin-top: 150px;
+}
 .tradeinfo{
     font-size: 16px;
     margin: 0%;

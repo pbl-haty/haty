@@ -1,29 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/tradeinfo.css">
-    <title>Document</title>
-    <?php
-    require_once __DIR__ . '/classes/user.php';
+<?php
+    // ヘッダーを読み込む
+    require_once __DIR__ . '/header.php';
+    // require_once __DIR__ . '/classes/user.php';
 
-    $user = new User();
+    // $user = new User();
 
-    $userId = $_SESSION['uid'];
+    // $userId = $_SESSION['uid'];
 
     // 「getUser()メソッド」を呼び出す
-    $post_user = $user->getUser($gift_info['user_id']);
+    // $post_user = $user->getUser($gift_info['user_id']);
 
     // 投稿したユーザーのアイコン画像情報を取得
-    $post_user_icon = base64_encode($post_user['icon']);
-    ?>
-
+    // $post_user_icon = base64_encode($post_user['icon']);
+?>
+<link rel="stylesheet" href="../css/home.css">
+<link rel="stylesheet" href="../css/tradeinfo.css">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 </head>
 <body>
-    <h1 class="trade-tittle">クリスマス交換会</h1>
+    <br>
+    <div class="trade-tittle-a"><h1 class="trade-tittle">クリスマス交換会</h1></div>
     <p class="tradeinfo">終了日 12/24</p>
     <div class="scroll">
         <ul>
@@ -32,7 +28,7 @@
             ?>
         <li>
             <a href="#">
-                <img class="img-icon" src="data:;base64,<?php echo $post_user_icon; ?>">
+                <img class="img-icon" src="../static\user_icon.png">
             </a>
         </li>
             <?php
