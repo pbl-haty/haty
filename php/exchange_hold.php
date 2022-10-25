@@ -43,13 +43,17 @@ if(empty($tradeInfo)){
         $theme1 = $theme2 = $theme3 = NULL;
         // 交換会ボタンが押されているとき
         if($_POST['explain_check'] == 'Ok') {
-            $trade_explain = $_POST['explain'];
+            if(!empty($_POST['explain'])){
+                $trade_explain = $_POST['explain'];
+            }
         }
         // テーマボタンが押されているとき
         if($_POST['theme_check'] == 'Ok'){
             $theme_name = filter_input(INPUT_POST, 'theme', FILTER_DEFAULT,FILTER_REQUIRE_ARRAY);
             for($i = 0; $i < 3; $i++){
-                ${"theme". ($i + 1)} = $theme_name[$i];
+                if(!empty($theme_name[$i])){
+                    ${"theme". ($i + 1)} = $theme_name[$i];
+                }
             }
         }
     
@@ -81,7 +85,7 @@ if(empty($tradeInfo)){
 
 <link rel="stylesheet" href="../css/exchange_hold.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>公開会開催画面</title>
+<title>公開会開催</title>
 </head>
 
 <body>
