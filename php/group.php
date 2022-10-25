@@ -6,6 +6,8 @@ $userId = $_SESSION['uid'];
     $groupid = $_POST['groupid'];
 }else{ */
     $groupId = $_GET['groupid'];
+    // 交換会の為に、グループIDをセッションに保存
+    $_SESSION['groupId'] = $groupId;
 /* }  */
 
 ?>
