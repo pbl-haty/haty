@@ -139,6 +139,15 @@ input {
 
 }
 
+.exchange-today{
+    text-align: center;
+}
+
+.exchange-finishday{
+    margin:50px;
+    transform: scale(8.0);
+}
+
 /* エラーメッセージの表示 */
 .prompt_2 {
     padding: 30px;
