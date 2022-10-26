@@ -1,75 +1,78 @@
 <?php
     // ヘッダーを読み込む
     require_once __DIR__ . '/header.php';
-    // require_once __DIR__ . '/classes/user.php';
-
-    // $user = new User();
-
-    // $userId = $_SESSION['uid'];
-
-    // 「getUser()メソッド」を呼び出す
-    // $post_user = $user->getUser($gift_info['user_id']);
-
-    // 投稿したユーザーのアイコン画像情報を取得
-    // $post_user_icon = base64_encode($post_user['icon']);
 ?>
-<link rel="stylesheet" href="../css/home.css">
-<link rel="stylesheet" href="../css/tradeinfo.css">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+<link rel="stylesheet" href="../css/test.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>交換会名を出力</title>
 </head>
 <body>
-    <br>
-    <div class="trade-tittle-a"><h1 class="trade-tittle">クリスマス交換会</h1></div>
-    <p class="tradeinfo">終了日 12/24</p>
-    <div class="scroll">
-        <ul>
-            <?php
-                for( $i = 0; $i <= 4; $i ++){
-            ?>
-        <li>
-            <a href="#">
-                <img class="img-icon" src="../static\user_icon.png">
-            </a>
-        </li>
-            <?php
-                }
-            ?>
-        <li>
-            <a href="#">
-                <img class="img-icon" src="../static\user_icon.png">
-            </a>
-        </li>
-        </ul>
+    <div class="trade-info">
+        <!-- 交換会名と開催期間を表示 -->
+        <div class="trade-title">
+            <h1>あああああああああああああああああああああああああああああ</h1>
+            <p>22/11/25 ～ 22/11/26</p>
+        </div>
+
+        <!-- 参加者のアイコンを表示 -->
+        <div class="participant">
+            <h3>交換会の参加者</h3>
+            <ul>
+                <?php for($i = 0; $i < 5; $i++){ ?>
+                <li>
+                    <img class="img-icon" src="../static/user_icon.png" alt="">
+                </li>
+                <?php } ?>
+            </ul>
+        </div>
+
+        <!-- 交換会テーマを表示 -->
+        <div class="trade-theme">
+            <h3>交換する物のテーマ</h3>
+            <p>テーマに適する物を交換会に出しましょう！</p>
+        </div>
+
     </div>
 
-    <select name="" class="example-category">
-        <option value="0">1000円~3000円</option>
-        <option value="1">大きすぎないもの</option>
-    </select>
-    
-    <div class="readmore">
-    <input id="check1" class="readmore-check" type="checkbox">
-    <div class="readmore-content">
-        中身のテキスト
-    </div>
-    <label class="readmore-label" for="check1"></label>
-    </div>
 
-    <div id="sample-img" class="sample-img"></div>
-        <label class="upload-label">
-            画像を選択
-            <input type="file" id="input-img" onchange="loadImage(this);" name="image[]" accept="image/*" multiple required>
-        </label>
-    <h3 class="content-margin">ギフト名</h3>
-    <div>
-        <input type="text" class="tittle" maxlength="30" value="" required>
-        <input type="text" style="display: none;"/>
-    </div>
-    <h3 class="content-margin">ヒント</h3>
-    <div>
-        <input type="text" class="tittle" maxlength="30" value="" required>
-    </div>
-    <button class="tradeinfo-button">投稿</button>
-    <script type="text/javascript" src="../js/giftpost.js"></script>
+    <!-- <div class="trade-info">
+
+        <div class="trade-theme">
+            <h2>交換する物のテーマ</h2>
+            <p>テーマに適する物を交換会に出しましょう！</p>
+            <div class="theme-list">
+                <ul>
+                    <li>テストテストテストテストテストテストテストテストテストテスト</li>
+                    <li>↑最大（30文字）大きすぎないもの</li>
+                    <li>クリスマスっぽいもの</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="readmore">
+        <input id="check1" class="readmore-check" type="checkbox">
+        <div class="readmore-content">
+            ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+        </div>
+        <label class="readmore-label" for="check1"></label>
+        </div>
+
+        <div id="sample-img" class="sample-img"></div>
+            <label class="upload-label">
+                画像を選択
+                <input type="file" id="input-img" onchange="loadImage(this);" name="image[]" accept="image/*" multiple required>
+            </label>
+        <h3 class="content-margin">ギフト名</h3>
+        <div>
+            <input type="text" class="tittle" maxlength="30" value="" required>
+            <input type="text" style="display: none;"/>
+        </div>
+        <h3 class="content-margin">ヒント</h3>
+        <div>
+            <input type="text" class="tittle" maxlength="30" value="" required>
+        </div>
+        <button class="tradeinfo-button">投稿</button>
+        <script type="text/javascript" src="../js/giftpost.js"></script>
+    </div> -->
 </body>
-</html>

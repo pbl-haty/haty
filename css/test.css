@@ -1,0 +1,63 @@
+.trade-info{
+    font-size: 40px; /* 基準のフォントサイズ　*/
+    padding: 30px;
+}
+
+.trade-title{
+    margin-top: 180px;
+    text-align: center;
+}
+
+.trade-title h1{
+    font-size: 1.5em;
+    overflow-wrap: break-word;
+}
+
+.participant{
+    margin-top: 100px;
+}
+
+.participant ul{
+    display: flex;
+	overflow-x: scroll;
+	margin: 0;	
+	padding: 0;
+}
+
+.participant li{
+    list-style: none;
+    margin: 0 10px;
+}
+
+.img-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: solid 1px gray;
+}
+
+.trade-theme{
+    margin-top: 80px
+}
+
+.trade-theme p{
+    font-size: 0.8em;
+}
+
+/* テーマを一覧で表示 */
+/* .theme-list{
+    resize: vertical;
+    width: 100%;
+    height: auto;
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+
+.theme-list li{
+    overflow-wrap: break-word;
+} */
+
+.trade-explain{
+    margin-top: 80px
+}
