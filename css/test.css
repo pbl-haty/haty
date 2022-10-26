@@ -9,7 +9,6 @@
 }
 
 .trade-title h1{
-    font-size: 1.5em;
     overflow-wrap: break-word;
 }
 
@@ -59,5 +58,96 @@
 } */
 
 .trade-explain{
-    margin-top: 80px
+    margin-top: 80px;
+}
+
+.readmore{
+    position: relative;
+    box-sizing: border-box;
+    /*以下お好み*/
+    /* ボーダーを付ける場合 */
+    padding: 15px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    margin: 15px 0px;
+}
+
+.readmore-content{
+    position: relative;
+    overflow: hidden;
+    font-size: 0.8em;
+    /*以下お好み*/
+    /*高さの初期値*/
+    height: 200px;
+}
+
+.readmore-content::before {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    content: "";
+    /*以下お好み グラデーションの色と高さ 高さはreadmoreのheight以下にすること*/
+    height: 50px;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 50%, #fff 100%);
+    background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 50%, #fff 100%);
+}
+
+/* 続きを読むボタン */
+.readmore-label{
+    display: table;
+    bottom: 5px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin: 0 auto;
+    z-index: 2;
+    padding: 0 10px;
+    background-color: #ff7777;
+    border-radius: 10px;
+    color: #FFF;
+}
+
+.readmore-label:before{
+    content: '続きを読む';
+}
+
+.readmore-check{
+    display: none;
+}
+
+/*チェック時にボタンを非表示*/
+.readmore-check:checked ~ .readmore-label{
+    position: static;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    /* 「続きを読む」を押した後、元に戻す必要がない場合は、上のオプションを消してこの1行だけにする */
+    /* display: none; */
+}
+
+.readmore-check:checked ~ .readmore-label:before{
+    content: '閉じる';
+}
+
+/*チェック時に高さを自動に戻す*/
+.readmore-check:checked ~ .readmore-content{
+    height: 100%;
+}
+
+/*チェック時グラデーション等を削除*/
+.readmore-check:checked ~ .readmore-content::before {
+    display: none;
+}
+
+
+/* 投稿フォーム */
+.trade-form{
+    margin: 150px 0;
+}
+
+.trade-form h2{
+    text-align: center;
 }

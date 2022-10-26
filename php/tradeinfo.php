@@ -11,7 +11,7 @@
     <div class="trade-info">
         <!-- 交換会名と開催期間を表示 -->
         <div class="trade-title">
-            <h1>あああああああああああああああああああああああああああああ</h1>
+            <h1>ああああああああ</h1>
             <p>22/11/25 ～ 22/11/26</p>
         </div>
 
@@ -19,7 +19,7 @@
         <div class="participant">
             <h3>交換会の参加者</h3>
             <ul>
-                <?php for($i = 0; $i < 5; $i++){ ?>
+                <?php for($i = 0; $i < 10; $i++){ ?>
                 <li>
                     <img class="img-icon" src="../static/user_icon.png" alt="">
                 </li>
@@ -33,6 +33,48 @@
             <p>テーマに適する物を交換会に出しましょう！</p>
         </div>
 
+        <!-- 交換会説明を表示 -->
+        <div class="trade-explain">
+            <h3>交換会の説明</h3>
+            <div class="readmore">
+                <input id="check1" class="readmore-check" type="checkbox">
+                <div class="readmore-content">
+                ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+                ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+                ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+                ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+                </div>
+                <label class="readmore-label" for="check1"></label>
+            </div>
+        </div>
+
+        <form method="POST" action="" class="trade-form" enctype="multipart/form-data">
+            <h2>交換会に参加してみましょう！</h2>
+
+            <div class="form-image">
+                <h3></h3>
+            </div>
+            <!-- <h3>交換物の画像</h3> -->
+            <!-- <div id="sample-img" class="sample-img"></div> -->
+            <!-- <label class="upload-label"> -->
+                <!-- 画像を選択 -->
+                <!-- <input type="file" id="input-img" onchange="loadImage(this);" name="image[]" accept="image/*" multiple required> -->
+            <!-- </label> -->
+
+            <!-- <h3>ギフト名</h3>
+            <div>
+                <input type="text" class="tittle" maxlength="30" value="" required>
+                <input type="text" style="display: none;"/>
+            </div> -->
+
+            <!-- <h3>ヒント</h3>
+            <div>
+                <input type="text" class="tittle" maxlength="30" value="" required>
+            </div> -->
+
+            <!-- <button class="tradeinfo-button">投稿</button>
+            <script type="text/javascript" src="../js/giftpost.js"></script> -->
+        </form>
     </div>
 
 
@@ -49,30 +91,5 @@
                 </ul>
             </div>
         </div>
-        
-        <div class="readmore">
-        <input id="check1" class="readmore-check" type="checkbox">
-        <div class="readmore-content">
-            ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-        </div>
-        <label class="readmore-label" for="check1"></label>
-        </div>
-
-        <div id="sample-img" class="sample-img"></div>
-            <label class="upload-label">
-                画像を選択
-                <input type="file" id="input-img" onchange="loadImage(this);" name="image[]" accept="image/*" multiple required>
-            </label>
-        <h3 class="content-margin">ギフト名</h3>
-        <div>
-            <input type="text" class="tittle" maxlength="30" value="" required>
-            <input type="text" style="display: none;"/>
-        </div>
-        <h3 class="content-margin">ヒント</h3>
-        <div>
-            <input type="text" class="tittle" maxlength="30" value="" required>
-        </div>
-        <button class="tradeinfo-button">投稿</button>
-        <script type="text/javascript" src="../js/giftpost.js"></script>
     </div> -->
 </body>
