@@ -5,7 +5,12 @@
 <script src="../js/header.js" charset="utf-8"></script>
 
 <?php
-session_start();
+    session_start();
+    require_once __DIR__ . '/classes/notifi.php';
+
+    $userId = $_SESSION['uid'];
+    $notifi = new notifi();
+    $count = $notifi->notifi_count($userId);
 ?>
 <header>
     <a href="home.php" class="title-textdec-edit">
@@ -14,7 +19,12 @@ session_start();
     <div class="hamburger-menu">
         <input type="checkbox" id="menu-btn-check">
         <label for="menu-btn-check" class="menu-btn">
-            <p class="hamburger-notification">!</p> <!-- ハンバーメニュー通知 -->
+    <?php
+       
+        if($count[0] != 0) {
+            echo "<p class='hamburger-notification'>{$count[0]}</p>";  /* ハンバーメニュー通知  */
+        } 
+    ?>
             <span></span>
         </label>
         <div class="menu-content">
@@ -44,11 +54,16 @@ session_start();
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="notification.php">
                         <div class="position-relative">
                             <img class="notification" src="../static/notification.png">
                             通知
-                            <p class="notification-notification">!</p>
+                            <?php
+                                $notifi = new notifi();
+                                if($count[0] != 0) {
+                                    echo "<p class='notification-notification'>{$count[0]}</p>";  /* ハンバーメニュー通知  */
+                                } 
+                            ?>
                         </div>
                     </a>
                 </li>
