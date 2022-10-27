@@ -53,31 +53,40 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// // 三週間後の日付取得
-// var finishWeekDay = new Date(); //現在日
-
-// finishWeekDay.setDate(finishWeekDay.getDate() + 21);
-
-// var output = nextWeekDay.getFullYear() + finishWeekDay.getMonth() + 1 + finishWeekDay.getDate();
-
-// console.log(output); // 三週間後取得
-
+// 終了日時
 const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
-
 const now = Date.now();
 const today = new Date(now);
 const afterOneWeek = new Date(now + 1 * 7 * 24 * 60 * 60 * 1000); // 一週間後
 const afterTwoWeek = new Date(now + 2 * 7 * 24 * 60 * 60 * 1000); // 二週間後
 const afterThreeWeek = new Date(now + 3 * 7 * 24 * 60 * 60 * 1000); // 三週間後
 const afterOnemonth = new Date(now + 1 * 7 * 24 * 60 * 60 * 1000 * 4); // 一か月後
-const afterTwomonth = new Date(now + 2 * 7 * 24 * 60 * 60 * 1000 * 4); // 二か月後
-const afterThreemonth = new Date(now + 3 * 7 * 24 * 60 * 60 * 1000 * 4); // 三か月後
+// const afterTwomonth = new Date(now + 2 * 7 * 24 * 60 * 60 * 1000 * 4); // 二か月後
+// const afterThreemonth = new Date(now + 3 * 7 * 24 * 60 * 60 * 1000 * 4); // 三か月後
 
 
 document.getElementById('today').textContent = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()} (${weekdays[today.getDay()]})`;
 document.getElementById('after1week').textContent = `${afterOneWeek.getFullYear()}/${afterOneWeek.getMonth() + 1}/${afterOneWeek.getDate()} (${weekdays[afterOneWeek.getDay()]})`;
-document.getElementById('after2weeks').textContent = `${afterTwoWeek.getFullYear()}/${afterTwoWeek.getMonth() + 1}/${afterTwoWeek.getDate()} (${weekdays[afterTwoWeek.getDay()]})`;
-document.getElementById('after3weeks').textContent = `${afterThreeWeek.getFullYear()}/${afterThreeWeek.getMonth() + 1}/${afterThreeWeek.getDate()} (${weekdays[afterThreeWeek.getDay()]})`;
-document.getElementById('after1month').textContent = `${afterOnemonth.getFullYear()}/${afterOnemonth.getMonth() + 1}/${afterOnemonth.getDate()} (${weekdays[afterOnemonth.getDay()]})`;
-document.getElementById('after2months').textContent = `${afterTwomonth.getFullYear()}/${afterTwomonth.getMonth() + 1}/${afterTwomonth.getDate()} (${weekdays[afterTwomonth.getDay()]})`;
-document.getElementById('after3months').textContent = `${afterThreemonth.getFullYear()}/${afterThreemonth.getMonth() + 1}/${afterThreemonth.getDate()} (${weekdays[afterThreemonth.getDay()]})`;
+document.getElementById('after2weeks').textContent = `${afterTwoWeek.getFullYear()}/${afterTwoWeek.getMonth() + 1}/${afterTwoWeek.getDate()} (${weekdays[afterOneWeek.getDay()]})`;
+document.getElementById('after3weeks').textContent = `${afterThreeWeek.getFullYear()}/${afterThreeWeek.getMonth() + 1}/${afterThreeWeek.getDate()} (${weekdays[afterOneWeek.getDay()]})`;
+document.getElementById('after1month').textContent = `${afterOnemonth.getFullYear()}/${afterOnemonth.getMonth() + 1}/${afterOnemonth.getDate()} (${weekdays[afterOneWeek.getDay()]})`;
+// 初期値設定
+document.getElementById('end_date').value = `${afterOneWeek.getFullYear()}/${afterOneWeek.getMonth() + 1}/${afterOneWeek.getDate()}`;
+
+// どのボタンが押されているか確認
+function onRadioButtonChange() {
+    let radio1 = document.getElementById("radio1");
+    let radio2 = document.getElementById("radio2");
+    let radio3 = document.getElementById("radio3");
+    let radio4 = document.getElementById("radio4");
+    let end_date = document.getElementById("end_date");
+    if (radio1.checked) {
+        end_date.value = `${afterOneWeek.getFullYear()}/${afterOneWeek.getMonth() + 1}/${afterOneWeek.getDate()}`;
+    }else if(radio2.checked) {
+        end_date.value = `${afterTwoWeek.getFullYear()}/${afterTwoWeek.getMonth() + 1}/${afterTwoWeek.getDate()}`;
+    }else if(radio3.checked) {
+        end_date.value = `${afterThreeWeek.getFullYear()}/${afterThreeWeek.getMonth() + 1}/${afterThreeWeek.getDate()}`;
+    }else if(radio4.checked) {
+        end_date.value = `${afterOnemonth.getFullYear()}/${afterOnemonth.getMonth() + 1}/${afterOnemonth.getDate()}`;
+    }
+}
