@@ -50,7 +50,7 @@ $userId = $_SESSION['uid'];
                         <img class="home_groupicon" src="data:;base64,<?php echo $img; ?>">
                         <p class="home_groupname"><?= $join['groupname'] ?></p>
                         <div class="trade_look_1">
-                            <a href="rei.php?groupid=<?php echo $join['group_id']; ?>" class=trade_look>交換会<br>ページへ</a>
+                            <a href="trade_origin.php?groupid=<?php echo $join['group_id']; ?>" class=trade_look>交換会<br>ページへ</a>
                         </div>
                     </div>
                     <?php // ギフトが送られているか判定・・・B

@@ -38,8 +38,8 @@ $_SESSION['groupId'] = $groupId;
     } else {
 
     ?>
-        <div class="home_1">
-            <h1 class="group_itiran">「<?= $group_conf['groupname'] ?>」の交換会</h1>
+        <div class="trade-groupname">
+            <h1 class="trade-groupname1">「<?= $group_conf['groupname'] ?>」の交換会</h1>
         </div>
 
         <hr>
@@ -52,7 +52,7 @@ $_SESSION['groupId'] = $groupId;
         <a href="exchange_hold.php" class="hold-tag">
             <p class="hold">交換会を開催する<p>
         </a>
-        <a href="tradeinfo.php" class="hold-tag">
+        <a href="" class="hold-tag">
             <p class="hold-detail">開催中の交換会を<br>見る</p>
         </a>
     </div>
