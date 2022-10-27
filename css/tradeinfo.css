@@ -1,24 +1,27 @@
-.trade-info {
-    font-size: 32px; /* 基準のフォントサイズ　*/
-    padding: 30px;
+.trade{
+    font-size: 40px;
+    padding: 40px;
+}
+
+.trade-info{
+    margin-top: 180px;
+}
+
+.trade-info p{
+    font-size: 0.8em;
 }
 
 .trade-title{
-    margin-top: 180px;
     text-align: center;
 }
 
 .trade-title h1{
-    font-size: 2.0rem;
-    white-space: normal; 
+    padding: 10px;
+    word-break: break-all;
 }
 
 .participant{
     margin-top: 100px;
-}
-
-.participant h2{
-    font-size: 35px;
 }
 
 .participant ul{
@@ -45,64 +48,21 @@
     margin-top: 80px
 }
 
-.trade-theme h2{
-    font-size: 35px;
-}
-
-.trade-theme p{
-    font-size: 15px;
-}
-
-.theme-list{
-    border: 1px solid gray;
-    border-radius: 15px;
-}
-
-.textarea-content {
+/* テーマを一覧で表示 */
+/* .theme-list{
     resize: vertical;
-    margin: 30px 0px;
     width: 100%;
-    min-height: 200px;
+    height: auto;
     border: 1px solid gray;
     border-radius: 20px;
 }
-.upload-label {
-    width: 100%;
-    display: inline-block;
-    margin: 30px 0 0 0;
-    padding: 15px 0;
-    color: black;
-    font-size: 16px;
-    border-radius: 20px;
-    border: 1px gray solid;
-}
-.upload-label input {
-    display: none;
-}
 
-.tradeinfo-button{
-    font-size: 20px;
-}
+.theme-list li{
+    overflow-wrap: break-word;
+} */
 
-.example-category {
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid gray;
-    border-radius: 15px;
-    color: black;
-    position: relative;
-    width: 100%;
-    font-size: 40px;
-    padding: 15px 20px;
-}
-.sample-img {
-    border: solid 1px gray;
-    border-radius: 20px;
-    overflow-x: scroll;
-    white-space: nowrap;
-    width: 100%;
-    height: calc(40vw - 20px);
+.trade-explain{
+    margin-top: 80px;
 }
 
 .readmore{
@@ -116,13 +76,24 @@
     margin: 15px 0px;
 }
 
+.readmore ul{
+    margin : 0 auto;
+}
+
+.readmore li{
+    font-size: 0.7em;
+    padding: 10px 0;
+}
+
 .readmore-content{
     position: relative;
     overflow: hidden;
+    font-size: 0.8em;
     /*以下お好み*/
     /*高さの初期値*/
-    height: 100px;
+    height: 200px;
 }
+
 .readmore-content::before {
     display: block;
     position: absolute;
@@ -152,6 +123,7 @@
     border-radius: 10px;
     color: #FFF;
 }
+
 .readmore-label:before{
     content: '続きを読む';
 }
@@ -159,6 +131,7 @@
 .readmore-check{
     display: none;
 }
+
 /*チェック時にボタンを非表示*/
 .readmore-check:checked ~ .readmore-label{
     position: static;
@@ -167,38 +140,101 @@
     /* 「続きを読む」を押した後、元に戻す必要がない場合は、上のオプションを消してこの1行だけにする */
     /* display: none; */
 }
+
 .readmore-check:checked ~ .readmore-label:before{
     content: '閉じる';
 }
+
 /*チェック時に高さを自動に戻す*/
 .readmore-check:checked ~ .readmore-content{
-    height: 500px;
+    height: 100%;
 }
+
 /*チェック時グラデーション等を削除*/
 .readmore-check:checked ~ .readmore-content::before {
     display: none;
 }
-.upload-label {
-    display: inline-block;
-    margin: 20px 0 0 0; /* まわりの余白 */
-    padding: 15px 0; /* 文字まわりの余白 */
-    color: black; /* 文字色 */
-    font-size: 20px; /* フォントサイズ */
-    border-radius: 20px; /* 角の丸み */
-    border: 1px solid gray;
-    width: 100%;
+
+
+/* 投稿フォーム */
+.trade-form{
+    margin-top: 250px;
+    margin-bottom: 150px;
+    font-size: 40px;
 }
+
+.trade-form span{
+    color: red;
+}
+
+.trade-form h2{
+    text-align: center;
+    word-break: break-all;
+}
+
+.form-image{
+    margin-top: 80px;
+}
+
+.upload-label {
+    width: 100%;
+    display: inline-block;
+    margin: 30px 0 0 0;
+    padding: 15px 0;
+    color: black;
+    border-radius: 20px;
+    border: 1px gray solid;
+    text-align: center;
+}
+
+.upload-label input {
+    display: none;
+}
+
 .sample-img {
     border: 1px solid gray;
     border-radius: 20px;
     overflow-x: scroll;
     white-space: nowrap;
-    width: 100%;
-    height: 200px;
+    width: calc(100vw - 80px);
+    height: calc(40vw - 20px);
 }
 
 .sample-img-size {
-    width: 100%;
-    height: 200px;
+    width: calc(40vw - 20px);
+    height: calc(40vw - 20px);
     object-fit: cover;
+}
+
+.form-name{
+    margin-top: 80px;
+}
+
+.form-box{
+    width: calc(100vw - 110px);
+    border-radius: 20px;
+    font-size: 1.5em;
+    border: 1px solid gray;
+    padding: 15px;
+}
+
+.form-hint{
+    margin-top: 80px;
+}
+
+.form-hint p{
+    word-break: break-all;
+}
+
+.tradeinfo-button{
+    display: block;
+    margin: 80px auto 0 auto;
+    height: 5%;
+    width: 30%;
+    font-size: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 5px solid #68779a;
+    border-radius: 10px;
+    background: #cbe8fa;
 }
