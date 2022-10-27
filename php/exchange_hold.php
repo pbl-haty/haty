@@ -37,7 +37,7 @@ if (empty($tradeInfo)) {
     if (isset($_POST['hold'])) {
         // 交換会名前と終了日を格納
         $trade_name = $_POST['trade_name'];
-        $end_date = $_POST['date-max'];
+        $end_date = $_POST['end_date'];
         // 変数の初期化
         $trade_explain = NULL;
         $theme1 = $theme2 = $theme3 = NULL;
@@ -133,20 +133,15 @@ if (empty($tradeInfo)) {
             </div>
 
             <!-- 終了日入力 -->
-            <!-- <div>
-                <p class="exchange-finish"><span> * </span>終了日（最大4週間）</p>
-                <input class="exchange-calendar" type="date" name="date-max" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('next month')); ?>" required></input><br>
-            </div> -->
             <div>
-                <p class="exchange-finish"><span> * </span>終了日（最大3か月）</p>
+                <p class="exchange-finish"><span> * </span>終了日（最大4週間）</p>
                 <p>開催期間終了日を下記からひとつ選択してください</p>
                 <p>今日: <span id="today" class="exchange-tody"></span></p>
-                <input type="radio" name="finishday" value="1週間後" class="exchange-finishday">1週間後: <span id="after1week"></span><br>
-                <input type="radio" name="finishday" value="2週間後" class="exchange-finishday">2週間後: <span id="after2weeks"></span><br>
-                <input type="radio" name="finishday" value="3週間後" class="exchange-finishday">3週間後: <span id="after3weeks"></span><br>
-                <input type="radio" name="finishday" value="1か月後" class="exchange-finishday">1か月後: <span id="after1month"></span><br>
-                <input type="radio" name="finishday" value="2か月後" class="exchange-finishday">2か月後: <span id="after2months"></span><br>
-                <input type="radio" name="finishday" value="3か月後" class="exchange-finishday">3か月後: <span id="after3months"></span><br>
+                <input type="hidden" id="end_date" name="end_date" value="">
+                <input type="radio" id="radio1" name="finishday" value="1週間後" class="exchange-finishday" onclick="onRadioButtonChange()" checked="checked">1週間後:<span id="after1week"></span><br>
+                <input type="radio" id="radio2" name="finishday" value="2週間後" class="exchange-finishday" onclick="onRadioButtonChange()">2週間後:<span id="after2weeks"></span><br>
+                <input type="radio" id="radio3" name="finishday" value="3週間後" class="exchange-finishday" onclick="onRadioButtonChange()">3週間後:<span id="after3weeks"></span><br>
+                <input type="radio" id="radio4" name="finishday" value="1か月後" class="exchange-finishday" onclick="onRadioButtonChange()">4週間後:<span id="after1month"></span><br>
             </div>
 
             <div>
