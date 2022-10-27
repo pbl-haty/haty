@@ -17,7 +17,7 @@
 
         //　通知の有無を判定
         if(empty($notifi_view)) {
-            echo '通知はありません。';
+            echo '<p class="notif-comment">通知はありません。</p>';
         } else {
             foreach($notifi_view as $view) {
                 //　既読か判定
@@ -34,8 +34,24 @@
                         echo "{$view['name']}から{$view['gift_name']}に{$view['pattern_name']}が来ています。";
                         break;
                     case 2:
-                        echo "href='#'><p class='notif-comment'>";
+                        echo "href='gift_detail.php?id=41'><p class='notif-comment'>";
                         echo "{$view['groupname']}の交換会が{$view['pattern_name']}されました。";
+                        break;
+                    case 3:
+                        echo "href='#'><p class='notif-comment'>";
+                        echo "{$view['groupname']}の交換会が{$view['pattern_name']}しました。";
+                        break;
+                    case 4:
+                        echo "href='gift_detail.php?id={$view['gift_id']}'><p class='notif-comment'>";
+                        echo "{$view['name']}から{$view['gift_name']}に{$view['pattern_name']}されました。";
+                        break;
+                    case 5:
+                        echo "href='gift_detail.php?id={$view['gift_id']}'><p class='notif-comment'>";
+                        echo "{$view['name']}から{$view['gift_name']}に{$view['pattern_name']}が届きました。";
+                        break;
+                    case 6:
+                        echo "href='#'><p class='notif-comment'>";
+                        echo "{$view['gift_name']}の{$view['pattern_name']}が切れました。";
                         break;
                     case 7:
                         echo "href='group.php?groupid={$view['group_send']}'><p class='notif-comment'>";
