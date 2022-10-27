@@ -1,0 +1,27 @@
+.content-top {
+    margin-top: 180px;
+}
+
+.notif-read {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.notif-unread {
+    text-decoration: none;
+    color: black;
+    display: block;
+    background-color: rgba(255, 255, 115, 0.438);
+}
+
+.notif-comment {
+    padding: 30px 20px;
+    font-size: 45px;
+    margin: 0px;
+}
+
+.notif-time {
+    padding-left: 20px;
+    font-size: 30px;
+}
