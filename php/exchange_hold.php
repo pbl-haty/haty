@@ -100,20 +100,20 @@ if (empty($tradeInfo)) {
         <form method="post" action="" class="exchange">
             <!-- 交換会名入力 -->
             <div>
-                <p class="exchange-title"><span> * </span>交換会名</p>
-                <input type="text" class=exchange-title-name name="trade_name" required>
+                <p class="exchange-title"><span> * </span>交換会名（30文字まで）</p>
+                <input type="text" class=exchange-title-name name="trade_name" maxlength="30" required>
             </div>
 
             <!-- テーマ入力 -->
             <div>
-                <p class="exchange-theme">テーマ</p>
+                <p class="exchange-theme">テーマ（30文字まで）</p>
                 <input type="hidden" id="theme_check" name="theme_check" value="Ok">
                 <input class="exchange-exit" type="radio" id="disp" name="theme" onclick="buttonClick_theme()" checked>あり
                 <input class="exchange-none" type="radio" id="hide" name="theme" onclick="buttonClick_theme()">なし
                 <div id="sub-form">
                     <p>交換会で交換する物のテーマを入力してください（最大3つ）</p>
                     <div id="inputArea">
-                        <input type="text" name="theme[]" class="exchange-theme-area" placeholder="3000円以下、身に着けるもの、季節もの 等">
+                        <input type="text" name="theme[]" class="exchange-theme-area" placeholder="3000円以下、身に着けるもの、季節もの 等" maxlength="30">
                         <button type="button" id="add" class="exchanege-theme-button">追加</button>
                         <button type="button" id="del" class="exchanege-theme-button">削除</button>
                     </div>
@@ -122,19 +122,19 @@ if (empty($tradeInfo)) {
 
             <!-- 説明入力 -->
             <div>
-                <p class="exchange-explain">説明文</p>
+                <p class="exchange-explain">説明文（400文字まで）</p>
                 <input type="hidden" id="explain_check" name="explain_check" value="Ok">
                 <input class="exchange-exit" type="radio" id="explain-disp" name="explain" onclick="buttonClick_explain()" checked>あり
                 <input class="exchange-none" type="radio" id="explain-hide" name="explain" onclick="buttonClick_explain()">なし
                 <div id="explain-form">
                     <p>説明文を入力してください</p>
-                    <textarea class="exchange-explain-area" id="explain-area" wrap="hard" name="explain"></textarea><br>
+                    <textarea class="exchange-explain-area" id="explain-area" wrap="hard" name="explain" maxlength="400"></textarea><br>
                 </div>
             </div>
 
             <!-- 終了日入力 -->
             <div>
-                <p class="exchange-finish"><span> * </span>終了日（最大4週間）</p>
+                <p class="exchange-finish"><span> * </span>交換会の終了日</p>
                 <p>開催期間終了日を下記からひとつ選択してください</p>
                 <p>今日: <span id="today" class="exchange-tody"></span></p>
                 <input type="hidden" id="end_date" name="end_date" value="">
