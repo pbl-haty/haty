@@ -1,0 +1,45 @@
+.trade-origin {
+    padding: 40px;
+}
+
+.trade-groupname {
+    display: flex;
+    margin: 150px auto 0 auto;
+    width: calc(100vw - 40px);
+}
+
+.trade-groupname1 {
+    width: 65%;
+    margin: 0;
+    padding: 30px 0;
+    color: #494949;
+    font-size: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.trade-group {
+    margin-top: 150px;
+}
+
+.hold-tag {
+    text-decoration: none;
+    color: #000;
+}
+
+.hold {
+    border: 10px solid #000;
+    text-align: center;
+    margin-top: 150px;
+    padding: 40px;
+    font-size: 80px;
+}
+
+.hold-detail {
+    border: 10px solid #000;
+    text-align: center;
+    margin-top: 150px;
+    padding: 40px;
+    font-size: 80px;
+}

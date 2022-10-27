@@ -49,6 +49,9 @@ $userId = $_SESSION['uid'];
                     <div class="display">
                         <img class="home_groupicon" src="data:;base64,<?php echo $img; ?>">
                         <p class="home_groupname"><?= $join['groupname'] ?></p>
+                        <div class="trade_look_1">
+                            <a href="rei.php?groupid=<?php echo $join['group_id']; ?>" class=trade_look>交換会<br>ページへ</a>
+                        </div>
                     </div>
                     <?php // ギフトが送られているか判定・・・B
                     $gift_group = $group->giftgroup((int)$join['group_id'], $userId);
@@ -79,11 +82,11 @@ $userId = $_SESSION['uid'];
                                 </div>
                             </a>
 
-<?php // B'
-                            }
-                            echo '</div>';
+                    <?php // B'
                         }
-?>
+                        echo '</div>';
+                    }
+                    ?>
 
 
                 </div>
@@ -91,15 +94,15 @@ $userId = $_SESSION['uid'];
             </div>
 
 
-                    <div class="detail_look_1">
-                        <a href="group.php?groupid=<?php echo $join['group_id']; ?>" class=detail_look>もっと見る</a>
-                    </div>
+            <div class="detail_look_1">
+                <a href="group.php?groupid=<?php echo $join['group_id']; ?>" class=detail_look>もっと見る</a>
+            </div>
 
 
-<?php // A'
+    <?php // A'
         }
     }
-?>
+    ?>
 </body>
 
 </html>
