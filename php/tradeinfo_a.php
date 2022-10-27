@@ -56,7 +56,7 @@
         </div>
 
         <div>
-            <div class="scroll-nav">
+            <div>
                 <button class="btn-switch" id="b0" onclick="click_list_event(0)">送り相手</button>
                 <button class="btn-switch" id="b1" onclick="click_list_event(1)">引き取り</button>
             </div>
