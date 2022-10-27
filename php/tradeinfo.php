@@ -1,6 +1,18 @@
 <?php
     // ヘッダーを読み込む
     require_once __DIR__ . '/header.php';
+    // trade.phpを読み込み、トレードオブジェクトを生成
+    require_once __DIR__ . '/classes/trade.php';
+    $trade = new Trade();
+
+    // セッションからログイン中のユーザーIDを取得する
+    $userid = $_SESSION['uid'];
+    // GETで表示するユーザーのIDを取得する
+    $trade_id = $_GET['trade_id'];
+
+    // トレードIDから交換会の情報を取得
+    $trade_info = $trade->gettradeInfo_tID($trade_id);
+
 ?>
 
 <link rel="stylesheet" href="../css/tradeinfo.css">
@@ -13,8 +25,8 @@
         <div class="trade-info">
             <!-- 交換会名と開催期間を表示 -->
             <div class="trade-title">
-                <h1>タイトルタイトルタイトルタイトルタイトルたいとるタイトルタイ</h1>
-                <p>22/11/25 ～ 22/11/26</p>
+                <h1><?php echo $trade_info['trade_name']; ?></h1>
+                <p><?php echo $trade_info['begin_date']; ?> ～　<?php echo $trade_info['end_date']; ?></p>
             </div>
 
             <!-- 参加者のアイコンを表示 -->

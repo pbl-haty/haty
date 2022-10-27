@@ -22,11 +22,21 @@
             $this->exec($sql, [$group_id, $pass_id, $goods_name, $goods_hint, $goods_image]);
         }
 
+        // トレードIDから交換会の情報を取得
+        public function gettradeInfo_tID($trade_id){
+            $sql = "select group_id, trade_name, trade_explain, begin_date, end_date, theme1, theme2, theme3
+                    from trade
+                    where trade_id = ?";
+            $stmt = $this->query($sql, [$trade_id]);
+            $items = $stmt->fetch();
+            return $items;
+        }
+
         // グループIDから交換会の情報を取得
         public function gettradeInfo($group_id){
             $sql = 'select trade_id, trade_name, trade_explain, begin_date, end_date, theme1, theme2, theme3
                     from trade
-                    where trade.group_id = ?';
+                    where group_id = ?';
             $stmt = $this->query($sql, [$group_id]);
             $items = $stmt->fetch();
             return $items;
