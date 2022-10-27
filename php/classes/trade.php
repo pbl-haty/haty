@@ -7,12 +7,7 @@
         public function createTrade($group_id, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date){
             $sql = 'insert into trade(group_id, trade_name, theme1, theme2, theme3, trade_explain, end_date) values(?, ?, ?, ?, ?, ?, ?)';
             $result = $this->exec($sql, [$group_id, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date]);
-            // return $this->pdo->lastInsertId();
-
-            // 何かしらの影響で交換会を開催出来なかった場合
-            if(!$result){
-                return '交換会を<br>開催出来ませんでした。';
-            }
+            return $this->pdo->lastInsertId();
         }
 
         // // 交換会のテーマを作成
