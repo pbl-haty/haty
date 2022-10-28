@@ -1,3 +1,10 @@
+.group_fixed{
+    position: fixed;
+    z-index: 1;
+    background-color: #ffffff;
+    width: 100%;
+}
+
 .home_1 {
     display: flex;
     margin: 150px auto 0 auto;
@@ -13,6 +20,9 @@
     vertical-align: middle;
 }
 
+.detail-gift-above{
+    margin-top: 300px;
+}
 .detail_display {
     text-decoration: none;
     color: #000000;
@@ -119,6 +129,43 @@ hr {
 
 .example-category option {
     font-size: 15px;
+}
+
+.category-under{
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 30px -10px #bbb inset;
+}
+.hold-move-tag{
+    text-decoration: none;
+    color: #000000;
+}
+
+.hold-move1{
+    margin:450px 40px 0 40px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    color: black;
+    position: relative;
+    width: 90%;
+    height:40px;
+    font-size: 40px;
+    padding: 30px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+.hold-move2{
+    margin:0 40px 0 40px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    color: black;
+    position: relative;
+    width: 90%;
+    height:40px;
+    font-size: 40px;
+    padding: 30px 20px;
+    text-decoration: none;
+    text-align: center;
 }
 
 .gift-display-icon{
