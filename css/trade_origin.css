@@ -35,11 +35,20 @@
     padding: 40px;
     font-size: 80px;
 }
+.hold-exit{
+    margin-top: 150px;
+    font-size: 80px;
+    color: rgba(119, 29, 29, 0.534);
+}
 
 .hold-detail {
     border: 10px solid #000;
     text-align: center;
     margin-top: 150px;
     padding: 40px;
+    font-size: 80px;
+}
+
+.trade-explain{
     font-size: 80px;
 }

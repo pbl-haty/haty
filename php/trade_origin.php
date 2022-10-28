@@ -52,19 +52,23 @@ $_SESSION['groupId'] = $groupId;
         <a href="exchange_hold.php" class="hold-tag">
             <p class="hold">交換会を開催する<p>
         </a>
+        <!-- <p class="hold-exit">交換会は開催中です、<br>詳細を確認してください</p>
         <a href="" class="hold-tag">
-            <p class="hold-detail">開催中の交換会を<br>見る</p>
-        </a>
+            <p class="hold-detail">開催中の交換会の<br>詳細を見る</p>
+        </a> -->
     </div>
+
+    <p class="trade-explain">交換会とは？</p>
 </body>
 
 <head>
-    <?php if(empty($group_conf['groupname'])){
+    <?php if (empty($group_conf['groupname'])) {
         echo '<title>Error</title>';
-    }else{
+    } else {
         echo '<title>';
         echo $group_conf['groupname'];
         echo ' | 交換会ぺージ</title>';
     } ?>
 </head>
+
 </html>
