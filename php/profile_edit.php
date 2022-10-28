@@ -1,8 +1,8 @@
 <?php
     // ヘッダーを読み込む
-    require_once __DIR__ . './header.php';
+    require_once __DIR__ . '/header.php';
     // user.phpを読み込む
-    require_once __DIR__ . '\classes\user.php';
+    require_once __DIR__ . '/classes/user.php';
 
     // エラーメッセージの初期化
     $errorMessage = ""; 

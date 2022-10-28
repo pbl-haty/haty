@@ -1,6 +1,6 @@
 <?php
-    require_once __DIR__ . './header.php';
-    require_once __DIR__ . './classes/groupmember.php';
+    require_once __DIR__ . '/header.php';
+    require_once __DIR__ . '/classes/groupmember.php';
 
     $userId = $_SESSION['uid'];
 
@@ -18,7 +18,7 @@
     <div class="body">
 
         <?php // グループに所属しているか判定・・・A
-        require_once __DIR__ . './classes/groupdetail.php';
+        require_once __DIR__ . '/classes/groupdetail.php';
         $group = new GroupDetail();
 
         // $group_joins = $Group->groupjoin($_SESSION['userId']);
@@ -55,6 +55,7 @@
                     <div class="group-button">
                         <a href="group.php?groupid=<?php echo $groupId; ?>" class="gift-list-sentence">商品一覧</a>
                         <div class="inv-link-sentence" data-clipboard-text="http://localhost/haty/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div>
+                        <!-- <div class="inv-link-sentence" data-clipboard-text="http://ec2-35-78-185-213.ap-northeast-1.compute.amazonaws.com/haty/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div> -->
                     </div>
                 </div>
             </div>

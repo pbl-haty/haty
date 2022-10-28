@@ -1,6 +1,6 @@
 <?php
-    require_once __DIR__ . './header.php';
-    require_once __DIR__ . './classes/groupoption.php';
+    require_once __DIR__ . '/header.php';
+    require_once __DIR__ . '/classes/groupoption.php';
 
     $userId = $_SESSION['uid'];
     $groupId = $_GET['groupid'];
@@ -21,7 +21,7 @@
     <div class="body">
 
         <?php // グループに所属しているか判定・・・A
-            require_once __DIR__ . './classes/groupdetail.php';
+            require_once __DIR__ . '/classes/groupdetail.php';
             $group = new GroupDetail();
 
             // $group_joins = $Group->groupjoin($_SESSION['userId']);

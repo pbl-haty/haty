@@ -8,7 +8,7 @@ var giname = document.getElementById('gift_name');
 var giimg = document.getElementById('input-img');
 var erms = document.getElementById('erms');
 
-$box1.style.left = "00%";
+$box1.style.left = "0%";
 $box2.style.left = "100%";
 $box3.style.left = "200%";
 $box4.style.left = "300%";
