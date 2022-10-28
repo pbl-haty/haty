@@ -82,11 +82,11 @@ $_SESSION['groupId'] = $groupId;
             <p class="hold-move1">交換会を開催する<p>
         </a>
 
-        <!-- <hr> -->
+        <!-- <hr>
 
-        <!-- <a href="tradeinfo.php" class="hold-move-tag">
+        <a href="tradeinfo.php" class="hold-move-tag">
             <p class="hold-move2">交換会開催中➣<p>
-        </a>
+        </a> -->
 
         <?php
         $cnt = 0;
