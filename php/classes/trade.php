@@ -17,9 +17,9 @@
         // }
 
         // 交換会にグッズを追加
-        public function postGoods($group_id, $pass_id, $goods_name, $goods_hint, $goods_image){
-            $sql = 'insert into trade_goods(group_id, pass_id, goods_name, goods_hint, goods_image) values(?, ?, ?, ?, ?)';
-            $this->exec($sql, [$group_id, $pass_id, $goods_name, $goods_hint, $goods_image]);
+        public function postGoods($trade_id, $pass_id, $goods_name, $goods_hint, $goods_image){
+            $sql = 'insert into trade_goods(trade_id, pass_id, goods_name, goods_hint, goods_image) values(?, ?, ?, ?, ?)';
+            $this->exec($sql, [$trade_id, $pass_id, $goods_name, $goods_hint, $goods_image]);
         }
 
         // トレードIDから交換会の情報を取得
