@@ -58,7 +58,7 @@ $_SESSION['groupId'] = $groupId;
         </a> -->
     </div>
 
-    <p class="trade-explain">交換会とは？</p>
+    <!-- <p class="trade-explain">交換会とは？</p> -->
 </body>
 
 <head>
