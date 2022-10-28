@@ -35,6 +35,8 @@ $_SESSION['groupId'] = $groupId;
 
     if (empty($group_conf)) {
         echo '<hr>';
+        echo '<br>';
+        echo '<br>';
         echo '<div class = prompt_1>';
         echo '<h4>URLが間違っているか<br>既に解散されたグループです。</h4>';
         echo '</div>';
@@ -82,11 +84,9 @@ $_SESSION['groupId'] = $groupId;
             <p class="hold-move1">交換会を開催する<p>
         </a>
 
-        <!-- <hr>
-
         <a href="tradeinfo.php" class="hold-move-tag">
             <p class="hold-move2">交換会開催中➣<p>
-        </a> -->
+        </a>
 
         <?php
         $cnt = 0;
