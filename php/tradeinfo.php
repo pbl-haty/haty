@@ -5,10 +5,18 @@
     require_once __DIR__ . '/classes/trade.php';
     $trade = new Trade();
 
+    // エラーメッセージ
+    $error_mag  = '';
+    $message = '';
+
     // セッションからログイン中のユーザーIDを取得する
     $userid = $_SESSION['uid'];
     // GETで表示するユーザーのIDを取得する
     $trade_id = $_GET['trade_id'];
+
+    if(empty($trade_id)){
+        $error_mag = 'この交換会は存在していません。';
+    }
 
     // トレードIDから交換会の情報を取得
     $trade_info = $trade->gettradeInfo_tID($trade_id);
