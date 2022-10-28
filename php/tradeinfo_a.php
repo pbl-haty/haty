@@ -76,11 +76,11 @@
                     <p class="gift-name-font">マリオカート</p>
             <div class="send-to">
                 <img class="img-icon-a" src="../static\user_icon.png">
-                <p class="send-to-name">antonyさん</p>
+                <p class="send-to-name">山岡さん</p>
             </div>
+            <button class="sending-confirmation" id="btn">引き取り確認</button>
         </div>
 
-            <button class="sending-confirmation" id="btn">送信確認</button>
 
 
     </div>
