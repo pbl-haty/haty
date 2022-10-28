@@ -1,7 +1,7 @@
 <?php
-    require_once __DIR__ . './header.php';
-    require_once __DIR__ . './classes/user.php';
-    require_once __DIR__ . './classes/getdata.php';
+    require_once __DIR__ . '/header.php';
+    require_once __DIR__ . '/classes/user.php';
+    require_once __DIR__ . '/classes/getdata.php';
 
     $user = new User();
     $getdata = new GetData();

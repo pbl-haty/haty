@@ -1,7 +1,7 @@
 <?php
-    require_once __DIR__ . './header.php';
-    require_once __DIR__ . '\classes\post.php';
-    require_once __DIR__ . './classes/group.php';
+    require_once __DIR__ . '/header.php';
+    require_once __DIR__ . '/classes/post.php';
+    require_once __DIR__ . '/classes/group.php';
 
 
     $userId = $_SESSION['uid'];
