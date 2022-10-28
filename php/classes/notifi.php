@@ -6,15 +6,38 @@
 
         // データベースから通知を取得
         public function notifi_view($userId){
-            $sql = "select *
-                    from notice 
-                    left join groupdb on notice.group_send = groupdb.id
-                    left join user on notice.user_send = user.uid
-                    left join pattern on notice.pattern_id = pattern.id
-                    left join gift on notice.gift_id = gift.id
-                    where notice.user_rece = ?
-                    order by notice.id desc";
-            $stmt = $this->query($sql, [$userId]);
+            $sql = "(
+                        select 
+                            notice.id, notice.group_send, notice.user_send, notice.user_rece, notice.pattern_id, notice.gift_id, notice.not_con,
+                            groupdb.groupname, user.name, gift.gift_name, pattern.pattern_name,
+                            notice.time, 1 as count,
+                            case
+                                when pattern.id in (2, 3, 7) then groupdb.icon
+                                else gift.image
+                            end as image
+                        from notice 
+                            left join groupdb on notice.group_send = groupdb.id
+                            left join user on notice.user_send = user.uid
+                            left join pattern on notice.pattern_id = pattern.id
+                            left join gift on notice.gift_id = gift.id
+                        where notice.user_rece = ? and pattern.id not in (1, 5)
+                    )
+                    union all
+                    (
+                        select 
+                            notice.id, notice.group_send, notice.user_send, notice.user_rece, notice.pattern_id, notice.gift_id, notice.not_con,
+                            groupdb.groupname, user.name, gift.gift_name, pattern.pattern_name,
+                            max(notice.time) as max, count(notice.user_send) as count, gift.image
+                        from notice 
+                            left join groupdb on notice.group_send = groupdb.id
+                            left join user on notice.user_send = user.uid
+                            left join pattern on notice.pattern_id = pattern.id
+                            left join gift on notice.gift_id = gift.id
+                        where notice.user_rece = ? and pattern.id in (1, 5)
+                        group by pattern.id, notice.user_send, notice.not_con
+                    )
+                    order by time desc";
+            $stmt = $this->query($sql, [$userId, $userId]);
             $items = $stmt->fetchAll();
             return $items;
         }
@@ -36,22 +59,10 @@
         }
 
         // データベースに通知を追加
-        // パターン１（申請）gift_detail_backend.phpの32行目追加
-        public function notifi_apply($user_send, $user_rece, $giftId){
+        // パターン１（申請, いいね, コメント）
+        public function notifi_gift($user_send, $user_rece, $pattern, $giftId){
             $sql = 'insert into notice(user_send, user_rece, pattern_id, gift_id) values(?, ?, ?, ?)';
-            $this->exec($sql, [$user_send, $user_rece, 1, $giftId]);
-        }
-
-        // パターン4（お気に入り）gift_detail_backend.phpの42行目追加
-        public function notifi_good($user_send, $user_rece, $giftId){
-            $sql = 'insert into notice(user_send, user_rece, pattern_id, gift_id) values(?, ?, ?, ?)';
-            $this->exec($sql, [$user_send, $user_rece, 4, $giftId]);
-        }
-
-        // パターン5（コメント）gift_detail_backend.phpの39行目追加
-        public function notifi_comment($user_send, $user_rece, $giftId){
-            $sql = 'insert into notice(user_send, user_rece, pattern_id, gift_id) values(?, ?, ?, ?)';
-            $this->exec($sql, [$user_send, $user_rece, 5, $giftId]);
+            $this->exec($sql, [$user_send, $user_rece, $pattern, $giftId]);
         }
 
         // パターン7（参加）GroupJoin.phpの19行目追加
