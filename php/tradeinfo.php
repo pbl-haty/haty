@@ -41,12 +41,12 @@
     $theme_array = array();
     if(isset($trade_info['theme1'])){
         array_push($theme_array, $trade_info['theme1']);
-        if(isset($trade_info['theme2'])){
-            array_push($theme_array, $trade_info['theme2']);
-            if(isset($trade_info['theme3'])){
-                array_push($theme_array, $trade_info['theme3']);
-            }
-        }
+    }
+    if(isset($trade_info['theme2'])){
+        array_push($theme_array, $trade_info['theme2']);
+    }
+    if(isset($trade_info['theme3'])){
+            array_push($theme_array, $trade_info['theme3']);
     }
 
     // 交換会の説明文と説明文のバイト数を変数に追加
@@ -65,6 +65,9 @@
 
         // trade_goodsテーブルに追加
         $trade->postGoods($trade_id, $userid, $goods_name, $goods_hint, $image);
+        $url = "tradeinfo.php?trade_id=" . $trade_id;
+        header("Location:" . $url);
+        exit;
     }
 
 ?>

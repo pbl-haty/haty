@@ -1,15 +1,24 @@
 <?php
 require_once __DIR__ . '/header.php';
+require_once __DIR__ . '/classes/trade.php';
+$trade = new Trade();
 
 $userId = $_SESSION['uid'];
-/* if($_SERVER["REQUEST_METHOD"] === "POST"){
-    $groupid = $_POST['groupid'];
-}else{ */
 $groupId = $_GET['groupid'];
-// 交換会の為に、グループIDをセッションに保存
-$_SESSION['groupId'] = $groupId;
-/* }  */
 
+// トレードIDから交換会の情報を取得
+$tradeInfo = $trade->gettradeInfo($groupId);
+$current_date = date("Y-m-d");
+if(!empty($tradeInfo)){
+    // 所属しているグループごとで確認
+    foreach($tradeInfo as $eachtradeInfo){
+    // 現在の日付から交換会が開催期間中か判定
+    if($eachtradeInfo['begin_date'] <= $current_date && $current_date <= $eachtradeInfo['end_date']){
+        $tradeId = $eachtradeInfo['trade_id'];
+        break;
+    }
+} 
+}
 ?>
 <link rel="stylesheet" href="../css/group.css">
 </head>
@@ -17,7 +26,6 @@ $_SESSION['groupId'] = $groupId;
 <br>
 
 <!-- グループ名、各種ボタン -->
-
 <body>
 
 
@@ -80,15 +88,17 @@ $_SESSION['groupId'] = $groupId;
 
         <br>
         <br>
-        <a href="exchange_hold.php" class="hold-move-tag">
-            <p class="hold-move1">交換会を開催する<p>
-        </a>
+        <?php if(isset($tradeId)){ ?>
+            <a href="tradeinfo.php?trade_id=<?php echo $tradeId; ?>" class="hold-move-tag">
+                <p class="hold-move1">交換会開催中➣<p>
+            </a>
+        <?php }else{ ?>
+            <a href="exchange_hold.php?group_id=<?php echo $groupId; ?>" class="hold-move-tag">
+                <p class="hold-move1">交換会を開催する<p>
+            </a>
+        <?php } ?>
 
-        <a href="tradeinfo.php" class="hold-move-tag">
-            <p class="hold-move2">交換会開催中➣<p>
-        </a>
-
-        <?php
+        <?php 
         $cnt = 0;
         foreach ($gift_group_all as $gift_group) {
             echo '<div class="display" id=p' . $cnt . '>';
