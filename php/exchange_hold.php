@@ -64,7 +64,7 @@ if (!$holding_flag) {
 
         // tradeテーブルに追加出来たか判定
         if (!empty($trade_id)) {
-            // #2では交換会詳細画面に遷移する
+            // 交換会詳細画面に遷移する
             $url = "tradeinfo.php?trade_id=" . $trade_id;
             header("Location:" . $url);
             exit;

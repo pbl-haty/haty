@@ -65,6 +65,9 @@
 
         // trade_goodsテーブルに追加
         $trade->postGoods($trade_id, $userid, $goods_name, $goods_hint, $image);
+        $url = "tradeinfo.php?trade_id=" . $trade_id;
+        header("Location:" . $url);
+        exit;
     }
 
 ?>
