@@ -3,6 +3,8 @@
     require_once __DIR__ . '/header.php';
     // groupoption.phpを読み込む
     require_once __DIR__ . '/classes/groupoption.php';
+    // groupmember.phpを読み込む
+    require_once __DIR__ . '/classes/groupmember.php';
 
     // セッションのIDを受け取る
     $user_id = $_SESSION['uid'];
@@ -13,6 +15,7 @@
 
     // グループオプションオブジェクトを生成
     $groupoption = new Groupoption();
+    $groupmember = new GroupMember();
 
     // 参加ボタンが押されたとき
     if(isset($_POST['group_join'])){
@@ -32,6 +35,12 @@
 
         if(empty($errormsg)){
             $completionmsg = "グループ名：" . $result['groupname'] . "に<br>参加できました。";
+            $member = $groupmember->member($result['id']);
+            foreach ($member as $mem) {
+                if($userId != $mem['uid']) {
+                    $notifi->notifi_join($result['id'], $userId, $mem['uid']);
+                }
+            }
         }
     }
 

@@ -77,7 +77,7 @@
             $sql = 'select user.uid, user.name, user.icon, talk.comment, talk.post
                     from talk join user on talk.user_id = user.uid
                     where talk.gift_id = ?
-                    order by talk.post desc';
+                    order by talk.post asc';
             $stmt = $this -> query($sql, [$gift_id]);
             $result = $stmt->fetchAll();
             return $result;
