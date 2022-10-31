@@ -14,12 +14,12 @@ $userId = $_SESSION['uid'];
         <!-- <h1 class="group_itiran">グループ一覧</h1> -->
         <div class="group-option">
             <a href="GroupCreate.php" class="group-option-move-create">
-                <img class="group-option-image" src="../static/user_gray.png">
-                <p class="group-option-text">作成</p>
+                <img class="group-option-image" src="../static/join-icon.png">
+                <!-- <p class="group-option-text">作成</p> -->
             </a>
             <a href="GroupJoinsub.php" class="group-option-move-join">
-                <img class="group-option-image" src="../static/user_gray.png">
-                <p class="group-option-text">参加</p>
+                <img class="group-option-image" src="../static/create-icon.png">
+                <!-- <p class="group-option-text">参加</p> -->
             </a>
         </div>
     </div>
