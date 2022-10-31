@@ -52,7 +52,7 @@
             return $item;
         }
 
-        // データベースから通知を取得
+        // データベースの未読を既読に変更
         public function notifi_update($userId){
             $sql = "update notice set not_con = 1 where user_rece = ? and not_con is null";
             $this->exec($sql, [$userId]);

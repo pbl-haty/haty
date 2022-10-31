@@ -3,11 +3,9 @@
 }
 
 .title-top {
-    padding: 30px 0;
     display: flex;
     display: flex;
     align-items: center;
-    background-color: rgb(182, 182, 255);
 }
 
 .title-img {
@@ -19,14 +17,13 @@
 
 .title-content {
     font-size: 50px;
-    margin-left: 40px;
+    margin: 45px 0 40px 40px;
 }
 
 .notifi-flex {
     text-decoration: none;
     color: black;
     display: flex;
-    border-bottom: 1px solid grey;
 }
 
 .notif-unread {
@@ -38,8 +35,7 @@
     align-items: center;
     background-color: #fff;
     width: 20%;
-    padding: 30px 20px;
-    margin: 20px;
+    margin: 30px;
 }
 
 .notifi-img {
@@ -50,7 +46,7 @@
     border: 1px solid grey;
 }
 
-.notifi-Vertical {
+.notifi-vertical {
     width: 80%;
     padding: 30px 20px;
     display: block;
@@ -67,4 +63,17 @@
     padding-top: 40px;
     font-size: 40px;
     margin: 0px;
+    line-height: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
+.notifi-border {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    border: none;
+    background: grey;
+    height: 1px;
 }
