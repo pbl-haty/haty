@@ -1,7 +1,12 @@
 <?php
 require_once __DIR__ . '/header.php';
+// trade.phpを読み込み、トレードオブジェクトを生成
+require_once __DIR__ . '/classes/trade.php';
+$trade = new Trade();
 
 $userId = $_SESSION['uid'];
+
+// 交換会情報を取得する
 ?>
 <link rel="stylesheet" href="../css/home.css">
 <title>ホーム</title>
@@ -49,9 +54,27 @@ $userId = $_SESSION['uid'];
                     <div class="display">
                         <img class="home_groupicon" src="data:;base64,<?php echo $img; ?>">
                         <p class="home_groupname"><?= $join['groupname'] ?></p>
-                        <div class="trade_look_1">
-                            <a href="trade_origin.php?groupid=<?php echo $join['group_id']; ?>" class=trade_look>交換会<br>ページへ</a>
-                        </div>
+                        <?php
+                            // トレードIDから交換会の情報を取得
+                            $tradeInfo = $trade->gettradeInfo($join['group_id']);
+                            $current_date = date("Y-m-d");
+                            // 所属しているグループごとで確認
+                            foreach($tradeInfo as $eachtradeInfo){
+                                // 現在の日付から交換会が開催期間中か判定
+                                if($eachtradeInfo['begin_date'] <= $current_date && $current_date <= $eachtradeInfo['end_date']){
+                                    $tradeId = $eachtradeInfo['trade_id'];
+                                    break;
+                                }
+                            } 
+                            // 開催期間中なら交換会ページ（tradeinfo.php）に遷移するボタンを表示
+                            if(isset($tradeId)){ ?>
+                                <div class="trade_look_1">
+                                    <a href="tradeinfo.php?trade_id=<?php echo $tradeId; ?>" class=trade_look>交換会<br>ページへ</a>
+                                </div>
+                            <?php 
+                                // 交換会のトレードIDを破棄
+                                unset($tradeId); 
+                            } ?>
                     </div>
                     <?php // ギフトが送られているか判定・・・B
                     $gift_group = $group->giftgroup((int)$join['group_id'], $userId);

@@ -38,7 +38,7 @@
                     from trade
                     where group_id = ?';
             $stmt = $this->query($sql, [$group_id]);
-            $items = $stmt->fetch();
+            $items = $stmt->fetchAll();
             return $items;
         }
 
