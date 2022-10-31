@@ -34,7 +34,7 @@
                             left join pattern on notice.pattern_id = pattern.id
                             left join gift on notice.gift_id = gift.id
                         where notice.user_rece = ? and pattern.id in (1, 5)
-                        group by pattern.id, notice.user_send, notice.not_con
+                        group by pattern.id, notice.user_send, notice.gift_id, notice.not_con
                     )
                     order by time desc";
             $stmt = $this->query($sql, [$userId, $userId]);
