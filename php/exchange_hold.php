@@ -10,14 +10,11 @@ $group = new GroupDetail();
 
 // メッセージの初期化
 $msg = "";
+// 交換会開催中フラグ
+$holding_flag = false;
 
-// セッションからユーザーIDとグループIDを取得し、グループIDのみ破棄（#2以降で修正）
-// $userId = $_SESSION['uid'];
-// $groupId = $_SESSION['groupId'];
-// unset($_SESSION['groupId']);
-
-// #1段階では、グループIDは固定値
-$groupId = 1;
+// グループIDを取得
+$groupId = $_GET['group_id'];
 // グループIDがあるか確認
 if (empty($groupId)) {
     $msg = "このグループでは<br>交換会を開催することは<br>出来ません。";
@@ -25,14 +22,19 @@ if (empty($groupId)) {
 
 // tradeテーブルに情報があるか、グループIDで確認
 $tradeInfo = $trade->gettradeInfo($groupId);
+$current_date = date("Y-m-d");
+if(!empty($tradeInfo)){
+    foreach ($tradeInfo as $eachtradeInfo){
+        // 現在の日付から交換会が開催期間中か判定
+        if($eachtradeInfo['begin_date'] <= $current_date && $current_date <= $eachtradeInfo['end_date']){
+            $holding_flag = true;
+            break;
+        }
+    }
+}
 
-// 過去の交換会情報が無い場合（交換会が開催出来る場合）
-if (empty($tradeInfo)) {
-    // // 現在の日付が、開催期間であるか
-    // $current_date = date("Y-m-d");
-    // if($tradeInfo['begin_date'] <= $current_date && $current_date <= $tradeInfo['end_date']){
-    //     $msg = '現在このグループでは交換会が開催されており、<br>新たに開催することは出来ません。';
-    // }
+// 交換会が開催出来る場合
+if (!$holding_flag) {
     // 開催するボタンが押されたとき
     if (isset($_POST['hold'])) {
         // 交換会名前と終了日を格納
@@ -96,6 +98,7 @@ if (empty($tradeInfo)) {
     if (!empty($msg)) { ?>
         <div class="prompt_2">
             <h4 class="msg-size"><?php echo $msg; ?></h4>
+            <a href="home.php">ホームに戻る</a>
         </div>
     <?php } else { ?>
 
@@ -115,7 +118,7 @@ if (empty($tradeInfo)) {
                 <div id="sub-form">
                     <p>交換会で交換する物のテーマを入力してください（最大3つ）</p>
                     <div id="inputArea">
-                        <input type="text" name="theme[]" class="exchange-theme-area" placeholder="3000円以下、身に着けるもの、季節もの 等" maxlength="30">
+                        <input type="text" name="theme[]" class="exchange-theme-area" placeholder="（例）3000円以下、身に着けるもの、季節もの 等" maxlength="30">
                         <button type="button" id="add" class="exchanege-theme-button">追加</button>
                         <button type="button" id="del" class="exchanege-theme-button">削除</button>
                     </div>
