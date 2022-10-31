@@ -14,7 +14,7 @@
     // $post_user_icon = base64_encode($post_user['icon']);
 ?>
 <link rel="stylesheet" href="../css/home.css">
-<link rel="stylesheet" href="../css/tradeinfoa.css">
+<link rel="stylesheet" href="../css/tradetest.css">
 </head>
 <body>
     <br>
