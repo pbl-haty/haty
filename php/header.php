@@ -8,7 +8,8 @@
 session_start();
 ?>
 <header>
-    <a href="home.php" class="title-textdec-edit">
+    <a href="home.php" class="title-textdec-edit" class="title-all">
+        <img src="../static/title-logo.png" class="title-logo"><nobr>
         <h1 class="title">HATY</h1>
     </a>
     <div class="hamburger-menu">
