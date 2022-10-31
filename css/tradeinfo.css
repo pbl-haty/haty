@@ -1,9 +1,6 @@
 .trade{
     font-size: 40px;
     padding: 40px;
-}
-
-.trade-info{
     margin-top: 180px;
 }
 
@@ -81,7 +78,7 @@
 }
 
 .readmore li{
-    font-size: 0.7em;
+    font-size: 0.8em;
     padding: 10px 0;
 }
 
@@ -198,6 +195,7 @@
     white-space: nowrap;
     width: calc(100vw - 80px);
     height: calc(40vw - 20px);
+    text-align: center;
 }
 
 .sample-img-size {
@@ -254,7 +252,7 @@
 .form-box{
     width: calc(100vw - 110px);
     border-radius: 20px;
-    font-size: 1.5em;
+    font-size: 1.2em;
     border: 1px solid gray;
     padding: 15px;
 }
@@ -264,6 +262,7 @@
 }
 
 .form-hint p{
+    font-size: 0.8em;
     word-break: break-all;
 }
 
@@ -278,4 +277,16 @@
     border: 5px solid #68779a;
     border-radius: 10px;
     background: #cbe8fa;
+}
+
+/* エラーメッセージの表示 */
+.prompt_2 {
+    padding: 30px;
+    color: rgba(119, 29, 29, 0.534);
+}
+
+.msg-size {
+    height: 50px;
+    color: rgba(119, 29, 29, 0.534);
+    text-align: center;
 }

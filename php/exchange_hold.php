@@ -57,15 +57,17 @@ if (empty($tradeInfo)) {
             }
         }
 
-        // 開催に必要な情報をtradeテーブルに挿入
-        $trade_msg = $trade->createTrade($groupId, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date);
+        // 開催に必要な情報をtradeテーブルに挿入し、トレードIDを取得
+        $trade_id = $trade->createTrade($groupId, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date);
+
         // tradeテーブルに追加出来たか判定
-        if (empty($trade_msg)) {
+        if (!empty($trade_id)) {
             // #2では交換会詳細画面に遷移する
-            header("Location: exchange_hold.php");
+            $url = "tradeinfo.php?trade_id=" . $trade_id;
+            header("Location:" . $url);
             exit;
         } else {
-            $msg = $trade_msg;
+            $msg = '交換会を<br>開催出来ませんでした。';
         }
     }
 

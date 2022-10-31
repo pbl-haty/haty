@@ -7,12 +7,7 @@
         public function createTrade($group_id, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date){
             $sql = 'insert into trade(group_id, trade_name, theme1, theme2, theme3, trade_explain, end_date) values(?, ?, ?, ?, ?, ?, ?)';
             $result = $this->exec($sql, [$group_id, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date]);
-            // return $this->pdo->lastInsertId();
-
-            // 何かしらの影響で交換会を開催出来なかった場合
-            if(!$result){
-                return '交換会を<br>開催出来ませんでした。';
-            }
+            return $this->pdo->lastInsertId();
         }
 
         // // 交換会のテーマを作成
@@ -22,16 +17,26 @@
         // }
 
         // 交換会にグッズを追加
-        public function postGoods($group_id, $pass_id, $goods_name, $goods_hint, $goods_image){
-            $sql = 'insert into trade_goods(group_id, pass_id, goods_name, goods_hint, goods_image) values(?, ?, ?, ?, ?)';
-            $this->exec($sql, [$group_id, $pass_id, $goods_name, $goods_hint, $goods_image]);
+        public function postGoods($trade_id, $pass_id, $goods_name, $goods_hint, $goods_image){
+            $sql = 'insert into trade_goods(trade_id, pass_id, goods_name, goods_hint, goods_image) values(?, ?, ?, ?, ?)';
+            $this->exec($sql, [$trade_id, $pass_id, $goods_name, $goods_hint, $goods_image]);
+        }
+
+        // トレードIDから交換会の情報を取得
+        public function gettradeInfo_tID($trade_id){
+            $sql = "select group_id, trade_name, trade_explain, begin_date, end_date, theme1, theme2, theme3
+                    from trade
+                    where trade_id = ?";
+            $stmt = $this->query($sql, [$trade_id]);
+            $items = $stmt->fetch();
+            return $items;
         }
 
         // グループIDから交換会の情報を取得
         public function gettradeInfo($group_id){
             $sql = 'select trade_id, trade_name, trade_explain, begin_date, end_date, theme1, theme2, theme3
                     from trade
-                    where trade.group_id = ?';
+                    where group_id = ?';
             $stmt = $this->query($sql, [$group_id]);
             $items = $stmt->fetch();
             return $items;
