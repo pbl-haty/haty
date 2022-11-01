@@ -60,8 +60,9 @@ html {
 }
 
 .title-logo{
-    transform: translate(-30%,10%);
-    width:380px;
+    /* transform: translate(-30%,0%); */
+    margin-left: -100px;
+    width:320px;
 }
 
 .menu-item {
