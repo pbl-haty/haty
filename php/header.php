@@ -13,8 +13,9 @@
     $count = $notifi->notifi_count($userId);
 ?>
 <header>
-    <a href="home.php" class="title-textdec-edit">
-        <h1 class="title">HATY</h1>
+    <a href="home.php" class="title-textdec-edit" class="title-all">
+        <img src="../static/title-logo.png" class="title-logo"><nobr>
+        <!-- <h1 class="title">HATY</h1> -->
     </a>
     <div class="hamburger-menu">
         <input type="checkbox" id="menu-btn-check">
