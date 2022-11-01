@@ -62,6 +62,15 @@
             return $items;
         }
 
+        // トレードIDから交換会に投稿されたグッズの数を取得
+        public function getNumofGoods($trade_id){
+            $sql = "select goods_id from trade_goods
+                    where trade_id = ?";
+            $stmt = $this->query($sql, [$trade_id]);
+            $items = $stmt->fetchAll();
+            return count($items);
+        }
+
         // ログインしているユーザーIDとグループIDから渡す人と渡す物の情報を取得
         public function passGoodsInfo($user_id, $trade_id){
             $sql = "select user.uid, user.name, user.icon, trade_goods.goods_name, trade_goods.goods_hint, trade_goods.confirm
