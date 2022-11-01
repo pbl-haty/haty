@@ -6,7 +6,10 @@ require_once __DIR__ . '/classes/trade.php';
 $trade = new Trade();
 // groupdetail.phpを読み込む
 require_once __DIR__ . '/classes/groupdetail.php';
+// groupmember.phpを読み込む
+require_once __DIR__ . '/classes/groupmember.php';
 $group = new GroupDetail();
+$groupmember = new GroupMember();
 
 // メッセージの初期化
 $msg = "";
@@ -64,6 +67,14 @@ if (!$holding_flag) {
 
         // tradeテーブルに追加出来たか判定
         if (!empty($trade_id)) {
+            // 交換会が開催されたことをグループ全員に通知
+            $member = $groupmember->member($groupId);
+            foreach ($member as $mem) {
+                if($userId != $mem['uid']) {
+                    $notifi->notifi_trade($groupId, $mem['uid'], 2);
+                }
+            }
+
             // 交換会詳細画面に遷移する
             $url = "tradeinfo.php?trade_id=" . $trade_id;
             header("Location:" . $url);
