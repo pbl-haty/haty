@@ -22,7 +22,7 @@
     <?php
        
         if($count[0] != 0) {
-            echo "<p class='hamburger-notification'>{$count[0]}</p>";  /* ハンバーメニュー通知  */
+            echo "<p class='hamburger-notification'>!</p>";  /* ハンバーメニュー通知  */
         } 
     ?>
             <span></span>

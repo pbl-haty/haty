@@ -1,6 +1,7 @@
 <?php
     require_once __DIR__ . '/header.php';
     require_once __DIR__ . '/classes/groupoption.php';
+    require_once __DIR__ . '/classes/groupmember.php';
 
     $userId = $_SESSION['uid'];
     $code = $_GET['code'];
@@ -8,12 +9,20 @@
     $msg = "";
 
     $groupoption = new Groupoption();
+    $groupmember = new GroupMember();
+
     if(isset($_POST['groupjoin'])) {
         $item = $groupoption->groupjoin_room($code);
         $password = $_POST['password'];
         
         if(password_verify($password, $item['password'])) {
             $groupoption->groupjoin($userId, $item['id']);
+            $member = $groupmember->member($item['id']);
+            foreach ($member as $mem) {
+                if($userId != $mem['uid']) {
+                    $notifi->notifi_join($item['id'], $userId, $mem['uid']);
+                }
+            }
             header('Location: home.php');
         } else {
             $msg = 'パスワードが間違っています。';

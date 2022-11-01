@@ -40,6 +40,7 @@ html {
     /* ヘッダーと画面の空白除去 */
     padding: 0;
     /* ヘッダーと画面の空白除去 */
+    margin-bottom: 50px;
 }
 
 .title {
