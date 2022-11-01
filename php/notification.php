@@ -20,7 +20,7 @@
 
         //　通知の有無を判定
         if(empty($notifi_view)) {
-            echo '<h4 class="notif-comment notifi-no">通知はありません。</h4>';
+            echo '<p class="notif-comment">通知はありません。</p>';
         } else {
             foreach($notifi_view as $view) {
                 //　日付分類
