@@ -315,17 +315,18 @@
     border-radius: 20px;
 }
 .send-to{
+    padding: 50px;
     margin-top: 20px;
     margin-left: 10%;
     display: flex;
 }
 .send-to-name{
-    font-size: 80px;
+    font-size: 50px;
     margin: auto 20px;
 }
 .img-icon-a{
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
     border-radius: 100%;
     border: solid 2px black;
@@ -355,8 +356,8 @@
     box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
 }
 .img-gift{
-    width: 80%;
-    height: 400px;
+    max-width: 70%;
+    height: auto;
     object-fit: cover;
     margin-top: 20px;
 }

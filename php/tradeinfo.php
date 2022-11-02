@@ -71,6 +71,11 @@
         exit;
     }
 
+    // 受け取り完了ボタンが押された時
+    if(isset($_POST['done_receipt'])){
+        $trade->receiptComplete($userid, $trade_id);
+    }
+
 ?>
 
 <link rel="stylesheet" href="../css/tradeinfo.css">
@@ -149,17 +154,22 @@
                 <!-- 交換会に三人以上参加しているか確認 -->
                 <?php
                     $num_participants = $trade->getNumofGoods($trade_id);
-                    // 2人以下・3人未満の場合
+                    // 2人以下・3人未満の場合の表示
                     if($num_participants < 3){ ?>
                         <div class="prompt_2">
                             <h4 class="msg-size">交換に必要な人数が<br>揃いませんでした。<br>（交換会不成立）</h4>
                         </div>
                     <?php }else{ ?>
-                
                 <!-- 渡す人・貰う人などの情報を取得 -->
                 <?php 
                     $pass_info = $trade->passGoodsInfo($userid, $trade_id);
                     $receive_info = $trade->receiveGoodsInfo($userid, $trade_id);
+
+                    $pass_image = base64_encode($pass_info['goods_image']);
+                    $pass_icon = base64_encode($pass_info['icon']);
+
+                    $receive_image = base64_encode($receive_info['goods_image']);
+                    $receive_icon = base64_encode($receive_info['icon']);
                 ?>
                 <div class="after-trade">
                     <div>
@@ -170,25 +180,32 @@
                     </div>
 
                     <div class="send-you" id="p1">
-                        <img class="img-gift" src="../static\user_icon.png">
+                        <img class="img-gift" src="data:;base64,<?php echo $pass_image; ?>">
                             <p class="gift-name-font"><?php echo $pass_info['goods_name'];?></p>
                         <div class="send-to">
-                            <img class="img-icon-a" src="../static\user_icon.png">
+                            <img class="img-icon-a" src="data:;base64,<?php echo $pass_icon; ?>">
                             <p class="send-to-name"><?php echo $pass_info['name'];?></p>
                         </div>
                     </div>
 
                     <div class="send-me" id="p0">
-                        <img class="img-gift" src="../static\user_icon.png">
+                        <img class="img-gift" src="data:;base64,<?php echo $receive_image; ?>">
                             <p class="gift-name-font"><?php echo $receive_info['goods_name'];?></p>
                         <div class="send-to">
-                            <img class="img-icon-a" src="../static\user_icon.png">
+                            <img class="img-icon-a" src="data:;base64,<?php echo $receive_icon; ?>">
                             <p class="send-to-name"><?php echo $receive_info['name'];?></p>
                         </div>
-                        <button class="sending-confirmation" id="btn">引き取り確認</button>
+                        <?php if($receive_info['confirm'] == 0){  ?>
+                            <form method="POST" action="">
+                                <button type="submit" class="sending-confirmation" name="done_receipt">受け取り完了</button>
+                            </form>
+                        <?php }elseif($receive_info['confirm'] == 1){ ?>
+                            <button class="sending-confirmation">受け取り済み</button>
+                        <?php } ?>
                     </div>
                 </div>
-                
+              
+            <!-- 交換会が開催期間内の場合 -->
             <?php } }else{ ?>
                 <form method="POST" action="" class="trade-form" enctype="multipart/form-data">
                     <h2>交換会に参加してみましょう！</h2>
