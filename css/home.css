@@ -15,7 +15,8 @@
 }
 
 .home_groupname {
-    width: calc(100% - 360px);
+    max-width: calc(100% - 160px);
+    min-width: calc(100% - 360px);
     margin: 0;
     margin-left: 20px;
     font-size: 60px;

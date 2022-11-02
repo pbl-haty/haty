@@ -33,7 +33,6 @@
 .notifi-img-back {
     display: flex;
     align-items: center;
-    background-color: #fff;
     width: 20%;
     margin: 30px;
 }
@@ -68,6 +67,12 @@
     text-overflow: ellipsis;
     overflow-wrap: break-word;
     word-break: break-all;
+}
+
+.notifi-no {
+    text-align: center;
+    font-size: 50px;
+    color: rgba(119, 29, 29, 0.534);
 }
 
 .notifi-border {

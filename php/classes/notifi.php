@@ -59,10 +59,16 @@
         }
 
         // データベースに通知を追加
-        // パターン１（申請, いいね, コメント）
+        // パターン１,4,5（申請, いいね, コメント）
         public function notifi_gift($user_send, $user_rece, $pattern, $giftId){
             $sql = 'insert into notice(user_send, user_rece, pattern_id, gift_id) values(?, ?, ?, ?)';
             $this->exec($sql, [$user_send, $user_rece, $pattern, $giftId]);
+        }
+
+        // パターン2,3（開催、終了）
+        public function notifi_trade($group_send, $user_rece, $pattern){
+            $sql = 'insert into notice(group_send, user_rece, pattern_id) values(?, ?, ?)';
+            $this->exec($sql, [$group_send, $user_rece, $pattern]);
         }
 
         // パターン7（参加）GroupJoin.phpの19行目追加

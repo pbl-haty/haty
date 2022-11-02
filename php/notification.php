@@ -1,5 +1,6 @@
 <?php
     require_once __DIR__ . '/header.php';
+    require_once __DIR__ . '/classes/trade.php';
 ?>
 <link rel="stylesheet" href="../css/notification.css">
 <title>通知</title>
@@ -13,12 +14,13 @@
     <div class="content-top">
 
     <?php
+        $trade = new Trade();
         $notifi_view = $notifi->notifi_view($userId);
         $dc = 0;
 
         //　通知の有無を判定
         if(empty($notifi_view)) {
-            echo '<p class="notif-comment">通知はありません。</p>';
+            echo '<h4 class="notif-comment notifi-no">通知はありません。</h4>';
         } else {
             foreach($notifi_view as $view) {
                 //　日付分類
@@ -58,7 +60,17 @@
                         echo "{$view['name']}から{$view['gift_name']}に申請が来ています。";
                         break;
                     case 2:
-                        echo "href='#'>";
+                        // トレードIDから交換会の情報を取得
+                        $tradeInfo = $trade->gettradeInfo($view['group_send']);
+                        // 所属しているグループごとで確認
+                        foreach($tradeInfo as $eachtradeInfo){
+                            // 通知の日付から交換会が開催期間中か判定
+                            if($eachtradeInfo['begin_date'] <= $date && $date <= $eachtradeInfo['end_date']){
+                                $tradeId = $eachtradeInfo['trade_id'];
+                                break;
+                            }
+                        } 
+                        echo "href='tradeinfo.php?trade_id={$tradeId}'>";
                         echo "<div class='notifi-img-back'><img class='notifi-img' src='data:;base64,{$img}'></div>";
                         echo "<div class='notifi-vertical'><p class='notif-time'>{$view['time']}</p><p class='notif-comment'>";
                         echo "{$view['groupname']}の交換会が開催されました。";
