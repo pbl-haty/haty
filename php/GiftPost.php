@@ -17,7 +17,7 @@
         if (empty($group_name)) {
             $msg = 'グループを選択してください。';
         } else {
-            if (!isset($_POST['category']) || $_POST['category'] = -1) {
+            if (!isset($_POST['category']) || $_POST['category'] == -1) {
                 $msg = 'カテゴリを選択してください。';
             } else {
                 $category_id = $_POST['category'];
@@ -87,7 +87,7 @@
         </div>
 
         <div class="box2" id="box2">
-            <h1 class="content-margin">グループを選択</h1>
+            <h1 class="content-margin">グループ選択</h1>
 
             <div class="content-check">
         
@@ -101,13 +101,18 @@
     } else {
         $cnt = 0;
         foreach ($group_join as $join) {
+            $img = base64_encode($join['icon']);
 ?>
-            <div class="trade-box <?php
-                                     if($cnt % 2 == 0) {
-                                            echo 'middle-r';
-                                        }?>">
+            <div class="trade-box <?php if($cnt % 2 == 0) {
+                echo 'margin-r';
+            } else {
+                echo 'margin-l';
+            }?>">
                 <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" class="groupcheck" value="<?= $join['group_id'] ?>">
-                <label for="groupname-<?= $cnt ?>"><?= $join['groupname'] ?></label>
+                <label for="groupname-<?= $cnt ?>">
+                    <img class="trade_icon" src="data:;base64,<?= $img ?>">
+                    <p class="trade_name"><?= $join['groupname'] ?></p>
+                </label>
             </div>
 
 <?php 
@@ -142,14 +147,19 @@
             <h1 class="content-margin">取引方法</h1>
 
             <div class="content-check">
-                <div class="trade-box middle-r">
+                <div class="trade-box margin-r">
                     <input type="checkbox" id="trade1-conditions" name="conditions[]" class="contcheck" value="1">
-                    <label for="trade1-conditions">手渡し</label>
+                    <label for="trade1-conditions">
+                        <img class="trade_icon" src="../static/tewatasi.png">
+                        <p class="trade_name">手渡し</p>
+                    </label>
                 </div>
-                <div class="middle-line"></div>
-                <div class="trade-box">
+                <div class="trade-box margin-l">
                     <input type="checkbox" id="trade2-conditions" name="conditions[]" class="tradecheck" value="2">
-                    <label for="trade2-conditions">配送</label>
+                    <label for="trade2-conditions">
+                        <img class="trade_icon" src="../static/haisou.png">
+                        <p class="trade_name">配送</p>
+                    </label>
                 </div>
             </div>
             
@@ -158,7 +168,7 @@
             <textarea class="Detailed-information" rows="5" name="gift_comment" value=""></textarea>
         </div>
         <br>
-        <input type="submit" name="giftpost" class="form-btn" value="公開">
+        <input type="submit" name="giftpost" class="form-btn" value="投稿">
     </form>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
