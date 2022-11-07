@@ -82,4 +82,19 @@
             return $items;
         }
 
+        // トレードIDから交換会に参加しているユーザーのIDを取得
+        public function getuserid($trade_id){
+            $sql = "select pass_id from trade_goods
+                    where trade_id = ?";
+            $stmt = $this->query($sql, [$trade_id]);
+            $items = $stmt->fetchAll();
+            return $items;
+        }
+
+        // トレードIDとユーザーIDから渡す人のIDを挿入する
+        public function updateReceiveid($trade_id, $pass_id, $receive_id){
+            $sql = 'update trade_goods set receive_id = ? where trade_id = ? and pass_id = ?';
+            $this->exec($sql, [$receive_id, $trade_id, $pass_id]);
+        }
+
     }

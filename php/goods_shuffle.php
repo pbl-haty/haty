@@ -5,7 +5,7 @@
         $return_array = $array;             // 受け取った配列を返す配列に代入
         $array_count = count($array);       // 配列の要素数を取得
 
-        // シャッフルが成り立つまループ
+        // シャッフルが成り立つまでループ
         while($flag == 0){
             // ランダムにシャッフル
             shuffle($return_array);
@@ -24,11 +24,40 @@
             }
         }
 
+        // シャッフル後の配列を返す
         return $return_array;
     }
 
     // trade.phpを読み込み、トレードオブジェクトを生成
     require_once __DIR__ . '/classes/trade.php';
     $trade = new Trade();
+
+
+
+
+
+    // トレードIDを取得
+    $trade_id = 90;
+
+
+
+
+
+    
+    // トレードIDから交換会に参加しているユーザーを取得
+    $goods_users = $trade->getuserid($trade_id);
+
+    $array = [];
+    foreach($goods_users as $good_user) {
+        array_push($array, $good_user['pass_id']);
+    }
+
+    // 受け取ったユーザーIDをシャッフルする関数を呼び出す
+    $receive_id_array = array_shuffle($array);
+
+    // シャッフルした配列を元にデータベースに追加
+    for($i = 0; $i < count($receive_id_array); $i++){
+        $trade->updateReceiveid($trade_id, $array[$i], $receive_id_array[$i]);
+    }
 
 ?>
