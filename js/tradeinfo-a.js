@@ -10,7 +10,7 @@ b1.style.border ="2px gray solid";
 //                 btn.textContent = "完了しました";
 //             })
 // }
-function event(i) {
+function click_list_event(i) {
     if(i == 1) {
         p0.style.display ="block";
         p1.style.display ="none";
