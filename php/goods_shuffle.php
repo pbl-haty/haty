@@ -43,13 +43,16 @@
 
 
 
-    
+
     // トレードIDから交換会に参加しているユーザーを取得
     $goods_users = $trade->getuserid($trade_id);
 
     $array = [];
     foreach($goods_users as $good_user) {
-        array_push($array, $good_user['pass_id']);
+        // 渡す人のIDがデータベースで挿入されていない時
+        if(is_null($good_user['receive_id'])){
+            array_push($array, $good_user['pass_id']);
+        }
     }
 
     // 受け取ったユーザーIDをシャッフルする関数を呼び出す
