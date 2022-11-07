@@ -4,12 +4,12 @@ b0.style.color ="black";
 b1.style.color ="gray";
 b0.style.border ="2px black solid";
 b1.style.border ="2px gray solid";
-{
-    const btn = document.getElementById('btn');
-            btn.addEventListener('click', () => {
-                btn.textContent = "完了しました";
-            })
-}
+// {
+//     const btn = document.getElementById('btn');
+//             btn.addEventListener('click', () => {
+//                 btn.textContent = "完了しました";
+//             })
+// }
 function click_list_event(i) {
     if(i == 0) {
         p0.style.display ="block";

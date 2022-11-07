@@ -188,6 +188,10 @@
     display: none;
 }
 
+.input {
+    display: none;
+}
+
 .sample-img {
     border: 1px solid gray;
     border-radius: 20px;
@@ -289,4 +293,80 @@
     height: 50px;
     color: rgba(119, 29, 29, 0.534);
     text-align: center;
+}
+
+
+/* 交換会終了後の表示 */
+.after-trade{
+    margin-top: 250px;
+    margin-bottom: 150px;
+    font-size: 40px;
+    text-align: center;
+    display: block;
+}
+
+.btn-switch{
+    font-size: 40px;
+    width: 250px;
+    padding: 30px 0;
+    background-color: white;
+    color: gray;
+    border: 1px gray solid;
+    border-radius: 20px;
+}
+.send-to{
+    padding: 50px;
+    margin-top: 20px;
+    margin-left: 10%;
+    display: flex;
+}
+.send-to-name{
+    font-size: 50px;
+    margin: auto 20px;
+}
+.img-icon-a{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: solid 2px black;
+}
+.sending-confirmation{
+    align-items: flex-end;
+    width: calc(30vw);
+    height: calc(10vw);
+    font-size: 40px;
+    min-width: 130px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #efefef;
+    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    color: #585858;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.sending-confirmation:active{
+    box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
+}
+.img-gift{
+    max-width: 70%;
+    height: auto;
+    object-fit: cover;
+    margin-top: 20px;
+}
+.send-me{
+    display: block;
+}
+.send-you{
+    display: block;
+}
+.gift-name-font{
+    font-size: 60px;
 }
