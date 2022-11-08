@@ -9,8 +9,9 @@
 
 .user-icon{
     display: flex;
+    justify-content: center;
+    width: 35%;
     align-items: center;
-    margin: 30px;
 }
 
 .goods-image{
