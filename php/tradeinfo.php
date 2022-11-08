@@ -114,7 +114,7 @@
                             <?php for($i = 0; $i < count($participants_list); $i++){ ?>
                                 <?php $img = base64_encode($participants_list[$i]['icon']); ?>
                                 <li>
-                                    <img class="img-icon" src="data:;base64,<?php echo $img; ?>" onclick="click_list_event(<?php echo $i ?>)">
+                                    <img class="img-icon" src="data:;base64,<?php echo $img; ?>" onclick="click_icon_event(<?php echo $i ?>)">
                                     <ul class="ul-block" id="drop<?php echo $i ?>" style="display:none" >
                                         <li class="dropdown__item"><?php echo $participants_list[$i]['name'] ?></li>
                                         <!-- ヒントが設定されているとき -->
@@ -187,8 +187,8 @@
                 <div class="after-trade">
                     <div>
                         <div>
-                            <button class="btn-switch" id="b0" onclick="click_list_event(0)">貰う物・人</button>
-                            <button class="btn-switch" id="b1" onclick="click_list_event(1)">渡す物・人</button>
+                            <button class="btn-switch" id="b0" onclick="click_list_event(1)">貰う物・人</button>
+                            <button class="btn-switch" id="b1" onclick="click_list_event(2)">渡す物・人</button>
                         </div>
                     </div>
 
@@ -270,5 +270,5 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="../js/tradeinfo-a.js"></script>
     <script src="../js/tradeinfo-b.js"></script>
-    <script type="text/javascript" src="../js/giftpost.js"></script>
+    <!-- <script type="text/javascript" src="../js/giftpost.js"></script> -->
 </body>

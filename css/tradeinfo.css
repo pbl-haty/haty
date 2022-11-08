@@ -46,6 +46,8 @@
 }
 
 /* テーマを一覧で表示 */
+
+
 /* .theme-list{
     resize: vertical;
     width: 100%;
@@ -356,8 +358,8 @@
     box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
 }
 .img-gift{
-    max-width: 70%;
-    height: auto;
+    width: calc(100vw - 80px);
+    height: calc(100vw - 80px);
     object-fit: cover;
     margin-top: 20px;
 }
