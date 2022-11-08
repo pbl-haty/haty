@@ -258,8 +258,10 @@
                         <div class="goods-info">
                             <h3>交換物の名前</h3>
                             <p><?php echo $post_goods_info['goods_name']; ?></p>
-                            <h3>交換物のヒント</h3>
-                            <p><?php echo $post_goods_info['goods_hint']; ?></p>
+                            <?php if (isset($post_goods_info['goods_hint'])){ ?>
+                                <h3>交換物のヒント</h3>
+                                <p><?php echo $post_goods_info['goods_hint']; ?></p>
+                            <?php } ?>
                         </div>
 
                     </div>
@@ -270,5 +272,5 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="../js/tradeinfo-a.js"></script>
     <script src="../js/tradeinfo-b.js"></script>
-    <!-- <script type="text/javascript" src="../js/giftpost.js"></script> -->
+    <script type="text/javascript" src="../js/giftpost.js"></script>
 </body>

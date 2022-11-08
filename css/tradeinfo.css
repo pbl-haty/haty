@@ -380,8 +380,8 @@
     text-align: center;
 }
 .post-image{
-    max-width: 70%;
-    height: auto;
+    width: calc(100vw - 80px);
+    height: calc(100vw - 80px);
     object-fit: cover;
     margin-top: 20px;
 }
