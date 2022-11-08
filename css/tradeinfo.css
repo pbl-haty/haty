@@ -46,6 +46,8 @@
 }
 
 /* テーマを一覧で表示 */
+
+
 /* .theme-list{
     resize: vertical;
     width: 100%;
@@ -356,8 +358,8 @@
     box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
 }
 .img-gift{
-    max-width: 70%;
-    height: auto;
+    width: calc(100vw - 80px);
+    height: calc(100vw - 80px);
     object-fit: cover;
     margin-top: 20px;
 }
@@ -369,4 +371,20 @@
 }
 .gift-name-font{
     font-size: 60px;
+}
+
+/* 投稿後の交換物の表示 */
+.post-goods{
+    margin-top: 250px;
+    margin-bottom: 150px;
+    text-align: center;
+}
+.post-image{
+    width: calc(100vw - 80px);
+    height: calc(100vw - 80px);
+    object-fit: cover;
+    margin-top: 20px;
+}
+.goods-info h3{
+    text-align: left;
 }

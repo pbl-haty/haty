@@ -8,15 +8,16 @@ var giname = document.getElementById('gift_name');
 var giimg = document.getElementById('input-img');
 var erms = document.getElementById('erms');
 
-$box1.style.left = "0%";
-$box2.style.left = "100%";
-$box3.style.left = "200%";
-$box4.style.left = "300%";
+// $box1.style.left = "0%";
+// $box2.style.left = "100%";
+// $box3.style.left = "200%";
+// $box4.style.left = "300%";
 
-const $left0 = parseInt($box1.style.left);
+// const $left0 = parseInt($box1.style.left);
         
-nex.addEventListener('click', () => {
+// nex.addEventListener('click', () => {
         
+
 	if (parseInt($box1.style.left) == -200){
 		$(".categorycheck").each(function (index, elm) {
 			if($(elm).prop('checked')){
