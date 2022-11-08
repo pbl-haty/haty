@@ -1,0 +1,68 @@
+.other-trade-info{
+    margin-top: 135px;
+}
+
+.each-flex{
+    display: flex;
+    justify-content: center;
+}
+
+.user-icon{
+    display: flex;
+    align-items: center;
+    margin: 30px;
+}
+
+.goods-image{
+    width: 30%;
+}
+
+.icon-size{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: solid 1px gray;
+}
+
+.square{
+    justify-content: flex-end;
+    width: 150px;
+	height: 60px;
+	background: #0091EA;
+}
+
+.image-size{
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+.goods-name{
+    height: 90px;
+    font-size: 30px;
+    border-radius: 0 0 10px 10px;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+}
+
+.name-size {
+    text-align: center;
+    width: 100%;
+    padding: 0 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.border{
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    border: none;
+    background: grey;
+    height: 1px;
+}
