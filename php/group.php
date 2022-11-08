@@ -67,18 +67,13 @@ if(!empty($tradeInfo)){
             <div class="category-select">
                 <img class="category-option-image" src="../static/category.png">
                 <select name="example" class="example-category">
-                    <option value="0">すべて</option>
+                    <option>すべて</option>
                     <?php
-                    $cnt = 1;
-                    $getcategory = $post->giftcategory();
-                    $gift_category = $group->giftgroupall($groupId);
-                    $gift_group_all[] = $gift_category;
-                    foreach ($getcategory as $category) {
-                        echo '<option value="' . $cnt . '">' . $category['category_name'] . '</option>';
-                        $gift_category = $group->giftgroupacategory($groupId, $category['id']);
-                        $gift_group_all[] = $gift_category;
-                        $cnt++;
-                    }
+                        $getcategory = $post->giftcategory();
+                        $gift_category = $group->giftgroupall($groupId);
+                        foreach ($getcategory as $category) {
+                            echo '<option>' . $category['category_name'] . '</option>';
+                        }
                     ?>
 
                 </select>
@@ -99,20 +94,18 @@ if(!empty($tradeInfo)){
         <?php } ?>
 
         <?php 
-        $cnt = 0;
-        foreach ($gift_group_all as $gift_group) {
-            echo '<div class="display" id=p' . $cnt . '>';
-            if (empty($gift_group)) {
+            echo '<div class="display">';
+            if (empty($gift_category)) {
                 echo '<div class = prompt_2>';
                 echo '<h4>該当するギフトがありません。</h4>';
                 echo '</div>';
             } else {
-                foreach ($gift_group as $gift) {
+                foreach ($gift_category as $gift) {
                     $img = base64_encode($gift['image']);
                     $user_info = $user->getUser($gift['user_id']);
                     $icon = base64_encode($user_info['icon']);
         ?>
-                    <a href="gift_detail.php?id=<?php echo $gift['id']; ?>" class="detail_display">
+                    <a href="gift_detail.php?id=<?php echo $gift['id']; ?>" class="detail_display p<?= $gift['category_id'] ?>" style="display: block">
                         <!-- ギフト詳細画面遷移 -->
                         <div>
                             <div class="position-relative">
@@ -131,14 +124,8 @@ if(!empty($tradeInfo)){
                 }
             }
             echo '</div>';
-            $cnt++;
         }
         ?>
-
-    <?php
-
-    }
-    ?>
 
     <script type="text/javascript" src="../js/group_detail.js"></script>
 

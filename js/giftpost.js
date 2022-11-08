@@ -1,4 +1,4 @@
-var $box1 = document.getElementById('box1');
+/* var $box1 = document.getElementById('box1');
 var $box2 = document.getElementById('box2');
 var $box3 = document.getElementById('box3');
 var $box4 = document.getElementById('box4');
@@ -66,17 +66,8 @@ nex.addEventListener('click', () => {
 		erms.innerHTML = "グループを入力してください。";
 		});
 	}
-			/*          
-				box1が-300の時
-				次へボタンが送信にテキストを変更
-				タイプをsubmitに変更 */
-			/* $box1.style.left= ($left1 - 100) + "%";
-			$box2.style.left= ($left2 - 100) + "%";
-			$box3.style.left= ($left3 - 100) + "%";
-			$box4.style.left= ($left4 - 100) + "%"; */
 			});
 	pre.addEventListener('click', () => {
-			/* box.classList.toggle('next') */
 			
 	if (parseInt($box1.style.left) == -100){
 		pre.innerHTML = "　"
@@ -97,7 +88,7 @@ nex.addEventListener('click', () => {
 		$box3.style.left= (parseInt($box3.style.left) + 100) + "%";
 		$box4.style.left= (parseInt($box4.style.left) + 100) + "%";
 	}
-});
+}); */
 
 function loadImage(obj) {
 	var cnt = $(".sample-img-size").length;
