@@ -112,7 +112,8 @@
         public function updateReceiveid($trade_id, $pass_id, $receive_id){
             $sql = 'update trade_goods set receive_id = ? where trade_id = ? and pass_id = ?';
             $this->exec($sql, [$receive_id, $trade_id, $pass_id]);
-
+        }
+        
         // 受け取り完了に変更（confirmを0→1)
         public function receiptComplete($user_id, $trade_id){
             $sql = "update trade_goods set confirm=1 where receive_id = ? and trade_id = ?";
