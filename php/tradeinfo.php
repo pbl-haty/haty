@@ -177,11 +177,19 @@
                     $pass_info = $trade->passGoodsInfo($userid, $trade_id);
                     $receive_info = $trade->receiveGoodsInfo($userid, $trade_id);
 
-                    $pass_image = base64_encode($pass_info['goods_image']);
-                    $pass_icon = base64_encode($pass_info['icon']);
+                    // 交換会終了後、交換が実施されていない場合の処理
+                    if((empty($pass_info)) || (empty($receive_info))){ ?>
+                        <div class="after-trade">
+                            <div class="prompt_2">
+                                <h4 class="msg-size">交換を実施中。<br>交換物発表までもうしばらくお待ちください。</h4>
+                            </div>
+                        </div>
+                    <?php }else{ 
+                        $pass_image = base64_encode($pass_info['goods_image']);
+                        $pass_icon = base64_encode($pass_info['icon']);
 
-                    $receive_image = base64_encode($receive_info['goods_image']);
-                    $receive_icon = base64_encode($receive_info['icon']);
+                        $receive_image = base64_encode($receive_info['goods_image']);
+                        $receive_icon = base64_encode($receive_info['icon']);
                 ?>
                 <!-- 交換会終了後の表示 -->
                 <div class="after-trade">
@@ -219,7 +227,7 @@
                 </div>
               
             <!-- 交換会が開催期間内の場合 -->
-            <?php } }else{ ?>
+            <?php } } }else{ ?>
                 <!-- まだログインしているユーザーが交換会に参加していない場合 -->
                 <?php if(empty($post_goods_info)){ ?>
                     <form method="POST" action="" class="trade-form" enctype="multipart/form-data">
