@@ -34,9 +34,15 @@
             ?>
             <div class="each-flex">
                 <div class="user-icon">
-                    <img class="icon-size" src="data:;base64,<?php echo $pass_icon; ?>">
+                    <div class="pass-info">
+                        <img class="icon-size" src="data:;base64,<?php echo $pass_icon; ?>">
+                        <div class="balloon1-top">
+                                <p>こんにちは。これは例です。</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="goods-image">
+                    <div class="arrow1"></div>
                     <img class="image-size" src="data:;base64,<?php echo $goods_image; ?>">
                     <div class="goods-name">
                         <p class="name-size"><?php echo $each_trade_info['goods_name']; ?></p>
