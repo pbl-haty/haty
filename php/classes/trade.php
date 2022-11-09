@@ -16,6 +16,14 @@
         //     $this->exec($sql, [$trade_id, $theme1, $theme2, $theme3]);
         // }
 
+        // 交換会のトレードIDと終了日を取得
+        public function getTradeId($end_date){
+            $sql = 'select trade_id from trade where end_date = ?';
+            $stmt = $this->query($sql, [$end_date]);
+            $items = $stmt->fetchAll();
+            return $items;
+        }
+
         // 交換会にグッズを追加
         public function postGoods($trade_id, $pass_id, $goods_name, $goods_hint, $goods_image){
             $sql = 'insert into trade_goods(trade_id, pass_id, goods_name, goods_hint, goods_image) values(?, ?, ?, ?, ?)';
@@ -91,10 +99,26 @@
             return $items;
         }
 
+        // トレードIDから交換会に参加しているユーザーのIDを取得
+        public function getuserid($trade_id){
+            $sql = "select pass_id, receive_id from trade_goods
+                    where trade_id = ?";
+            $stmt = $this->query($sql, [$trade_id]);
+            $items = $stmt->fetchAll();
+            return $items;
+        }
+
+        // トレードIDとユーザーIDから渡す人のIDを挿入する
+        public function updateReceiveid($trade_id, $pass_id, $receive_id){
+            $sql = 'update trade_goods set receive_id = ? where trade_id = ? and pass_id = ?';
+            $this->exec($sql, [$receive_id, $trade_id, $pass_id]);
+        }
+        
         // 受け取り完了に変更（confirmを0→1)
         public function receiptComplete($user_id, $trade_id){
             $sql = "update trade_goods set confirm=1 where receive_id = ? and trade_id = ?";
             $this->exec($sql, [$user_id, $trade_id]);
+
         }
 
     }
