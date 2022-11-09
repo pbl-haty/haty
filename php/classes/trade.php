@@ -16,6 +16,14 @@
         //     $this->exec($sql, [$trade_id, $theme1, $theme2, $theme3]);
         // }
 
+        // 交換会のトレードIDと終了日を取得
+        public function getTradeId($end_date){
+            $sql = 'select trade_id from trade where end_date = ?';
+            $stmt = $this->query($sql, [$end_date]);
+            $items = $stmt->fetchAll();
+            return $items;
+        }
+
         // 交換会にグッズを追加
         public function postGoods($trade_id, $pass_id, $goods_name, $goods_hint, $goods_image){
             $sql = 'insert into trade_goods(trade_id, pass_id, goods_name, goods_hint, goods_image) values(?, ?, ?, ?, ?)';

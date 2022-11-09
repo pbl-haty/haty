@@ -32,35 +32,35 @@
     require_once __DIR__ . '/classes/trade.php';
     $trade = new Trade();
 
+    // データベースで設定した終了日の23:59:59などに実行する場合
+    // $date = date("Y-m-d");
 
+    // データベースで設定した　終了日+１日　00:00:00に実行する場合
+    $date = date("Y-m-d" , strtotime('-1 day'));
 
+    // 日付からデータベースの交換会の情報を取得
+    $tradeid_array = $trade->getTradeId($date);
 
+    foreach ($tradeid_array as $tradeid){
+        // トレードIDから交換会に参加しているユーザーを取得
+        $trade_id = $tradeid['trade_id'];
+        $goods_users = $trade->getuserid($trade_id);
 
-    // トレードIDを取得
-    $trade_id = 90;
-
-
-
-
-
-
-    // トレードIDから交換会に参加しているユーザーを取得
-    $goods_users = $trade->getuserid($trade_id);
-
-    $array = [];
-    foreach($goods_users as $good_user) {
-        // 渡す人のIDがデータベースで挿入されていない時
-        if(is_null($good_user['receive_id'])){
-            array_push($array, $good_user['pass_id']);
+        $array = [];
+        foreach($goods_users as $good_user) {
+            // 渡す人のIDがデータベースで挿入されていない時
+            if(is_null($good_user['receive_id'])){
+                array_push($array, $good_user['pass_id']);
+            }
         }
-    }
 
-    // 受け取ったユーザーIDをシャッフルする関数を呼び出す
-    $receive_id_array = array_shuffle($array);
+        // 受け取ったユーザーIDをシャッフルする関数を呼び出す
+        $receive_id_array = array_shuffle($array);
 
-    // シャッフルした配列を元にデータベースに追加
-    for($i = 0; $i < count($receive_id_array); $i++){
-        $trade->updateReceiveid($trade_id, $array[$i], $receive_id_array[$i]);
+        // シャッフルした配列を元にデータベースに追加
+        for($i = 0; $i < count($receive_id_array); $i++){
+            $trade->updateReceiveid($trade_id, $array[$i], $receive_id_array[$i]);
+        }
     }
 
 ?>
