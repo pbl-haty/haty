@@ -70,9 +70,18 @@
             return $items;
         }
 
+        // トレードIDから交換会に投稿されたグッズの数を取得
+        public function getNumofGoods($trade_id){
+            $sql = "select goods_id from trade_goods
+                    where trade_id = ?";
+            $stmt = $this->query($sql, [$trade_id]);
+            $items = $stmt->fetchAll();
+            return count($items);
+        }
+
         // ログインしているユーザーIDとグループIDから渡す人と渡す物の情報を取得
         public function passGoodsInfo($user_id, $trade_id){
-            $sql = "select user.uid, user.name, user.icon, trade_goods.goods_name, trade_goods.goods_hint, trade_goods.confirm
+            $sql = "select user.uid, user.name, user.icon, trade_goods.goods_name, trade_goods.goods_hint, trade_goods.confirm, trade_goods.goods_image
                     from trade_goods join user on user.uid = trade_goods.receive_id
                     where trade_goods.pass_id = ? and trade_goods.trade_id = ?";
             $stmt = $this->query($sql, [$user_id, $trade_id]);
@@ -82,7 +91,7 @@
 
         // ログインしているユーザーIDとグループIDから貰う人と貰う物の情報を取得
         public function receiveGoodsInfo($user_id, $trade_id){
-            $sql = "select user.uid, user.name, user.icon, trade_goods.goods_name, trade_goods.goods_hint, trade_goods.confirm
+            $sql = "select user.uid, user.name, user.icon, trade_goods.goods_name, trade_goods.goods_hint, trade_goods.confirm, trade_goods.goods_image
                     from trade_goods join user on user.uid = trade_goods.pass_id
                     where trade_goods.receive_id = ? and trade_goods.trade_id = ?";
             $stmt = $this->query($sql, [$user_id, $trade_id]);
@@ -103,6 +112,12 @@
         public function updateReceiveid($trade_id, $pass_id, $receive_id){
             $sql = 'update trade_goods set receive_id = ? where trade_id = ? and pass_id = ?';
             $this->exec($sql, [$receive_id, $trade_id, $pass_id]);
+
+        // 受け取り完了に変更（confirmを0→1)
+        public function receiptComplete($user_id, $trade_id){
+            $sql = "update trade_goods set confirm=1 where receive_id = ? and trade_id = ?";
+            $this->exec($sql, [$user_id, $trade_id]);
+
         }
 
     }

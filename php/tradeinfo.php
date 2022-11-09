@@ -10,6 +10,8 @@
 
     // エラーメッセージ
     $msg = '';
+    // 現在日時を取得
+    $current_date = date("Y-m-d");
 
     // セッションからログイン中のユーザーIDを取得する
     $userid = $_SESSION['uid'];
@@ -18,7 +20,6 @@
 
     // トレードIDから交換会の情報を取得
     $trade_info = $trade->gettradeInfo_tID($trade_id);
-    // $groupid = $trade_info['group_id'];
 
     // 取得した交換会情報を表示していいか確認
     if(empty($trade_info)){
@@ -53,6 +54,9 @@
     $explain = $trade_info['trade_explain'];
     $explain_count = strlen($explain);
 
+    // 現在ログインしているユーザーが交換物を投稿しているか情報を取得
+    $post_goods_info = $trade->postGoodsInfo($userid, $trade_id);
+
     // 交換会に参加・交換物を投稿
     if(isset($_POST['post_btn'])){
         // 画像の処理
@@ -70,11 +74,16 @@
         exit;
     }
 
+    // 受け取り完了ボタンが押された時
+    if(isset($_POST['done_receipt'])){
+        $trade->receiptComplete($userid, $trade_id);
+    }
+
 ?>
 
 <link rel="stylesheet" href="../css/tradeinfo.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>交換会名を出力</title>
+<title><?php echo $trade_info['trade_name']; ?></title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 </head>
 <br>
@@ -102,9 +111,18 @@
                         </div>
                     <?php }else{ ?>
                         <ul>
-                            <?php foreach($participants_list as $participant){ ?>
-                                <?php $img = base64_encode($participant['icon']); ?>
-                                <li><img class="img-icon" src="data:;base64,<?php echo $img; ?>" alt=""></li>
+                            <?php for($i = 0; $i < count($participants_list); $i++){ ?>
+                                <?php $img = base64_encode($participants_list[$i]['icon']); ?>
+                                <li>
+                                    <img class="img-icon" src="data:;base64,<?php echo $img; ?>" onclick="click_icon_event(<?php echo $i ?>)">
+                                    <ul class="ul-block" id="drop<?php echo $i ?>" style="display:none" >
+                                        <li class="dropdown__item"><?php echo $participants_list[$i]['name'] ?></li>
+                                        <!-- ヒントが設定されているとき -->
+                                        <?php if(isset($participants_list[$i]['goods_hint'])){ ?>
+                                        <li class="dropdown__item">ヒント：<?php echo $participants_list[$i]['goods_hint'] ?></li>
+                                        <?php } ?>
+                                    </ul>
+                                </li>
                             <?php } ?>
                         </ul>
                     <?php } ?>
@@ -143,32 +161,116 @@
                 <?php } ?>
             </div>
 
-            <form method="POST" action="" class="trade-form" enctype="multipart/form-data">
-                <h2>交換会に参加してみましょう！</h2>
-                <div class="form-image">
-                    <h3><span> * </span>交換物の画像（1枚まで）</h3>
-                    <div id="sample-img" class="sample-img"></div>
-                    <label class="upload-label">
-                        画像を選択
-                        <input type="file" id="input-img" onchange="loadImage(this);" name="image" accept="image/*" required>
-                    </label>
-                </div>
+            <!-- 現在日時が交換会期限を超えているか判定 -->
+            <?php if($trade_info['end_date'] < $current_date){ ?>
+                <!-- 交換会に三人以上参加しているか確認 -->
+                <?php
+                    $num_participants = $trade->getNumofGoods($trade_id);
+                    // 2人以下・3人未満の場合の表示
+                    if($num_participants < 3){ ?>
+                        <div class="prompt_2">
+                            <h4 class="msg-size">交換に必要な人数が<br>揃いませんでした。<br>（交換会不成立）</h4>
+                        </div>
+                    <?php }else{ ?>
+                <!-- 渡す人・貰う人などの情報を取得 -->
+                <?php 
+                    $pass_info = $trade->passGoodsInfo($userid, $trade_id);
+                    $receive_info = $trade->receiveGoodsInfo($userid, $trade_id);
 
-                <div class="form-name">
-                    <h3><span> * </span>交換物の名前（30文字まで）</h3>
-                    <input type="text" class="form-box" name="goods_name" maxlength="30" value="" required>
-                    <input type="text" style="display: none;"/>
-                </div>
+                    $pass_image = base64_encode($pass_info['goods_image']);
+                    $pass_icon = base64_encode($pass_info['icon']);
 
-                <div class="form-hint">
-                    <h3>ヒント（30文字まで）</h3>
-                    <p>交換されるまでメンバーに表示される交換物のヒントを書こう！</p>
-                    <input type="text" class="form-box" name="goods_hint" maxlength="30" value="" placeholder="（例）形・色の特徴など">
-                </div>
+                    $receive_image = base64_encode($receive_info['goods_image']);
+                    $receive_icon = base64_encode($receive_info['icon']);
+                ?>
+                <!-- 交換会終了後の表示 -->
+                <div class="after-trade">
+                    <div>
+                        <div>
+                            <button class="btn-switch" id="b0" onclick="click_list_event(1)">貰う物・人</button>
+                            <button class="btn-switch" id="b1" onclick="click_list_event(2)">渡す物・人</button>
+                        </div>
+                    </div>
 
-                <input type="submit" name="post_btn" class="tradeinfo-button" value="参加する" name="post_btn"></input>
-            </form>
+                    <div class="send-you" id="p1">
+                        <img class="img-gift" src="data:;base64,<?php echo $pass_image; ?>">
+                            <p class="gift-name-font"><?php echo $pass_info['goods_name'];?></p>
+                        <div class="send-to">
+                            <img class="img-icon-a" src="data:;base64,<?php echo $pass_icon; ?>">
+                            <p class="send-to-name"><?php echo $pass_info['name'];?></p>
+                        </div>
+                    </div>
+
+                    <div class="send-me" id="p0">
+                        <img class="img-gift" src="data:;base64,<?php echo $receive_image; ?>">
+                            <p class="gift-name-font"><?php echo $receive_info['goods_name'];?></p>
+                        <div class="send-to">
+                            <img class="img-icon-a" src="data:;base64,<?php echo $receive_icon; ?>">
+                            <p class="send-to-name"><?php echo $receive_info['name'];?></p>
+                        </div>
+                        <?php if($receive_info['confirm'] == 0){  ?>
+                            <form method="POST" action="">
+                                <button type="submit" class="sending-confirmation" name="done_receipt">受け取り完了</button>
+                            </form>
+                        <?php }elseif($receive_info['confirm'] == 1){ ?>
+                            <button class="sending-confirmation">受け取り済み</button>
+                        <?php } ?>
+                    </div>
+                </div>
+              
+            <!-- 交換会が開催期間内の場合 -->
+            <?php } }else{ ?>
+                <!-- まだログインしているユーザーが交換会に参加していない場合 -->
+                <?php if(empty($post_goods_info)){ ?>
+                    <form method="POST" action="" class="trade-form" enctype="multipart/form-data">
+                        <h2>交換会に参加してみましょう！</h2>
+                        <div class="form-image">
+                            <h3><span> * </span>交換物の画像（1枚まで）</h3>
+                            <div id="sample-img" class="sample-img"></div>
+                            <label class="upload-label">
+                                画像を選択
+                                <input type="file" id="input-img" onchange="loadImage(this);" name="image" accept="image/*" required>
+                            </label>
+                        </div>
+
+                        <div class="form-name">
+                            <h3><span> * </span>交換物の名前（30文字まで）</h3>
+                            <input type="text" class="form-box" name="goods_name" maxlength="30" value="" required>
+                            <input type="text" style="display: none;"/>
+                        </div>
+
+                        <div class="form-hint">
+                            <h3>ヒント（30文字まで）</h3>
+                            <p>交換されるまでメンバーに表示される交換物のヒントを書こう！</p>
+                            <input type="text" class="form-box" name="goods_hint" maxlength="30" value="" placeholder="（例）形・色の特徴など">
+                        </div>
+
+                        <input type="submit" name="post_btn" class="tradeinfo-button" value="参加する" name="post_btn"></input>
+                    </form>
+                <!-- ログインしているユーザーが交換会に参加している場合 -->
+                <?php }else{ ?>
+                    <div class="post-goods">
+                        <h2>あなたが投稿した交換物</h2>
+                        <?php $goods_image = base64_encode($post_goods_info['goods_image']); ?>
+                        <div>
+                            <img class="post-image" src="data:;base64,<?php echo $goods_image; ?>">
+                        </div>
+                        <div class="goods-info">
+                            <h3>交換物の名前</h3>
+                            <p><?php echo $post_goods_info['goods_name']; ?></p>
+                            <?php if (isset($post_goods_info['goods_hint'])){ ?>
+                                <h3>交換物のヒント</h3>
+                                <p><?php echo $post_goods_info['goods_hint']; ?></p>
+                            <?php } ?>
+                        </div>
+
+                    </div>
+                <?php } ?>
+            <?php } ?>
         </div>
-        <script type="text/javascript" src="../js/giftpost.js"></script>
     <?php } ?>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../js/tradeinfo-a.js"></script>
+    <script src="../js/tradeinfo-b.js"></script>
+    <script type="text/javascript" src="../js/giftpost.js"></script>
 </body>
