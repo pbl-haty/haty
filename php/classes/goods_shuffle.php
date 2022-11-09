@@ -29,7 +29,7 @@
     }
 
     // trade.phpを読み込み、トレードオブジェクトを生成
-    require_once __DIR__ . '/classes/trade.php';
+    require_once __DIR__ . '/trade.php';
     $trade = new Trade();
 
     // データベースで設定した終了日の23:59:59などに実行する場合
