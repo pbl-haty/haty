@@ -76,7 +76,17 @@
                         echo "{$view['groupname']}の交換会が開催されました。";
                         break;
                     case 3:
-                        echo "href='#'>";
+                        // トレードIDから交換会の情報を取得
+                        $tradeInfo = $trade->gettradeInfo($view['group_send']);
+                        // 所属しているグループごとで確認
+                        foreach($tradeInfo as $eachtradeInfo){
+                            // 通知の日付から交換会が開催期間中か判定
+                            if($eachtradeInfo['end_date'] == date("Y-m-d",strtotime("-1 day"))) {
+                                $tradeId = $eachtradeInfo['trade_id'];
+                                break;
+                            }
+                        } 
+                        echo "href='tradeinfo.php?trade_id={$tradeId}'>";
                         echo "<div class='notifi-img-back'><img class='notifi-img' src='data:;base64,{$img}'></div>";
                         echo "<div class='notifi-vertical'><p class='notif-time'>{$view['time']}</p><p class='notif-comment'>";
                         echo "{$view['groupname']}の交換会が終了しました。";
