@@ -36,14 +36,16 @@
                 <div class="user-icon">
                     <div class="pass-info">
                         <img class="icon-size" src="data:;base64,<?php echo $pass_icon; ?>">
-                        <div class="balloon1-top">
-                                <p>こんにちは。これは例です。</p>
-                        </div>
+                        <?php if(isset($each_trade_info['goods_hint'])){ ?>
+                            <div class="balloon1-top">
+                                    <p>ヒント<br><?php echo $each_trade_info['goods_hint'] ?></p>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="goods-image">
-                    <div class="arrow1"></div>
                     <img class="image-size" src="data:;base64,<?php echo $goods_image; ?>">
+                    <div class="arrow1"></div>
                     <div class="goods-name">
                         <p class="name-size"><?php echo $each_trade_info['goods_name']; ?></p>
                     </div>

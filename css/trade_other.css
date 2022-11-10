@@ -20,7 +20,10 @@
 }
 
 .goods-image{
+    position: relative;
+    justify-content: center;
     width: 30%;
+    align-items: center;
 }
 
 .icon-size{
@@ -42,6 +45,7 @@
     color: #555;
     font-size: 16px;
     background: #e0edff;
+    margin: 10px;
 }
   
 .balloon1-top:before {
@@ -56,8 +60,9 @@
   
 .balloon1-top p {
     font-size: 32px;
+    word-wrap: break-word;
     margin: 0;
-    padding: 0;
+    padding: 0 5px;
 }
 
 /* .square{
@@ -92,6 +97,7 @@
     aspect-ratio: 1 / 1;
     border-radius: 10px;
     border: 1px solid grey;
+    margin-bottom: -5px;
 }
 
 .goods-name{
@@ -101,7 +107,7 @@
     border: 1px solid gray;
     display: flex;
     align-items: center;
-    margin-top: -5px;
+    margin-top: -10px;
 }
 
 .name-size {
