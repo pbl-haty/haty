@@ -16,7 +16,8 @@
     position: relative;
     justify-content: center;
     width: 35%;
-    align-items: center;
+    /* align-items: center; */
+    margin-top: 30px;
 }
 
 .goods-image{
