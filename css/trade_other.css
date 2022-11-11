@@ -16,11 +16,14 @@
     position: relative;
     justify-content: center;
     width: 35%;
-    /* align-items: center; */
     margin-top: 30px;
 }
 
 .no-hint{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 35%;
     align-items: center;
 }
 
@@ -29,6 +32,11 @@
     justify-content: center;
     width: 30%;
     align-items: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
 }
 
 .icon-size{
@@ -53,7 +61,7 @@
     margin: 10px;
 }
   
-.balloon1-top:before {
+/* .balloon1-top:before {
     content: "";
     position: absolute;
     top: -30px;
@@ -61,7 +69,7 @@
     margin-left: -15px;
     border: 15px solid transparent;
     border-bottom: 15px solid #e0edff;
-}
+} */
   
 .balloon1-top p {
     font-size: 32px;
@@ -70,29 +78,24 @@
     padding: 0 5px;
 }
 
-/* .square{
-    justify-content: flex-end;
-    width: 150px;
-	height: 60px;
-	background: #0091EA;
-} */
 
 /* 矢印 */
 .arrow1 {
     position: relative; /*ボックスの位置指定 */
     width: 100%; /* ボックスの横幅を指定する */
-    height: 20px; /* ボックスの高さを指定する */
-    background: #666666;/* ボックスの背景色を指定する */
+    height: 50px; /* ボックスの高さを指定する */
+    /* background: #666666;ボックスの背景色を指定する */
     margin-bottom: 10px;
+    background-color: #668ad8;
 }
 .arrow1:after{
     position: absolute; /* 三角形の位置指定 */
     content: ""; /* 三角形のコンテンツ */
-    top: -10px; /* 上部から配置の基準位置を決める */
-    right: -40px; /* 右から配置の基準位置を決める */
-    border:20px solid; /* 境界線を指定する */
-    border-color:transparent; /* 境界線の色をなしにする */
-    border-left: 20px solid #666666;/* 境界線の上部を実線で指定する */
+    top: -30px; /* 上部から配置の基準位置を決める */
+    right: -70px; /* 右から配置の基準位置を決める */
+    /* border-color:transparent; 境界線の色をなしにする */
+    border-top: 80px solid transparent;
+    border-left: 70px solid #668ad8;
 }
 
 .image-size{
@@ -106,19 +109,19 @@
 }
 
 .goods-name{
-    height: 90px;
+    height: 50px;
     font-size: 30px;
     border-radius: 0 0 10px 10px;
-    border: 1px solid gray;
     display: flex;
     align-items: center;
-    margin-top: -10px;
+    color: #fefefe;
+    margin-top: -5px
 }
 
 .name-size {
     text-align: center;
     width: 100%;
-    padding: 0 50px;
+    padding: 0 30px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

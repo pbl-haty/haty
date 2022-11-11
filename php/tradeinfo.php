@@ -264,10 +264,14 @@
                                 <!-- 交換物の画像・矢印・名前を表示 -->
                                 <div class="goods-image">
                                     <img class="image-size" src="data:;base64,<?php echo $goods_image; ?>">
-                                    <div class="arrow1"></div>
-                                    <div class="goods-name">
-                                        <p class="name-size"><?php echo $each_trade_info['goods_name']; ?></p>
+                                    <div class="arrow1">
+                                        <div class="goods-name">
+                                            <p class="name-size"><?php echo $each_trade_info['goods_name']; ?></p>
+                                        </div>
                                     </div>
+                                    <!-- <div class="goods-name">
+                                        <p class="name-size"><?php echo $each_trade_info['goods_name']; ?></p>
+                                    </div> -->
                                 </div>
 
                                 <!-- 貰う人のアイコンを表示 -->
@@ -278,7 +282,7 @@
                                         </a>
                                     </div>
                                 <?php }else{ ?>
-                                    <div class="user-icon no-hint">
+                                    <div class="no-hint">
                                         <a href="user_profile.php?id=<?php echo $each_trade_info['receive_id']; ?>">
                                             <img class="icon-size" src="data:;base64,<?php echo $receive_icon; ?>">
                                         </a>
