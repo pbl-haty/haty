@@ -8,7 +8,12 @@
     session_start();
     require_once __DIR__ . '/classes/notifi.php';
 
-    $userId = $_SESSION['uid'];
+    if(empty($_SESSION['uid'])) {
+        header('Location: login.php');
+    } else {
+        $userId = $_SESSION['uid'];
+    }
+    
     $notifi = new notifi();
     $count = $notifi->notifi_count($userId);
 ?>
