@@ -7,6 +7,9 @@
     // groupdetail.phpを読み込み、グループディテールオブジェクトを生成
     require_once __DIR__ . '/classes/groupdetail.php';
     $groupdetail = new GroupDetail();
+    // user.phpを読み込み、ユーザーオブジェクトを生成
+    require_once __DIR__ . '/classes/user.php';
+    $user = new User();
 
     // エラーメッセージ
     $msg = '';
@@ -57,6 +60,9 @@
     // 現在ログインしているユーザーが交換物を投稿しているか情報を取得
     $post_goods_info = $trade->postGoodsInfo($userid, $trade_id);
 
+    // 交換会ID（トレードID）から交換会へ出品されたグッズの情報を取得する
+    $other_trade_info = $trade->otherTradeInfo($trade_id);
+
     // 交換会に参加・交換物を投稿
     if(isset($_POST['post_btn'])){
         // 画像の処理
@@ -82,6 +88,7 @@
 ?>
 
 <link rel="stylesheet" href="../css/tradeinfo.css">
+<link rel="stylesheet" href="../css/trade_other.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><?php echo $trade_info['trade_name']; ?></title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
@@ -195,8 +202,9 @@
                 <div class="after-trade">
                     <div>
                         <div>
-                            <button class="btn-switch" id="b0" onclick="click_list_event(1)">貰う物・人</button>
-                            <button class="btn-switch" id="b1" onclick="click_list_event(2)">渡す物・人</button>
+                            <button class="btn-switch" id="b0" onclick="click_list_event(0)">貰う物・人</button>
+                            <button class="btn-switch" id="b1" onclick="click_list_event(1)">渡す物・人</button>
+                            <button class="btn-switch" id="b2" onclick="click_list_event(2)">その他</button>
                         </div>
                     </div>
 
@@ -223,6 +231,75 @@
                         <?php }elseif($receive_info['confirm'] == 1){ ?>
                             <button class="sending-confirmation">受け取り済み</button>
                         <?php } ?>
+                    </div>
+
+                    <div id="p2">
+                        <!-- 他メンバーの交換情報を取得 -->
+                        <div class="other-trade-info">
+                            <?php foreach($other_trade_info as $each_trade_info){ 
+                                $goods_image = base64_encode($each_trade_info['goods_image']);
+                                $pass_info = $user->getUser($each_trade_info['pass_id']);
+                                $pass_icon = base64_encode($pass_info['icon']);
+                                $receive_info = $user->getUser($each_trade_info['receive_id']);
+                                $receive_icon = base64_encode($receive_info['icon']);
+                            ?>
+
+                            <!-- それぞれの交換情報を表示 -->
+                            <div class="each-flex">
+                                <!-- 出品者がヒントを記入していた場合 -->
+                                <?php if(isset($each_trade_info['goods_hint'])){ ?>
+                                    <div class="user-icon">
+                                        <div class="pass-info">
+                                            <a href="user_profile.php?id=<?php echo $each_trade_info['pass_id']; ?>">
+                                                <img class="icon-size" src="data:;base64,<?php echo $pass_icon; ?>">
+                                            </a>
+                                                <div class="balloon1-top">
+                                                    <p>ヒント<br><?php echo $each_trade_info['goods_hint'] ?></p>
+                                                </div>
+                                        </div>
+                                    </div>
+                                <!-- ヒントを記入していなかった場合 -->
+                                <?php }else{ ?>
+                                    <div class="user-icon no-hint">
+                                        <div class="pass-info">
+                                            <a href="user_profile.php?id=<?php echo $each_trade_info['pass_id']; ?>">
+                                                <img class="icon-size" src="data:;base64,<?php echo $pass_icon; ?>">
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+
+                                <!-- 交換物の画像・矢印・名前を表示 -->
+                                <div class="goods-image">
+                                    <img class="image-size" src="data:;base64,<?php echo $goods_image; ?>">
+                                    <div class="arrow1">
+                                        <div class="goods-name">
+                                            <p class="name-size"><?php echo $each_trade_info['goods_name']; ?></p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="goods-name">
+                                        <p class="name-size"><?php echo $each_trade_info['goods_name']; ?></p>
+                                    </div> -->
+                                </div>
+
+                                <!-- 貰う人のアイコンを表示 -->
+                                <?php if(isset($each_trade_info['goods_hint'])){ ?>
+                                    <div class="user-icon">
+                                        <a href="user_profile.php?id=<?php echo $each_trade_info['receive_id']; ?>">
+                                            <img class="icon-size" src="data:;base64,<?php echo $receive_icon; ?>">
+                                        </a>
+                                    </div>
+                                <?php }else{ ?>
+                                    <div class="no-hint">
+                                        <a href="user_profile.php?id=<?php echo $each_trade_info['receive_id']; ?>">
+                                            <img class="icon-size" src="data:;base64,<?php echo $receive_icon; ?>">
+                                        </a>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <hr class="notifi-border">
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
               

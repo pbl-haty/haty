@@ -50,6 +50,16 @@
             return $items;
         }
 
+        // トレードIDからグッズの渡す人・貰う人のID、グッズ名、グッズ画像を取得する
+        public function otherTradeInfo($trade_id){
+            $sql = "select pass_id, goods_name, goods_image, receive_id, goods_hint
+                    from trade_goods
+                    where trade_id = ?";
+            $stmt = $this->query($sql, [$trade_id]);
+            $items = $stmt->fetchAll();
+            return $items;
+        }
+
         // トレードIDからグッズの情報（ヒントなど）を取得
         public function getGoodsInfo($trade_id){
             $sql = "select user.name, user.icon, trade_goods.goods_hint

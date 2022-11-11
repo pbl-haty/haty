@@ -1,0 +1,136 @@
+.other-trade-info{
+    margin-top: 135px;
+}
+
+.each-flex{
+    display: flex;
+    justify-content: center;
+}
+
+.pass-info{
+    text-align: center;
+}
+
+.user-icon{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 35%;
+    margin-top: 30px;
+}
+
+.no-hint{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 35%;
+    align-items: center;
+}
+
+.goods-image{
+    position: relative;
+    justify-content: center;
+    width: 30%;
+    align-items: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.icon-size{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: solid 1px gray;
+}
+
+/* 吹き出し */
+.balloon1-top {
+    position: relative;
+    display: flex;
+    margin: 1.5em 0;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #555;
+    font-size: 16px;
+    background: #e0edff;
+    margin: 10px;
+}
+  
+/* .balloon1-top:before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-bottom: 15px solid #e0edff;
+} */
+  
+.balloon1-top p {
+    font-size: 32px;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0 5px;
+}
+
+
+/* 矢印 */
+.arrow1 {
+    position: relative; /*ボックスの位置指定 */
+    width: 100%; /* ボックスの横幅を指定する */
+    height: 50px; /* ボックスの高さを指定する */
+    /* background: #666666;ボックスの背景色を指定する */
+    margin-bottom: 10px;
+    background-color: #668ad8;
+}
+.arrow1:after{
+    position: absolute; /* 三角形の位置指定 */
+    content: ""; /* 三角形のコンテンツ */
+    top: -30px; /* 上部から配置の基準位置を決める */
+    right: -70px; /* 右から配置の基準位置を決める */
+    /* border-color:transparent; 境界線の色をなしにする */
+    border-top: 80px solid transparent;
+    border-left: 70px solid #668ad8;
+}
+
+.image-size{
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    border: 1px solid grey;
+    margin-bottom: -5px;
+}
+
+.goods-name{
+    height: 50px;
+    font-size: 30px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    align-items: center;
+    color: #fefefe;
+    margin-top: -5px
+}
+
+.name-size {
+    text-align: center;
+    width: 100%;
+    padding: 0 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.border{
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    border: none;
+    background: grey;
+    height: 1px;
+}
