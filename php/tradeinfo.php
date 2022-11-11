@@ -226,6 +226,7 @@
                     </div>
 
                     <div id="p2">
+                        <!-- 他メンバーの交換情報を取得 -->
                         <div class="other-trade-info">
                             <?php foreach($other_trade_info as $each_trade_info){ 
                                 $goods_image = base64_encode($each_trade_info['goods_image']);
@@ -234,19 +235,33 @@
                                 $receive_info = $user->getUser($each_trade_info['receive_id']);
                                 $receive_icon = base64_encode($receive_info['icon']);
                             ?>
+
+                            <!-- それぞれの交換情報を表示 -->
                             <div class="each-flex">
-                                <div class="user-icon">
-                                    <div class="pass-info">
-                                        <a href="user_profile.php?id=<?php echo $each_trade_info['pass_id']; ?>">
-                                            <img class="icon-size" src="data:;base64,<?php echo $pass_icon; ?>">
-                                        </a>
-                                        <?php if(isset($each_trade_info['goods_hint'])){ ?>
-                                            <div class="balloon1-top">
-                                                <p>ヒント<br><?php echo $each_trade_info['goods_hint'] ?></p>
-                                            </div>
-                                        <?php } ?>
+                                <!-- 出品者がヒントを記入していた場合 -->
+                                <?php if(isset($each_trade_info['goods_hint'])){ ?>
+                                    <div class="user-icon">
+                                        <div class="pass-info">
+                                            <a href="user_profile.php?id=<?php echo $each_trade_info['pass_id']; ?>">
+                                                <img class="icon-size" src="data:;base64,<?php echo $pass_icon; ?>">
+                                            </a>
+                                                <div class="balloon1-top">
+                                                    <p>ヒント<br><?php echo $each_trade_info['goods_hint'] ?></p>
+                                                </div>
+                                        </div>
                                     </div>
-                                </div>
+                                <!-- ヒントを記入していなかった場合 -->
+                                <?php }else{ ?>
+                                    <div class="user-icon no-hint">
+                                        <div class="pass-info">
+                                            <a href="user_profile.php?id=<?php echo $each_trade_info['pass_id']; ?>">
+                                                <img class="icon-size" src="data:;base64,<?php echo $pass_icon; ?>">
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+
+                                <!-- 交換物の画像・矢印・名前を表示 -->
                                 <div class="goods-image">
                                     <img class="image-size" src="data:;base64,<?php echo $goods_image; ?>">
                                     <div class="arrow1"></div>
@@ -254,11 +269,21 @@
                                         <p class="name-size"><?php echo $each_trade_info['goods_name']; ?></p>
                                     </div>
                                 </div>
-                                <div class="user-icon">
-                                    <a href="user_profile.php?id=<?php echo $each_trade_info['receive_id']; ?>">
-                                        <img class="icon-size" src="data:;base64,<?php echo $receive_icon; ?>">
-                                    </a>
-                                </div>
+
+                                <!-- 貰う人のアイコンを表示 -->
+                                <?php if(isset($each_trade_info['goods_hint'])){ ?>
+                                    <div class="user-icon">
+                                        <a href="user_profile.php?id=<?php echo $each_trade_info['receive_id']; ?>">
+                                            <img class="icon-size" src="data:;base64,<?php echo $receive_icon; ?>">
+                                        </a>
+                                    </div>
+                                <?php }else{ ?>
+                                    <div class="user-icon no-hint">
+                                        <a href="user_profile.php?id=<?php echo $each_trade_info['receive_id']; ?>">
+                                            <img class="icon-size" src="data:;base64,<?php echo $receive_icon; ?>">
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             </div>
                             <hr class="notifi-border">
                             <?php } ?>

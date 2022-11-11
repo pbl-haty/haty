@@ -20,6 +20,10 @@
     margin-top: 30px;
 }
 
+.no-hint{
+    align-items: center;
+}
+
 .goods-image{
     position: relative;
     justify-content: center;
