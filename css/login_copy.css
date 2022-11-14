@@ -20,7 +20,7 @@ body{
 }
 @media screen and (min-width: 960px) {
     .autologin-div{
-        margin: 0 400px;
+        margin: 0 500px;
     }
 }
 
@@ -46,7 +46,7 @@ body{
 }
 @media screen and (min-width: 960px) {
     .lnk-sakusei-div{
-        margin: 0 200px;
+        margin: 0 300px;
     }
 }
 
@@ -65,7 +65,7 @@ body{
 }
 @media screen and (min-width: 960px) {
     #lg-effect{
-        width: calc(100vw - 800px);
+        width: calc(100vw - 1000px);
     }
 }
 #lg-effect::placeholder{
