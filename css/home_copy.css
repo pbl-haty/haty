@@ -137,11 +137,11 @@
 
 @media screen and (min-width: 960px) {
     .trade_look {
+        padding: 10px 10px 30px 10px;
         width: 70px;
         height: 10px;
         font-size: 15px;
         margin-left:50px ;
-        padding: 20px;
     }
 }
 
