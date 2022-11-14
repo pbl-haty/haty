@@ -1,0 +1,101 @@
+body{
+    /* background-color: #fce5cdfe; */
+    text-align: center;
+    margin: 50px 0px;
+    display: block;
+    background-color: #FEFEFE;
+}
+.login{
+    margin-top: 30px;
+}
+.login-text{
+    margin: 0px;
+    margin-top: 20px;
+    padding-left: 70px;
+    text-align: left;
+}
+.autologin-div {
+    margin: 0 50px;
+    text-align: left;
+}
+@media screen and (min-width: 960px) {
+    .autologin-div{
+        margin: 0 400px;
+    }
+}
+
+
+.btn-login{
+    width: calc(80vw - 100px);
+    height: 40px;
+    margin-top: 186px;
+    font-size: 20px;
+}
+@media screen and (min-width: 960px) {
+    .btn-login{
+        margin-top: 80px;
+    }
+}
+
+
+.lnk-sakusei-div{
+    margin: 0 10px;
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+@media screen and (min-width: 960px) {
+    .lnk-sakusei-div{
+        margin: 0 200px;
+    }
+}
+
+
+.lnk-sakusei{
+    text-decoration: none;
+    text-align: center;
+}
+
+#lg-effect{
+    width: calc(100vw - 100px);
+    height: 30px;
+    text-indent: 20px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+@media screen and (min-width: 960px) {
+    #lg-effect{
+        width: calc(100vw - 800px);
+    }
+}
+#lg-effect::placeholder{
+    text-indent: 20px;
+}
+#lg-effect:focus{
+    outline: 0;
+    border-color: blue;
+}
+.btn-style{
+    min-width: 130px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #efefef;
+    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    color: #585858;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@media screen and (min-width: 960px) {
+    .btn-style{
+        width:40px;
+    }
+}
+.btn-style:active {
+    box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
+}
