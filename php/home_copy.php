@@ -93,7 +93,7 @@ $userId = $_SESSION['uid'];
 
                                 <a href="gift_detail.php?id=<?php echo $gift['id']; ?>" class="detail_display">
                                     <!-- ギフト詳細画面遷移 -->
-                                    <div>
+                                    <div class="position">
                                         <div class="position-relative">
                                             <img class="gift-display-image" src="data:;base64,<?php echo $img; ?>">
                                             <div>
