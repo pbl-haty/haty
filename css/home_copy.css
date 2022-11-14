@@ -1,6 +1,7 @@
 @media screen and (min-width: 960px) {
     .home_padding {
-        padding:100px 100px 100px 100px;
+        padding: 100px;
+        overflow: hidden;
     }
 }
 .home_title {
