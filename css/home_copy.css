@@ -93,8 +93,8 @@
 
 @media screen and (min-width: 960px) {
     .gift-display-image {
-        height: calc((100vw - 700px) / 3);
-        width: calc((100vw - 700px) / 3);
+        height: calc((100vw - 700px) / 5);
+        width: calc((100vw - 700px) / 5);
     }
 }
 
@@ -206,7 +206,7 @@
 
 @media screen and (min-width: 960px) {
     .group-option {
-        margin: 0 150px -600px 180px;
+        margin: -150px 0 150px 0;
     }
 }
 
@@ -219,7 +219,7 @@
 
 @media screen and (min-width: 960px) {
     .group-option-move-create {
-        margin: -200px 100px 0 100px;
+        margin: 0 auto 0 auto;
     }
 }
 
@@ -232,7 +232,7 @@
 
 @media screen and (min-width: 960px) {
     .group-option-move-join {
-        margin: -200px 150px 0 180px;
+        margin: 0 auto 0 auto;
     }
 }
 
@@ -305,7 +305,7 @@ hr {
     .home-image-title {
         height: 50px;
         font-size: 15px;
-        width: calc((100vw - 700px) / 3);
+        width: calc((100vw - 700px) / 5);
     }
 }
 
