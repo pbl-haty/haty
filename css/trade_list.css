@@ -1,0 +1,35 @@
+.trade-list{
+    width: 100%;
+    margin-top: 160px;
+}
+.tab-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tab{
+    flex-grow: 1;
+    padding:5px;
+    height: 60px;
+    line-height:60px;
+    border:solid 1px #CCC;
+    text-align:center;
+    font-size: 32px;
+}
+.panel-group{
+
+
+
+
+}
+.panel{
+    display:none;
+}
+.tab.is-active{
+    background:#668ad8;
+    color:#FFF;
+    transition: all 0.2s ease-out;
+}
+.panel.is-show{
+    display:block;
+}
