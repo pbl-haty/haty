@@ -17,13 +17,30 @@
     font-size: 32px;
 }
 .panel-group{
-
-
-
-
+    text-decoration: none;
+    color: black;
+    display: flex;
 }
 .panel{
     display:none;
+}
+.group-icon-space{
+    display: flex;
+    align-items: center;
+    width: 20%;
+    margin: 30px;
+}
+.group-icon{
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+.trade-info-space{
+    width: 80%;
+    padding: 30px 20px;
+    display: block;
 }
 .tab.is-active{
     background:#668ad8;
