@@ -42,6 +42,28 @@
     padding: 30px 20px;
     display: block;
 }
+.trade-name{
+    font-size: 40px;
+    margin: 0px;
+    line-height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+.trade-date{
+    padding-top: 40px;
+    margin: 0px;
+    font-size: 30px;
+    margin-top: auto;
+}
+.border{
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    border: none;
+    background: grey;
+    height: 1px;
+}
 .tab.is-active{
     background:#668ad8;
     color:#FFF;
