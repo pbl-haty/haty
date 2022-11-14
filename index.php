@@ -1,1 +1,2 @@
-test php
+<?php
+    header('Location: /php/home.php');
