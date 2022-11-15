@@ -45,6 +45,10 @@
     border: 1px solid grey;
 }
 
+.notifi-img-group {
+    border-radius: 50%;
+}
+
 .notifi-vertical {
     width: 80%;
     padding: 30px 20px;
