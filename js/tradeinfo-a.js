@@ -20,7 +20,7 @@ function click_list_event(i) {
         p2.style.display = "none";
         b0.style.color ="black";
         b1.style.color ="gray";
-        p2.style.color = "gray";
+        b2.style.color = "gray";
         b0.style.border = "2px black solid";
         b1.style.border = "2px gray solid";
         b2.style.border = "2px gray solid";
@@ -33,7 +33,7 @@ function click_list_event(i) {
         b2.style.color = "gray";
         b0.style.border ="2px gray solid";
         b1.style.border ="2px black solid";
-        b2.style.border = "2px glay solid";
+        b2.style.border = "2px gray solid";
     } else if(i == 2){
         p0.style.display = "none";
         p1.style.display = "none";
