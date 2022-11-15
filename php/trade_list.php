@@ -44,7 +44,8 @@
         
             <!--タブを切り替えて表示するコンテンツ-->
             <div class="panel tab-A is-show">
-                <?php foreach ($current_trade_array as $current_trade){ ?>
+                <?php if(!empty($current_trade_array)){
+                foreach ($current_trade_array as $current_trade){ ?>
                 <a href="tradeinfo.php?trade_id=<?php echo $current_trade['trade_id']; ?>" class="panel-group">
                     <div class="group-icon-space"> 
                         <?php
@@ -59,11 +60,16 @@
                     </div>
                 </a>
                 <hr class="border">
+                <?php } }else{ ?>
+                    <div class="prompt_2">
+                            <h4 class="msg-size">現在交換会が<br>開催されていません。</h4>
+                    </div>
                 <?php } ?>
             </div>
             
             <div class="panel tab-B">
-                <?php foreach ($past_trade_array as $past_trade){ ?>
+                <?php if(!empty($past_trade_array)){
+                foreach ($past_trade_array as $past_trade){ ?>
                 <a href="tradeinfo.php?trade_id=<?php echo $past_trade['trade_id']; ?>" class="panel-group">
                     <div class="group-icon-space">
                         <?php
@@ -78,6 +84,10 @@
                     </div>
                 </a>
                 <hr class="border">
+                <?php } }else{ ?>
+                    <div class="prompt_2">
+                            <h4 class="msg-size">過去に交換会は<br>開催されていません。</h4>
+                    </div>
                 <?php } ?>
             </div>
         </div>

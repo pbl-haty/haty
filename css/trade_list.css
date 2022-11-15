@@ -54,7 +54,7 @@
 .trade-date{
     padding-top: 40px;
     margin: 0px;
-    font-size: 30px;
+    font-size: 32px;
     margin-top: auto;
 }
 .border{
@@ -71,4 +71,17 @@
 }
 .panel.is-show{
     display:block;
+}
+
+/* エラーメッセージの表示 */
+.prompt_2 {
+    padding: 30px;
+    color: rgba(119, 29, 29, 0.534);
+}
+
+.msg-size {
+    height: 50px;
+    font-size: 40px;
+    color: rgba(119, 29, 29, 0.534);
+    text-align: center;
 }
