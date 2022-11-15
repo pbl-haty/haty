@@ -71,7 +71,7 @@
                             }
                         } 
                         echo "href='tradeinfo.php?trade_id={$tradeId}'>";
-                        echo "<div class='notifi-img-back'><img class='notifi-img' src='data:;base64,{$img}'></div>";
+                        echo "<div class='notifi-img-back'><img class='notifi-img notifi-img-group' src='data:;base64,{$img}'></div>";
                         echo "<div class='notifi-vertical'><p class='notif-time'>{$view['time']}</p><p class='notif-comment'>";
                         echo "{$view['groupname']}の交換会が開催されました。";
                         break;
@@ -87,7 +87,7 @@
                             }
                         } 
                         echo "href='tradeinfo.php?trade_id={$tradeId}'>";
-                        echo "<div class='notifi-img-back'><img class='notifi-img' src='data:;base64,{$img}'></div>";
+                        echo "<div class='notifi-img-back'><img class='notifi-img notifi-img-group' src='data:;base64,{$img}'></div>";
                         echo "<div class='notifi-vertical'><p class='notif-time'>{$view['time']}</p><p class='notif-comment'>";
                         echo "{$view['groupname']}の交換会が終了しました。";
                         break;
@@ -111,7 +111,7 @@
                         break;
                     case 7:
                         echo "href='group.php?groupid={$view['group_send']}'>";
-                        echo "<div class='notifi-img-back'><img class='notifi-img' src='data:;base64,{$img}'></div>";
+                        echo "<div class='notifi-img-back'><img class='notifi-img notifi-img-group' src='data:;base64,{$img}'></div>";
                         echo "<div class='notifi-vertical'><p class='notif-time'>{$view['time']}</p><p class='notif-comment'>";
                         echo "{$view['name']}が{$view['groupname']}に参加しました。";
                         break;

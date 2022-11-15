@@ -15,7 +15,7 @@
             $code = $groupoption->codeuniq();          
             
             if(empty($_FILES['image']['tmp_name'])) {
-                $filePath = '../static/user.png';
+                $filePath = '../static/join-icon.png';
                 $image = file_get_contents($filePath);
             } else {
                 $fp = fopen($_FILES['image']['tmp_name'], "rb");

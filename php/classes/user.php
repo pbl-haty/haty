@@ -39,7 +39,7 @@
         }
 
         // ユーザー登録処理
-        public function signUp($name, $password, $mailaddress){
+        public function signUp($name, $password, $mailaddress, $image){
             // 既にメールアドレスが登録されているかの確認
             $sql = "select * from user where mailaddress = ?";
             $stmt = $this->query($sql, [$mailaddress]);
@@ -51,8 +51,8 @@
             }
 
             // 入力された情報をもとに、データベースにアカウント、ユーザーの追加
-            $sql = 'insert into user(name, password, mailaddress) values(?, ?, ?)';
-            $result= $this->exec($sql, [$name, $password, $mailaddress]);
+            $sql = 'insert into user(name, password, mailaddress, icon) values(?, ?, ?, ?)';
+            $result= $this->exec($sql, [$name, $password, $mailaddress, $image]);
 
             if($result){
                 // 登録に成功した場合

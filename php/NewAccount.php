@@ -21,12 +21,15 @@
             $signup_email = $_POST['signup_email'];
             $password = $_POST['password'];
 
+            $filePath = '../static/join-icon.png';
+            $image = file_get_contents($filePath);
+
             // パスワードのハッシュ化
             $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
             // ユーザーオブジェクトを生成し、「signUpメソッド()」を呼び出し、その結果のメッセージを受け取る
             $user = new User();
-            $errorMessage = $user->signup($signup_name, $password_hash, $signup_email);
+            $errorMessage = $user->signup($signup_name, $password_hash, $signup_email, $image);
         }
 
 
