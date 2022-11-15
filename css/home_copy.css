@@ -122,10 +122,8 @@
 }
 @media screen and (min-width: 960px) {
     .gift-display-icon {
-        width: 20px;
-        height: 20px;
-        height: calc(10px + 10 *(100vw - 960px) / 120);
-        width: calc(10px + 10*(100vw - 960px) / 120);
+        height: calc(15px + 5*(100vw - 960px) / 120);
+        width: calc(15px + 5*(100vw - 960px) / 120);
     }
 }
 
