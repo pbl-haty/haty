@@ -30,21 +30,17 @@ body{
     font-size: 40px;
 }
 .btn-style{
-    min-width: 130px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 5px;
-    border: none;
-    background: #efefef;
-    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
-    color: #585858;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+	display: block;
+    margin: 80px auto 0 auto;
+    height: 115px;
+    width: 30%;
+    font-size: 40px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    background-color: #0077ff;
+    border-radius: 20px;
+    border: 1px solid #0077ff;
+    color: white;
 }
 
 .btn-style:active {
