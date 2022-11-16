@@ -47,7 +47,6 @@
     <title>ログイン</title>
 </head>
 <body>
-
     <h1>ログイン</h1>
 
     <div>
@@ -69,7 +68,7 @@
             <label for="login">次回から自動ログイン</label>
         </div>
 
-        <input type="submit" class="btn-login btn-style" id="check" name="login" value="ログイン">
+        <input type="submit" class="btn-login" id="check" name="login" value="ログイン">
         <br>
     </form>
 </body>
