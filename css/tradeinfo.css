@@ -275,14 +275,15 @@
 .tradeinfo-button{
     display: block;
     margin: 80px auto 0 auto;
-    height: 5%;
+    height: 115px;
     width: 30%;
-    font-size: 50px;
-    padding: 10px;
+    font-size: 40px;
+    padding: 30px 20px;
     box-sizing: border-box;
-    border: 5px solid #68779a;
-    border-radius: 10px;
-    background: #cbe8fa;
+    background-color: #0077ff;
+    border-radius: 20px;
+    border: 1px solid #0077ff;
+    color: white;
 }
 
 /* エラーメッセージの表示 */
