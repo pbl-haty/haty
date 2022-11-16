@@ -85,29 +85,30 @@ if (empty($giftgroup)) {
                 <input id="all" type="radio" name="tab_item" checked>
                 <label class="tab_item" for="all">ギフト詳細</label>
                 <input id="comment" type="radio" name="tab_item">
-                <label class="tab_item" for="comment">コメント</label>
+                <label class="tab_item" for="comment" id="scroll-btn">コメント</label>
                 <div class="tab_content" id="all_content">
                     <div class="tab_content_description">
                         <div class="gift_detail">
                             <!-- <h2 class="syosai">ギフト詳細</h2> -->
                             <?php
-                            $gift_addimage = $gift->getaddimage($giftId);
-                            if (empty($gift_addimage)) {
-                                echo '<ul class="slider-none">';
-                            } else {
-                                echo '<ul class="slider">';
-                            }
+                                $gift_addimage = $gift->getaddimage($giftId);
+                                if (empty($gift_addimage)) {
+                                    echo '<ul class="slider-none">';
+                                } else {
+                                    echo '<ul class="slider">';
+                                }
                             ?>
-                            <li><img class="gift_display_detail" src="data:;base64,<?php echo $gift_image; ?>" alt=""></li>
+                                <li><img class="gift_display_detail" src="data:;base64,<?php echo $gift_image; ?>" alt=""></li>
                             <?php
-                            foreach ($gift_addimage as $addimage) {
-                                $addimg = base64_encode($addimage['image']);
+                                foreach ($gift_addimage as $addimage) {
+                                    $addimg = base64_encode($addimage['image']);
                             ?>
-                                <li><img class="gift_display_detail" src="data:;base64,<?= $addimg ?>" alt=""></li>
+                                    <li><img class="gift_display_detail" src="data:;base64,<?= $addimg ?>" alt=""></li>
                             <?php
-                            }
+                                }
                             ?>
                             </ul>
+
                             <div class="display_flex">
                                 <div class="button-list2">
                                     <div class="good_count">
@@ -157,20 +158,24 @@ if (empty($giftgroup)) {
 
                             <table class="gift_table">
                                 <tr>
-                                    <th>受け渡し条件</th>
-                                    <td><?php echo $derivery_conditions ?></td>
+                                    <th>取引方法</th>
+                                    <td class="gift_table_span"></td>
+                                    <td class="gift_table_width"><?php echo $derivery_conditions ?></td>
                                 </tr>
                                 <tr>
                                     <th>カテゴリ</th>
-                                    <td><?php echo $gift_info['category_name'] ?></td>
+                                    <td class="gift_table_span"></td>
+                                    <td class="gift_table_width"><?php echo $gift_info['category_name'] ?></td>
                                 </tr>
                                 <tr>
-                                    <th>ギフト投稿日時</th>
-                                    <td><?php echo $gift_info['post'] ?></td>
+                                    <th>投稿日時</th>
+                                    <td class="gift_table_span"></td>
+                                    <td class="gift_table_width"><?php echo $gift_info['post'] ?></td>
                                 </tr>
                                 <tr>
-                                    <th>ギフト状況</th>
-                                    <td>
+                                    <th>申請状況</th>
+                                    <td class="gift_table_span"></td>
+                                    <td class="gift_table_width">
                                         <?php if (isset($gift_info['judge'])) {
                                             echo '取引完了済み';
                                         } else {
@@ -185,17 +190,19 @@ if (empty($giftgroup)) {
                                 </tr>
                             </table>
 
+                            <p class="gift_explain_title">詳細情報</p>
+
                             <div class="gift_explain">
                                 <p class="once_sentence">
                                     <?php
                                     if (empty($gift_info['giftcomment'])) {
-                                        echo '詳細コメントがありません。';
+                                        echo '詳細情報がありません。';
                                     } else {
                                         echo $gift_info['giftcomment'];
                                     }
                                     ?>
                                 </p>
-                            </div>
+                            </div>     
 
                             <?php if ($userId == $gift_info['user_id']) {
                                 if (isset($gift_info['applicant']) && empty($gift_info['judge'])) {
@@ -246,9 +253,7 @@ if (empty($giftgroup)) {
                 <!--吹き出しはじまり-->
                 <div class="tab_content" id="comment_content">
                     <div class="tab_content_description">
-                        <div class="comment_padding">
-                            <p class="comment_sentence">コメント</p>
-                            <div class="chatting_place">
+                            <div class="chatting_place" id="scroll">
                                 <!-- コメントのループ -->
                                 <?php foreach ($comment_all as $comment) {
                                     // コメントを投稿したユーザの画像処理
@@ -259,10 +264,12 @@ if (empty($giftgroup)) {
                                             <!-- アイコン選択でプロフィール画面に遷移 -->
                                             <a href="user_profile.php?id=<?php echo $comment['uid']; ?>"><img src="data:;base64,<?php echo $comment_icon; ?>" alt=""></a>
                                         </div>
-                                        <div class="says">
+                                        <div class="says-top">
                                             <p class="comment_username"><?php echo $comment['name']; ?></p>
-                                            <p><?php echo $comment['comment']; ?></p>
-                                            <p class="comment_postdata"><?php echo $comment['post']; ?></p>
+                                            <div class="says">
+                                                <p class="comment_postdata"><?php echo $comment['post']; ?></p>
+                                                <p><?php echo $comment['comment']; ?></p>
+                                            </div>
                                         </div>
                                     </div>
                                 <?php } ?>
@@ -273,13 +280,12 @@ if (empty($giftgroup)) {
 
                             <!-- コメント入力 -->
                             <!-- <p class="comment_nyuryoku">コメントを入力</p> -->
-                            <form action="gift_detail_backend.php" method="post">
+                            <form class="comment-flex" action="gift_detail_backend.php" method="post">
                                 <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
                                 <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
                                 <textarea class="comment_box" name="comment" placeholder="（例）・ギフト状態を確認したい ・ギフトの画像を追加して欲しい など"></textarea>
                                 <div class="btn_right"><button type="submit" class="comment-send_btn" name="send_comment">送信</button></div>
-                            </form>
-                        </div>
+                            </form>                  
                     </div>
                 </div>
             </div>
@@ -290,15 +296,7 @@ if (empty($giftgroup)) {
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('.slider').bxSlider({
-                    auto: false,
-                });
-            });
-        </script>
-
+        <script src="../js/gift_detail.js"></script>
 
 
     </body>
