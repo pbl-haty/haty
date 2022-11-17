@@ -2,8 +2,14 @@ body {
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+body, html {
+    margin-bottom: 0 !important;
+}
+
 .bx-wrapper {
     margin-bottom: 30px !important;
+    max-width: 90% !important;
+    margin-left: 5vw !important;
 }
 
 .bx-wrapper .bx-controls-direction a {
@@ -25,7 +31,6 @@ body {
     font-size: 35px;
     margin-top: 10px;
     padding: 0 20px;
-    margin-bottom: 100px;
 }
 
 .btn_center {
@@ -38,7 +43,7 @@ body {
 /* タブ切り替え */
 .tabs {
     background-color: #fff;
-    margin: 150px auto;
+    margin: 150px auto 0 auto;
 }
 
 /*タブ切り替えのスタイル*/
@@ -83,6 +88,7 @@ input[name="tab_item"] {
 #comment:checked~#comment_content
 {
     display: block;
+    overflow: hidden;
 }
 
 .gift_sentence {
@@ -186,7 +192,7 @@ input[name="tab_item"] {
 .once_sentence {
     line-height: 1.5;
     padding: 0.5em;
-    margin: 10px 20px;
+    margin: 10px 20px 110px 20px;
     border: 1px solid gray;
     border-radius: 20px;
 }
@@ -284,7 +290,7 @@ input[name="tab_item"] {
 
 
 .favorite_after {
-    position: absolute;
+    position: relative;
     width: 100px;
     height: 90px;
     margin: -20px 0 0 0;
@@ -404,8 +410,18 @@ input[name="tab_item"] {
 /* 以下、チャット */
 .chatting_place {
     width: 100%;
-    height: calc(100vh - 630px);
-    overflow: scroll;
+    height: calc(100vh - 430px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+  /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+  -ms-overflow-style: none;
+  /*Firefoxへの対応*/
+  scrollbar-width: none;
+}
+
+ /*Google Chrome、Safariへの対応*/
+.contents_box::-webkit-scrollbar{
+  display: none;
 }
 
 .chatting_place .faceicon {
@@ -430,6 +446,10 @@ input[name="tab_item"] {
     margin: 0px 10px 0 100px;
 }
 
+.my-says-top {
+    margin: 0 0 0 auto;
+}
+
 .says-flex {
     display: flex;
 }
@@ -438,9 +458,20 @@ input[name="tab_item"] {
     margin-left: 30px;
     display: inline-block;
     position: relative;
-    padding: 10px 10px;
+    padding: 10px 15px;
     border-radius: 12px;
     background: #d7ebfe;
+    max-width: 100%;
+    word-break: break-all;
+}
+
+.my-says {
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 12px;
+    background: #a3d3ff;
     max-width: 100%;
     word-break: break-all;
 }
@@ -453,6 +484,16 @@ input[name="tab_item"] {
     left: -24px;
     border: 12px solid transparent;
     border-right: 12px solid #d7ebfe;
+}
+
+.my-says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: -24px;
+    border: 12px solid transparent;
+    border-left: 12px solid #a3d3ff;
 }
 
 .says p {
@@ -651,7 +692,6 @@ textarea {
     width: calc(90vw - 40px);
     height: calc(90vw - 40px);
     object-fit: cover;
-    padding-left: 5vw;
 }
 
 .slider-none {
@@ -665,6 +705,7 @@ textarea {
     height: calc(90vw - 40px);
     object-fit: cover;
     padding-right: 40px;
+    margin-left: 5vw;
 }
 
 .prompt_1 {

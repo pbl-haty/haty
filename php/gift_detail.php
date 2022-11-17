@@ -257,7 +257,8 @@ if (empty($giftgroup)) {
                                 <!-- コメントのループ -->
                                 <?php foreach ($comment_all as $comment) {
                                     // コメントを投稿したユーザの画像処理
-                                    $comment_icon = base64_encode($comment['icon']);
+                                    if($comment['uid'] != $userId) {
+                                        $comment_icon = base64_encode($comment['icon']);
                                 ?>
                                     <div class="onechat">
                                         <div class="faceicon">
@@ -267,12 +268,26 @@ if (empty($giftgroup)) {
                                         <div class="says-top">
                                             <p class="comment_username"><?php echo $comment['name']; ?></p>
                                             <div class="says">
-                                                <p class="comment_postdata"><?php echo $comment['post']; ?></p>
                                                 <p><?php echo $comment['comment']; ?></p>
+                                                <p class="comment_postdata"><?php echo $comment['post']; ?></p>
                                             </div>
                                         </div>
                                     </div>
-                                <?php } ?>
+                                <?php 
+                                        } else {
+                                ?>
+                                    <div class="onechat">
+                                        <div class="my-says-top">
+                                            <div class="my-says">
+                                                <p><?php echo $comment['comment']; ?></p>
+                                                <p class="comment_postdata"><?php echo $comment['post']; ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
+                                        }
+                                    } 
+                                ?>
                             </div>
 
                             <br>

@@ -20,7 +20,7 @@
                             left join user on notice.user_send = user.uid
                             left join pattern on notice.pattern_id = pattern.id
                             left join gift on notice.gift_id = gift.id
-                        where notice.user_rece = ? and pattern.id not in (1, 5)
+                        where notice.user_rece = ? and pattern.id not in (1, 4, 5)
                     )
                     union all
                     (
@@ -33,7 +33,7 @@
                             left join user on notice.user_send = user.uid
                             left join pattern on notice.pattern_id = pattern.id
                             left join gift on notice.gift_id = gift.id
-                        where notice.user_rece = ? and pattern.id in (1, 5)
+                        where notice.user_rece = ? and pattern.id in (1, 4,  5)
                         group by pattern.id, notice.user_send, notice.gift_id, notice.not_con
                     )
                     order by time desc";
