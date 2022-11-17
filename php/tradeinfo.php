@@ -140,7 +140,7 @@
                 <?php if(!empty($theme_array)){ ?>
                     <div class="trade-theme">
                         <h3>交換する物のテーマ</h3>
-                        <p>テーマに適する物を交換会に出しましょう！</p>
+                        <p>テーマに適した物を投稿しましょう！</p>
                         <div class="readmore">
                             <ul>
                                 <?php foreach($theme_array as $theme) { ?>
