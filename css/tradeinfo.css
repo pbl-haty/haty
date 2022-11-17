@@ -287,9 +287,6 @@
     box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
     color: #585858;
 }
-.sending-confirmation:active{
-    box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
-}
 .sending-button{
     display: block;
     margin: 80px auto 0 auto;
