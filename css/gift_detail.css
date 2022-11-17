@@ -205,9 +205,11 @@ input[name="tab_item"] {
     align-items: center;
     text-align: center;
     margin: 0;
-    display: flex;
-    width: calc(100% / 4)
-        /* padding: 30px; */
+    /* padding: 30px; */
+}
+
+.cnt-good {
+
 }
 
 .gift_table {
@@ -292,7 +294,7 @@ input[name="tab_item"] {
 .favorite_after {
     position: relative;
     width: 100px;
-    height: 90px;
+    height: 55px;
     margin: -20px 0 0 0;
 }
 

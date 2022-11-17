@@ -130,6 +130,11 @@ if (empty($giftgroup)) {
                                                 </div>
                                             <?php } ?>
                                         </form>
+                                        <?php
+                                            if ($userId == $gift_info['user_id']) {
+                                                echo "<p class='cnt-good'>$good</p>";
+                                            }
+                                        ?>
                                     </div>
                                 </div>
 
