@@ -8,7 +8,8 @@ body, html {
 
 .bx-wrapper {
     margin-bottom: 30px !important;
-    max-width: 90% !important;
+    max-width: none !important;
+    width: 90% !important;
     margin-left: 5vw !important;
 }
 
@@ -192,7 +193,7 @@ input[name="tab_item"] {
 .once_sentence {
     line-height: 1.5;
     padding: 0.5em;
-    margin: 10px 20px 110px 20px;
+    margin: 10px 20px;
     border: 1px solid gray;
     border-radius: 20px;
 }
@@ -209,7 +210,7 @@ input[name="tab_item"] {
 }
 
 .cnt-good {
-
+    padding-top: 30px;
 }
 
 .gift_table {
@@ -253,6 +254,7 @@ input[name="tab_item"] {
 .display_flex {
     display: flex;
     align-items: center;
+    min-height: 200px;
 }
 
 .favorite_before {
@@ -303,7 +305,7 @@ input[name="tab_item"] {
     position: absolute;
     content: "";
     left: 50px;
-    top: 0;
+    top: 30px;
     width: 50px;
     height: 80px;
     background: #f88dc8;
@@ -691,6 +693,7 @@ textarea {
 }
 
 .slider img {
+    max-width: none;
     width: calc(90vw - 40px);
     height: calc(90vw - 40px);
     object-fit: cover;

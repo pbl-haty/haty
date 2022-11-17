@@ -1,10 +1,8 @@
 <?php
 // ヘッダーを読み込む
 require_once __DIR__ . '/header.php';
-// gift.phpを読み込む
-require_once __DIR__ . '/classes/gift.php';
-// user.phpを読み込む
-require_once __DIR__ . '/classes/user.php';
+// バックエンドを読み込む
+require_once __DIR__ . '/gift_detail_backend.php';
 
 // ユーザーIDとギフトIDを取得する
 $userId = $_SESSION['uid'];
@@ -82,9 +80,9 @@ if (empty($giftgroup)) {
         <br>
         <div class="gift_detail">
             <div class="tabs">
-                <input id="all" type="radio" name="tab_item" checked>
-                <label class="tab_item" for="all">ギフト詳細</label>
-                <input id="comment" type="radio" name="tab_item">
+                <input id="all" type="radio" name="tab_item" <?php if(empty($_POST['tab-comment'])) { echo 'checked'; } ?>>
+                <label id="button" class="tab_item" for="all">ギフト詳細</label>
+                <input id="comment" type="radio" name="tab_item" <?php if(!empty($_POST['tab-comment'])) { echo 'checked'; } ?>>
                 <label class="tab_item" for="comment" id="scroll-btn">コメント</label>
                 <div class="tab_content" id="all_content">
                     <div class="tab_content_description">
@@ -112,9 +110,8 @@ if (empty($giftgroup)) {
                             <div class="display_flex">
                                 <div class="button-list2">
                                     <div class="good_count">
-                                        <form action="gift_detail_backend.php" method="post" class="good_sentence">
+                                        <form method="post" class="good_sentence">
                                             <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
-                                            <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
                                             <!-- 既にいいねを押しているかを確認 -->
                                             <?php if (empty($gift->checkGood($giftId, $userId))) { ?>
                                                 <button type="submit" name="favorite_before" class="favorite_before"></button>
@@ -229,18 +226,16 @@ if (empty($giftgroup)) {
                                             <p>コメントでやり取りをし、受け渡し後取引完了を押しましょう。</p>
                                         </div>
 
-                                        <form action="gift_detail_backend.php" method="post">
+                                        <form method="post">
                                             <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
-                                            <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
                                             <button type="submit" class="done_button" name="done_button">取引完了</button>
                                         </form>
                                     </div>
                                 <?php }
                             } else {
                                 if (empty($gift_info['judge'])) { ?>
-                                    <form class="gift_sentence" method="post" action="gift_detail_backend.php">
+                                    <form class="gift_sentence" method="post">
                                         <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
-                                        <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
                                         <?php if (empty($gift_info['applicant'])) { ?>
                                             <button type="submit" class="request_sentence" name="applygift">受け取り申請</button>
                                         <?php } elseif ($gift_info['applicant'] == $userId) { ?>
@@ -300,9 +295,9 @@ if (empty($giftgroup)) {
 
                             <!-- コメント入力 -->
                             <!-- <p class="comment_nyuryoku">コメントを入力</p> -->
-                            <form class="comment-flex" action="gift_detail_backend.php" method="post">
+                            <form class="comment-flex" method="post">
                                 <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
-                                <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
+                                <input type="hidden" name="tab-comment" value="tab">
                                 <textarea class="comment_box" name="comment" placeholder="（例）・ギフト状態を確認したい ・ギフトの画像を追加して欲しい など"></textarea>
                                 <div class="btn_right"><button type="submit" class="comment-send_btn" name="send_comment">送信</button></div>
                             </form>                  
