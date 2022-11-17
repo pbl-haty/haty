@@ -4,9 +4,6 @@
     // user.phpを読み込む
     require_once __DIR__ . '/classes/user.php';
 
-    // エラーメッセージの初期化
-    $errorMessage = ""; 
-
     // ログインボタンが押されたとき
     if(isset($_POST['login'])){
         $login_email = $_POST['login_email'];
@@ -16,20 +13,19 @@
         $user = new User();
         $result = $user->authUser($login_email);
 
-
-        if(empty($result['uid'])){
-            $errorMessage = 'メールアドレスとパスワードが正しいか確認してください。';
-        }else if(password_verify($login_pass, $result['password'])){     // password_verify関数でハッシュの認証
+        if(password_verify($login_pass, $result['password'])){  // password_verify関数でハッシュの認証
             // ユーザー情報をセッションに保存する
             $_SESSION['uid'] = $result['uid'];
             $_SESSION['name'] = $result['name'];
             $_SESSION['comment'] = $result['comment'];
             $_SESSION['icon'] = $result['icon'];
             $_SESSION['mailaddress'] = $result['mailaddress'];
-
+            
             // ホーム画面に遷移する
             header('Location: home.php');
             exit();
+        }else{
+            $errorMessage = 'メールアドレスとパスワードが<br>正しいか確認してください。';
         }
     }
 ?>
@@ -49,9 +45,12 @@
 <body>
     <h1>ログイン</h1>
 
-    <div>
-        <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
-    </div>
+    <?php if(!empty($errorMessage)){ ?>
+        <div class="prompt_2">
+            <p><?php echo $errorMessage; ?></p>
+            <?php $errorMessage = ''; ?>
+        </div>
+    <?php } ?>
   
     <div class="lnk-sakusei-div">
         <a href="NewAccount.php" class="lnk-sakusei btn-style">アカウント作成</a> 
