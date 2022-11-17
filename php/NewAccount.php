@@ -68,8 +68,8 @@
         if($signUpMessage == ''){
     ?>
         <h1>アカウント作成</h1>
-        <div>
-            <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
+        <div class="prompt_2">
+            <p><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></p>
         </div>
 
         <div class="lnk-sakusei-div">

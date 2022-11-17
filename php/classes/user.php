@@ -31,7 +31,7 @@
             $result = $stmt->fetchAll();
 
             if(empty($result)){
-                return 'このユーザーを表示することは<br>出来ません。';
+                return 'このユーザーを表示することは出来ません。';
             }else{
                 return '';
             }

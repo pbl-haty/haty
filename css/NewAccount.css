@@ -81,3 +81,8 @@ body{
     color: white;
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
 }
+.prompt_2 {
+    text-align: center;
+    font-weight: bold;
+    color: rgba(119, 29, 29, 0.534);
+}
