@@ -5,7 +5,6 @@
     require_once __DIR__ . '/classes/gift.php';
     require_once __DIR__ . '/classes/user.php';
 
-
     $userId = $_SESSION['uid'];
     $giftId = $_GET['id'];
     $completionmsg = "";
@@ -95,7 +94,6 @@
 
 <body>
     <br>
-
     <?php
         $giftgroup = $gift->getGiftGroup($userId, $giftId);
         if(empty($giftgroup) || $gift_info['user_id'] != $userId) {
@@ -191,21 +189,16 @@
                 >
                 <label for="groupname-<?= $cnt ?>"><?= $join['groupname'] ?></label>
             </div>
-
 <?php 
             $cnt++;
         }
     }
  ?>
-
         </div>
-
         <h1 class="content-margin">カテゴリ</h1>
-
         <div class ="prompt_2">
             <h4><?= $errormsg3 ?></h4>
         </div>
-
         <div class="content-check">
 
 <?php 
