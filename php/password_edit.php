@@ -17,11 +17,11 @@
     if(isset($_POST['edit_btn'])){
         // 入力された情報をもとに分岐
         if(password_verify($_POST['current_password'], $result['password']) == FALSE){
-            $errorMessage = "入力した現在のパスワードが間違っています。";
+            $errorMessage = "入力した現在のパスワードが<br>間違っています。";
         }elseif($_POST['new_password1'] != $_POST['new_password2']){
             $errorMessage = "パスワードが一致していません。";
         }elseif($_POST['current_password'] == $_POST['new_password1']){
-            $errorMessage = "現在のパスワードと同じパスワードを設定することは出来ません。";
+            $errorMessage = "現在のパスワードと同じパスワードを<br>設定することは出来ません。";
         }else{
             // パスワードのハッシュ化
             $password_hash = password_hash($_POST['new_password1'], PASSWORD_DEFAULT);
@@ -42,17 +42,17 @@
     <div class="password_edit">
         <!-- エラーメッセージもしくは変更完了メッセージの表示 -->
         <?PHP if(!empty($errorMessage)){ ?>
-        <div class="error_message">
-            <p><?php echo $errorMessage;?></p>
-            <?php $errorMessage =""; ?>
+            <div class="prompt_2">
+                <p><?php echo $errorMessage;?></p>
+                <?php $errorMessage =""; ?>
         </div>
         <?php }elseif(!empty($completionMessage)){ ?>
-        <div class="completion_message">
-            <p><?php echo $completionMessage;?></p>
-            <?php $completionMessage ="";?>
-        </div>
+            <div class="prompt_3">
+                <p><?php echo $completionMessage;?></p>
+                <a href="MyPage.php">マイページへ戻る</a>
+                <?php $completionMessage ="";?>
+            </div>
         <?php } ?>
-
         <!-- パスワード変更フォーム -->
         <form method="POST" action="" class="password_edit_form">
             <div class="edit_password">

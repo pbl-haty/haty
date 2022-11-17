@@ -1,23 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
 body{
     display: block;
     text-align: center;
 }
-
 .edit-title {
     margin-top: 180px;
 }
-
 .edit-title h1{
     font-size: 50px;
 }
-
 .header-margin-top {
     margin-top: 150px;
     padding: 0 20px;
 }
-
 .sample-img {
     margin: auto;
     width: calc(80vw - 40px);
@@ -25,19 +20,16 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
-
 .sample-img-size {
     width: calc(40vw - 20px);
     height: calc(40vw - 20px);
     object-fit: cover;
 }
-
 .frame-img {
     display: block;
     width: calc(40vw - 20px);
     height: calc(40vw - 20px);
 }
-
 .delete-btn {
     position: relative;
     top: calc(-40vw + 40px);
@@ -47,8 +39,7 @@ body{
     display: block;
     background: #fefefe;
     border-radius: 100%;
-}
-   
+}   
 .delete-btn::before, .delete-btn::after { /* 共通設定 */
     content: "";
     
@@ -58,22 +49,18 @@ body{
     width: 5px; /* 棒の幅（太さ） */
     height: 35px; /* 棒の高さ */
     background: red;
-}
-   
+}  
 .delete-btn::before {
     transform: translate(-50%,-50%) rotate(45deg);
 }
-   
 .delete-btn::after {
     transform: translate(-50%,-50%) rotate(-45deg);
 }
-
 .content-margin {
     margin: 30px 0;
     font-size: 50px;
     text-align: left;
 }
-
 .gift-title{
     width: 100%;
     border-radius: 20px;
@@ -83,7 +70,6 @@ body{
     padding: 30px 0;
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
-
 .gift-title::placeholder{
     text-indent: 20px;
 }
@@ -91,7 +77,6 @@ body{
     outline: 0;
     border-color: aqua;
 }
-
 .trade-box{
     margin: auto auto 15px auto;
     font-size: 30px; /* フォントサイズ */
@@ -99,11 +84,9 @@ body{
     border: 2px black solid;
     text-align: left;
 }
-
 .trade-box input[type="checkbox"] { 
     display: none;
 }
-
 .trade-box input[type="checkbox"] + label {
   display: block;
   position: relative;
@@ -115,11 +98,9 @@ body{
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .trade-box input[type="checkbox"] + label:last-child { 
     margin-bottom: 0;
 }
-
 .trade-box input[type="checkbox"] + label:before {
   content: '';
   display: block;
@@ -133,7 +114,6 @@ body{
   opacity: .6;
   transition: all .12s, border-color .08s;
 }
-
 .trade-box input[type="checkbox"]:checked + label:before {
   width: 10px;
   top: -5px;
@@ -144,12 +124,9 @@ body{
   border-left-color: transparent;
   transform: rotate(45deg);
 }
-
-
 .trade-box input[type="radio"] { 
     display: none;
 }
-
 .trade-box input[type="radio"] + label {
   display: block;
   position: relative;
@@ -161,11 +138,9 @@ body{
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .trade-box input[type="radio"] + label:last-child { 
     margin-bottom: 0;
 }
-
 .trade-box input[type="radio"] + label:before {
   content: '';
   display: block;
@@ -179,7 +154,6 @@ body{
   opacity: .6;
   transition: all .12s, border-color .08s;
 }
-
 .trade-box input[type="radio"]:checked + label:before {
   width: 10px;
   top: -5px;
@@ -190,7 +164,6 @@ body{
   border-left-color: transparent;
   transform: rotate(45deg);
 }
-
 .Detailed-information{
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
     font-size: 30px;
@@ -200,7 +173,6 @@ body{
     border: 2px solid#000;
     resize: none;
 }
-
 .form-btn {
     display: block;
     margin: 80px auto 0 auto;
@@ -214,7 +186,6 @@ body{
     border: 1px solid #0077ff;
     color: white;
 }
-
 .upload-label {
     display: inline-block;
     margin: 30px 0 0 0; /* まわりの余白 */
@@ -225,22 +196,18 @@ body{
     border: 2px black solid;
     width: 100%;
 }
-
 .upload-label input {
     display: none;
 }
-
 .gift_detail {
     margin-top: 150px;
     padding: 0 20px;
 }
-
 .prompt_1 {
     text-align: center;
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
 }
-
 .prompt_2 {
     text-align: center;
     font-size: 50px;
