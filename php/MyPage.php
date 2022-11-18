@@ -27,14 +27,14 @@
     // $view_your_list = [$your_good_list, $your_judge_list, $your_application_list];
 
     // タブの情報を一括にまとめる
-    $view_list_all = [$post_list, $my_good_list, $your_judge_list, $my_application_list, $your_good_list, $my_judge_list, $your_application_list];
+    $view_list_all = [$post_list, $my_good_list, $your_judge_list, $my_application_list];
     
 
 
 ?>
     <link rel="stylesheet" href="../css/MyPage.css">
-    <title><?= $get_user['name'] ?> | マイページ</title>
     <link rel="stylesheet" href="../css/group.css">
+    <title><?= $get_user['name'] ?> | マイページ</title>
 </head>
 
 <body>
@@ -65,24 +65,28 @@
             <p><?= $get_user['comment'] ?></p>
         </div>
 
+        <hr>
+
         <div class="nav-wrap">
             <div class="scroll-nav">
-                <button onclick="click_list_event(0)">投稿中</button>
-                <button onclick="click_list_event(1)">いいね</button>
-                <button onclick="click_list_event(2)">投稿履歴</button>
-                <button onclick="click_list_event(3)">申請中</button>
-                <button onclick="click_list_event(4)">相手いいね</button>
-                <button onclick="click_list_event(5)">相手履歴</button>
-                <button onclick="click_list_event(6)">相手申請</button>
+                <label class="tab_item" for="tab_0">投稿中</label>
+                <label class="tab_item" for="tab_1">お気に入り</label>
+                <label class="tab_item" for="tab_2">投稿履歴</label>
+                <label class="tab_item" for="tab_3">申請中</label>
             </div>
         </div>
 
         <hr>
 
+            <input id="tab_0" type="radio" name="tab_item" checked>
+            <input id="tab_1" type="radio" name="tab_item">
+            <input id="tab_2" type="radio" name="tab_item">
+            <input id="tab_3" type="radio" name="tab_item">
+            
     <?php
         $cnt = 0;
         foreach($view_list_all as $view_list) {
-            echo '<div class="display" id=p' . $cnt . '>';
+            echo "<div class='display' id='tab_content_$cnt'>";
             if (empty($view_list)) {
                 echo '<div class = prompt_1>';
                 echo '<h4>該当するギフトがありません。</h4>';
@@ -112,7 +116,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-<script type="text/javascript" src="../js/MyPage.js"></script>
 
 </body>
 </html>
