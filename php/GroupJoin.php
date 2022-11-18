@@ -43,36 +43,39 @@
         if(empty($msg)) {
             $item = $groupoption->groupjoin_room($code);
             if(empty($item)) {
-                echo '<div class ="prompt_3"><h4>リンクが間違っているか存在しないグループです。</h4></div>';
+                echo '<div class ="prompt_3"><h4>リンクが間違っているか<br>存在しないグループです。</h4></div>';
+                echo '<a class="home-atag" href="home.php">ホームに戻る</a>';
             } else {
                 $groupId = $item['id'];
                 $item2 = $groupoption->groupjoin_member($userId, $groupId);
                 if(!empty($item2)) {
                     echo '<div class ="prompt_3"><h4>既に参加しているグループです。</h4></div>';
+                    echo '<a class="home-atag" href="home.php">ホームに戻る</a>';
                 } else {
                     $img = base64_encode($item['icon']);
-    ?>
-
-        <h1 class="join-title"><?= $item['groupname'] ?></h1>
-        <form method="POST" action="">
-            <input type="hidden" name="code" value="<?= $code ?>"> 
-            <img src="data:;base64,<?php echo $img; ?>" class="img-join" alt="">
-            <div>
-                <input type="password" class="input-pass" placeholder="パスワード" name="password">
-            </div>
-            <input type="submit" class="btn-join btn-style" name="groupjoin" value="参加">
-        </form>
-
-    <?php
                 }
             }
         } else {
     ?>
         <div class ="prompt_3">
             <h4><?= $msg ?></h4>
+            <?php $img = base64_encode($item['icon']); ?>
         </div>
     <?php
         }
     ?>
+
+        <h1 class="join-title"><?= $item['groupname'] ?></h1>
+        <form method="POST" action="">
+            <input type="hidden" name="code" value="<?= $code ?>"> 
+            <img src="data:;base64,<?php echo $img; ?>" class="img-join" alt="">
+            <div class="pass-area">
+                <p class="pass-title">パスワード</p>
+                <p class="pass-explain">グループを作成した方にパスワードを教えてもらい、<br>グループに参加してみましょう！</p>
+                <input type="password" class="input-pass" maxlength="400" name="password">
+            </div>
+            <input type="submit" class="btn-join btn-style" name="groupjoin" value="参加">
+        </form>
+
 </body>
 </html>
