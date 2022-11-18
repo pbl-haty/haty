@@ -53,18 +53,15 @@
     <br>
     <div class="profile_edit">
 
-        <!-- エラーメッセージもしくは変更完了メッセージの表示 -->
+        <!-- エラーメッセージの表示もしくは変更完了の場合はマイページに遷移 -->
         <?PHP if(!empty($errorMessage)){ ?>
-        <div class="error_message">
+        <div class="prompt_2">
             <p><?php echo $errorMessage;?></p>
             <?php $errorMessage =""; ?>
         </div>
-        <?php }elseif(!empty($completionMessage)){ ?>
-        <div class="completion_message">
-            <p><?php echo $completionMessage;?></p>
-            <?php $completionMessage ="";?>
-        </div>
-        <?php } ?>
+        <?php }elseif(!empty($completionMessage)){ 
+            header('Location: MyPage.php');
+        } ?>
 
         <form method="POST" action=""  enctype="multipart/form-data">
             <div class="profile_edit_title">

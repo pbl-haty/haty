@@ -1,32 +1,25 @@
 .exchange {
-    font-size: 40px;
+    font-size: 32px;
     padding: 30px;
 }
-
-/* 交換会名入力 */
 .exchange-title {
     margin-top: 180px;
     font-size: 50px;
 }
-
 .exchange-title span{
     color: red;
 }
-
 .exchange-title-name {
     border-color: black;
     padding: 40px;
-    font-size: 50px;
+    font-size: 40px;
     width: 90%;
     border: solid 5px black;
 }
-
-/* 説明入力 */
 .exchange-explain {
     margin: 120px 50px 50px 0;
-    font-size: 50px;
+    font-size: 40px;
 }
-
 .exchange-explain-area {
     width: 95%;
     height: 400px;
@@ -34,40 +27,33 @@
     border: solid 5px black;
     margin: 0 auto;
 }
-
 .exchange-explain-area.break {
     overflow-wrap: break-all;
 }
-
-/* テーマ入力 */
 .exchange-theme {
     margin: 120px 50px 50px 0;
-    font-size: 50px;
+    font-size: 40px;
 }
-
 .exchange-exit {
     margin: 50px;
-    font-size: 50px;
+    font-size: 40px;
     transform: scale(8.0);
 }
-
 .exchange-none {
     margin: 50px;
-    font-size: 50px;
+    font-size: 40px;
     transform: scale(8.0);
 }
-
 .exchange-theme-area {
-    font-size: 30px;
+    font-size: 32px;
     width: 900px;
     min-height: 100px;
     padding: 10px;
     border: solid 5px black;
     margin-top: 40px;
 }
-
 .exchange-theme-area-2 {
-    font-size: 30px;
+    font-size: 32px;
     width: 95%;
     min-height: 100px;
     padding: 10px;
@@ -75,7 +61,6 @@
     margin: 0 auto;
     display: none;
 }
-
 .exchanege-theme-button {
     margin-top: 40px;
     height: 5%;
@@ -88,74 +73,59 @@
     border: 1px solid #68779a;
     background: #cbe8fa;
 }
-
 .display-none {
     display: none;
 }
-
 input {
     border-radius: 4px;
     box-shadow: 0;
     border: 1px solid #ccc;
 }
-
 #inputArea {
     display: inline-block;
 }
-
-
-
-/* 終了日入力 */
 .exchange-finish {
     margin: 120px 50px 50px 0;
-    font-size: 50px;
+    font-size: 40px;
 }
-
 .exchange-finish span{
     color: red;
 }
-
 .exchange-calendar {
-    font-size: 50px;
+    font-size: 40px;
 }
-
 .exchange-finishtime {
     margin: 50px;
     font-size: 20px;
     transform: scale(4.0);
 }
-
 .hold-button {
     display: block;
-    margin: 40px auto 100px auto;
-    height: 5%;
-    width: 20%;
-    font-size: 50px;
-    padding: 10px;
+    margin: 80px auto 0 auto;
+    height: 115px;
+    width: 30%;
+    font-size: 40px;
+    padding: 30px 20px;
     box-sizing: border-box;
-    border: 5px solid #68779a;
-    border-radius: 10px;
-    background: #cbe8fa;
-
+    background-color: #0077ff;
+    border-radius: 20px;
+    border: 1px solid #0077ff;
+    color: white;
 }
-
 .exchange-today{
     text-align: center;
 }
-
 .exchange-finishday{
     margin:50px;
     transform: scale(8.0);
 }
-
 /* エラーメッセージの表示 */
 .prompt_2 {
     padding: 30px;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
     color: rgba(119, 29, 29, 0.534);
 }
-
 .msg-size {
     height: 50px;
     margin: 180px 0 30px 0;
