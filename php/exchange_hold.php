@@ -112,62 +112,73 @@ if (!$holding_flag) {
             <a href="home.php">ホームに戻る</a>
         </div>
     <?php } else { ?>
+        <br>
+        <div class="all-content">
+            <form method="post" action="" class="exchange">
+                <!-- 交換会名入力 -->
+                <div>
+                    <div class="flex-title">
+                        <h1>グループ名</h1>
+                        <p>最大30文字</p>
+                    </div>
+                    <input type="text" class=exchange-title-name name="trade_name" maxlength="30" required>
+                </div>
 
-        <form method="post" action="" class="exchange">
-            <!-- 交換会名入力 -->
-            <div>
-                <p class="exchange-title"><span> * </span>交換会名（30文字まで）</p>
-                <input type="text" class=exchange-title-name name="trade_name" maxlength="30" required>
-            </div>
-
-            <!-- テーマ入力 -->
-            <div>
-                <p class="exchange-theme">テーマ（30文字まで）</p>
-                <input type="hidden" id="theme_check" name="theme_check" value="Ok">
-                <input class="exchange-exit" type="radio" id="disp" name="theme" onclick="buttonClick_theme()" checked>あり
-                <input class="exchange-none" type="radio" id="hide" name="theme" onclick="buttonClick_theme()">なし
-                <div id="sub-form">
-                    <p>交換会で交換する物のテーマを入力してください（最大3つ）</p>
-                    <div id="inputArea">
-                        <input type="text" name="theme[]" class="exchange-theme-area" placeholder="（例）3000円以下、身に着けるもの、季節もの 等" maxlength="30">
-                        <button type="button" id="add" class="exchanege-theme-button">追加</button>
-                        <button type="button" id="del" class="exchanege-theme-button">削除</button>
+                <!-- テーマ入力 -->
+                <div>
+                    <div class="flex-title">
+                        <h1>テーマ</h1>
+                        <p>最大30文字</p>
+                    </div>
+                    <input type="hidden" id="theme_check" name="theme_check" value="Ok">
+                    <input class="exchange-exit" type="radio" id="disp" name="theme" onclick="buttonClick_theme()" checked>あり
+                    <input class="exchange-none" type="radio" id="hide" name="theme" onclick="buttonClick_theme()">なし
+                    <div id="sub-form">
+                        <p>交換会で交換する物のテーマを入力してください（最大3つ）</p>
+                        <div id="inputArea">
+                            <input type="text" name="theme[]" class="exchange-theme-area" placeholder="（例）3000円以下、身に着けるもの、季節もの 等" maxlength="30">
+                            <button type="button" id="add" class="exchanege-theme-button">追加</button>
+                            <button type="button" id="del" class="exchanege-theme-button">削除</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- 説明入力 -->
-            <div>
-                <p class="exchange-explain">説明文（400文字まで）</p>
-                <input type="hidden" id="explain_check" name="explain_check" value="Ok">
-                <input class="exchange-exit" type="radio" id="explain-disp" name="explain" onclick="buttonClick_explain()" checked>あり
-                <input class="exchange-none" type="radio" id="explain-hide" name="explain" onclick="buttonClick_explain()">なし
-                <div id="explain-form">
-                    <p>説明文を入力してください</p>
-                    <textarea class="exchange-explain-area" id="explain-area" wrap="hard" name="explain" maxlength="400"></textarea><br>
+                <!-- 説明入力 -->
+                <div>
+                    <div class="flex-title">
+                        <h1>説明文</h1>
+                        <p>最大30文字</p>
+                    </div>
+                    <input type="hidden" id="explain_check" name="explain_check" value="Ok">
+                    <input class="exchange-exit" type="radio" id="explain-disp" name="explain" onclick="buttonClick_explain()" checked>あり
+                    <input class="exchange-none" type="radio" id="explain-hide" name="explain" onclick="buttonClick_explain()">なし
+                    <div id="explain-form">
+                        <p>説明文を入力してください</p>
+                        <textarea class="exchange-explain-area" id="explain-area" wrap="hard" name="explain" maxlength="400"></textarea><br>
+                    </div>
                 </div>
-            </div>
 
-            <!-- 終了日入力 -->
-            <div>
-                <p class="exchange-finish"><span> * </span>交換会の終了日</p>
-                <p>開催期間終了日を下記からひとつ選択してください</p>
-                <p>今日: <span id="today" class="exchange-tody"></span></p>
-                <input type="hidden" id="end_date" name="end_date" value="">
-                <input type="radio" id="radio1" name="finishday" value="1週間後" class="exchange-finishday" onclick="onRadioButtonChange()" checked="checked">1週間後:<span id="after1week"></span><br>
-                <input type="radio" id="radio2" name="finishday" value="2週間後" class="exchange-finishday" onclick="onRadioButtonChange()">2週間後:<span id="after2weeks"></span><br>
-                <input type="radio" id="radio3" name="finishday" value="3週間後" class="exchange-finishday" onclick="onRadioButtonChange()">3週間後:<span id="after3weeks"></span><br>
-                <input type="radio" id="radio4" name="finishday" value="1か月後" class="exchange-finishday" onclick="onRadioButtonChange()">4週間後:<span id="after1month"></span><br>
-            </div>
+                <!-- 終了日入力 -->
+                <div>
+                    <p class="exchange-finish"><span> * </span>交換会の終了日</p>
+                    <p>開催期間終了日を下記からひとつ選択してください</p>
+                    <p>今日: <span id="today" class="exchange-tody"></span></p>
+                    <input type="hidden" id="end_date" name="end_date" value="">
+                    <input type="radio" id="radio1" name="finishday" value="1週間後" class="exchange-finishday" onclick="onRadioButtonChange()" checked="checked">1週間後:<span id="after1week"></span><br>
+                    <input type="radio" id="radio2" name="finishday" value="2週間後" class="exchange-finishday" onclick="onRadioButtonChange()">2週間後:<span id="after2weeks"></span><br>
+                    <input type="radio" id="radio3" name="finishday" value="3週間後" class="exchange-finishday" onclick="onRadioButtonChange()">3週間後:<span id="after3weeks"></span><br>
+                    <input type="radio" id="radio4" name="finishday" value="1か月後" class="exchange-finishday" onclick="onRadioButtonChange()">4週間後:<span id="after1month"></span><br>
+                </div>
 
-            <div>
-                <input type="submit" class="hold-button" value="開催" name="hold">
-            </div>
+                <div>
+                    <input type="submit" class="hold-button" value="開催" name="hold">
+                </div>
 
 
-            <script src="https://code.jquery.com/jquery.min.js"></script>
-            <script src="../js/exchange_hold.js"></script>
-        </form>
+                <script src="https://code.jquery.com/jquery.min.js"></script>
+                <script src="../js/exchange_hold.js"></script>
+            </form>
+        </div>
 
     <?php } ?>
 </body>
