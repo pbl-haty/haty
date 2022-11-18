@@ -3,36 +3,29 @@
     padding: 40px;
     margin-top: 180px;
 }
-
 .trade-info p{
     font-size: 0.8em;
 }
-
 .trade-title{
     text-align: center;
 }
-
 .trade-title h1{
     padding: 10px;
     word-break: break-all;
 }
-
 .participant{
     margin-top: 100px;
 }
-
 .participant ul{
     display: flex;
 	overflow-x: scroll;
 	margin: 0;	
 	padding: 0;
 }
-
 .participant li{
     list-style: none;
     margin: 0 10px;
 }
-
 .img-icon {
     width: 80px;
     height: 80px;
@@ -40,30 +33,12 @@
     border-radius: 100%;
     border: solid 1px gray;
 }
-
 .trade-theme{
     margin-top: 80px
 }
-
-/* テーマを一覧で表示 */
-
-
-/* .theme-list{
-    resize: vertical;
-    width: 100%;
-    height: auto;
-    border: 1px solid gray;
-    border-radius: 20px;
-}
-
-.theme-list li{
-    overflow-wrap: break-word;
-} */
-
 .trade-explain{
     margin-top: 80px;
 }
-
 .readmore{
     position: relative;
     box-sizing: border-box;
@@ -74,17 +49,14 @@
     border-radius: 15px;
     margin: 15px 0px;
 }
-
 .readmore ul{
     margin : 0 auto;
 }
-
 .readmore li{
     font-size: 0.8em;
     padding: 10px 0;
     word-wrap: break-word;
 }
-
 .readmore-content{
     position: relative;
     overflow: hidden;
@@ -93,7 +65,6 @@
     /*高さの初期値*/
     height: 200px;
 }
-
 .readmore-content::before {
     display: block;
     position: absolute;
@@ -106,7 +77,6 @@
     background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 50%, #fff 100%);
     background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 50%, #fff 100%);
 }
-
 /* 続きを読むボタン */
 .readmore-label{
     display: table;
@@ -123,15 +93,12 @@
     border-radius: 10px;
     color: #000;
 }
-
 .readmore-label:before{
     content: '続きを読む';
 }
-
 .readmore-check{
     display: none;
 }
-
 /*チェック時にボタンを非表示*/
 .readmore-check:checked ~ .readmore-label{
     position: static;
@@ -140,42 +107,33 @@
     /* 「続きを読む」を押した後、元に戻す必要がない場合は、上のオプションを消してこの1行だけにする */
     /* display: none; */
 }
-
 .readmore-check:checked ~ .readmore-label:before{
     content: '閉じる';
 }
-
 /*チェック時に高さを自動に戻す*/
 .readmore-check:checked ~ .readmore-content{
     height: 100%;
 }
-
 /*チェック時グラデーション等を削除*/
 .readmore-check:checked ~ .readmore-content::before {
     display: none;
 }
-
-
 /* 投稿フォーム */
 .trade-form{
     margin-top: 250px;
     margin-bottom: 150px;
     font-size: 40px;
 }
-
 .trade-form span{
     color: red;
 }
-
 .trade-form h2{
     text-align: center;
     word-break: break-all;
 }
-
 .form-image{
     margin-top: 80px;
 }
-
 .upload-label {
     width: 100%;
     display: inline-block;
@@ -186,15 +144,12 @@
     border: 1px gray solid;
     text-align: center;
 }
-
 .upload-label input {
     display: none;
 }
-
 .input {
     display: none;
 }
-
 .sample-img {
     border: 1px solid gray;
     border-radius: 20px;
@@ -204,13 +159,11 @@
     height: calc(40vw - 20px);
     text-align: center;
 }
-
 .sample-img-size {
     width: calc(40vw - 20px);
     height: calc(40vw - 20px);
     object-fit: cover;
 }
-
 .open {
 	cursor:pointer;
 }
@@ -230,7 +183,6 @@
 	z-index: 9999;
 	background: rgba(0, 0, 0, 0.6);
 }
-
 .window {
 	position: fixed;
 	top: 50%;
@@ -244,18 +196,15 @@
 	align-items: center;
 	transform: translate(-50%, -50%);
 }
-
 .close {
 	position: absolute;
 	top: 4px;
 	right: 4px;
 	cursor:pointer;
-} */
-
+}
 .form-name{
     margin-top: 80px;
 }
-
 .form-box{
     width: calc(100vw - 110px);
     border-radius: 20px;
@@ -263,42 +212,36 @@
     border: 1px solid gray;
     padding: 15px;
 }
-
 .form-hint{
     margin-top: 80px;
 }
-
 .form-hint p{
     font-size: 0.8em;
     word-break: break-all;
 }
-
 .tradeinfo-button{
     display: block;
     margin: 80px auto 0 auto;
-    height: 5%;
+    height: 115px;
     width: 30%;
-    font-size: 50px;
-    padding: 10px;
+    font-size: 40px;
+    padding: 30px 20px;
     box-sizing: border-box;
-    border: 5px solid #68779a;
-    border-radius: 10px;
-    background: #cbe8fa;
+    background-color: #0077ff;
+    border-radius: 20px;
+    border: 1px solid #0077ff;
+    color: white;
 }
-
 /* エラーメッセージの表示 */
 .prompt_2 {
     padding: 30px;
     color: rgba(119, 29, 29, 0.534);
 }
-
 .msg-size {
     height: 50px;
     color: rgba(119, 29, 29, 0.534);
     text-align: center;
 }
-
-
 /* 交換会終了後の表示 */
 .after-trade{
     margin-top: 150px;
@@ -307,7 +250,6 @@
     text-align: center;
     display: block;
 }
-
 .btn-switch{
     font-size: 40px;
     width: 250px;
@@ -335,28 +277,29 @@
     border: solid 2px black;
 }
 .sending-confirmation{
-    align-items: flex-end;
-    width: calc(30vw);
-    height: calc(10vw);
-    font-size: 40px;
-    min-width: 130px;
-    color: #fff;
-    padding: 5px 10px;
+    display: block;
+    margin: 80px auto 0 auto;
+    width: 40%;
+    padding: 30px 20px;
     font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
     border-radius: 5px;
     border: none;
     background: #efefef;
     box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
     color: #585858;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
 }
-.sending-confirmation:active{
-    box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
+.sending-button{
+    display: block;
+    margin: 80px auto 0 auto;
+    height: 115px;
+    width: 40%;
+    font-size: 40px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    background-color: #0077ff;
+    border-radius: 20px;
+    border: 1px solid #0077ff;
+    color: white;
 }
 .img-gift{
     width: calc(100vw - 80px);
@@ -373,7 +316,6 @@
 .gift-name-font{
     font-size: 60px;
 }
-
 /* 投稿後の交換物の表示 */
 .post-goods{
     margin-top: 250px;

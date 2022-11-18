@@ -50,7 +50,7 @@
         array_push($theme_array, $trade_info['theme2']);
     }
     if(isset($trade_info['theme3'])){
-            array_push($theme_array, $trade_info['theme3']);
+        array_push($theme_array, $trade_info['theme3']);
     }
 
     // 交換会の説明文と説明文のバイト数を変数に追加
@@ -226,10 +226,10 @@
                         </div>
                         <?php if($receive_info['confirm'] == 0){  ?>
                             <form method="POST" action="">
-                                <button type="submit" class="sending-confirmation" name="done_receipt">受け取り完了</button>
+                                <button type="submit" class="sending-button" name="done_receipt">受け取り完了</button>
                             </form>
                         <?php }elseif($receive_info['confirm'] == 1){ ?>
-                            <button class="sending-confirmation">受け取り済み</button>
+                            <div class="sending-confirmation">受け取り済み</div>
                         <?php } ?>
                     </div>
 
@@ -348,7 +348,6 @@
                                 <p><?php echo $post_goods_info['goods_hint']; ?></p>
                             <?php } ?>
                         </div>
-
                     </div>
                 <?php } ?>
             <?php } ?>

@@ -68,8 +68,8 @@
         if($signUpMessage == ''){
     ?>
         <h1>アカウント作成</h1>
-        <div>
-            <font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font>
+        <div class="prompt_2">
+            <p><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></p>
         </div>
 
         <div class="lnk-sakusei-div">
@@ -89,7 +89,7 @@
             <div>
                 <input type="password" class="check" name="password2" maxlength="64" id="NA-effect" placeholder="パスワード再入力" required>
             </div>
-            <input type="submit" class="btn-create btn-style" name="signup" value="アカウント作成">
+            <input type="submit" class="create-button" name="signup" value="アカウント作成">
         </form>
 
     <!-- 登録完了のメッセージを受け取っているとき -->

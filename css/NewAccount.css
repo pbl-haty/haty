@@ -35,6 +35,7 @@ body{
     text-align: right;
     margin-top: 30px;
     margin-bottom: 60px;
+    margin-right: 45px;
 }
 
 .lnk-sakusei{
@@ -61,4 +62,27 @@ body{
 }
 .btn-style:active {
     box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
+}
+.create-button{
+    width: calc(80vw - 100px);
+    height: 40px;
+    margin: 80px auto 0 auto;
+    font-size: 20px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #0077ff;
+    border-radius: 5px;
+    border: 1px solid #0077ff;
+    color: white;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.prompt_2 {
+    text-align: center;
+    font-weight: bold;
+    color: rgba(119, 29, 29, 0.534);
 }
