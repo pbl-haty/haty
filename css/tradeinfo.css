@@ -269,7 +269,7 @@
 }
 
 .form-hint p{
-    font-size: 0.8em;
+    font-size: 0.7em;
     word-break: break-all;
 }
 
@@ -401,4 +401,8 @@
     overflow: inherit;
     word-wrap: break-word;
     padding: 10px 20px;
+}
+/*編集画面のサイズ調整用*/
+.tradeinfo-edit{
+    padding: 40px;
 }
