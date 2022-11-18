@@ -108,17 +108,7 @@ if (empty($giftgroup)) {
                             }
                             ?>
                             </ul>
-                            <div style="display:flex;">
-                                <!-- ギフトの修正ボタン -->
-                                <div class="edit_button_frame">
-                                    <?php if ($userId == $gift_info['user_id']) { ?>
-                                        <div class="edit_button">
-                                            <a href="gift_detail_edit.php?id=<?php echo $giftId; ?>"><button>ギフト編集</button></a>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                                <p class="gift_name"><?php echo $gift_info['gift_name']; ?></p>
-
+                            <div class="display_flex">
                                 <div class="button-list2">
                                     <div class="good_count">
                                         <form action="gift_detail_backend.php" method="post" class="good_sentence">
@@ -129,17 +119,26 @@ if (empty($giftgroup)) {
                                                 <button type="submit" name="favorite_before" class="favorite_before"></button>
                                                 <div class="good_number_before">
                                                     <!-- いいねを押した人の一覧に遷移する（予定） -->
-                                                    <a href="#" class="good_count_position"><?php echo $good; ?></a>
+                                                    <!-- <a href="#" class="good_count_position"><?php echo $good; ?></a> -->
                                                 </div>
                                             <?php } else { ?>
                                                 <button type="submit" name="favorite_after" class="favorite_after"></button>
                                                 <div class="good_number_after">
                                                     <!-- いいねを押した人の一覧に遷移する（予定） -->
-                                                    <a href="#" class="good_count_position"><?php echo $good; ?></a>
+                                                    <!-- <a href="#" class="good_count_position"><?php echo $good; ?></a> -->
                                                 </div>
                                             <?php } ?>
                                         </form>
                                     </div>
+                                </div>
+
+                                <p class="gift_name"><?php echo $gift_info['gift_name']; ?></p>
+
+                                <!-- ギフトの修正ボタン -->
+                                <div class="edit_button_frame">
+                                    <?php if ($userId == $gift_info['user_id']) { ?>
+                                        <a class="edit_button" href="gift_detail_edit.php?id=<?php echo $giftId; ?>"><button>編集</button></a>
+                                    <?php } ?>
                                 </div>
                             </div>
 
@@ -154,21 +153,7 @@ if (empty($giftgroup)) {
                                 </div>
                             </div>
 
-
-                            <hr>
-
-                            <div class="gift_explain">
-                                <p class="explain_sentence">ギフト詳細</p>
-                                <p class="once_sentence">
-                                    <?php
-                                    if (empty($gift_info['giftcomment'])) {
-                                        echo '詳細コメントがありません。';
-                                    } else {
-                                        echo $gift_info['giftcomment'];
-                                    }
-                                    ?>
-                                </p>
-                            </div>
+                            <!-- <p class="explain_sentence">ギフト詳細</p> -->
 
                             <table class="gift_table">
                                 <tr>
@@ -199,6 +184,18 @@ if (empty($giftgroup)) {
                                     </td>
                                 </tr>
                             </table>
+
+                            <div class="gift_explain">
+                                <p class="once_sentence">
+                                    <?php
+                                    if (empty($gift_info['giftcomment'])) {
+                                        echo '詳細コメントがありません。';
+                                    } else {
+                                        echo $gift_info['giftcomment'];
+                                    }
+                                    ?>
+                                </p>
+                            </div>
 
                             <?php if ($userId == $gift_info['user_id']) {
                                 if (isset($gift_info['applicant']) && empty($gift_info['judge'])) {

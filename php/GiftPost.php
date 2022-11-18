@@ -13,12 +13,12 @@
         $giftcomment = $_POST['gift_comment'];
 
 
-        $group_name = filter_input(INPUT_POST, 'groupname', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
-        if (empty($group_name)) {
-            $msg = 'グループを選択してください。';
+        if (!isset($_POST['category']) || $_POST['category'] == -1) {
+            $msg = 'カテゴリを選択してください。';
         } else {
-            if (!isset($_POST['category']) || $_POST['category'] == -1) {
-                $msg = 'カテゴリを選択してください。';
+            $group_name = filter_input(INPUT_POST, 'groupname', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+            if (empty($group_name)) {
+                $msg = 'グループを選択してください。';
             } else {
                 $category_id = $_POST['category'];
                
@@ -66,19 +66,26 @@
     <br>
     <form method="POST" action="" class="header-margin-top" enctype="multipart/form-data">
 
-        <div class ="prompt_2">
-                <h4 class="msg-size" id="erms"><?= $msg ?></h4>
-        </div>
+        <?php
+            if(!empty($msg)) {
+                echo "<div class ='prompt_2'><h4 class='msg-size' id='erms'>$msg</h4></div>";
+            }                    
+        ?>
         <div class="box1" id="box1">
-            <h1 class="content-margin">商品画像</h1>
+            <div class="title-flex">
+                <h1 class="content-margin">商品画像</h1>
+                <p class="title-flex-tag2">最大４枚</p>
+            </div>
 
             <div id="sample-img" class="sample-img"></div>
                 <label class="upload-label">
                     画像を選択
                     <input type="file" id="input-img" onchange="loadImage(this);" name="image[]" accept="image/*" multiple required>
                 </label>
-
-            <h1 class="content-margin">商品名</h1>
+            <div class="title-flex">
+                <h1 class="content-margin">商品名</h1>
+                <p class="title-flex-tag2">最大３０文字</p>
+            </div>
 
             <div>
                 <input type="text" class="gift-title" maxlength="30" name="gift_name" id="gift_name" value="" required>
@@ -86,12 +93,35 @@
             </div>
         </div>
 
+        <div class="box3" id="box3">
+            <div class="title-flex">
+                <h1 class="content-margin">カテゴリ</h1>
+            </div>
+       
+            <div class="content-check">
+                <select name="category" class="example-category">
+                    <option value="-1" class="category-content-center">選択してください</option>;
+                    <?php
+                        $gift_category = $post->giftcategory();
+                        $cnt = 0;
+                        foreach ($gift_category as $category) {
+                            echo '<option value="' . $cnt . '">' . $category['category_name'] . '</option>';
+                            $cnt++;
+                        }
+                    ?>
+                </select>
+            </div>
+
+        </div>
+
         <div class="box2" id="box2">
-            <h1 class="content-margin">グループ選択</h1>
+            <div class="title-flex">
+                <h1 class="content-margin">グループ選択</h1>
+                <p class="title-flex-tag2">複数選択可</p>
+            </div>
 
             <div class="content-check">
         
-
 <?php 
     $group = new Group();
     $group_join = $group->groupjoin($userId);
@@ -124,27 +154,12 @@
         </div>
 
         </div>
-        <div class="box3" id="box3">
-            <h1 class="content-margin">カテゴリ</h1>
 
-       
-            <div class="content-check">
-                <select name="category" class="example-category">
-                    <option value="-1" class="category-content-center">ーーー　選択してください　ーーー</option>;
-                    <?php
-                        $gift_category = $post->giftcategory();
-                        $cnt = 0;
-                        foreach ($gift_category as $category) {
-                            echo '<option value="' . $cnt . '">' . $category['category_name'] . '</option>';
-                            $cnt++;
-                        }
-                    ?>
-                </select>
-            </div>
-
-            </div>
         <div class="box4" id="box4">
-            <h1 class="content-margin">取引方法</h1>
+            <div class="title-flex">
+                <h1 class="content-margin">取引方法</h1>
+                <p class="title-flex-tag2">複数選択可</p>
+            </div>
 
             <div class="content-check">
                 <div class="trade-box margin-r">
@@ -162,10 +177,14 @@
                     </label>
                 </div>
             </div>
+
+            <div class="title-flex">
+                <p class="title-flex-tag1">任意</p>
+                <h1 class="content-margin">詳細情報</h1>
+                <p class="title-flex-tag2">最大４００文字</p>
+            </div>
             
-            <h1 class="content-margin">詳細情報（任意）</h1>
-            
-            <textarea class="Detailed-information" rows="5" name="gift_comment" value=""></textarea>
+            <textarea class="Detailed-information" rows="5" name="gift_comment" value="" maxlength="400"></textarea>
         </div>
         <br>
         <input type="submit" name="giftpost" class="form-btn" value="投稿">
