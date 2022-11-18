@@ -3,7 +3,7 @@ body {
 }
 
 .gift_detail {
-    font-size: 30px;
+    font-size: 35px;
     margin-top: 10px;
     padding: 0 20px;
     margin-bottom: 100px;
@@ -84,9 +84,9 @@ input[name="tab_item"] {
 .gift_name {
     text-align: center;
     font-weight: bold;
-    font-size: 60px;
-    margin: 50px 0;
-    width: calc(100% / 2)
+    font-size: 55px;
+    margin: 50px 0 50px 120px;
+    width: calc(100% - 240px);
 }
 
 .button_list1 {
@@ -96,8 +96,6 @@ input[name="tab_item"] {
 
 .gift_post {
     align-items: center;
-    padding: 0 30px;
-    /* width: 30%; */
 }
 
 .gift_post h4 {
@@ -109,7 +107,8 @@ input[name="tab_item"] {
     height: 120px;
     margin: 30px 0;
     color: blue;
-    /* display: flex; */
+    display: flex;
+    align-items: center;
     text-decoration: none;
 }
 
@@ -122,8 +121,7 @@ input[name="tab_item"] {
 }
 
 .gift_post_detail p {
-    /* padding-left: 20px; */
-    /* display: flex; */
+    padding-left: 30px;
     justify-content: center;
     align-items: center;
 }
@@ -131,7 +129,6 @@ input[name="tab_item"] {
 .gift_contributor {
     color: black;
     text-indent: 20px;
-    width: 500px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -174,9 +171,7 @@ input[name="tab_item"] {
 }
 
 .button-list2 {
-    margin: 0 0 0 auto;
     display: flex;
-    width: calc(100% / 4)
 }
 
 .good_count {
@@ -196,7 +191,7 @@ input[name="tab_item"] {
 .gift_table th {
     position: relative;
     text-align: left;
-    width: 50%;
+    width: calc(50% - 15px);
     white-space: nowrap;
     padding: 20px;
 
@@ -215,7 +210,7 @@ input[name="tab_item"] {
 
 .gift_table td {
     text-align: center;
-    width: 85%;
+    width: calc(50% - 15px);
 }
 
 .good_sentence {
@@ -223,12 +218,16 @@ input[name="tab_item"] {
     outline: none;
 }
 
+.display_flex {
+    display: flex;
+    align-items: center;
+}
 
 .favorite_before {
     position: absolute;
     width: 100px;
     height: 90px;
-    margin: -20px 0 0 50px;
+    margin: -20px 0 0 0;
 }
 
 .favorite_before:before,
@@ -264,7 +263,7 @@ input[name="tab_item"] {
     position: absolute;
     width: 100px;
     height: 90px;
-    margin: -20px 0 0 50px;
+    margin: -20px 0 0 0;
 }
 
 .favorite_after:before,
@@ -322,29 +321,13 @@ input[name="tab_item"] {
 }
 
 .edit_button_frame {
-    padding: 30px;
-    width: calc(100% / 4)
-}
-
-.edit_button {
-    padding: 30px;
-    width: calc(100% / 4)
+    width: 120px;
 }
 
 .edit_button button {
-    text-align: center;
-    margin-left: -50px;
-    width: 200px;
-    line-height: 120px;
-    min-width: 130px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    outline: none;
-    border: none;
-    background: #eef1f2;
-    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
-    color: rgb(40, 49, 53);
-    border-radius: 20%;
+    font-size: 40px;
+    color: #0077ff;
+    width: 100px;
 }
 
 .edit_button button:active {
