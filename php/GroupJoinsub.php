@@ -53,33 +53,37 @@
     <form method="post" action="">
 
             <h1 class="join-title">グループ参加</h1>
+            <a class="groupjoin-atag" href="GroupCreate.php">グループ作成はこちら</a>
 
             <!-- エラーメッセージもしくは変更完了メッセージの表示 -->
-            <div class="message-div">
-                <?php if(!empty($errormsg)){?>
-                    <div class="error_message">
+            <?php if(!empty($errormsg)){?>
+                <div class="message-div">
+                    <div class="prompt_2">
                         <p><?php echo $errormsg;?></p>
                     </div>
-                <?php }elseif(!empty($completionmsg)){ ?>
-                    <div class="completion_message">
+                </div>
+            <?php }elseif(!empty($completionmsg)){ ?>
+                <div class="message-div">
+                    <div class="prompt_3">
                         <p><?php echo $completionmsg;?></p>
                     </div>
-                <?php } ?>
-            </div>
+                </div>
+            <?php } ?>
 
-        
-            <h2 class="comment-title">グループコード</h2>
-            <div>
-                <input type="text" name="group_code" id="text-check" class="input-style" pattern="^[0-9a-zA-Z]+$" placeholder="グループコード" style="ime-mode:disabled;" required>
-            </div>
-            <h2 class="comment-title">パスワード</h2>
-            <div>
-                <input type="password" name="group_password" class="input-style" placeholder="パスワード" required>
-            </div>
+            <div class="input-area">
+                <h2 class="comment-title">グループコード</h2>
+                <div>
+                    <input type="text" name="group_code" id="text-check" class="input-style" pattern="^[0-9a-zA-Z]+$" style="ime-mode:disabled;" required>
+                </div>
+                <h2 class="comment-title">パスワード</h2>
+                <div>
+                    <input type="password" name="group_password" class="input-style" required>
+                </div>
 
-            <h2 class="comment-text"><span>グループコード</span>と<span>パスワード</span>を教えてもらい<br>グループに参加しましょう！<br></h2>
+                <h2 class="comment-text"><span>グループコード</span>と<span>パスワード</span>を教えてもらい<br>グループに参加しましょう！<br></h2>
 
-            <button class="btn-join btn-style" name="group_join">参加</button>
+                <button class="btn-join btn-style" name="group_join">参加</button>
+            </div>
         </form>
 
 
