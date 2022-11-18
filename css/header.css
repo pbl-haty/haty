@@ -210,3 +210,18 @@ html {
     background: #F00;
     border-radius: 50%;
 }
+
+/* 入力フォーム選択時の枠線 */
+input:focus {
+    outline: 0;
+    border-color : #0077ff;
+
+}
+select:focus {
+    outline: 0;
+    border-color : #0077ff;
+}
+textarea:focus {
+    outline: 0;
+    border-color : #0077ff;
+}
