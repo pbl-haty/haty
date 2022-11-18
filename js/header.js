@@ -3,16 +3,12 @@
 // });
 
 
-///全解除ボタンを取得する
+//全解除ボタンを取得する
 const uncheckBtn = document.getElementById("uncheck-btn");
 //チェックボックスを取得する
 const el = document.getElementsByClassName("checks");
 
 //全てのチェックボックスのチェックを外す
-const uncheckAll = () => {
-  for (let i = 0; i < el.length; i++) {
-    el[i].checked = false;
-  }
-};
+el.checked = false;
 //全選択ボタンをクリックした時「uncheckAll」を実行
 uncheckBtn.addEventListener("click", uncheckAll, false);

@@ -23,8 +23,7 @@ $count = $notifi->notifi_count($userId);
         <!-- <h1 class="title">HATY</h1> -->
     </a>
     <div class="hamburger-menu">
-        <input class="checks" type="checkbox" id="menu-btn-check">
-        <button id="uncheck-btn" type="button">全解除</button>
+        <input class="checks" type="checkbox" id="menu-btn-check" readonly="readonly">
         <label for="menu-btn-check" class="menu-btn">
             <?php
 
@@ -37,7 +36,7 @@ $count = $notifi->notifi_count($userId);
         <div class="menu-content" id="menu-content">
             <ul>
                 <li>
-                    <a href="home.php">
+                    <a href="home.php" class="uncheck-btn">
                         <div class="menu-content-border-none">
                             <img src="../static/home.png"></img>
                             ホーム
@@ -45,7 +44,7 @@ $count = $notifi->notifi_count($userId);
                     </a>
                 </li>
                 <li>
-                    <a href="MyPage.php">
+                    <a href="MyPage.php" class="uncheck-btn">
                         <div>
                             <img src="../static/mypage.png"></img>
                             マイページ
@@ -53,7 +52,7 @@ $count = $notifi->notifi_count($userId);
                     </a>
                 </li>
                 <li>
-                    <a href="GiftPost.php">
+                    <a href="GiftPost.php" class="uncheck-btn">
                         <div>
                             <img src="../static/post.png"></img>
                             投稿
@@ -61,7 +60,7 @@ $count = $notifi->notifi_count($userId);
                     </a>
                 </li>
                 <li>
-                    <a href="notification.php">
+                    <a href="notification.php" class="uncheck-btn">
                         <div class="position-relative">
                             <img class="notification" src="../static/notification.png">
                             通知
@@ -75,7 +74,7 @@ $count = $notifi->notifi_count($userId);
                     </a>
                 </li>
                 <li>
-                    <a href="help.php">
+                    <a href="help.php" class="uncheck-btn">
                         <div>
                             <img src="../static/help.png"></img>
                             ヘルプ
@@ -83,7 +82,7 @@ $count = $notifi->notifi_count($userId);
                     </a>
                 </li>
                 <li>
-                    <a href="logout.php">
+                    <a href="logout.php" class="uncheck-btn">
                         <div>
                             <img src="../static/logout.png"></img>
                             ログアウト
