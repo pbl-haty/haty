@@ -138,7 +138,7 @@ if (!$holding_flag) {
                         <div id="inputArea">
                             <input type="text" name="theme[]" class="exchange-theme-area" placeholder="（例）3000円以下、身に着けるもの、季節もの 等" maxlength="30">
                             <button type="button" id="add" class="exchanege-theme-button">追加</button>
-                            <button type="button" id="del" class="exchanege-theme-button">削除</button>
+                            <button type="button" id="del" class="exchanege-theme-button delete-button">削除</button>
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@ if (!$holding_flag) {
                 <div>
                     <div class="flex-title">
                         <h1>説明文</h1>
-                        <p>最大30文字</p>
+                        <p>最大400文字</p>
                     </div>
                     <input type="hidden" id="explain_check" name="explain_check" value="Ok">
                     <input class="exchange-exit" type="radio" id="explain-disp" name="explain" onclick="buttonClick_explain()" checked>あり
@@ -160,7 +160,7 @@ if (!$holding_flag) {
 
                 <!-- 終了日入力 -->
                 <div>
-                    <p class="exchange-finish"><span> * </span>交換会の終了日</p>
+                    <p class="exchange-finish">交換会の終了日</p>
                     <p>開催期間終了日を下記からひとつ選択してください</p>
                     <p>今日: <span id="today" class="exchange-tody"></span></p>
                     <input type="hidden" id="end_date" name="end_date" value="">
