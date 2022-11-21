@@ -9,7 +9,7 @@
         <h2>投稿商品修正</h2>
         <div class="form-image">
             <div class="trade-box">
-                <h3 class="trade-left"><span> * </span>交換画像</h3>
+                <h3 class="trade-left">商品画像</h3>
                 <p class="trade-right">最大1枚</p>
             </div>
             <div id="sample-img" class="sample-img">
@@ -23,7 +23,7 @@
 
         <div class="form-name">
             <div class="trade-box">
-                <h3 class="trade-left"><span> * </span>交換名</h3>
+                <h3 class="trade-left">商品名</h3>
                 <p class="trade-right">最大30文字</p>
             </div>
             <input type="text" class="form-box" name="goods_name" maxlength="30" value="まんとる" required>
@@ -32,8 +32,9 @@
 
         <div class="form-hint">
             <div class="trade-box">
-                <h3 class="trade-left">ヒント</h3>
-                <p class="trade-right">最大30文字</p>
+                <p class="title-flex-tag1" style="margin-bottom: 0px;">任意</p>
+                <h3 class="trade-left" style="margin-bottom: 15px;">ヒント</h3>
+                <p class="trade-right" style="margin-bottom: 20px;">最大30文字</p>
             </div>
             <p>交換されるまでメンバーに表示される交換物のヒントを書こう！</p>
             <input type="text" class="form-box" name="goods_hint" maxlength="30" value="でかい" placeholder="（例）形・色の特徴など">
