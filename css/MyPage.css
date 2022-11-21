@@ -1,16 +1,69 @@
 body{
     display: block;
 }
+
+input[name="tab_item"] {
+    display: none;
+}
+
+.display {
+    display: none !important;
+    clear: both;
+    overflow: hidden;
+}
+
+/*選択されているタブのコンテンツのみを表示*/
+#tab_0:checked ~ #tab_content_0,
+#tab_1:checked ~ #tab_content_1,
+#tab_2:checked ~ #tab_content_2,
+#tab_3:checked ~ #tab_content_3,
+#tab_4:checked ~ #tab_content_4
+{
+    display: flex !important;
+}
+
+/* タブ */
+.scroll-nav {
+    padding: 0px 20px;
+    border-radius: 15px;
+    width: 1250px;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+}
+
+.scroll-nav label {
+    text-align: center;
+    font-size: 40px;
+    width: 250px;
+    padding: 40px 0;
+    background-color: white;
+    color: gray;
+    border: none;
+}
+
+/*選択されているタブのスタイルを変える*/
+#tab_0:checked ~ .nav-wrap > .scroll-nav > #tab_item_0,
+#tab_1:checked ~ .nav-wrap > .scroll-nav > #tab_item_1,
+#tab_2:checked ~ .nav-wrap > .scroll-nav > #tab_item_2,
+#tab_3:checked ~ .nav-wrap > .scroll-nav > #tab_item_3,
+#tab_4:checked ~ .nav-wrap > .scroll-nav > #tab_item_4
+{
+    color: black;
+    font-weight: bold;
+    border-bottom: 10px solid #3f97fa;
+}
+
 .user-nameid{
-    margin-left: 20px;
-    width: calc(100vw - 310px);
+    width: calc(100vw - 40px);
     display: inline-block;
 }
+
 .user-name-object{
-    display: flex;
+    text-align: center;
     margin-top: 30px;
     margin-left: 20px;
 }
+
 .img-icon{
     width: 250px;
     height: 250px;
@@ -18,19 +71,22 @@ body{
     border-radius: 100%;
     border: solid 1px gray;
 }
+
 .user-info{
-    display: flex;
-    align-items: center;
-    height: 125px;
+    text-align: center;
+    line-height: 1.5;
     margin: 0;
-    font-size: 40px;
+    font-weight: bold;
+    font-size: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
     overflow-wrap: break-word;
     word-break: break-all;
+    padding: 30px 0;
 }
 .user-mailaddress{
-    font-size: 30px;
+    font-size: 40px;
+    font-weight: normal;
 }
 
 .textarea-content{
@@ -44,7 +100,7 @@ body{
 
 .textarea-content p{
     margin: 0;
-    padding: 10px;
+    padding: 20px;
     font-size: 30px;
     line-height: 1.5;
 }
@@ -87,40 +143,24 @@ body{
 }
 
 .nav-wrap {
+    border-top: solid 3px #bbb;
+    border-bottom: solid 3px #bbb;
     position: sticky;/*固定する*/
     position: -webkit-sticky;/*Safari用ベンダープレフィックス*/
-    top: 150px;/*ブラウザの上からの距離はゼロ*/
+    top: 144px;/*ブラウザの上からの距離はゼロ*/
     -ms-overflow-style: none;
     overflow-x: auto;
-    margin: 30px 0;
     background-color: white;
+    /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+    -ms-overflow-style: none;
+    /*Firefoxへの対応*/
+    scrollbar-width: none;
 }
 
-/* タブ */
-.scroll-nav {
-    margin: 0 20px;
-    border-radius: 15px;
-    width: 1750px;
-    min-width: 100%;
-    -webkit-overflow-scrolling: touch;
-    display: flex;
+ /*Google Chrome、Safariへの対応*/
+.nav-wrap::-webkit-scrollbar{
+    display: none;
 }
-
-.scroll-nav button {
-    font-size: 40px;
-    width: 250px;
-    padding: 30px 0;
-    background-color: white;
-    color: gray;
-    border: none;
-}
-
-.scroll-nav button:hover {
-    color: black;
-    font-weight: bold;
-}
-
-
 
 /* ユーザープロフィールナビ 　横スクロール無し*/
 .user-profile-nav{
@@ -129,22 +169,4 @@ body{
     top: 150px;/*ブラウザの上からの距離はゼロ*/
     -ms-overflow-style: none;
     margin: 30px 0;
-}
-
-.nav-contents{
-    min-width: 100%;
-    display: flex;
-}
-
-.nav-contents button{
-    font-size: 40px;
-    width : calc(100% / 3);
-    padding: 30px 0;
-    background-color: white;
-    color: gray;
-    border: none;
-}
-
-.nav-contents button:hover{
-    color: black;
 }
