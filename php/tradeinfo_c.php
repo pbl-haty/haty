@@ -31,10 +31,10 @@
         </div>
 
         <div class="form-hint">
-            <div class="trade-box">
-                <p class="title-flex-tag1" style="margin-bottom: 0px;">任意</p>
-                <h3 class="trade-left" style="margin-bottom: 15px;">ヒント</h3>
-                <p class="trade-right" style="margin-bottom: 20px;">最大30文字</p>
+            <div class="title-flex">
+                <p class="title-flex-tag1">任意</p>
+                <h1 class="content-margin">ヒント</h1>
+                <p class="title-flex-tag2">最大３０文字</p>
             </div>
             <p>交換されるまでメンバーに表示される交換物のヒントを書こう！</p>
             <input type="text" class="form-box" name="goods_hint" maxlength="30" value="でかい" placeholder="（例）形・色の特徴など">
