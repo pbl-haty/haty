@@ -130,6 +130,8 @@ if (empty($giftgroup)) {
                                         <?php
                                             if ($userId == $gift_info['user_id']) {
                                                 echo "<p class='cnt-good'>$good</p>";
+                                            } else {
+                                                echo "<p class='cnt-margin'></p>";
                                             }
                                         ?>
                                     </div>
