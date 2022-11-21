@@ -2,29 +2,29 @@ body{
     display:block;
     text-align: center;
 }
-
+.file-title{
+    margin-bottom: 60px;
+}
+.file-title h1{
+    font-size: 70px;
+}
+.file-title a{
+    font-size: 30px;
+    color: blue;
+}
 .icon-flame{
     border: dotted 2px black;
     border-radius: 50%;
     margin: 0 auto;
-    width: calc(40vw - 20px);
-    height: calc(40vw - 20px);
+    width: calc(35vw - 20px);
+    height: calc(35vw - 20px);
 }
 .icon-img {
     border-radius: 50%;
     margin: 0 auto;
-    width: calc(40vw - 20px);
-    height: calc(40vw - 20px);
+    width: calc(35vw - 20px);
+    height: calc(35vw - 20px);
     object-fit: cover;
-}
-
-.text-box{
-    height: calc(10vw - 10px);
-    width: calc(100vw - 100px);
-    border: solid 2px black;
-    font-size: 40px;
-    padding: 20px;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .btn-create{
     width: calc(30vw);
@@ -32,51 +32,32 @@ body{
     font-size: 40px;
 }
 .btn-style{
-    min-width: 130px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
     display: inline-block;
-    outline: none;
-    border-radius: 5px;
-    border: none;
-    background: #efefef;
-    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
-    color: #585858;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
-}
-.btn-style:active {
-    box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
-}
-.btn-select{
-    font-size: 40px;
-    margin-top: 30px;
-    width: calc(30vw);
-    padding: 30px;
-    
+    margin: 30px 0 0 0;
+    padding: 30px 0;
+    color: black;
+    font-size: 30px;
+    border-radius: 20px;
+    border: 1px gray solid;
+    width: 30%;
 }
 .btn-style input {
     display: none;
 }
-
 .prompt_2 {
     text-align: center;
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
 }
-
 .header-margin-top {
-
     margin-top: 200px;
+    padding: 0 20px;
 }
-
-.create-title{
-    font-size: 70px;
+.a-tag{
+    font-size: 30px;
+    color: blue;
+    padding-bottom: 60px;
 }
-
 .group-create-button{
     display: block;
     margin: 80px auto 0 auto;
@@ -90,29 +71,32 @@ body{
     border: 1px solid #0077ff;
     color: white;
 }
-
 .must input{
     caret-color: transparent;
 }
-
-.must::before {
-    content: '＊';
-    color: red;
-    font-size: 30px;
-    text-indent: 10px;
-    display: inline-block;
-    width: 0;
-}
-
-.must input {
-    background: transparent;
-}
-  
 .must input:valid {
     background: #fff;
 }
-
-.must input::placeholder {
-    text-indent: 15px;
-
+.flex-title{
+    display: flex;
+    margin: 60px 0 30px 0;
+}
+.input-title{
+    margin: auto 0 auto 20px;
+    font-size: 50px;
+    text-align: left;
+}
+.precautions{
+    font-size: 35px;
+    margin: auto 0 0 auto;
+}
+.text-box{
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid black;
+    text-indent: 20px;
+    font-size: 30px;
+    padding: 30px 0;
+    box-sizing: border-box;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }

@@ -10,21 +10,17 @@ body{
     margin-top: 110px;
     font-size: 20px;
 }
-#NA-effect{
-    width: calc(100vw - 100px);
-    height: 30px;
+.create-form{
+    padding: 0 20px;
+}
+.input-form{
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid gray;
     text-indent: 20px;
-    font-size: 16px;
-    margin-top: 20px;
+    height: 40px;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
-#NA-effect::placeholder{
-    text-indent: 20px;
-}
-#NA-effect:focus{
-    outline: 0;
-    border-color: blue;
-}
-
 .autologin-div {
     margin: 0 50px;
     text-align: left;
@@ -34,8 +30,8 @@ body{
     margin: 0 10px;
     text-align: right;
     margin-top: 30px;
-    margin-bottom: 60px;
-    margin-right: 45px;
+    margin-bottom: 30px;
+    margin-right: 25px;
 }
 
 .lnk-sakusei{
@@ -85,4 +81,30 @@ body{
     text-align: center;
     font-weight: bold;
     color: rgba(119, 29, 29, 0.534);
+}
+.content-flex{
+    display: flex;
+    margin: 5px 0;
+}
+.content-flex h1{
+    font-size: 15px;
+    text-align: left;
+}
+.content-flex p{
+    font-size: 15px;
+    margin: 10px 0 0 auto;
+}
+/* 入力フォーム選択時の枠線 */
+input:focus {
+    outline: 0;
+    border-color : #0077ff;
+
+}
+select:focus {
+    outline: 0;
+    border-color : #0077ff;
+}
+textarea:focus {
+    outline: 0;
+    border-color : #0077ff;
 }

@@ -87,16 +87,25 @@
 
             <div class="edit_border">
                 <div class="edit_input">
-                    <p>ユーザーネーム</p>
-                    <input type="text" name="name_edit" class="name_edit" value=<?php echo $result['name']; ?>>
+                    <div class="flex-content">
+                        <h1>ユーザーネーム</h1>
+                        <p>最大30文字</p>
+                    </div>
+                    <input type="text" name="name_edit" class="name_edit" maxlength="30" value=<?php echo $result['name']; ?>>
                 </div>
                 <div class="edit_input">
-                    <p>メールアドレス</p>
-                    <input type="email" name="email_edit" class="email_edit" value=<?php echo $result['mailaddress'] ?>>
+                    <div class="flex-content">
+                        <h1>メールアドレス</h1>
+                        <p>最大100文字</p>
+                    </div>
+                    <input type="email" name="email_edit" class="email_edit" maxlength="100" value=<?php echo $result['mailaddress'] ?>>
                 </div>
                 <div class="edit_input">
-                    <p>コメント</p>
-                    <textarea name="comment_edit" class="comment_edit" ><?php echo $result['comment'] ?></textarea>
+                    <div class="flex-content">
+                        <h1>コメント</h1>
+                        <p>最大400文字</p>
+                    </div>
+                    <textarea name="comment_edit" class="comment_edit" maxlength="400"><?php echo $result['comment'] ?></textarea>
                 </div>
             </div>
 

@@ -3,7 +3,7 @@ body{
     text-align: center;
 }
 .join-title{
-    margin-top: 260px;
+    margin-top: 180px;
     font-size: 70px;
 }
 .img-join{
@@ -13,6 +13,20 @@ body{
     width: calc(40vw - 20px);
     height: calc(40vw - 20px);
     object-fit: cover;
+    border: 5px solid black;
+}
+.pass-area{
+    padding: 0 30px;
+}
+.pass-title{
+    margin: 60px 0 30px 0;
+    font-size: 50px;
+    text-align: left;
+    font-weight: bold;
+}
+.pass-explain{
+    font-size: 30px;
+    text-align: left;
 }
 .input-style{
     margin-top: 50px;
@@ -30,21 +44,17 @@ body{
     font-size: 40px;
 }
 .btn-style{
-    min-width: 130px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 5px;
-    border: none;
-    background: #efefef;
-    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
-    color: #585858;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+    display: block;
+    margin: 80px auto 0 auto;
+    height: 115px;
+    width: 30%;
+    font-size: 40px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    background-color: #0077ff;
+    border-radius: 20px;
+    border: 1px solid #0077ff;
+    color: white;
 }
 .btn-style:active {
     box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
@@ -64,12 +74,18 @@ body{
     color: rgba(119, 29, 29, 0.534);
 }
 
+.home-atag{
+    font-size: 30px;
+    color: blue;
+}
+
 .input-pass{
-    margin-top: 50px;
-    height: calc(10vw - 10px);
-    width: calc(100vw - 100px);
-    border: solid 2px black;
-    font-size: 40px;
-    padding: 20px;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid black;
+    text-indent: 20px;
+    font-size: 30px;
+    padding: 30px 0;
+    box-sizing: border-box;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }

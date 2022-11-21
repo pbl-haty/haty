@@ -37,9 +37,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>ログイン</title>
 </head>
 <body>
@@ -56,11 +53,17 @@
         <a href="NewAccount.php" class="lnk-sakusei btn-style">アカウント作成</a> 
     </div>
 
-    <form method="POST" action="" >
+    <form method="POST" action="" class="login-form">
         <!-- <p class="login-text">メールアドレス</p> -->
-        <input type="email" class="id" name="login_email" placeholder="メールアドレス" id="lg-effect" maxlength="100" required><br>
+        <div class="content-flex">
+            <h1>メールアドレス</h1>
+        </div>
+        <input type="email" class="input-form" name="login_email"  maxlength="100" required>
         <!-- <p class="login-text">パスワード</p> -->
-        <input type="password" class="pass" name="login_pass" placeholder="パスワード" id="lg-effect" maxlenght="64" required>
+        <div class="content-flex">
+            <h1>パスワード</h1>
+        </div>
+        <input type="password" class="input-form" name="login_pass" maxlenght="64" required>
 
         <div class="autologin-div">
             <input type="checkbox" id="login" class="login">

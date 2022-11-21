@@ -61,12 +61,20 @@
                     <a href="profile_edit.php">プロフィール変更はこちら</a>
                 </div>
                 <div class="password_input">
-                    <p>現在のパスワードを入力</p>
-                    <input type="password" class="edit_password_place" name="current_password" required>
-                    <p>新しいパスワードを入力</p>
-                    <input type="password" class="edit_password_place" name="new_password1" required>
-                    <p>新しいパスワードの確認</p>
-                    <input type="password" class="edit_password_place" name="new_password2" required>
+                    <div class="content-flex">
+                        <h1>現在のパスワード</h1>
+                        <p>最大400文字</p>
+                    </div>
+                    <input type="password" class="edit_password_place" name="current_password" maxlength="400" required>
+                    <div class="content-flex">
+                        <h1>新しいパスワード</h1>
+                        <p>最大400文字</p>
+                    </div>
+                    <input type="password" class="edit_password_place" name="new_password1" maxlength="400" required>
+                    <div class="content-flex">
+                        <h1>新しいパスワード再入力</h1>
+                    </div>
+                    <input type="password" class="edit_password_place" name="new_password2" maxlength="400" required>
                 </div>
             </div>
             <div class="edit_btn_center">

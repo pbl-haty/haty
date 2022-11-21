@@ -1,6 +1,10 @@
+.all-content{
+    margin-top: 180px;
+    padding: 0 30px;
+}
+
 .exchange {
     font-size: 32px;
-    padding: 30px;
 }
 .exchange-title {
     margin-top: 180px;
@@ -10,22 +14,32 @@
     color: red;
 }
 .exchange-title-name {
-    border-color: black;
-    padding: 40px;
-    font-size: 40px;
-    width: 90%;
-    border: solid 5px black;
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid black;
+    text-indent: 20px;
+    font-size: 30px;
+    padding: 30px 0;
+    box-sizing: border-box;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 .exchange-explain {
     margin: 120px 50px 50px 0;
     font-size: 40px;
 }
+.explain-form{
+    font-size: 20px;
+}
 .exchange-explain-area {
-    width: 95%;
-    height: 400px;
-    padding: 10px;
-    border: solid 5px black;
-    margin: 0 auto;
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+    border: 2px solid black;
+    text-indent: 20px;
+    font-size: 30px;
+    padding: 30px 0;
+    box-sizing: border-box;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 .exchange-explain-area.break {
     overflow-wrap: break-all;
@@ -37,20 +51,23 @@
 .exchange-exit {
     margin: 50px;
     font-size: 40px;
-    transform: scale(8.0);
+    transform: scale(6.0);
 }
 .exchange-none {
     margin: 50px;
     font-size: 40px;
-    transform: scale(8.0);
+    transform: scale(6.0);
 }
 .exchange-theme-area {
-    font-size: 32px;
-    width: 900px;
-    min-height: 100px;
-    padding: 10px;
-    border: solid 5px black;
-    margin-top: 40px;
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border: 2px solid black;
+    text-indent: 20px;
+    font-size: 30px;
+    padding: 30px 0;
+    box-sizing: border-box;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 .exchange-theme-area-2 {
     font-size: 32px;
@@ -71,7 +88,12 @@
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #68779a;
-    background: #cbe8fa;
+    border-radius: 20px;
+    background: #0077ff;
+    color: white;
+}
+.delete-button{
+    background: #e60033;
 }
 .display-none {
     display: none;
@@ -81,15 +103,10 @@ input {
     box-shadow: 0;
     border: 1px solid #ccc;
 }
-#inputArea {
-    display: inline-block;
-}
 .exchange-finish {
-    margin: 120px 50px 50px 0;
-    font-size: 40px;
-}
-.exchange-finish span{
-    color: red;
+    margin: 80px 0px 50px 0;
+    font-size: 50px;
+    font-weight: bold;
 }
 .exchange-calendar {
     font-size: 40px;
@@ -117,7 +134,7 @@ input {
 }
 .exchange-finishday{
     margin:50px;
-    transform: scale(8.0);
+    transform: scale(6.0);
 }
 /* エラーメッセージの表示 */
 .prompt_2 {
@@ -129,4 +146,19 @@ input {
 .msg-size {
     height: 50px;
     margin: 180px 0 30px 0;
+}
+
+
+.flex-title{
+    display: flex;
+    margin: 80px 0 30px 0;
+}
+.flex-title h1{
+    margin: auto 0 auto 20px;
+    font-size: 50px;
+    text-align: left;
+}
+.flex-title p{
+    font-size: 35px;
+    margin: auto 0 0 auto;
 }

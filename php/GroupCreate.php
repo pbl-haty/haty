@@ -40,28 +40,40 @@
 <br>
     <form method="POST" action="" class="header-margin-top" enctype="multipart/form-data">
 
-        
-        <h1 class="create-title">グループ作成</h1>
+        <div class="file-title">
+            <h1>グループ作成</h1>
+            <a href="GroupJoinsub.php">グループ参加はこちら</a>
+        </div>
 
         <div class="icon-flame" id="icon-flame">
-
-                <img class="icon-img" src="../static/user.png" id="icon-flame2">
-
+            <img class="icon-img" src="../static/user.png" id="icon-flame2">
         </div>
-            <label class="btn-style btn-select">
+            <label class="btn-style">
                 画像を選択
                 <input type="file" id="input-img" onchange="loadImage(this);" name="image" accept="image/*">
             </label>
 
-        <div class="must">
-            <input class="text-box" type="text" style="margin-top: 50px;" name="group_name" placeholder="グループ名（最大30文字）" maxlength="30" required>
+        <div class="flex-title">
+            <h1 class="input-title">グループ名</h1>
+            <p class="precautions">最大30文字</p>
         </div>
         <div class="must">
-            <input class="text-box" type="password" style="margin-top: 50px;" name="group_pass" placeholder="パスワード（最大32文字）" maxlength="30" required>
+            <input class="text-box" type="text" name="group_name" maxlength="30" required>
         </div>
-        <div class="must">
-            <input class="text-box" type="password" style="margin-top: 10px;" name="group_repass" placeholder="パスワード再入力" maxlength="30" required>
 
+        <div class="flex-title">
+            <h1 class="input-title">グループパスワード</h1>
+            <p class="precautions">最大30文字</p>
+        </div>
+        <div class="must">
+            <input class="text-box" type="password" name="group_pass" maxlength="30" required>
+        </div>
+
+        <div class="flex-title">
+            <h1 class="input-title">グループパスワード再入力</h1>
+        </div>
+        <div class="must">
+            <input class="text-box" type="password" name="group_repass" maxlength="30" required>
         </div>
 
         <div class ="prompt_2">
