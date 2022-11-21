@@ -76,18 +76,32 @@
             <a href="login.php" class="lnk-sakusei btn-style">ログイン</a>
         </div>
 
-        <form action="" method="POST">
+        <form action="" method="POST" class="create-form">
             <div>
-                <input type="text" class="name" name="signup_name" maxlength="30" id="NA-effect" placeholder="ユーザーネーム" required>
+                <div class="content-flex">
+                    <h1>ユーザーネーム</h1>
+                    <p>最大30文字</p>
+                </div>
+                <input type="text" class="input-form" name="signup_name" maxlength="30"  placeholder="ユーザーネーム" required>
             </div>
             <div>
-                <input type="email" class="id" name="signup_email" maxlength="100" id="NA-effect" placeholder="メールアドレス" required>
+                <div class="content-flex">
+                    <h1>メールアドレス</h1>
+                </div>
+                <input type="email" class="input-form" name="signup_email" maxlength="100"  placeholder="メールアドレス" required>
             </div>
             <div>
-                <input type="password" class="pass" name="password" maxlength="64" id="NA-effect" placeholder="パスワード" required>
+                <div class="content-flex">
+                    <h1>パスワード</h1>
+                    <p>最大64文字</p>
+                </div>
+                <input type="password" class="input-form" name="password" maxlength="64"  placeholder="パスワード" required>
             </div>
             <div>
-                <input type="password" class="check" name="password2" maxlength="64" id="NA-effect" placeholder="パスワード再入力" required>
+                <div class="content-flex">
+                    <h1>パスワード再入力</h1>
+                </div>
+                <input type="password" class="input-form" name="password2" maxlength="64" placeholder="パスワード再入力" required>
             </div>
             <input type="submit" class="create-button" name="signup" value="アカウント作成">
         </form>
