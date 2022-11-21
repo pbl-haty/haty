@@ -67,22 +67,23 @@
 
         <hr>
 
+        <input id="tab_0" type="radio" name="tab_item" checked>
+        <input id="tab_1" type="radio" name="tab_item">
+        <input id="tab_2" type="radio" name="tab_item">
+        <input id="tab_3" type="radio" name="tab_item">
+
         <div class="nav-wrap">
             <div class="scroll-nav">
-                <label class="tab_item" for="tab_0">投稿中</label>
-                <label class="tab_item" for="tab_1">お気に入り</label>
-                <label class="tab_item" for="tab_2">投稿履歴</label>
-                <label class="tab_item" for="tab_3">申請中</label>
+                <label class="tab_item" for="tab_0" id="tab_item_0">投稿中</label>
+                <label class="tab_item" for="tab_1" id="tab_item_1">お気に入り</label>
+                <label class="tab_item" for="tab_2" id="tab_item_2">投稿履歴</label>
+                <label class="tab_item" for="tab_3" id="tab_item_3">申請中</label>
             </div>
         </div>
 
-        <hr>
+        <hr class="hr-margin">
 
-            <input id="tab_0" type="radio" name="tab_item" checked>
-            <input id="tab_1" type="radio" name="tab_item">
-            <input id="tab_2" type="radio" name="tab_item">
-            <input id="tab_3" type="radio" name="tab_item">
-            
+           
     <?php
         $cnt = 0;
         foreach($view_list_all as $view_list) {

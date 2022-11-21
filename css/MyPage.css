@@ -2,6 +2,10 @@ body{
     display: block;
 }
 
+.hr-margin {
+    margin: 0;
+}
+
 input[name="tab_item"] {
     display: none;
 }
@@ -33,16 +37,21 @@ input[name="tab_item"] {
     text-align: center;
     font-size: 40px;
     width: 250px;
-    padding: 30px 0;
+    padding: 40px 0;
     background-color: white;
     color: gray;
     border: none;
 }
 
 /*選択されているタブのスタイルを変える*/
-.scroll-nav input:checked + .tab_item {
+#tab_0:checked ~ .nav-wrap > .scroll-nav > #tab_item_0,
+#tab_1:checked ~ .nav-wrap > .scroll-nav > #tab_item_1,
+#tab_2:checked ~ .nav-wrap > .scroll-nav > #tab_item_2,
+#tab_3:checked ~ .nav-wrap > .scroll-nav > #tab_item_3
+{
     color: black;
     font-weight: bold;
+    border-bottom: 10px solid #3f97fa;
 }
 
 .user-nameid{
