@@ -20,15 +20,17 @@ input[name="tab_item"] {
 #tab_0:checked ~ #tab_content_0,
 #tab_1:checked ~ #tab_content_1,
 #tab_2:checked ~ #tab_content_2,
-#tab_3:checked ~ #tab_content_3
+#tab_3:checked ~ #tab_content_3,
+#tab_4:checked ~ #tab_content_4
 {
     display: flex !important;
 }
 
 /* タブ */
 .scroll-nav {
+    padding: 30px 20px;
     border-radius: 15px;
-    min-width: 100%;
+    width: 1250px;
     -webkit-overflow-scrolling: touch;
     display: flex;
 }
@@ -47,7 +49,8 @@ input[name="tab_item"] {
 #tab_0:checked ~ .nav-wrap > .scroll-nav > #tab_item_0,
 #tab_1:checked ~ .nav-wrap > .scroll-nav > #tab_item_1,
 #tab_2:checked ~ .nav-wrap > .scroll-nav > #tab_item_2,
-#tab_3:checked ~ .nav-wrap > .scroll-nav > #tab_item_3
+#tab_3:checked ~ .nav-wrap > .scroll-nav > #tab_item_3,
+#tab_4:checked ~ .nav-wrap > .scroll-nav > #tab_item_4
 {
     color: black;
     font-weight: bold;
