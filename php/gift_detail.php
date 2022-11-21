@@ -84,7 +84,7 @@ if (empty($giftgroup)) {
                 <label id="button" class="tab_item" for="all">ギフト詳細</label>
                 <input id="comment" type="radio" name="tab_item" <?php if(!empty($_POST['tab-comment'])) { echo 'checked'; } ?>>
                 <label class="tab_item" for="comment" id="scroll-btn">コメント</label>
-                <div class="tab_content" id="all_content">
+                <div class="tab_content" id="all_content" style="display: none;">
                     <div class="tab_content_description">
                         <div class="gift_detail">
                             <!-- <h2 class="syosai">ギフト詳細</h2> -->
@@ -251,7 +251,7 @@ if (empty($giftgroup)) {
                 <!-- <hr> -->
 
                 <!--吹き出しはじまり-->
-                <div class="tab_content" id="comment_content">
+                <div class="tab_content" id="comment_content" style="display: none;">
                     <div class="tab_content_description">
                             <div class="chatting_place" id="scroll">
                                 <!-- コメントのループ -->
@@ -295,10 +295,10 @@ if (empty($giftgroup)) {
 
                             <!-- コメント入力 -->
                             <!-- <p class="comment_nyuryoku">コメントを入力</p> -->
-                            <form class="comment-flex" method="post">
+                            <form class="comment-flex" method="post" submit="check()">
                                 <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
                                 <input type="hidden" name="tab-comment" value="tab">
-                                <textarea class="comment_box" name="comment" placeholder="（例）・ギフト状態を確認したい ・ギフトの画像を追加して欲しい など"></textarea>
+                                <textarea id="text_area" class="comment_box" name="comment" placeholder="（例）・ギフト状態を確認したい ・ギフトの画像を追加して欲しい など"></textarea>
                                 <div class="btn_right"><button type="submit" class="comment-send_btn" name="send_comment">送信</button></div>
                             </form>                  
                     </div>

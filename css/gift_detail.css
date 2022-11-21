@@ -79,18 +79,16 @@ input[name="tab_item"] {
 
 /*タブ切り替えの中身のスタイル*/
 .tab_content {
-    display: none;
     clear: both;
     overflow: hidden;
 }
 
 /*選択されているタブのコンテンツのみを表示*/
-#all:checked~#all_content,
+/* #all:checked~#all_content,
 #comment:checked~#comment_content
 {
     display: block;
-    overflow: hidden;
-}
+} */
 
 .gift_sentence {
     display: flex;
@@ -424,7 +422,7 @@ input[name="tab_item"] {
 }
 
  /*Google Chrome、Safariへの対応*/
-.contents_box::-webkit-scrollbar{
+ .chatting_place::-webkit-scrollbar{
   display: none;
 }
 
