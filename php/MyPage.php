@@ -66,8 +66,6 @@
             <p><?= $get_user['comment'] ?></p>
         </div>
 
-        <hr>
-
         <input id="tab_0" type="radio" name="tab_item" checked>
         <input id="tab_1" type="radio" name="tab_item">
         <input id="tab_2" type="radio" name="tab_item">
@@ -82,9 +80,6 @@
                 <label class="tab_item" for="tab_3" id="tab_item_3">お気に入り</label>
                 <label class="tab_item" for="tab_4" id="tab_item_4">取引履歴</label>
             </div>
-
-            <hr class="hr-margin">
-
         </div>
           
     <?php

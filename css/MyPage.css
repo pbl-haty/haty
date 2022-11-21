@@ -2,10 +2,6 @@ body{
     display: block;
 }
 
-.hr-margin {
-    margin: 0;
-}
-
 input[name="tab_item"] {
     display: none;
 }
@@ -147,9 +143,11 @@ input[name="tab_item"] {
 }
 
 .nav-wrap {
+    border-top: solid 3px #bbb;
+    border-bottom: solid 3px #bbb;
     position: sticky;/*固定する*/
     position: -webkit-sticky;/*Safari用ベンダープレフィックス*/
-    top: 155px;/*ブラウザの上からの距離はゼロ*/
+    top: 144px;/*ブラウザの上からの距離はゼロ*/
     -ms-overflow-style: none;
     overflow-x: auto;
     background-color: white;
