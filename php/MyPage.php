@@ -82,11 +82,11 @@
                 <label class="tab_item" for="tab_3" id="tab_item_3">お気に入り</label>
                 <label class="tab_item" for="tab_4" id="tab_item_4">取引履歴</label>
             </div>
+
+            <hr class="hr-margin">
+
         </div>
-
-        <hr class="hr-margin">
-
-           
+          
     <?php
         $cnt = 0;
         foreach($view_list_all as $view_list) {

@@ -28,7 +28,7 @@ input[name="tab_item"] {
 
 /* タブ */
 .scroll-nav {
-    padding: 30px 20px;
+    padding: 0px 20px;
     border-radius: 15px;
     width: 1250px;
     -webkit-overflow-scrolling: touch;
@@ -149,7 +149,7 @@ input[name="tab_item"] {
 .nav-wrap {
     position: sticky;/*固定する*/
     position: -webkit-sticky;/*Safari用ベンダープレフィックス*/
-    top: 150px;/*ブラウザの上からの距離はゼロ*/
+    top: 155px;/*ブラウザの上からの距離はゼロ*/
     -ms-overflow-style: none;
     overflow-x: auto;
     background-color: white;
