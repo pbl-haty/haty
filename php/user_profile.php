@@ -82,24 +82,39 @@
         <p><?= $get_user['comment'] ?></p>
     </div>
 
-    <div class="user-profile-nav">
-        <div class="nav-contents">
-            <button onclick="click_list_event(0)">投稿中</button>
-            <button onclick="click_list_event(1)">いいね</button>
-            <button onclick="click_list_event(2)">過去の投稿</button>
+    <input id="tab_0" type="radio" name="tab_item" checked>
+    <input id="tab_1" type="radio" name="tab_item">
+    <input id="tab_2" type="radio" name="tab_item">
+
+    <div class="nav-wrap">
+        <div class="scroll-nav user_nav">
+            <label class="tab_item user_nav_item" for="tab_0" id="tab_item_0">投稿中</label>
+            <label class="tab_item user_nav_item" for="tab_1" id="tab_item_1">お気に入り</label>
+            <label class="tab_item user_nav_item" for="tab_2" id="tab_item_2">取引履歴</label>
         </div>
     </div>
-
-    <hr>
 
     <?php
         $cnt = 0;
         foreach($view_list_all as $view_list) {
-            echo '<div class="display" id=p' . $cnt . '>';
+            echo "<div class='display' id='tab_content_$cnt'>";
             if (empty($view_list)) {
+                switch ($cnt) {
+                    case 0:
+                        $msg = "投稿中の商品がありません。";
+                        break;
+                    case 1:
+                        $msg = "お気に入りの商品がありません。";
+                        break;
+                    case 2:
+                        $msg = "取引した商品がありません。";
+                        break;
+                }
+
                 echo '<div class = prompt_1>';
-                echo '<h4>表示できるギフトは<br>ありません。</h4>';
+                echo "<h4>$msg</h4>";
                 echo '</div>';
+
             } else {
                 foreach ($view_list as $gift) {
                     $img = base64_encode($gift['image']);
