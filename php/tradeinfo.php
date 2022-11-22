@@ -310,7 +310,10 @@
                     <form method="POST" action="" class="trade-form" enctype="multipart/form-data">
                         <h2>交換会に参加してみましょう！</h2>
                         <div class="form-image">
-                            <h3><span> * </span>交換物の画像（1枚まで）</h3>
+                            <div class="trade-box">
+                                <h3 class="trade-left">商品画像</h3>
+                                <p class="trade-right">最大1枚</p>
+                            </div>
                             <div id="sample-img" class="sample-img"></div>
                             <label class="upload-label">
                                 画像を選択
@@ -319,13 +322,20 @@
                         </div>
 
                         <div class="form-name">
-                            <h3><span> * </span>交換物の名前（30文字まで）</h3>
+                            <div class="trade-box">
+                                <h3 class="trade-left">商品名</h3>
+                                <p class="trade-right">最大30文字</p>
+                            </div>
                             <input type="text" class="form-box" name="goods_name" maxlength="30" value="" required>
                             <input type="text" style="display: none;"/>
                         </div>
 
                         <div class="form-hint">
-                            <h3>ヒント（30文字まで）</h3>
+                            <div class="trade-box">
+                                <p class="title-flex-tag1" style="margin-bottom: 0px;">任意</p>
+                                <h3 class="trade-left" style="margin-bottom: 15px;">ヒント</h3>
+                                <p class="trade-right" style="margin-bottom: 20px;">最大30文字</p>
+                            </div>
                             <p>交換されるまでメンバーに表示される交換物のヒントを書こう！</p>
                             <input type="text" class="form-box" name="goods_hint" maxlength="30" value="" placeholder="（例）形・色の特徴など">
                         </div>
@@ -347,6 +357,7 @@
                                 <h3>交換物のヒント</h3>
                                 <p><?php echo $post_goods_info['goods_hint']; ?></p>
                             <?php } ?>
+                            <button class="tradeinfo-button" onclick="location.href='./tradeinfo_c.php'">編集</button>
                         </div>
                     </div>
                 <?php } ?>
