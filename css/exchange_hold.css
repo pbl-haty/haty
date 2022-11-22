@@ -145,9 +145,8 @@ input {
 }
 .msg-size {
     height: 50px;
-    margin: 180px 0 30px 0;
+    margin: 180px 0 120px 0;
 }
-
 
 .flex-title{
     display: flex;

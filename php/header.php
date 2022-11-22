@@ -22,15 +22,22 @@ $count = $notifi->notifi_count($userId);
         <img src="../static/title-logo.png" class="title-logo">
         <!-- <h1 class="title">HATY</h1> -->
     </a>
+
+    <a href="notification.php" class="notifi-margin">
+        <div class="position-relative">
+            <img class="notification" src="../static/notifi.png">
+            <?php
+                $notifi = new notifi();
+                if ($count[0] != 0) {
+                    echo "<p class='notification-notification'>{$count[0]}</p>";  /* ハンバーメニュー通知  */
+                }
+            ?>
+        </div>
+    </a>
+
     <div class="hamburger-menu">
         <input class="checks" type="checkbox" id="menu-btn-check" readonly="readonly">
         <label for="menu-btn-check" class="menu-btn">
-            <?php
-
-            if ($count[0] != 0) {
-                echo "<p class='hamburger-notification'>!</p>";  /* ハンバーメニュー通知  */
-            }
-            ?>
             <span></span>
         </label>
         <div class="menu-content" id="menu-content">
@@ -38,45 +45,39 @@ $count = $notifi->notifi_count($userId);
                 <li>
                     <a href="home.php" class="uncheck-btn">
                         <div class="menu-content-border-none">
-                            <img src="../static/home.png"></img>
+                            <img src="../static/home.png">
                             ホーム
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="MyPage.php" class="uncheck-btn">
-                        <div>
-                            <img src="../static/mypage.png"></img>
-                            マイページ
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="GiftPost.php" class="uncheck-btn">
                         <div>
-                            <img src="../static/post.png"></img>
+                            <img src="../static/post.png">
                             投稿
                         </div>
                     </a>
                 </li>
                 <li>
-                    <a href="notification.php" class="uncheck-btn">
-                        <div class="position-relative">
-                            <img class="notification" src="../static/notification.png">
-                            通知
-                            <?php
-                            $notifi = new notifi();
-                            if ($count[0] != 0) {
-                                echo "<p class='notification-notification'>{$count[0]}</p>";  /* ハンバーメニュー通知  */
-                            }
-                            ?>
+                    <a href="trade_list.php" class="uncheck-btn">
+                        <div>
+                            <img src="../static/trade.png">
+                            交換会
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="MyPage.php" class="uncheck-btn">
+                        <div>
+                            <img src="../static/mypage.png">
+                            マイページ
                         </div>
                     </a>
                 </li>
                 <li>
                     <a href="help.php" class="uncheck-btn">
                         <div>
-                            <img src="../static/help.png"></img>
+                            <img src="../static/help.png">
                             ヘルプ
                         </div>
                     </a>
@@ -84,7 +85,7 @@ $count = $notifi->notifi_count($userId);
                 <li>
                     <a href="logout.php" class="uncheck-btn">
                         <div>
-                            <img src="../static/logout.png"></img>
+                            <img src="../static/logout.png">
                             ログアウト
                         </div>
                     </a>

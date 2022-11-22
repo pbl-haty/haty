@@ -84,20 +84,6 @@ html {
     z-index: 90;
 }
 
-.hamburger-notification {
-    position: absolute;
-    top: -15px;
-    right: 5px;
-    color: #FFF;
-    line-height: 40px;
-    font-weight: bold;
-    font-size: 30px;
-    text-align: center;
-    width: 40px;
-    background: #F00;
-    border-radius: 50%;
-}
-
 .menu-btn span,
 .menu-btn span:before,
 .menu-btn span:after {
@@ -195,9 +181,19 @@ html {
     /*メニューを画面内へ*/
 }
 
+.notification {
+    height: 100px;
+    width: 100px;
+}
+
+.notifi-margin {
+    margin: 0 180px 0 auto;
+}
 
 .notification-notification {
-    margin: 0 0 0 10px;
+    position: absolute;
+    top: -30px;
+    right: 0px;
     color: #FFF;
     line-height: 40px;
     font-weight: bold;

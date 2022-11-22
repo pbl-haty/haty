@@ -9,17 +9,17 @@
 }
 
 .leave-btn {
-    margin: 100px 0 0 0;
+    margin: 50px 0 0 0;
     font-size: 60px;
-    padding: 0.5em;
+    padding: 10px;
     width: 250px;
-    height: 150px;
-    background: linear-gradient(to bottom, #e5875b, #7f0903);
-    color: #EEEEEE;
+    height: 115px;
+    background: #e60033;
+    color: #EEEEEE; 
     line-height: 40px;
     text-align: center;
+    border: 1px solid #e60033;
     border-radius: 20px;
-    box-shadow: linear-gradient(to bottom, #e5875b, #7f0903);
 }
 
 .leave-btn-center {

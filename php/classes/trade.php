@@ -42,7 +42,7 @@
 
         // グループIDから交換会の情報を取得
         public function gettradeInfo($group_id){
-            $sql = 'select trade_id, trade_name, trade_explain, begin_date, end_date, theme1, theme2, theme3
+            $sql = 'select trade_id, group_id, trade_name, trade_explain, begin_date, end_date, theme1, theme2, theme3
                     from trade
                     where group_id = ?';
             $stmt = $this->query($sql, [$group_id]);
