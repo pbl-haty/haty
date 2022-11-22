@@ -51,14 +51,6 @@ $count = $notifi->notifi_count($userId);
                     </a>
                 </li>
                 <li>
-                    <a href="MyPage.php" class="uncheck-btn">
-                        <div>
-                            <img src="../static/mypage.png">
-                            マイページ
-                        </div>
-                    </a>
-                </li>
-                <li>
                     <a href="GiftPost.php" class="uncheck-btn">
                         <div>
                             <img src="../static/post.png">
@@ -71,6 +63,14 @@ $count = $notifi->notifi_count($userId);
                         <div>
                             <img src="../static/trade.png">
                             交換会
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="MyPage.php" class="uncheck-btn">
+                        <div>
+                            <img src="../static/mypage.png">
+                            マイページ
                         </div>
                     </a>
                 </li>
