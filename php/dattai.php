@@ -31,6 +31,7 @@
                 echo '<div class = prompt_1>';
                 echo '<h4>URLが間違っているか<br>既に解散されたグループです。</h4>';
                 echo '</div>';
+                echo '<a href="home.php">ホームに戻る</a>';
             } else {
 
         ?>

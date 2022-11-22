@@ -1,4 +1,5 @@
 var clipboard = new Clipboard('.inv-link-sentence');
+var clipboard = new Clipboard('.groupcode-copy')
 
 $(function(){
     $('.inv-link-sentence').click(function(){
