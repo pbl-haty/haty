@@ -52,29 +52,33 @@ $userId = $_SESSION['uid'];
 
                 <div class="home_title">
                     <div class="display">
-                        <img class="home_groupicon" src="data:;base64,<?php echo $img; ?>">
-                        <p class="home_groupname"><?= $join['groupname'] ?></p>
+                        <a href="group_list.php?groupid=<?php echo $join['group_id']; ?>"  class="home_list">
+                            <div class="display2">
+                                <img class="home_groupicon" src="data:;base64,<?php echo $img; ?>">
+                                <p class="home_groupname"><?= $join['groupname'] ?></p>
+                            </div>
+                        </a>
                         <?php
-                            // トレードIDから交換会の情報を取得
-                            $tradeInfo = $trade->gettradeInfo($join['group_id']);
-                            $current_date = date("Y-m-d");
-                            // 所属しているグループごとで確認
-                            foreach($tradeInfo as $eachtradeInfo){
-                                // 現在の日付から交換会が開催期間中か判定
-                                if($eachtradeInfo['begin_date'] <= $current_date && $current_date <= $eachtradeInfo['end_date']){
-                                    $tradeId = $eachtradeInfo['trade_id'];
-                                    break;
-                                }
-                            } 
-                            // 開催期間中なら交換会ページ（tradeinfo.php）に遷移するボタンを表示
-                            if(isset($tradeId)){ ?>
-                                <div class="trade_look_1">
-                                    <a href="tradeinfo.php?trade_id=<?php echo $tradeId; ?>" class=trade_look>交換会<br>ページへ</a>
-                                </div>
-                            <?php 
-                                // 交換会のトレードIDを破棄
-                                unset($tradeId); 
-                            } ?>
+                        // トレードIDから交換会の情報を取得
+                        $tradeInfo = $trade->gettradeInfo($join['group_id']);
+                        $current_date = date("Y-m-d");
+                        // 所属しているグループごとで確認
+                        foreach ($tradeInfo as $eachtradeInfo) {
+                            // 現在の日付から交換会が開催期間中か判定
+                            if ($eachtradeInfo['begin_date'] <= $current_date && $current_date <= $eachtradeInfo['end_date']) {
+                                $tradeId = $eachtradeInfo['trade_id'];
+                                break;
+                            }
+                        }
+                        // 開催期間中なら交換会ページ（tradeinfo.php）に遷移するボタンを表示
+                        if (isset($tradeId)) { ?>
+                            <div class="trade_look_1">
+                                <a href="tradeinfo.php?trade_id=<?php echo $tradeId; ?>" class=trade_look>交換会<br>ページへ</a>
+                            </div>
+                        <?php
+                            // 交換会のトレードIDを破棄
+                            unset($tradeId);
+                        } ?>
                     </div>
                     <?php // ギフトが送られているか判定・・・B
                     $gift_group = $group->giftgroup((int)$join['group_id'], $userId);
