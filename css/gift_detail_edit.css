@@ -3,6 +3,16 @@ body{
     display: block;
     text-align: center;
 }
+.title-flexes{
+    display: flex;
+    margin: 60px 0 30px 0;
+}
+.title-flexes-tag{
+    font-size: 35px;
+    margin: auto 0 0 auto;
+    align-items: center;
+}
+
 .edit-title {
     margin-top: 180px;
 }
@@ -57,14 +67,14 @@ body{
     transform: translate(-50%,-50%) rotate(-45deg);
 }
 .content-margin {
-    margin: 30px 0;
+    margin: auto 0 auto 20px;
     font-size: 50px;
     text-align: left;
 }
 .gift-title{
     width: 100%;
     border-radius: 20px;
-    border: 2px solid#000;
+    border: 1px solid gray;
     text-indent: 20px;
     font-size: 30px;
     padding: 30px 0;
@@ -81,7 +91,7 @@ body{
     margin: auto auto 15px auto;
     font-size: 30px; /* フォントサイズ */
     border-radius: 20px; /* 角の丸み */
-    border: 2px black solid;
+    border: 1px gray solid;
     text-align: left;
 }
 .trade-box input[type="checkbox"] { 
@@ -170,7 +180,7 @@ body{
     padding: 30px 20px;
     height: 250px;
     width: calc(100% - 42px);
-    border: 2px solid#000;
+    border: 1px solid gray;
     resize: none;
 }
 .form-btn {
@@ -193,7 +203,7 @@ body{
     color: black; /* 文字色 */
     font-size: 30px; /* フォントサイズ */
     border-radius: 20px; /* 角の丸み */
-    border: 2px black solid;
+    border: 1px gray solid;
     width: 100%;
 }
 .upload-label input {
