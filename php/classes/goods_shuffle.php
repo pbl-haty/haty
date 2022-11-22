@@ -29,8 +29,10 @@
     }
 
     // trade.phpを読み込み、トレードオブジェクトを生成
-    require_once __DIR__ . '/trade.php';
+    require_once __DIR__ . '/classes/trade.php';
+    require_once __DIR__ . '/classes/notifi.php';
     $trade = new Trade();
+    $notifi = new notifi();
 
     // データベースで設定した終了日の23:59:59などに実行する場合
     // $date = date("Y-m-d");
@@ -45,12 +47,14 @@
         // トレードIDから交換会に参加しているユーザーを取得
         $trade_id = $tradeid['trade_id'];
         $goods_users = $trade->getuserid($trade_id);
+        $trade_info = $trade->gettradeInfo_tID($trade_id);
 
         $array = [];
         foreach($goods_users as $good_user) {
             // 渡す人のIDがデータベースで挿入されていない時
             if(is_null($good_user['receive_id'])){
                 array_push($array, $good_user['pass_id']);
+                $notifi->notifi_trade($trade_info['group_id'], $good_user['pass_id'], 3);
             }
         }
 
