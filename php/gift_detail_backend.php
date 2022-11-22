@@ -6,25 +6,16 @@
     // nitifi.phpを読み込む
     require_once __DIR__ . '/classes/notifi.php';
 
-    // セッションを開始する
-    session_start();
-
-    // ユーザーIDとギフトIDを取得する
-    $userId = $_SESSION['uid'];
-
     // ギフトオブジェクトとユーザーオブジェクトを生成
     $gift = new Gift();
     $user = new User();
     $notifi = new notifi();
 
-    // POSTされたユーザー情報を取得
-    $giftId = $_POST["giftid"];
-
-    // POSTされたURLを取得
-    $url = $_POST["url"];
-
-    // ギフト情報を取得
-    $gift_info = $gift->getGift($giftId);
+    if(isset($_POST["giftid"])) {
+        $giftId = $_POST["giftid"];
+        // ギフト情報を取得
+        $gift_info = $gift->getGift($giftId);
+    }
     
     // ボタン処理
     if(isset($_POST['applygift'])){
@@ -52,5 +43,3 @@
     }elseif(isset($_POST['done_button'])){
         $gift->doneGift($giftId);
     }
-
-    header("Location:". $url);

@@ -2,11 +2,36 @@ body {
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+body, html {
+    margin-bottom: 0 !important;
+}
+
+.bx-wrapper {
+    margin-bottom: 30px !important;
+    max-width: none !important;
+    width: 90% !important;
+    margin-left: 5vw !important;
+}
+
+.bx-wrapper .bx-controls-direction a {
+    width: 75px !important;
+    height: 75px !important;
+}
+
+.bx-wrapper .bx-next {
+    background-position: -100px 0px !important;
+    background-size: 300% !important;
+}
+
+.bx-wrapper .bx-prev {
+    background-position: 0px 0px !important;
+    background-size: 300% !important;
+}
+
 .gift_detail {
     font-size: 35px;
     margin-top: 10px;
     padding: 0 20px;
-    margin-bottom: 100px;
 }
 
 .btn_center {
@@ -18,30 +43,30 @@ body {
 }
 /* タブ切り替え */
 .tabs {
-    margin-top: 50px;
     background-color: #fff;
-    margin: 0 auto;
+    margin: 150px auto 0 auto;
 }
 
 /*タブ切り替えのスタイル*/
 .tab_item {
-    width: calc(100%/2);
-    height: 20px;
+    width: 50%;
+    padding: 20px;
     display: block;
-    margin: 160px auto 0 auto;
-    border-bottom: 100px solid #efefef;
-    background-color: #d9d9d9;
-    border-radius:10px;
+    border-radius: 20px 20px 0 0;
     line-height: 80px;
-    font-size: 16px;
     text-align: center;
-    color: #565656;
-    display: block;
     float: left;
-    text-align: center;
-    font-size:30px;
-    color: rgb(183, 179, 179);
-    transition: all 0.2s ease;
+    font-size: 35px;
+    background-color: #efefef;
+    border-bottom: 3px solid gray;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked+.tab_item {
+    background-color: #ffffff;
+    border: 3px solid gray;
+    border-bottom: none;
+    color: #000000;
 }
 
 /* .tab_item:hover {
@@ -54,26 +79,16 @@ input[name="tab_item"] {
 
 /*タブ切り替えの中身のスタイル*/
 .tab_content {
-    display: none;
     clear: both;
     overflow: hidden;
 }
 
-
 /*選択されているタブのコンテンツのみを表示*/
-#all:checked~#all_content,
+/* #all:checked~#all_content,
 #comment:checked~#comment_content
 {
     display: block;
-}
-
-/*選択されているタブのスタイルを変える*/
-.tabs input:checked+.tab_item {
-    background-color: #efefef;
-    color: #000000;
-}
-/*  */
-
+} */
 
 .gift_sentence {
     display: flex;
@@ -85,8 +100,9 @@ input[name="tab_item"] {
     text-align: center;
     font-weight: bold;
     font-size: 55px;
-    margin: 50px 0 50px 120px;
+    margin: 30px;
     width: calc(100% - 240px);
+    line-height: 1.5;
 }
 
 .button_list1 {
@@ -104,8 +120,7 @@ input[name="tab_item"] {
 }
 
 .gift_post_detail {
-    height: 120px;
-    margin: 30px 0;
+    font-size: 40px;
     color: blue;
     display: flex;
     align-items: center;
@@ -113,8 +128,8 @@ input[name="tab_item"] {
 }
 
 .gift_post_detail img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border: solid 3px #d7ebfe;
     border-radius: 50%;
     object-fit: cover;
@@ -132,6 +147,16 @@ input[name="tab_item"] {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.gift_explain_title {
+    position: relative;
+    text-align: left;
+    width: calc(50% - 15px);
+    white-space: nowrap;
+    padding: 20px;
+    font-weight: bold;
+    margin: 0;
 }
 
 .gift_explain {
@@ -166,8 +191,9 @@ input[name="tab_item"] {
 .once_sentence {
     line-height: 1.5;
     padding: 0.5em;
-    margin-top: 10px;
-    border: 3px solid #000;
+    margin: 10px 20px;
+    border: 1px solid gray;
+    border-radius: 20px;
 }
 
 .button-list2 {
@@ -177,27 +203,36 @@ input[name="tab_item"] {
 .good_count {
     align-items: center;
     text-align: center;
-    margin: 0 0 30px 0;
-    display: flex;
-    width: calc(100% / 4)
-        /* padding: 30px; */
+    margin: 0;
+    /* padding: 30px; */
+}
+
+.cnt-good {
+    padding-top: 30px;
+}
+
+.cnt-margin {
+    margin-bottom: 60px;
+    display: block;
 }
 
 .gift_table {
-    margin: 50px 0;
+    margin: 20px 0 0px 0;
     width: 100%;
 }
 
-.gift_table th {
+.gift_table tr {
     position: relative;
-    text-align: left;
-    width: calc(50% - 15px);
-    white-space: nowrap;
-    padding: 20px;
-
 }
 
-.gift_table th:after {
+.gift_table th {
+    text-align: left;
+    width: 50%;
+    white-space: nowrap;
+    padding: 20px;
+}
+
+.gift_table_span {
     display: block;
     content: "";
     width: 30px;
@@ -205,12 +240,13 @@ input[name="tab_item"] {
     background-color: #333;
     position: absolute;
     top: calc(50% - 1px);
-    right: 20px;
+    left: calc(50% - 150px);
 }
 
-.gift_table td {
+.gift_table_width {
     text-align: center;
-    width: calc(50% - 15px);
+    padding-left: 15px;
+    width: 50%;
 }
 
 .good_sentence {
@@ -221,12 +257,13 @@ input[name="tab_item"] {
 .display_flex {
     display: flex;
     align-items: center;
+    min-height: 200px;
 }
 
 .favorite_before {
-    position: absolute;
+    position: relative;
     width: 100px;
-    height: 90px;
+    height: 55px;
     margin: -20px 0 0 0;
 }
 
@@ -235,9 +272,9 @@ input[name="tab_item"] {
     position: absolute;
     content: "";
     left: 50px;
-    top: 0;
-    width: 50px;
-    height: 80px;
+    top: 30px;
+    width: 40px;
+    height: 70px;
     background: gray;
     border-radius: 50px 50px 0 0;
     border-color: #000;
@@ -246,7 +283,7 @@ input[name="tab_item"] {
 }
 
 .favorite_before:after {
-    left: 0;
+    left: 10px;
     transform: rotate(45deg);
     transform-origin: 100% 100%;
 }
@@ -260,9 +297,9 @@ input[name="tab_item"] {
 
 
 .favorite_after {
-    position: absolute;
+    position: relative;
     width: 100px;
-    height: 90px;
+    height: 55px;
     margin: -20px 0 0 0;
 }
 
@@ -271,7 +308,7 @@ input[name="tab_item"] {
     position: absolute;
     content: "";
     left: 50px;
-    top: 0;
+    top: 30px;
     width: 50px;
     height: 80px;
     background: #f88dc8;
@@ -336,10 +373,6 @@ input[name="tab_item"] {
     transform: translateY(5px);
 }
 
-.comment_padding{
-    padding: 10px 20px;
-}
-
 .comment_sentence {
     margin: 0;
     padding: 10px;
@@ -349,25 +382,29 @@ input[name="tab_item"] {
     background-color: rgba(61, 106, 161, 0.447);
 }
 
+.comment-flex {
+    display: flex;
+}
 
 .comment_box {
-    width: 100%;
-    min-height: 100px;
+    width: calc(100% - 150px);
+    height: 100px;
     padding: 10px;
-    border: solid 5px black;
+    border: solid 1px black;
     margin: 0 auto;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .comment-send_btn {
-    margin-top: 5px;
+    height: 100px;
     padding: 0.5em;
     text-decoration: none;
     color: #FFFAFA;
     background: #668ad8;
     border-bottom: solid 4px #627295;
     border-radius: 5px;
-    font-size: 50px;
+    font-size: 40px;
+    width: 150px;
 }
 
 .comment-send_btn:active {
@@ -380,20 +417,27 @@ input[name="tab_item"] {
 /* 以下、チャット */
 .chatting_place {
     width: 100%;
-    height: 1000px;
-    overflow: scroll;
-    border-bottom: solid 8px rgba(61, 106, 161, 0.447);
-    border-right: solid 8px rgba(61, 106, 161, 0.447);
-    border-left: solid 8px rgba(61, 106, 161, 0.447);
+    height: calc(100vh - 430px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+  /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+  -ms-overflow-style: none;
+  /*Firefoxへの対応*/
+  scrollbar-width: none;
+}
+
+ /*Google Chrome、Safariへの対応*/
+ .chatting_place::-webkit-scrollbar{
+  display: none;
 }
 
 .chatting_place .faceicon {
-    float: left;
     margin-right: -90px;
     width: 80px;
 }
 
 .chatting_place .faceicon img {
+    margin-top: 25px;
     width: 90px;
     height: 90px;
     border: solid 3px #d7ebfe;
@@ -401,16 +445,40 @@ input[name="tab_item"] {
 }
 
 .onechat {
+    display: flex;
     padding: 10px;
 }
 
+.says-top {
+    margin: 0px 10px 0 100px;
+}
+
+.my-says-top {
+    margin: 0 0 0 auto;
+}
+
+.says-flex {
+    display: flex;
+}
+
 .says {
+    margin-left: 30px;
     display: inline-block;
     position: relative;
-    margin: 0px 10px 0 100px;
-    padding: 10px 10px;
+    padding: 10px 15px;
     border-radius: 12px;
     background: #d7ebfe;
+    max-width: 100%;
+    word-break: break-all;
+}
+
+.my-says {
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 12px;
+    background: #a3d3ff;
     max-width: 100%;
     word-break: break-all;
 }
@@ -425,15 +493,29 @@ input[name="tab_item"] {
     border-right: 12px solid #d7ebfe;
 }
 
+.my-says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: -24px;
+    border: 12px solid transparent;
+    border-left: 12px solid #a3d3ff;
+}
+
 .says p {
     margin: 10px;
+    line-height: 1.5;
 }
 
 .comment_username {
+    overflow: hidden;
     font-weight: bold;
+    margin: 0 0 10px 30px;
 }
 
 .comment_postdata {
+    text-align: right;
     font-size: 20px;
     color: #696969;
 }
@@ -614,8 +696,9 @@ textarea {
 }
 
 .slider img {
-    width: calc(100vw - 40px);
-    height: calc(100vw - 40px);
+    max-width: none;
+    width: calc(90vw - 40px);
+    height: calc(90vw - 40px);
     object-fit: cover;
 }
 
@@ -626,10 +709,11 @@ textarea {
 }
 
 .slider-none img {
-    width: calc(100vw - 40px);
-    height: calc(100vw - 40px);
+    width: calc(90vw - 40px);
+    height: calc(90vw - 40px);
     object-fit: cover;
     padding-right: 40px;
+    margin-left: 5vw;
 }
 
 .prompt_1 {

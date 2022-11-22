@@ -1,25 +1,56 @@
-$('.slider').slick({
-    autoplay: true,//自動的に動き出すか。初期値はfalse。
-    infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-    slidesToShow: 3,//スライドを画面に3枚見せる
-    slidesToScroll: 3,//1回のスクロールで3枚の写真を移動して見せる
-    prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
-    nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
-    dots: true,//下部ドットナビゲーションの表示
-    responsive: [
-      {
-      breakpoint: 769,//モニターの横幅が769px以下の見せ方
-      settings: {
-        slidesToShow: 2,//スライドを画面に2枚見せる
-        slidesToScroll: 2,//1回のスクロールで2枚の写真を移動して見せる
-      }
-    },
-    {
-      breakpoint: 426,//モニターの横幅が426px以下の見せ方
-      settings: {
-        slidesToShow: 1,//スライドを画面に1枚見せる
-        slidesToScroll: 1,//1回のスクロールで1枚の写真を移動して見せる
-      }
-    }
-  ]
+$(document).ready(function() {
+  var slider = $('.slider').bxSlider({
+      auto: false,
   });
+
+  // スクロールバーの位置をリストの最下部に設定
+  const all_content = document.getElementById('all_content');
+  const display_comment = document.getElementById('comment_content');
+  display_comment.style.display = "block";
+  const list = document.getElementById('scroll');
+  list.scrollTo(0, list.scrollHeight);
+  if(document.getElementById('all').checked == true) {
+    display_comment.style.display = "none";
+    all_content.style.display= "block";
+    slider.reloadSlider();
+  }
+  
+  // タブクリックでスライダーをリロード
+  document.getElementById('button').onclick = function() {
+    all_content.style.display= "block";
+    slider.reloadSlider();
+    display_comment.style.display = "none";
+  };
+
+  document.getElementById('scroll-btn').onclick = function() {
+    display_comment.style.display= "block";
+    all_content.style.display= "none";
+  };
+
+  // 更新時に警告を表示
+  
+});
+
+$(document).ready(function() {
+  // スクロールバーの位置をリストの最下部に設定
+  const all_content = document.getElementById('all_content');
+  const display_comment = document.getElementById('comment_content');
+  display_comment.style.display = "block";
+  const list = document.getElementById('scroll');
+  list.scrollTo(0, list.scrollHeight);
+  if(document.getElementById('all').checked == true) {
+    display_comment.style.display = "none";
+    all_content.style.display= "block";
+  }
+  
+  // タブクリックでスライダーをリロード
+  document.getElementById('button').onclick = function() {
+    all_content.style.display= "block";
+    display_comment.style.display = "none";
+  };
+
+  document.getElementById('scroll-btn').onclick = function() {
+    display_comment.style.display= "block";
+    all_content.style.display= "none";
+  };
+});
