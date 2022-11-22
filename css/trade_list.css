@@ -1,0 +1,87 @@
+.trade-list{
+    width: 100%;
+    margin-top: 160px;
+}
+.tab-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tab{
+    flex-grow: 1;
+    padding:5px;
+    height: 60px;
+    line-height:60px;
+    border:solid 1px #CCC;
+    text-align:center;
+    font-size: 32px;
+}
+.panel-group{
+    text-decoration: none;
+    color: black;
+    display: flex;
+}
+.panel{
+    display:none;
+}
+.group-icon-space{
+    display: flex;
+    align-items: center;
+    width: 20%;
+    margin: 30px;
+}
+.group-icon{
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+.trade-info-space{
+    width: 80%;
+    padding: 30px 20px;
+    display: block;
+}
+.trade-name{
+    font-size: 40px;
+    margin: 0px;
+    line-height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+.trade-date{
+    padding-top: 40px;
+    margin: 0px;
+    font-size: 32px;
+    margin-top: auto;
+}
+.border{
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    border: none;
+    background: grey;
+    height: 1px;
+}
+.tab.is-active{
+    background:#668ad8;
+    color:#FFF;
+    transition: all 0.2s ease-out;
+}
+.panel.is-show{
+    display:block;
+}
+
+/* エラーメッセージの表示 */
+.prompt_2 {
+    padding: 30px;
+    color: rgba(119, 29, 29, 0.534);
+}
+
+.msg-size {
+    height: 50px;
+    font-size: 40px;
+    color: rgba(119, 29, 29, 0.534);
+    text-align: center;
+}
