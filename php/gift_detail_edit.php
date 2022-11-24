@@ -124,7 +124,10 @@ if (isset($_POST['giftpost'])) {
                 <h4><?= $completionmsg ?></h4>
             </div>
 
-            <h1 class="content-margin">商品画像</h1>
+            <div class="title-flex">
+                <h1 class="content-margin">商品画像</h1>
+                <p class="title-flex-tag2">最大4枚</p>
+            </div>
 
             <div id="sample-img" class="sample-img">
                 <div class="frame-img" id="frame-img-0">
@@ -153,18 +156,35 @@ if (isset($_POST['giftpost'])) {
                 <input type="file" id="input-img" onchange="loadImage(this);" name="image[]" accept="image/*" multiple>
             </label>
 
-            <h1 class="content-margin">商品名</h1>
-
+            <div class="title-flex">
+                <h1 class="content-margin">商品名</h1>
+                <p class="title-flex-tag2">最大30文字</p>
+            </div>
             <div>
                 <input type="text" class="gift-title" maxlength="30" name="gift_name" value="<?= $gift_info['gift_name']; ?>" required>
             </div>
 
-            <div class="title-flexes">
-                <h1 class="content-margin">公開範囲</h1>
-                <p class="title-flexes-tag">当てはまるものをすべて選択</p>
+            <div class="title-flex">
+                <h1 class="content-margin">カテゴリ</h1>
             </div>
-            <div class="prompt_2">
-                <h4><?= $errormsg1 ?></h4>
+            <div class="content-check">
+                <select name="category" class="example-category">
+                    <option value="-1" class="category-content-center">選択してください</option>;
+                    <?php
+                    $gift_category = $post->giftcategory();
+                    $cnt = 0;
+                    foreach ($gift_category as $category) {
+                        echo '<option value="' . $cnt . '">' . $category['category_name'] . '</option>';
+                        $cnt++;
+                    }
+                    ?>
+                </select>
+            </div>
+
+
+            <div class="title-flex">
+                <h1 class="content-margin">グループ選択</h1>
+                <p class="title-flex-tag2">複数選択可</p>
             </div>
 
             <div class="content-check">
@@ -177,79 +197,57 @@ if (isset($_POST['giftpost'])) {
                     echo '<div class ="prompt_2"><h4>グループに所属していません。</h4></div>';
                 } else {
                     $cnt = 0;
-                    $cnt2 = 0;
                     foreach ($group_join as $join) {
+                        $img = base64_encode($join['icon']);
                 ?>
-                        <div class="trade-box">
-                            <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" value="<?= $join['group_id'] ?>" <?php
-                                                                                                                                    if (!empty($gift_group[$cnt2]['group_id']) && (int)$gift_group[$cnt2]['group_id'] == $join['group_id']) {
-                                                                                                                                        echo "checked";
-                                                                                                                                        $cnt2++;
-                                                                                                                                    }
-                                                                                                                                    ?>>
-                            <label for="groupname-<?= $cnt ?>"><?= $join['groupname'] ?></label>
+                        <div class="trade-box <?php if ($cnt % 2 == 0) {
+                                                    echo 'margin-r';
+                                                } else {
+                                                    echo 'margin-l';
+                                                } ?>">
+                            <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" class="groupcheck" value="<?= $join['group_id'] ?>">
+                            <label for="groupname-<?= $cnt ?>">
+                                <img class="trade_icon" src="data:;base64,<?= $img ?>">
+                                <p class="trade_name"><?= $join['groupname'] ?></p>
+                            </label>
                         </div>
+
                 <?php
                         $cnt++;
                     }
                 }
                 ?>
             </div>
-            <h1 class="content-margin">カテゴリ</h1>
-            <div class="prompt_2">
-                <h4><?= $errormsg3 ?></h4>
+            <div class="title-flex">
+                <h1 class="content-margin">取引方法</h1>
+                <p class="title-flex-tag2">複数選択可</p>
             </div>
             <div class="content-check">
-
-                <?php
-                $gift_category = $post->giftcategory();
-                $cnt = 0;
-                foreach ($gift_category as $category) {
-                ?>
-
-                    <div class="trade-box">
-                        <input type="radio" id="category-<?= $cnt ?>" name="category" value="<?= $category['id'] ?>" <?php
-                                                                                                                        if ($gift_info['category_id'] == $cnt) {
-                                                                                                                            echo "checked";
-                                                                                                                        }
-                                                                                                                        ?>>
-                        <label for="category-<?= $cnt ?>"><?= $category['category_name'] ?></label>
-                    </div>
-
-                <?php
-                    $cnt++;
-                }
-                ?>
-
-                <h1 class="content-margin">取引条件</h1>
-                <div class="prompt_2">
-                    <h4><?= $errormsg2 ?></h4>
+                <div class="trade-box margin-r">
+                    <input type="checkbox" id="trade1-conditions" name="conditions[]" class="contcheck" value="1">
+                    <label for="trade1-conditions">
+                        <img class="trade_icon" src="../static/tewatasi.png">
+                        <p class="trade_name">手渡し</p>
+                    </label>
                 </div>
-
-                <div class="content-check">
-                    <div class="trade-box">
-                        <input type="checkbox" id="trade1-conditions" name="conditions[]" value="1" <?php
-                                                                                                    if ($gift_info['conditions'] == 1 || $gift_info['conditions'] == 3) {
-                                                                                                        echo "checked";
-                                                                                                    }
-                                                                                                    ?>>
-                        <label for="trade1-conditions">手渡し</label>
-                    </div>
-                    <div class="trade-box">
-                        <input type="checkbox" id="trade2-conditions" name="conditions[]" value="2" <?php
-                                                                                                    if ($gift_info['conditions'] == 2 || $gift_info['conditions'] == 3) {
-                                                                                                        echo "checked";
-                                                                                                    }
-                                                                                                    ?>>
-                        <label for="trade2-conditions">配送</label>
-                    </div>
+                <div class="trade-box margin-l">
+                    <input type="checkbox" id="trade2-conditions" name="conditions[]" class="tradecheck" value="2">
+                    <label for="trade2-conditions">
+                        <img class="trade_icon" src="../static/haisou.png">
+                        <p class="trade_name">配送</p>
+                    </label>
                 </div>
+            </div>
 
-                <h1 class="content-margin">詳細情報（任意）</h1>
+            <div class="title-flex">
+                <p class="title-flex-tag1">任意</p>
+                <h1 class="content-margin">詳細情報</h1>
+                <p class="title-flex-tag2">最大400文字</p>
+            </div>
 
-                <textarea class="Detailed-information" rows="5" name="gift_comment" value=""><?= $gift_info['giftcomment']; ?></textarea>
-                <br>
-                <input type="submit" name="giftpost" class="form-btn" value="更新">
+            <textarea class="Detailed-information" rows="5" name="gift_comment" value=""><?= $gift_info['giftcomment']; ?></textarea>
+            <br>
+            <input type="submit" name="giftpost" class="form-btn" value="更新">
         </form>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
