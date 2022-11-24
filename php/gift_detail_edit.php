@@ -169,12 +169,16 @@ if (isset($_POST['giftpost'])) {
             </div>
             <div class="content-check">
                 <select name="category" class="example-category">
-                    <option value="-1" class="category-content-center">選択してください</option>;
+                    <option value="-1" class="category-content-center">選択してください</option>
                     <?php
                     $gift_category = $post->giftcategory();
                     $cnt = 0;
                     foreach ($gift_category as $category) {
-                        echo '<option value="' . $cnt . '">' . $category['category_name'] . '</option>';
+                        if($gift_info['category_id'] == $category['id']) {
+                            echo '<option value="' . $cnt . '" selected >' . $category['category_name'] . '</option>';
+                        } else {
+                            echo '<option value="' . $cnt . '">' . $category['category_name'] . '</option>';
+                        }
                         $cnt++;
                     }
                     ?>
