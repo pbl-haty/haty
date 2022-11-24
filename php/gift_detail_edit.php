@@ -185,7 +185,6 @@ if (isset($_POST['giftpost'])) {
                 </select>
             </div>
 
-
             <div class="title-flex">
                 <h1 class="content-margin">グループ選択</h1>
                 <p class="title-flex-tag2">複数選択可</p>
@@ -201,6 +200,7 @@ if (isset($_POST['giftpost'])) {
                     echo '<div class ="prompt_2"><h4>グループに所属していません。</h4></div>';
                 } else {
                     $cnt = 0;
+                    $cnt2 = 0;
                     foreach ($group_join as $join) {
                         $img = base64_encode($join['icon']);
                 ?>
@@ -209,7 +209,14 @@ if (isset($_POST['giftpost'])) {
                                                 } else {
                                                     echo 'margin-l';
                                                 } ?>">
-                            <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" class="groupcheck" value="<?= $join['group_id'] ?>">
+                            <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" class="groupcheck" value="<?= $join['group_id'] ?> 
+                                <?php 
+                                    if(!empty($gift_group[$cnt2]['group_id']) && (int)$gift_group[$cnt2]['group_id'] == $join['group_id']) {
+                                        echo "checked";
+                                        $cnt2++;
+                                    }
+                                ?>
+                            ">
                             <label for="groupname-<?= $cnt ?>">
                                 <img class="trade_icon" src="data:;base64,<?= $img ?>">
                                 <p class="trade_name"><?= $join['groupname'] ?></p>
