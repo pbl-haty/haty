@@ -82,6 +82,7 @@ html {
     justify-content: center;
     align-items: center;
     z-index: 90;
+    background: #ffffff !important;
 }
 
 .menu-btn span,
@@ -221,4 +222,7 @@ select:focus {
 textarea:focus {
     outline: 0;
     border-color : #0077ff;
+}
+input,select,label{
+    background: #fafafa;
 }
