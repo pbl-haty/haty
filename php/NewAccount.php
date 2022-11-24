@@ -61,6 +61,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/NewAccount.css">
     <title>アカウント作成</title>
+
+    <!-- アイコン設定 -->
+    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="favicon-16.ico" />
+    <link rel="icon" href="favicon-32.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-128.ico">
 </head>
 <body>
     <!-- 登録完了のメッセージを受け取っていない時 -->
