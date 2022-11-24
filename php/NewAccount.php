@@ -21,7 +21,7 @@
             $signup_email = $_POST['signup_email'];
             $password = $_POST['password'];
 
-            $filePath = '../static/join-icon.png';
+            $filePath = '../static/user.png';
             $image = file_get_contents($filePath);
 
             // パスワードのハッシュ化

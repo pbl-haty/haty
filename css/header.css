@@ -185,6 +185,10 @@ html {
     height: 100px;
     width: 100px;
 }
+.notification-a {
+    height: 90px;
+    width: 90px;
+}
 
 .notifi-margin {
     margin: 0 180px 0 auto;
