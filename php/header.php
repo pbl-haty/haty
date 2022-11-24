@@ -23,7 +23,7 @@ $count = $notifi->notifi_count($userId);
         <!-- <h1 class="title">HATY</h1> -->
     </a>
 
-    <a class="form-btn" href="https://docs.google.com/forms/d/e/1FAIpQLScE6T7LzlXGWWxMa6WTjlpiVezTVhg2LNobXS3eFHRUi0cD1A/viewform?usp=sharing">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScE6T7LzlXGWWxMa6WTjlpiVezTVhg2LNobXS3eFHRUi0cD1A/viewform?usp=sharing">
         <img class="notification-a" style="margin-left: 200px;" src="../static/form-btn.png">
     </a>
 
