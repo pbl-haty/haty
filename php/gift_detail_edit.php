@@ -209,14 +209,14 @@ if (isset($_POST['giftpost'])) {
                                                 } else {
                                                     echo 'margin-l';
                                                 } ?>">
-                            <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" class="groupcheck" value="<?= $join['group_id'] ?> 
+                            <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" class="groupcheck" value="<?= $join['group_id'] ?>" 
                                 <?php 
                                     if(!empty($gift_group[$cnt2]['group_id']) && (int)$gift_group[$cnt2]['group_id'] == $join['group_id']) {
                                         echo "checked";
                                         $cnt2++;
                                     }
                                 ?>
-                            ">
+                            >
                             <label for="groupname-<?= $cnt ?>">
                                 <img class="trade_icon" src="data:;base64,<?= $img ?>">
                                 <p class="trade_name"><?= $join['groupname'] ?></p>
