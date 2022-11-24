@@ -7,7 +7,6 @@ require_once __DIR__ . '/classes/user.php';
 
 $userId = $_SESSION['uid'];
 $giftId = $_GET['id'];
-$completionmsg = "";
 $errormsg1 = "";
 $errormsg2 = "";
 $errormsg3 = "";
@@ -28,7 +27,7 @@ if (isset($_POST['giftpost'])) {
     if (empty($group_name)) {
         $errormsg1 = 'グループを選択してください。';
     } else {
-        if (!isset($_POST['category'])) {
+        if (!isset($_POST['category']) || $_POST['category'] == -1) {
             $errormsg3 = 'カテゴリを選択してください。';
         } else {
             $category_id = $_POST['category'];
@@ -82,7 +81,8 @@ if (isset($_POST['giftpost'])) {
                     $post->grouppost($giftId, (int)$groupid);
                 }
 
-                $completionmsg = "更新が完了しました。";
+                $location = "Location: gift_detail.php?id=$giftId";
+                header($location);
             }
         }
     }
@@ -118,10 +118,6 @@ if (isset($_POST['giftpost'])) {
 
             <div class="edit-title">
                 <h1>ギフト編集画面</h1>
-            </div>
-
-            <div class="prompt_2">
-                <h4><?= $completionmsg ?></h4>
             </div>
 
             <div class="title-flex">
@@ -164,6 +160,10 @@ if (isset($_POST['giftpost'])) {
                 <input type="text" class="gift-title" maxlength="30" name="gift_name" value="<?= $gift_info['gift_name']; ?>" required>
             </div>
 
+            <div class="prompt_2">
+                <h4><?= $errormsg3 ?></h4>
+            </div>
+
             <div class="title-flex">
                 <h1 class="content-margin">カテゴリ</h1>
             </div>
@@ -183,6 +183,10 @@ if (isset($_POST['giftpost'])) {
                     }
                     ?>
                 </select>
+            </div>
+
+            <div class="prompt_2">
+                <h4><?= $errormsg1 ?></h4>
             </div>
 
             <div class="title-flex">
@@ -229,20 +233,37 @@ if (isset($_POST['giftpost'])) {
                 }
                 ?>
             </div>
+
+            <div class="prompt_2">
+                <h4><?= $errormsg2 ?></h4>
+            </div>
+
             <div class="title-flex">
                 <h1 class="content-margin">取引方法</h1>
                 <p class="title-flex-tag2">複数選択可</p>
             </div>
             <div class="content-check">
                 <div class="trade-box margin-r">
-                    <input type="checkbox" id="trade1-conditions" name="conditions[]" class="contcheck" value="1">
+                    <input type="checkbox" id="trade1-conditions" name="conditions[]" class="contcheck" value="1"
+                        <?php 
+                            if($gift_info['conditions'] == 1 || $gift_info['conditions'] == 3) {
+                                echo "checked";
+                            } 
+                        ?>
+                    >
                     <label for="trade1-conditions">
                         <img class="trade_icon" src="../static/tewatasi.png">
                         <p class="trade_name">手渡し</p>
                     </label>
                 </div>
                 <div class="trade-box margin-l">
-                    <input type="checkbox" id="trade2-conditions" name="conditions[]" class="tradecheck" value="2">
+                    <input type="checkbox" id="trade2-conditions" name="conditions[]" class="tradecheck" value="2"
+                        <?php 
+                            if($gift_info['conditions'] == 2 || $gift_info['conditions'] == 3) {
+                                echo "checked";
+                            } 
+                        ?>
+                    >
                     <label for="trade2-conditions">
                         <img class="trade_icon" src="../static/haisou.png">
                         <p class="trade_name">配送</p>
