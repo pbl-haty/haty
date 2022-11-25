@@ -192,7 +192,11 @@ html {
 }
 
 .notifi-margin {
-    margin: 0 180px 0 auto;
+    margin: 0 180px 0 0;
+}
+
+.form-margin {
+    margin: 0 60px 0 auto;
 }
 
 .notification-notification {
