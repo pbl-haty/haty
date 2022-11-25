@@ -357,7 +357,7 @@
                                 <h3>交換物のヒント</h3>
                                 <p><?php echo $post_goods_info['goods_hint']; ?></p>
                             <?php } ?>
-                            <button class="tradeinfo-button" onclick="location.href='./trade_edit.php'">編集</button>
+                            <button class="tradeinfo-button" onclick="location.href='./trade_edit.php?goods_id=<?php echo $post_goods_info['goods_id']; ?>'">編集</button>
                         </div>
                     </div>
                 <?php } ?>

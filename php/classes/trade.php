@@ -70,16 +70,24 @@
             return $items;
         }
 
-        // 交換会に出品後のグッズの情報を取得
+        // ユーザーIDと交換会IDから交換会に出品後のグッズの情報を取得
         public function postGoodsInfo($user_id, $trade_id){
-            $sql = "select goods_name, goods_hint, goods_image
+            $sql = "select goods_id, goods_name, goods_hint, goods_image
                     from trade_goods
                     where pass_id = ? and trade_id = ?";
             $stmt = $this->query($sql, [$user_id, $trade_id]);
             $items = $stmt->fetch();
             return $items;
         }
-
+        // 交換物ID(goods_id)から交換会に出品後のグッズの情報を取得
+        public function postGoodsInfo_goodsId($goods_id){
+            $sql = "select goods_id, goods_name, goods_hint, goods_image
+                    from trade_goods
+                    where pass_id = ? and trade_id = ?";
+            $stmt = $this->query($sql, [$goods_id]);
+            $items = $stmt->fetch();
+            return $items;
+        }
         // トレードIDから交換会に投稿されたグッズの数を取得
         public function getNumofGoods($trade_id){
             $sql = "select goods_id from trade_goods
