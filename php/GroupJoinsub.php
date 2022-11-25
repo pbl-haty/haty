@@ -52,8 +52,11 @@
     <br>
     <form method="post" action="">
 
+        <div class="lnk-group-div">
+            <a href="GroupCreate.php" class="lnk-sakusei btn-style2">グループ作成</a> 
+        </div>
+
             <h1 class="join-title">グループ参加</h1>
-            <a class="groupjoin-atag" href="GroupCreate.php">グループ作成はこちら</a>
 
             <!-- エラーメッセージもしくは変更完了メッセージの表示 -->
             <?php if(!empty($errormsg)){?>

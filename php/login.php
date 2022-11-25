@@ -35,12 +35,25 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/login.css">
     <title>ログイン</title>
 </head>
+<header>
+    <p href="home.php" class="title-textdec-edit">
+        <img src="../static/title-logo.png" class="title-logo">
+        <!-- <h1 class="title">HATY</h1> -->
+    </p>
+</header>
+
 <body>
-    <h1>ログイン</h1>
+
+    <br>
+
+    <div class="lnk-sakusei-div">
+        <a href="NewAccount.php" class="lnk-sakusei btn-style">アカウント作成</a> 
+    </div>
+
+    <h1 class="login_title">ログイン</h1>
 
     <?php if(!empty($errorMessage)){ ?>
         <div class="prompt_2">
@@ -49,9 +62,7 @@
         </div>
     <?php } ?>
   
-    <div class="lnk-sakusei-div">
-        <a href="NewAccount.php" class="lnk-sakusei btn-style">アカウント作成</a> 
-    </div>
+
 
     <form method="POST" action="" class="login-form">
         <!-- <p class="login-text">メールアドレス</p> -->
@@ -65,10 +76,10 @@
         </div>
         <input type="password" class="input-form" name="login_pass" maxlenght="64" required>
 
-        <div class="autologin-div">
+        <!-- <div class="autologin-div">
             <input type="checkbox" id="login" class="login">
             <label for="login">次回から自動ログイン</label>
-        </div>
+        </div> -->
 
         <input type="submit" class="btn-login" id="check" name="login" value="ログイン">
         <br>
