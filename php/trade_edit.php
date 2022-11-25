@@ -9,6 +9,33 @@
     $goods_id = $_GET['goods_id'];
     // グッズIDから投稿した交換会の交換物の情報を取得
     $goods_info = $trade->postGoodsInfo_goodsId($goods_id);
+    $goods_image = base64_encode($goods_info['goods_image']);
+
+    // 編集ボタンが押されたとき
+    if(isset($_POST['edit_btn'])){
+        // 交換物の名前とヒントを格納
+        $goods_name = $_POST['goods_name'];
+        $goods_hint = $_POST['goods_hint'];
+
+        // アイコンが変更されているか
+        if(empty($_FILES['image']['tmp_name'])){
+            //　アイコンを変更していない場合、入力内容のみデータベースを変更
+            $msg = $trade->editGoodsInfo($goods_name, $goods_hint, $goods_id);
+        }else{
+            // 画像の処理
+            $fp = fopen($_FILES['image']['tmp_name'], "rb");
+            $goods_image = fread($fp, filesize($_FILES['image']['tmp_name']));
+            fclose($fp);
+            // アイコン画像と入力内容のデータベースを変更
+            $msg = $trade->editGoodsInfo01($goods_image, $goods_name, $goods_hint, $goods_id);
+        }
+
+        if(empty($msg)){      
+            $url = "tradeinfo.php?trade_id=" . $goods_info['trade_id'] . "#post_goods";
+            header("Location:" . $url);
+            exit;
+        }
+    }
 ?>
 <link rel="stylesheet" href="../css/tradeinfo.css">
 <title>交換物編集</title>
@@ -21,11 +48,11 @@
                 <p class="trade-right">最大1枚</p>
             </div>
             <div id="sample-img" class="sample-img">
-                <img class="sample-img-size" src="../static\user_icon.png">
+                <img class="sample-img-size" src="data:;base64,<?= $goods_image ?>">
             </div>
             <label class="upload-label">
                 画像を選択
-                <input type="file" id="input-img" onchange="loadImage(this);" name="image" accept="image/*"  required>
+                <input type="file" id="input-img" onchange="loadImage(this);" name="image" accept="image/*">
             </label>
         </div>
 
@@ -34,7 +61,7 @@
                 <h3 class="trade-left">商品名</h3>
                 <p class="trade-right">最大30文字</p>
             </div>
-            <input type="text" class="form-box" name="goods_name" maxlength="30" value="まんとる" required>
+            <input type="text" class="form-box" name="goods_name" maxlength="30" value="<?php echo $goods_info['goods_name']; ?>" required>
             <input type="text" style="display: none;"/>
         </div>
 
@@ -45,10 +72,10 @@
                 <p class="title-flex-tag2">最大３０文字</p>
             </div>
             <p class="explain-hint">交換が実施されるまでに、グループのメンバーに表示される交換物のヒント（特徴）を書いてみましょう！</p>
-            <input type="text" class="form-box" name="goods_hint" maxlength="30" value="でかい" placeholder="（例）形・色の特徴など">
+            <input type="text" class="form-box" name="goods_hint" maxlength="30" value="<?php echo $goods_info['goods_hint']; ?>" placeholder="（例）形・色の特徴など">
         </div>
     </div>
-    <input type="submit" name="post_btn" class="tradeinfo-button" value="編集する" name="post_btn"></input>
+    <input type="submit" name="edit_btn" class="tradeinfo-button" value="編集する"></input>
 </form>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script type="text/javascript" src="../js/giftpost.js"></script>

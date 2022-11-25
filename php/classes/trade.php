@@ -81,9 +81,9 @@
         }
         // 交換物ID(goods_id)から交換会に出品後のグッズの情報を取得
         public function postGoodsInfo_goodsId($goods_id){
-            $sql = "select goods_id, goods_name, goods_hint, goods_image
+            $sql = "select goods_id, trade_id, goods_name, goods_hint, goods_image
                     from trade_goods
-                    where pass_id = ? and trade_id = ?";
+                    where goods_id = ?";
             $stmt = $this->query($sql, [$goods_id]);
             $items = $stmt->fetch();
             return $items;
@@ -134,9 +134,43 @@
         
         // 受け取り完了に変更（confirmを0→1)
         public function receiptComplete($user_id, $trade_id){
-            $sql = "update trade_goods set confirm=1 where receive_id = ? and trade_id = ?";
+            $sql = "update trade_goods set confirm = 1 where receive_id = ? and trade_id = ?";
             $this->exec($sql, [$user_id, $trade_id]);
 
+        }
+
+        public function editGoodsInfo($goods_name, $goods_hint, $goods_id){
+            $sql = 'update trade_goods set goods_name = ?, goods_hint = ? where goods_id = ?';
+            $result = $this->exec($sql, [$goods_name, $goods_hint, $goods_id]);
+
+            if($result){
+                return '';
+            }else{
+                return '交換物の変更が出来ませんでした。';
+            }
+        }
+
+        public function editGoodsImage($goods_image, $goods_id){
+            $sql = 'update trade_goods set goods_image = ? where goods_id = ?';
+            $result = $this->exec($sql, [$goods_image, $goods_id]);
+
+            if($result){
+                return '';
+            }else{
+                return '交換物の変更が出来ませんでした。';
+            }
+        }
+
+        // 交換会に投稿したグッズを編集
+        public function editGoodsInfo01($goods_image, $goods_name, $goods_hint, $goods_id){
+            $sql = "update trade_goods set goods_image = ?, goods_name = ?, goods_hint = ? where goods_id = ?";
+            $result = $this->exec($sql, [$goods_image, $goods_name, $goods_hint, $goods_id]);
+
+            if($result){
+                return '';
+            }else{
+                return '交換物の変更が出来ませんでした。';
+            }
         }
 
     }

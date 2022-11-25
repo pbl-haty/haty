@@ -317,7 +317,7 @@
                             <div id="sample-img" class="sample-img"></div>
                             <label class="upload-label">
                                 画像を選択
-                                <input type="file" id="input-img" onchange="loadImage(this);" name="image" accept="image/*" required>
+                                <input type="file" id="input-img" onchange="loadImage(this);" name="image" accept="image/*" >
                             </label>
                         </div>
 
@@ -344,7 +344,7 @@
                     </form>
                 <!-- ログインしているユーザーが交換会に参加している場合 -->
                 <?php }else{ ?>
-                    <div class="post-goods">
+                    <div class="post-goods" id="post_goods">
                         <h2>あなたが投稿した交換物</h2>
                         <?php $goods_image = base64_encode($post_goods_info['goods_image']); ?>
                         <div>

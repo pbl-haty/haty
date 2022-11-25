@@ -329,10 +329,11 @@
     text-align: center;
 }
 .post-image{
-    width: calc(100vw - 80px);
-    height: calc(100vw - 80px);
+    width: calc(90vw - 40px);
+    height: calc(90vw - 40px);
     object-fit: cover;
-    margin-top: 20px;
+    padding-right: 40px;
+    margin-left: 5vw;
 }
 .goods-info h3{
     text-align: left;
