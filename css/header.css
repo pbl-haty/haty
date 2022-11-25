@@ -77,13 +77,12 @@ html {
     top: 0px;
     right: 0px;
     display: flex;
-    height: 150px;
+    height: 147px;
     width: 150px;
     justify-content: center;
     align-items: center;
     z-index: 90;
     background: #ffffff !important;
-    border-bottom: solid 3px #bbb;
 }
 
 .menu-btn span,
