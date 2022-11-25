@@ -83,6 +83,7 @@ html {
     align-items: center;
     z-index: 90;
     background: #ffffff !important;
+    border-bottom: solid 3px #bbb;
 }
 
 .menu-btn span,
