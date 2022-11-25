@@ -3,6 +3,7 @@
     require_once __DIR__ . '/header.php';
 ?>
 <link rel="stylesheet" href="../css/tradeinfo.css">
+<title>交換物編集</title>
 <br>
 <form method="POST" action="" class="trade-form" enctype="multipart/form-data">
     <div class="tradeinfo-edit">
