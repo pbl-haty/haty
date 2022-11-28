@@ -81,7 +81,7 @@
         }
         // 交換物ID(goods_id)から交換会に出品後のグッズの情報を取得
         public function postGoodsInfo_goodsId($goods_id){
-            $sql = "select goods_id, trade_id, goods_name, goods_hint, goods_image
+            $sql = "select goods_id, trade_id, pass_id, goods_name, goods_hint, goods_image, receive_id
                     from trade_goods
                     where goods_id = ?";
             $stmt = $this->query($sql, [$goods_id]);
