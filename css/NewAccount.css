@@ -1,9 +1,40 @@
-body{
-    background-color: #FEFEFE;
-    text-align: center;
-    margin: 50px 0px;
-    display: block;
+header {
+    z-index: 1000000;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 150px;
+    background-color: #ffffff;
+    align-items: center;
+    border-bottom: solid 3px #bbb;
 }
+
+body{
+    text-align: center;
+    margin: 0px;
+    display: block;
+    background-color: #FEFEFE;
+    letter-spacing: 0.12em;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+    /* ヘッダーと画面の空白除去 */
+    padding: 0;
+}
+
+.title-textdec-edit {
+    margin-left: 130px;
+    text-decoration: none;
+}
+
+.title-logo{
+    margin-left: -100px;
+    width:320px;
+}
+
+.login_title {
+    margin: 90px 0 0 0;
+    font-size: 60px;
+}
+
 .btn-create{
     width: calc(80vw - 100px);
     height: 40px;
@@ -12,13 +43,15 @@ body{
 }
 .create-form{
     padding: 0 20px;
+    margin-top: 120px;
 }
 .input-form{
     width: 100%;
-    border-radius: 10px;
+    border-radius: 20px;
     border: 1px solid gray;
     text-indent: 20px;
-    height: 40px;
+    font-size: 30px;
+    padding: 30px 0;
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 .autologin-div {
@@ -29,7 +62,7 @@ body{
 .lnk-sakusei-div{
     margin: 0 10px;
     text-align: right;
-    margin-top: 30px;
+    margin-top: 210px;
     margin-bottom: 30px;
     margin-right: 25px;
 }
@@ -40,42 +73,35 @@ body{
 }
 
 .btn-style{
-    min-width: 70px;
     text-align: center;
-    padding: 5px 10px;
+    font-size: 40px;
+    padding: 30px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
     outline: none;
     border-radius: 5px;
     border: none;
     background: #efefef;
     box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
     color: #585858;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+    text-decoration: none;
 }
 .btn-style:active {
     box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
 }
 .create-button{
-    width: calc(80vw - 100px);
-    height: 40px;
-    margin: 80px auto 0 auto;
-    font-size: 20px;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    box-sizing: border-box;
+    margin: 180px auto 50px auto;
+    font-size: 40px;
+    padding: 30px 20px;
     background-color: #0077ff;
-    border-radius: 5px;
+    border-radius: 20px;
     border: 1px solid #0077ff;
     color: white;
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+    width: 100%;
+    height: 115px;
+    letter-spacing: 0.12em;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 .prompt_2 {
     text-align: center;
@@ -84,14 +110,15 @@ body{
 }
 .content-flex{
     display: flex;
-    margin: 5px 0;
+    margin: 60px 0 30px 0;
 }
 .content-flex h1{
-    font-size: 15px;
+    margin: auto 0 auto 20px;
+    font-size: 50px;
     text-align: left;
 }
 .content-flex p{
-    font-size: 15px;
+    font-size: 35px;
     margin: 10px 0 0 auto;
 }
 /* 入力フォーム選択時の枠線 */

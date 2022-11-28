@@ -100,7 +100,7 @@ input[name="tab_item"] {
     text-align: center;
     font-weight: bold;
     font-size: 55px;
-    margin: 30px;
+    margin: 30px 30px 30px 110px;
     width: calc(100% - 240px);
     line-height: 1.5;
 }
@@ -358,13 +358,23 @@ input[name="tab_item"] {
 }
 
 .edit_button_frame {
-    width: 120px;
+    width: 200px;
 }
 
-.edit_button button {
+.btn-style {
+    text-align: center;
     font-size: 40px;
-    color: #0077ff;
-    width: 100px;
+    padding: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #efefef;
+    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    color: #585858;
+    text-decoration: none;
 }
 
 .edit_button button:active {
@@ -701,6 +711,7 @@ textarea {
     width: calc(90vw - 40px);
     height: calc(90vw - 40px);
     object-fit: cover;
+    padding-left: 2px;
 }
 
 .slider-none {

@@ -58,16 +58,25 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/NewAccount.css">
     <title>アカウント作成</title>
 </head>
+
+<header>
+    <p href="home.php" class="title-textdec-edit">
+        <img src="../static/title-logo.png" class="title-logo">
+        <!-- <h1 class="title">HATY</h1> -->
+    </p>
+</header>
+
 <body>
+
+    <br>
+
     <!-- 登録完了のメッセージを受け取っていない時 -->
     <?php
         if($signUpMessage == ''){
     ?>
-        <h1>アカウント作成</h1>
         <div class="prompt_2">
             <p><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></p>
         </div>
@@ -75,6 +84,8 @@
         <div class="lnk-sakusei-div">
             <a href="login.php" class="lnk-sakusei btn-style">ログイン</a>
         </div>
+
+        <h1 class="login_title">アカウント作成</h1>
 
         <form action="" method="POST" class="create-form">
             <div>

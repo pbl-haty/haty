@@ -228,6 +228,8 @@
 .tradeinfo-button{
     display: block;
     margin: 180px auto 0 auto;
+    height: 115px;
+    width: 100%;
     font-size: 40px;
     padding: 30px 20px;
     background-color: #0077ff;

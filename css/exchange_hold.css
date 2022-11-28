@@ -80,12 +80,10 @@
 }
 .exchanege-theme-button {
     margin-top: 40px;
-    height: 5%;
-    width: 20%;
     font-size: 50px;
     min-width: 200px;
     max-width: 600px;
-    padding: 10px;
+    padding: 30px 20px;
     box-sizing: border-box;
     border: 1px solid #68779a;
     border-radius: 20px;
@@ -118,9 +116,9 @@ input {
 }
 .hold-button {
     display: block;
-    margin: 80px auto 0 auto;
+    margin: 180px auto 0 auto;
     height: 115px;
-    width: 30%;
+    width: 100%;
     font-size: 40px;
     padding: 30px 20px;
     box-sizing: border-box;

@@ -40,13 +40,14 @@
 <br>
     <form method="POST" action="" class="header-margin-top" enctype="multipart/form-data">
 
-        <div class="file-title">
-            <h1>グループ作成</h1>
-            <a href="GroupJoinsub.php">グループ参加はこちら</a>
+        <div class="lnk-group-div">
+            <a href="GroupJoinsub.php" class="lnk-sakusei btn-style2">グループ参加</a> 
         </div>
 
+        <h1 class="file-title">グループ作成</h1>
+
         <div class="icon-flame" id="icon-flame">
-            <img class="icon-img" src="../static/user.png" id="icon-flame2">
+            <img class="icon-img" src="../static/group.png" id="icon-flame2">
         </div>
             <label class="btn-style">
                 画像を選択
