@@ -7,7 +7,7 @@
     $gift = new Gift();
     $gift_info = $gift->getGift($giftId);
 
-    if(isset($_POST['delete'])) {
+    if(isset($_POST['gift_delete'])) {
         $gift->deleteGift($giftId);
         header('Location: home.php');
     }
@@ -41,7 +41,7 @@
 
         <form method="POST" onSubmit="return check()">
             <div class=leave-btn-center>
-                <button class="leave-btn" name="groupcreate">削除</button>
+                <button class="leave-btn" name="gift_delete">削除</button>
             </div>
         </form>
 
