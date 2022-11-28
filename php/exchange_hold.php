@@ -168,7 +168,7 @@ if (!$holding_flag) {
                     <input type="radio" id="radio2" name="finishday" value="2週間後" class="exchange-finishday" onclick="onRadioButtonChange()">2週間後:<span id="after2weeks"></span><br>
                     <input type="radio" id="radio3" name="finishday" value="3週間後" class="exchange-finishday" onclick="onRadioButtonChange()">3週間後:<span id="after3weeks"></span><br>
                     <input type="radio" id="radio4" name="finishday" value="1か月後" class="exchange-finishday" onclick="onRadioButtonChange()">4週間後:<span id="after1month"></span><br>
-                    <input type="radio" id="radio4" name="finishday" value="日付選択" class="exchange-finishday" onclick="onRadioButtonChange()">日付を選択する<span id="after1month"></span><br>
+                    <input type="radio" id="radio5" name="finishday" value="日付選択" class="exchange-finishday" onclick="onRadioButtonChange()">日付を選択する<span id="after1month"></span><br>
                 </div>
 
                 <div>
