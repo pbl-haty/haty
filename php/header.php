@@ -102,3 +102,7 @@ $count = $notifi->notifi_count($userId);
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Corben:700">
     <link rel="stylesheet" href="../css/header.css">
+    
+    <!-- アイコン設定 -->
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-128.ico">
