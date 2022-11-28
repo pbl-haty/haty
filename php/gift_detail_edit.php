@@ -116,10 +116,6 @@ if (isset($_POST['giftpost'])) {
 
         <form method="POST" action="" class="header-margin-top" enctype="multipart/form-data">
 
-            <div class="prompt_2">
-                <h4><?= $completionmsg ?></h4>
-            </div>
-
             <div class="lnk-delete-div">
                 <a href="gift_detail_edit_delete.php?id=<?php echo $giftId; ?>" class="lnk-delete btn-style2">削除</a> 
             </div>
