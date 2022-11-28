@@ -134,4 +134,10 @@
                 return 'ギフトの取引を完了出来ませんでした。';
             }
         }
+
+        // 取引を終了させる
+        public function deleteGift($gift_id){
+            $sql = "delete from  gift where id = ?";
+            $this->exec($sql, [$gift_id]);
+        }
     }

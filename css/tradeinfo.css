@@ -221,9 +221,9 @@
 }
 .tradeinfo-button{
     display: block;
-    margin: 80px auto 0 auto;
+    margin: 180px auto 0 auto;
     height: 115px;
-    width: 30%;
+    width: 100%;
     font-size: 40px;
     padding: 30px 20px;
     box-sizing: border-box;

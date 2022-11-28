@@ -86,7 +86,7 @@ if (empty($giftgroup)) {
                 <label class="tab_item" for="comment" id="scroll-btn">コメント</label>
                 <div class="tab_content" id="all_content" style="display: none;">
                     <div class="tab_content_description">
-                        <div class="gift_detail">
+                        <div class="gift_detail_main">
                             <!-- <h2 class="syosai">ギフト詳細</h2> -->
                             <?php
                                 $gift_addimage = $gift->getaddimage($giftId);
@@ -142,7 +142,7 @@ if (empty($giftgroup)) {
                                 <!-- ギフトの修正ボタン -->
                                 <div class="edit_button_frame">
                                     <?php if ($userId == $gift_info['user_id']) { ?>
-                                        <a class="edit_button" href="gift_detail_edit.php?id=<?php echo $giftId; ?>"><button>編集</button></a>
+                                        <a href="gift_detail_edit.php?id=<?php echo $giftId; ?>" class="btn-style">編集</a> 
                                     <?php } ?>
                                 </div>
                             </div>

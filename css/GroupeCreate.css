@@ -2,16 +2,36 @@ body{
     display:block;
     text-align: center;
 }
-.file-title{
-    margin-bottom: 60px;
+.file-title {
+    margin: 90px 0 60px 0;
+    font-size: 60px;
 }
-.file-title h1{
-    font-size: 70px;
+
+.lnk-group-div {
+    margin: 0 10px;
+    text-align: right;
+    margin-top: 210px;
+    margin-bottom: 30px;
+    margin-right: 25px;
 }
-.file-title a{
-    font-size: 30px;
-    color: blue;
+
+.btn-style2 {
+    width: 60px;
+    text-align: center;
+    font-size: 40px;
+    padding: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #efefef;
+    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    color: #585858;
+    text-decoration: none;
 }
+
 .icon-flame{
     border: dotted 2px black;
     border-radius: 50%;
@@ -59,17 +79,17 @@ body{
     padding-bottom: 60px;
 }
 .group-create-button{
-    display: block;
-    margin: 80px auto 0 auto;
-    height: 115px;
-    width: 30%;
+    margin: 180px auto 0 auto;
     font-size: 40px;
     padding: 30px 20px;
-    box-sizing: border-box;
     background-color: #0077ff;
     border-radius: 20px;
     border: 1px solid #0077ff;
     color: white;
+    width: 100%;
+    height: 115px;
+    letter-spacing: 0.12em;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 .must input{
     caret-color: transparent;

@@ -68,14 +68,6 @@ body {
     align-items: center;
 }
 
-.edit-title {
-    margin-top: 180px;
-}
-
-.edit-title h1 {
-    font-size: 50px;
-}
-
 .header-margin-top {
     margin-top: 150px;
     padding: 0 20px;
@@ -215,7 +207,7 @@ body {
 
 .form-btn {
     display: block;
-    margin: 80px auto 0 auto;
+    margin: 180px auto 0 auto;
     height: 115px;
     width: 100%;
     font-size: 40px;
@@ -250,6 +242,28 @@ body {
 .gift_detail {
     margin-top: 150px;
     padding: 0 20px;
+}
+
+.lnk-delete-div {
+    text-align: right;
+    margin: 210px 0 0 0;
+}
+
+.btn-style2 {
+    margin: 0 0 0 auto;
+    text-align: center;
+    font-size: 40px;
+    padding: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    border-radius: 20px;
+    border: none;
+    background: #e60033;
+    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    text-decoration: none;
+    color: #EEEEEE;
 }
 
 .prompt_1 {
