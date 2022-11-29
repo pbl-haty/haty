@@ -106,14 +106,17 @@
                 <!-- 交換会名と開催期間を表示 -->
                 <div class="trade-title">
                     <h1><?php echo $trade_info['trade_name']; ?></h1>
-                    <p><?php echo $trade_info['begin_date']; ?> ～　<?php echo $trade_info['end_date']; ?></p>
+                    <p class="date-title">交換会参加可能期間</p>
+                    <p class="display-date"><?php echo $trade_info['begin_date']; ?> ～　<?php echo $trade_info['end_date']; ?></p>
+                    <p class="date-title">交換実施予定日</p>
+                    <p class="display-date"><?php echo date("Y-m-d", strtotime("+1 day", strtotime($trade_info['end_date']))); ?></p>
                 </div>
 
                 <!-- 参加者のアイコンを表示 -->
                 <div class="participant">
                     <h3>交換会の参加者</h3>
                     <?php if(isset($participant_msg)){ ?>
-                        <div class="prompt_3">
+                        <div class="no-participant">
                             <h4 class="msg-size"><?php echo $participant_msg; ?></h4>
                         </div>
                     <?php }else{ ?>
