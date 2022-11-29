@@ -105,4 +105,4 @@ $count = $notifi->notifi_count($userId);
     
     <!-- アイコン設定 -->
     <link rel="icon" href="favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon-128.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">

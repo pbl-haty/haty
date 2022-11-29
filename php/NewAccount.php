@@ -93,26 +93,27 @@
                     <h1>ユーザーネーム</h1>
                     <p>最大30文字</p>
                 </div>
-                <input type="text" class="input-form" name="signup_name" maxlength="30"  placeholder="ユーザーネーム" required>
+                <input type="text" class="input-form" name="signup_name" maxlength="30" required>
             </div>
             <div>
                 <div class="content-flex">
                     <h1>メールアドレス</h1>
+                    <p>最大100文字</p>
                 </div>
-                <input type="email" class="input-form" name="signup_email" maxlength="100"  placeholder="メールアドレス" required>
+                <input type="email" class="input-form" name="signup_email" maxlength="100" required>
             </div>
             <div>
                 <div class="content-flex">
                     <h1>パスワード</h1>
                     <p>最大64文字</p>
                 </div>
-                <input type="password" class="input-form" name="password" maxlength="64"  placeholder="パスワード" required>
+                <input type="password" class="input-form" name="password" maxlength="64" required>
             </div>
             <div>
                 <div class="content-flex">
                     <h1>パスワード再入力</h1>
                 </div>
-                <input type="password" class="input-form" name="password2" maxlength="64" placeholder="パスワード再入力" required>
+                <input type="password" class="input-form" name="password2" maxlength="64" required>
             </div>
             <input type="submit" class="create-button" name="signup" value="アカウント作成">
         </form>

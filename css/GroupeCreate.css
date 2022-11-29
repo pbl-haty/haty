@@ -59,7 +59,7 @@ body{
     font-size: 30px;
     border-radius: 20px;
     border: 1px gray solid;
-    width: 30%;
+    width: 100%;
 }
 .btn-style input {
     display: none;

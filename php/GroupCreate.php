@@ -63,7 +63,7 @@
         </div>
 
         <div class="flex-title">
-            <h1 class="input-title">グループパスワード</h1>
+            <h1 class="input-title">パスワード</h1>
             <p class="precautions">最大30文字</p>
         </div>
         <div class="must">
@@ -71,7 +71,7 @@
         </div>
 
         <div class="flex-title">
-            <h1 class="input-title">グループパスワード再入力</h1>
+            <h1 class="input-title">パスワード再入力</h1>
         </div>
         <div class="must">
             <input class="text-box" type="password" name="group_repass" maxlength="30" required>

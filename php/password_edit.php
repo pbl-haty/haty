@@ -55,26 +55,30 @@
         <?php } ?>
         <!-- パスワード変更フォーム -->
         <form method="POST" action="" class="password_edit_form">
+
+            <div class="lnk-sakusei-div">
+                <a href="profile_edit.php"  class="btn-style">プロフィール変更</a>
+            </div>
+
             <div class="edit_password">
                 <div class="edit_password_title">
-                    <p>パスワード変更</p>
-                    <a href="profile_edit.php">プロフィール変更はこちら</a>
+                    <h1 class="pass_title">パスワード変更</h1>
                 </div>
                 <div class="password_input">
                     <div class="content-flex">
                         <h1>現在のパスワード</h1>
-                        <p>最大400文字</p>
+                        <p>最大64文字</p>
                     </div>
-                    <input type="password" class="edit_password_place" name="current_password" maxlength="400" required>
+                    <input type="password" class="edit_password_place" name="current_password" maxlength="64" required>
                     <div class="content-flex">
                         <h1>新しいパスワード</h1>
-                        <p>最大400文字</p>
+                        <p>最大64文字</p>
                     </div>
-                    <input type="password" class="edit_password_place" name="new_password1" maxlength="400" required>
+                    <input type="password" class="edit_password_place" name="new_password1" maxlength="64" required>
                     <div class="content-flex">
                         <h1>新しいパスワード再入力</h1>
                     </div>
-                    <input type="password" class="edit_password_place" name="new_password2" maxlength="400" required>
+                    <input type="password" class="edit_password_place" name="new_password2" maxlength="64" required>
                 </div>
             </div>
             <div class="edit_btn_center">
