@@ -98,6 +98,7 @@
             <div>
                 <div class="content-flex">
                     <h1>メールアドレス</h1>
+                    <p>最大100文字</p>
                 </div>
                 <input type="email" class="input-form" name="signup_email" maxlength="100"  placeholder="メールアドレス" required>
             </div>

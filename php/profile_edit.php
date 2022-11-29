@@ -64,9 +64,13 @@
         } ?>
 
         <form method="POST" action=""  enctype="multipart/form-data">
+
+            <div class="lnk-sakusei-div">
+                <a href="password_edit.php"  class="btn-style">パスワード変更</a>
+            </div>
+
             <div class="profile_edit_title">
-                <p>プロフィール変更</p>
-                <a href="password_edit.php">パスワードの変更はこちら</a>
+                <h1 class="pass_title">プロフィール変更</h1>
             </div>
 
             <div class="display-icon">
