@@ -26,10 +26,10 @@ if (empty($groupId)) {
 // tradeテーブルに情報があるか、グループIDで確認
 $tradeInfo = $trade->gettradeInfo($groupId);
 $current_date = date("Y-m-d");
-if(!empty($tradeInfo)){
-    foreach ($tradeInfo as $eachtradeInfo){
+if (!empty($tradeInfo)) {
+    foreach ($tradeInfo as $eachtradeInfo) {
         // 現在の日付から交換会が開催期間中か判定
-        if($eachtradeInfo['begin_date'] <= $current_date && $current_date <= $eachtradeInfo['end_date']){
+        if ($eachtradeInfo['begin_date'] <= $current_date && $current_date <= $eachtradeInfo['end_date']) {
             $holding_flag = true;
             break;
         }
@@ -70,7 +70,7 @@ if (!$holding_flag) {
             // 交換会が開催されたことをグループ全員に通知
             $member = $groupmember->member($groupId);
             foreach ($member as $mem) {
-                if($userId != $mem['uid']) {
+                if ($userId != $mem['uid']) {
                     $notifi->notifi_trade($groupId, $mem['uid'], 2);
                 }
             }
@@ -164,11 +164,14 @@ if (!$holding_flag) {
                     <p>開催期間終了日を下記からひとつ選択してください</p>
                     <p>今日: <span id="today" class="exchange-tody"></span></p>
                     <input type="hidden" id="end_date" name="end_date" value="">
-                    <input type="radio" id="radio1" name="finishday" value="1週間後" class="exchange-finishday" onclick="onRadioButtonChange()" checked="checked">1週間後:<span id="after1week"></span><br>
-                    <input type="radio" id="radio2" name="finishday" value="2週間後" class="exchange-finishday" onclick="onRadioButtonChange()">2週間後:<span id="after2weeks"></span><br>
-                    <input type="radio" id="radio3" name="finishday" value="3週間後" class="exchange-finishday" onclick="onRadioButtonChange()">3週間後:<span id="after3weeks"></span><br>
-                    <input type="radio" id="radio4" name="finishday" value="1か月後" class="exchange-finishday" onclick="onRadioButtonChange()">4週間後:<span id="after1month"></span><br>
-                    <input type="radio" id="radio5" name="finishday" value="日付選択" class="exchange-finishday" onclick="onRadioButtonChange()">日付を選択する<span id="after1month"></span><br>
+                    <input type="radio" id="radio1" name="finishday" value="1週間後" class="exchange-finishday" onclick="onRadioButtonChange();hihyoji()" checked="checked">1週間後:<span id="after1week"></span><br>
+                    <input type="radio" id="radio2" name="finishday" value="2週間後" class="exchange-finishday" onclick="onRadioButtonChange();hihyoji()">2週間後:<span id="after2weeks"></span><br>
+                    <input type="radio" id="radio3" name="finishday" value="3週間後" class="exchange-finishday" onclick="onRadioButtonChange();hihyoji()">3週間後:<span id="after3weeks"></span><br>
+                    <input type="radio" id="radio4" name="finishday" value="1か月後" class="exchange-finishday" onclick="onRadioButtonChange();hihyoji()">4週間後:<span id="after1month"></span><br>
+                    <input type="radio" id="radio5" name="finishday" value="日付選択" class="exchange-finishday" onclick="onRadioButtonChange();hyoji()">日付を選択する（最大4週間）<!--<span id="daycheck">--></span><br>
+                </div>
+                <div id="message" class="daycheck-none">
+                    <input type="date" id="setDate" value='2022-11-30' class="daycheck">
                 </div>
 
                 <div>
