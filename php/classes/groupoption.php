@@ -7,7 +7,7 @@
 
         public function codeuniq() {
             do {
-                $code = substr(str_shuffle('1234567890abcdefghijklmnopqrstuvwxyz'), 0, 20);
+                $code = substr(str_shuffle('1234567890abcdefghijkmnprstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ'), 0, 6);
                 $sql = "select code from groupdb where code = ?";
                 $stmt = $this->query($sql, [$code]);
                 $item = $stmt->fetch();
