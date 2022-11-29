@@ -57,15 +57,11 @@ window.addEventListener('DOMContentLoaded', function () {
 const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
 const now = Date.now();
 const today = new Date(now);
-const afterOneWeek = new Date(now + 1 * 7 * 24 * 60 * 60 * 1000); // 一週間後
-const afterTwoWeek = new Date(now + 2 * 7 * 24 * 60 * 60 * 1000); // 二週間後
-const afterThreeWeek = new Date(now + 3 * 7 * 24 * 60 * 60 * 1000); // 三週間後
-const afterOnemonth = new Date(now + 1 * 7 * 24 * 60 * 60 * 1000 * 4); // 一か月後
+const afterOneWeek = new Date(now + 1 * 7 * 24 * 60 * 60 * 1000 - 60 * 60 * 24 * 1000); // 一週間後
+const afterTwoWeek = new Date(now + 2 * 7 * 24 * 60 * 60 * 1000 - 60 * 60 * 24 * 1000); // 二週間後
+const afterThreeWeek = new Date(now + 3 * 7 * 24 * 60 * 60 * 1000 - 60 * 60 * 24 * 1000); // 三週間後
+const afterOnemonth = new Date(now + 1 * 7 * 24 * 60 * 60 * 1000 * 4 - 60 * 60 * 24 * 1000); // 一か月後
 const daycheck = new Date(now + document.getElementById("setDate").value);
-
-// const afterTwomonth = new Date(now + 2 * 7 * 24 * 60 * 60 * 1000 * 4); // 二か月後
-// const afterThreemonth = new Date(now + 3 * 7 * 24 * 60 * 60 * 1000 * 4); // 三か月後
-
 
 document.getElementById('today').textContent = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()} (${weekdays[today.getDay()]})`;
 document.getElementById('after1week').textContent = `${afterOneWeek.getFullYear()}/${afterOneWeek.getMonth() + 1}/${afterOneWeek.getDate()} (${weekdays[afterOneWeek.getDay()]})`;

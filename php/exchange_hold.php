@@ -26,6 +26,9 @@ if (empty($groupId)) {
 // tradeテーブルに情報があるか、グループIDで確認
 $tradeInfo = $trade->gettradeInfo($groupId);
 $current_date = date("Y-m-d");
+// 終了期間自由選択の開始日、終了日を指定
+$onedaylater = date("Y-m-d", strtotime("+1 day"));
+$fourweekslater = date("Y-m-d",strtotime("+4 weeks -1day"));
 if (!empty($tradeInfo)) {
     foreach ($tradeInfo as $eachtradeInfo) {
         // 現在の日付から交換会が開催期間中か判定
@@ -43,6 +46,8 @@ if (!$holding_flag) {
         // 交換会名前と終了日を格納
         $trade_name = $_POST['trade_name'];
         $end_date = $_POST['end_date'];
+
+
         // 変数の初期化
         $trade_explain = NULL;
         $theme1 = $theme2 = $theme3 = NULL;
@@ -86,11 +91,8 @@ if (!$holding_flag) {
 
     // 過去の交換会情報がある場合
 } else {
-    $current_date = date("Y-m-d");
-    // 現在の日付が、開催期間であるか
-    if ($tradeInfo['begin_date'] <= $current_date && $current_date <= $tradeInfo['end_date']) {
-        $msg = '現在このグループでは<br>交換会が開催されており、<br>新たに開催することは出来ません。';
-    }
+    $msg = '現在このグループでは<br>交換会が開催されており、<br>新たに開催することは出来ません。';
+   
 }
 
 
@@ -161,7 +163,7 @@ if (!$holding_flag) {
                 <!-- 終了日入力 -->
                 <div>
                     <p class="exchange-finish">交換会の終了日</p>
-                    <p>開催期間終了日を下記からひとつ選択してください</p>
+                    <p>開催期間終了日を下記からひとつ選択してください。</p>
                     <p>今日: <span id="today" class="exchange-tody"></span></p>
                     <input type="hidden" id="end_date" name="end_date" value="">
                     <input type="radio" id="radio1" name="finishday" value="1週間後" class="exchange-finishday" onclick="onRadioButtonChange();hihyoji()" checked="checked">1週間後:<span id="after1week"></span><br>
@@ -171,7 +173,7 @@ if (!$holding_flag) {
                     <input type="radio" id="radio5" name="finishday" value="日付選択" class="exchange-finishday" onclick="onRadioButtonChange();hyoji()">日付を選択する（最大4週間）<!--<span id="daycheck">--></span><br>
                 </div>
                 <div id="message" class="daycheck-none">
-                    <input type="date" id="setDate" value='2022-11-30' class="daycheck">
+                    <input type="date" id="setDate" name="end_date" value='<?php echo $onedaylater; ?>' min=<?php echo $onedaylater; ?> max=<?php echo $fourweekslater; ?> class="daycheck">
                 </div>
 
                 <div>
