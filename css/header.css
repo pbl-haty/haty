@@ -83,11 +83,12 @@ html {
     top: 0px;
     right: 0px;
     display: flex;
-    height: 150px;
+    height: 147px;
     width: 150px;
     justify-content: center;
     align-items: center;
     z-index: 90;
+    background: #ffffff !important;
 }
 
 .menu-btn span,
@@ -197,7 +198,11 @@ html {
 }
 
 .notifi-margin {
-    margin: 0 180px 0 auto;
+    margin: 0 180px 0 0;
+}
+
+.form-margin {
+    margin: 0 60px 0 auto;
 }
 
 .notification-notification {
@@ -227,4 +232,7 @@ select:focus {
 textarea:focus {
     outline: 0;
     border-color : #0077ff;
+}
+input,select,label,textarea{
+    background: #fafafa;
 }

@@ -135,3 +135,6 @@ textarea:focus {
     outline: 0;
     border-color : #0077ff;
 }
+input{
+    background: #fafafa;
+}
