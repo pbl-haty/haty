@@ -2,8 +2,9 @@
     margin-top: 140px;
     font-size: 40px;
     padding: 40px;
+    -webkit-text-size-adjust: 100%;
 }
-.trade-info p{
+.display-date{
     font-size: 0.7em;
 }
 .trade-title{
@@ -12,6 +13,10 @@
 .trade-title h1{
     padding: 10px;
     word-break: break-all;
+}
+.date-title{
+    font-weight: bold;
+    font-size: 0.8em;
 }
 .participant{
     margin-top: 100px;
@@ -35,6 +40,9 @@
 }
 .trade-theme{
     margin-top: 80px
+}
+.trade-theme p{
+    font-size: 0.8em;
 }
 .trade-explain{
     margin-top: 80px;
@@ -121,7 +129,7 @@
 }
 /* 投稿フォーム */
 .trade-form{
-    margin-top: 250px;
+    margin-top: 180px;
     margin-bottom: 150px;
     font-size: 40px;
 }
@@ -213,7 +221,7 @@
     margin-top: 80px;
 }
 .form-box{
-    width: calc(100vw - 110px);
+    width: calc(100vw - 120px);
     border-radius: 20px;
     font-size: 1.0em;
     border: 1px solid gray;
@@ -247,7 +255,7 @@
     color: rgba(119, 29, 29, 0.534);
 }
 .msg-size {
-    height: 50px;
+    height: 42px;
     color: rgba(119, 29, 29, 0.534);
     text-align: center;
 }
@@ -405,11 +413,17 @@
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
 }
+.no-participant{
+    padding: 0 20px;
+    text-align: center;
+    font-size: 50px;
+    color: rgba(119, 29, 29, 0.534);
+}
 .prompt_3 h4{
     overflow-wrap: break-word;
     word-break: break-all;
 }
 .prompt_3 a{
     color: blue;
-    font-size: 40px;
+    font-size: 42px;
 }

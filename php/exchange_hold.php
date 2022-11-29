@@ -27,8 +27,8 @@ if (empty($groupId)) {
 $tradeInfo = $trade->gettradeInfo($groupId);
 $current_date = date("Y-m-d");
 // 終了期間自由選択の開始日、終了日を指定
-$onedaylater = date("Y-m-d", strtotime("+1 day"));
-$fourweekslater = date("Y-m-d",strtotime("+4 weeks -1day"));
+$onedaylater = date("Y-m-d", strtotime("+1 day", strtotime($current_date)));
+$fourweekslater = date("Y-m-d",strtotime("+4 weeks -1day", strtotime($current_date)));
 if (!empty($tradeInfo)) {
     foreach ($tradeInfo as $eachtradeInfo) {
         // 現在の日付から交換会が開催期間中か判定
