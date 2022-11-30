@@ -4,10 +4,15 @@
     vertical-align: middle;
 }
 
+.group_sentence {
+    margin-top: 155px;
+    text-align: center;
+    font-size: 50px;
+}
+
 .home_1 {
     display: flex;
-    padding: 30px 20px;
-    margin-top: 150px;
+    padding: 0 20px 20px 20px;
 }
 
 .position-relative {
@@ -43,14 +48,15 @@
     align-items: center;
     margin: 30px 0;
 }
+
 .display2 {
     display: flex;
     align-items: center;
-    width:700px;
+    width: 700px;
 }
 
-.home_list{
-    text-decoration:none;
+.home_list {
+    text-decoration: none;
 }
 
 .detail_display {
@@ -83,10 +89,12 @@
     top: 10px;
     left: 10px;
 }
+
 .trade_look_1 {
     text-align: center;
 }
-.trade_look{
+
+.trade_look {
     display: inline-block;
     padding: 30px 0;
     width: 200px;
@@ -150,7 +158,7 @@
 
 .group-option-move-join {
     width: 100px;
-    margin: 0 200px 0 200px;
+    margin: 0 200px 0 180px;
     text-decoration: none;
     color: #000;
 }
@@ -159,11 +167,53 @@
     width: 100px;
 }
 
-.group-option-text {
+.group-option-text-1 {
+    font-size: 30px;
+    text-align: center;
+    width: 200px;
+    margin: 10px 0 0 -40px;
+}
+
+.group-option-text-2 {
     font-size: 30px;
     text-align: center;
     width: 100px;
     margin: 10px 0 0 auto;
+}
+
+.join_create_check {
+    display: none;
+}
+
+.nakami {
+    visibility: hidden;
+    text-align: center;
+    margin: 5px;
+    padding: 20px 0;
+    text-decoration: none;
+    font-size: 40px;
+    height: 0;
+}
+.create{
+    text-decoration: none;
+    color: #000000;
+    margin: 20px 0;
+    background-color: rgb(223, 219, 219);
+    border-radius: 20px;
+    padding:10px;
+}
+.join{
+    text-decoration: none;
+    color: #000000;
+    margin: 20px 0;
+    background-color: rgb(223, 219, 219);;
+    border-radius: 20px;
+    padding:10px;
+}
+
+.join_create_check:checked+.nakami {
+    visibility: visible;
+    height: auto;
 }
 
 hr {

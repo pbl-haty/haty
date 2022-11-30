@@ -15,18 +15,25 @@ $userId = $_SESSION['uid'];
 <br>
 
 <body>
+    <p class="group_sentence">グループ</p>
     <div class="home_1">
-        <!-- <h1 class="group_itiran">グループ一覧</h1> -->
         <div class="group-option">
-            <a href="GroupCreate.php" class="group-option-move-create">
-                <img class="group-option-image" src="../static/user_gray.png">
-                <p class="group-option-text">作成</p>
-            </a>
+            <div style="display:flex;">
+                <label class="group-option-move-create" for="sakusei_sanka">
+                    <img class="group-option-image" src="../static/user_gray.png">
+                    <p class="group-option-text-1">作成・参加</p>
+                </label>
+            </div>
             <a href="GroupJoinsub.php" class="group-option-move-join">
                 <img class="group-option-image" src="../static/user_gray.png">
-                <p class="group-option-text">参加</p>
+                <p class="group-option-text-2">招待</p>
             </a>
         </div>
+    </div>
+    <input type="checkbox" id="sakusei_sanka" class="join_create_check">
+    <div class="nakami">
+        <a href="GroupCreate.php" class="create">作成ページへ</a>
+        <a href="GroupJoinsub.php" class="join">参加ページへ</a>
     </div>
 
 
@@ -52,7 +59,7 @@ $userId = $_SESSION['uid'];
 
                 <div class="home_title">
                     <div class="display">
-                        <a href="group_list.php?groupid=<?php echo $join['group_id']; ?>"  class="home_list">
+                        <a href="group_list.php?groupid=<?php echo $join['group_id']; ?>" class="home_list">
                             <div class="display2">
                                 <img class="home_groupicon" src="data:;base64,<?php echo $img; ?>">
                                 <p class="home_groupname"><?= $join['groupname'] ?></p>
