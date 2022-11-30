@@ -20,17 +20,17 @@ $userId = $_SESSION['uid'];
         <div class="group-option">
             <div style="display:flex;">
                 <label class="group-option-move-create" for="sakusei_sanka">
-                    <img class="group-option-image" src="../static/user_gray.png">
+                    <img class="group-option-image" src="../static/group_create_join.png">
                     <p class="group-option-text-1">作成・参加</p>
                 </label>
             </div>
-            <a href="GroupJoinsub.php" class="group-option-move-join">
-                <img class="group-option-image" src="../static/user_gray.png">
+            <a href="" class="group-option-move-join">
+                <img class="group-option-image" src="../static/group_invite.png">
                 <p class="group-option-text-2">招待</p>
             </a>
         </div>
     </div>
-    <input type="checkbox" id="sakusei_sanka" class="join_create_check">
+    <input type="checkbox" id="sakusei_sanka" class="join_create_check" readonly="readonly">
     <div class="nakami">
         <a href="GroupCreate.php" class="create">作成ページへ</a>
         <a href="GroupJoinsub.php" class="join">参加ページへ</a>
