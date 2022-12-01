@@ -13,7 +13,7 @@
     }
 ?>
     <link rel="stylesheet" href="../css/dattai.css">
-    <title>脱退</title>
+    <title>ギフト削除</title>
 </head>
 
 <body>

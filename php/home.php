@@ -24,7 +24,7 @@ $userId = $_SESSION['uid'];
                     <p class="group-option-text-1">作成・参加</p>
                 </label>
             </div>
-            <a href="" class="group-option-move-join">
+            <a href="invitation.php" class="group-option-move-join">
                 <img class="group-option-image" src="../static/group_invite.png">
                 <p class="group-option-text-2">招待</p>
             </a>

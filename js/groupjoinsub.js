@@ -5,18 +5,18 @@ window.addEventListener('DOMContentLoaded', function(){
   
     input_name.addEventListener("change",function(){
         if(this.value.indexOf( "http://localhost/haty/php/GroupJoin.php?code=") == 0) {
-            this.value = this.value.slice('-20');
+            this.value = this.value.slice('-6');
         } else if(this.value.indexOf( "https://kd.haty-gift.com/php/GroupJoin.php?code=") == 0) {
-            this.value = this.value.slice('-20');
+            this.value = this.value.slice('-6');
         }
     });
   
     // イベントリスナーでイベント「input」を登録
     input_name.addEventListener("input",function(){
         if(this.value.indexOf( "http://localhost/haty/php/GroupJoin.php?code=") == 0) {
-            this.value = this.value.slice('-20');
+            this.value = this.value.slice('-6');
         } else if(this.value.indexOf( "https://kd.haty-gift.com/php/GroupJoin.php?code=") == 0) {
-            this.value = this.value.slice('-20');
+            this.value = this.value.slice('-6');
         }
     });
   });
