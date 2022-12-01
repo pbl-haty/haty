@@ -131,16 +131,9 @@
 }
 
 
-/* .group_itiran {
-    margin: 0;
-    display: block;
-    padding: 0.5em;
-    color: #494949;
-    background: #f3ebe2;
-    border-left: solid 10px #ec8e29;
-    font-size: 70px;
-    width: 60%;
-} */
+.group-flex{
+    display: flex;
+}
 
 .group-option {
     width: 100%;
@@ -173,7 +166,7 @@
     font-size: 30px;
     text-align: center;
     width: 200px;
-    margin: 10px 0 0 -40px;
+    margin: 10px 0 0 -50px;
     background-color: #ffffff;
 }
 
@@ -191,7 +184,7 @@
 .nakami {
     visibility: hidden;
     text-align: center;
-    margin: 30px;
+    margin: 10px 0 30px 0;
     padding: 20px 0;
     text-decoration: none;
     font-size: 40px;
