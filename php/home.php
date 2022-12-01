@@ -18,7 +18,7 @@ $userId = $_SESSION['uid'];
     <p class="group_sentence">グループ</p>
     <div class="home_1">
         <div class="group-option">
-            <div class="group-flex">
+            <div style="display:flex;">
                 <label class="group-option-move-create" for="sakusei_sanka">
                     <img class="group-option-image" src="../static/group_create_join.png">
                     <p class="group-option-text-1">作成・参加</p>
