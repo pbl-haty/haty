@@ -44,7 +44,7 @@ require_once __DIR__ . '/header.php';
                         <p class='groupcode-copy inv2-cnt-<?= $cnt ?>' data-clipboard-text="http://localhost/haty/php/GroupJoin.php?code=<?= $conf['code'] ?>"><?= $conf['code']?></p>
                         <!-- <p class='groupcode-copy inv2-cnt-<?= $cnt ?>' data-clipboard-text="https://kd.haty-gift.com/php/GroupJoin.php?code=<?= $conf['code'] ?>"><?= $conf['code']?></p> -->
                         <div class="inv-link-sentence inv-cnt-<?= $cnt ?>" data-clipboard-text="http://localhost/haty/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div>
-                        <!-- <div class="inv-link-sentence" data-clipboard-text="https://kd.haty-gift.com/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div> -->
+                        <!-- <div class="inv-link-sentence inv-cnt-<?= $cnt ?>" data-clipboard-text="https://kd.haty-gift.com/php/GroupJoin.php?code=<?= $conf['code'] ?>">招待リンク</div> -->
                     </div>
                 </div>
             </div>
