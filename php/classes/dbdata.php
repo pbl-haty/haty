@@ -5,16 +5,16 @@
                       
       public function __construct( ) {   // コンストラクタ     
           // PDOオブジェクトを生成する                     
+          // デプロイ時変更点
+          // groupjoinsub.js & group_list.php->招待リンク & invitation.php->招待リンク
+          $dsn = 'mysql:host=database-1.c0ldwtkfy8hi.ap-northeast-1.rds.amazonaws.com;dbname=haty;charset=UTF8';
+          $user = 'admin';
+          $password = 'haty_D04';
+
+          // localhost時
           $dsn = 'mysql:host=localhost;dbname=haty;charset=utf8';                     
           $user = 'haty';                    
           $password = 'haty';       
-
-// デプロイ時変更点
-// groupjoinsub.js & group_list.php->招待リンク
-//          $dsn = 'mysql:host=database-1.c0ldwtkfy8hi.ap-northeast-1.rds.amazonaws.com;dbname=haty;charset=UTF8';
-//          $user = 'admin';
-//          $password = 'haty_D04';
-
 
           try{                      
               $this->pdo = new PDO($dsn, $user, $password);                     
