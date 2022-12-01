@@ -13,17 +13,27 @@
         $user = new User();
         $result = $user->authUser($login_email);
 
-        if(password_verify($login_pass, $result['password'])){  // password_verify関数でハッシュの認証
-            // ユーザー情報をセッションに保存する
-            $_SESSION['uid'] = $result['uid'];
-            $_SESSION['name'] = $result['name'];
-            $_SESSION['comment'] = $result['comment'];
-            $_SESSION['icon'] = $result['icon'];
-            $_SESSION['mailaddress'] = $result['mailaddress'];
-            
-            // ホーム画面に遷移する
-            header('Location: home.php');
-            exit();
+        if(!empty($result)){
+            if(password_verify($login_pass, $result['password'])){  // password_verify関数でハッシュの認証
+                // ユーザー情報をセッションに保存する
+			    session_regenerate_id(true);
+                $_SESSION['uid'] = $result['uid'];
+                $_SESSION['name'] = $result['name'];
+                $_SESSION['comment'] = $result['comment'];
+                $_SESSION['icon'] = $result['icon'];
+                $_SESSION['mailaddress'] = $result['mailaddress'];
+                // 自動ログインにチェックが入っているとき
+                if(isset($_POST['autologin'])){
+                    //自動ログイントークンの生成
+			        $user->setLoginToken($result['uid']);
+                }
+                
+                // ホーム画面に遷移する
+                header('Location: home.php');
+                exit();       
+            }else{
+                $errorMessage = 'メールアドレスとパスワードが<br>正しいか確認してください。';
+            }
         }else{
             $errorMessage = 'メールアドレスとパスワードが<br>正しいか確認してください。';
         }
@@ -76,10 +86,10 @@
         </div>
         <input type="password" class="input-form" name="login_pass" maxlenght="64" required>
 
-        <!-- <div class="autologin-div">
-            <input type="checkbox" id="login" class="login">
+        <div class="autologin-div">
+            <input type="checkbox" id="login" class="login" name="autologin">
             <label for="login">次回から自動ログイン</label>
-        </div> -->
+        </div>
 
         <input type="submit" class="btn-login" id="check" name="login" value="ログイン">
         <br>

@@ -103,6 +103,10 @@ body{
     color: rgba(119, 29, 29, 0.534);
 }
 
+.prompt_2 p{
+    font-size: 40px;
+}
+
 .login-form{
     padding: 0 20px;
     margin-top: 120px;
@@ -117,6 +121,15 @@ body{
     margin: auto 0 auto 20px;
     font-size: 50px;
     text-align: left;
+}
+
+.autologin-div{
+    font-size:32px;
+    margin-top: 100px;
+}
+.login{
+    transform: scale(2);
+    margin: 0 6px 0 0;
 }
 
 /* 入力フォーム選択時の枠線 */
