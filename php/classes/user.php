@@ -14,7 +14,7 @@
         public function setLoginToken($user_id){
             if(isset($_COOKIE['token'])){
                 $sql = 'delete from user_token where token = ?';
-                $this->exec($sql, array($_COOKIE['token']));
+                $this->exec($sql, [$_COOKIE['token']]);
             }
 
             // 新しいトークンを生成
@@ -22,7 +22,7 @@
             $sql = "select * from user_token where token = ?";
             for($i = 0; $i < 100; $i++) {
                 $token_temp = bin2hex(openssl_random_pseudo_bytes(16));
-                $stmt = $this->query($sql, array($token_temp));
+                $stmt = $this->query($sql, [$token_temp]);
                 if(!$stmt->fetch()) {
                     $token = $token_temp;
                     break;
@@ -159,6 +159,10 @@
         
         // ログアウト処理
         public function logout(){
+            if(isset($_COOKIE['token'])){
+                $sql = 'delete from user_token where token = ?';
+                $this->exec($sql, [$_COOKIE['token']]);
+            }
             $_SESSION = array();
             if (isset($_COOKIE[session_name()])) {
                 //セッションクッキーを削除

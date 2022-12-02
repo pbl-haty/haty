@@ -101,8 +101,9 @@
         <input type="password" class="input-form" name="login_pass" maxlenght="64" required>
 
         <div class="autologin-div">
-            <input type="checkbox" id="login" class="login" name="autologin">
-            <label for="login">次回から自動ログイン</label>
+            <label>
+                <input type="checkbox" id="login" class="autologin" name="autologin">次回から自動ログイン
+            </label>
         </div>
 
         <input type="submit" class="btn-login" id="check" name="login" value="ログイン">
