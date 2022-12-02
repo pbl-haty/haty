@@ -4,6 +4,20 @@
     // user.phpを読み込む
     require_once __DIR__ . '/classes/user.php';
 
+    // ログイン中ではないが、クッキーに自動ログイントークンがあった場合
+    if(!isset($_SESSION['uid']) && isset($_COOKIE['token'])){
+        $result = $user->auto_login();
+        if(!empty($result)){
+            //ログイン成功したのでセッションIDの振り直しとセッションへユーザーIDをセット
+		    session_regenerate_id(true);
+		    $_SESSION['uid'] = $result['uid'];
+		    $user->setLoginToken($result['uid']);
+            // ホーム画面に遷移する
+            header('Location: home.php');
+            exit(); 
+        }
+    }
+
     // ログインボタンが押されたとき
     if(isset($_POST['login'])){
         $login_email = $_POST['login_email'];
