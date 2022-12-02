@@ -84,7 +84,12 @@
 
 
         public function groupwithdrawal($userId, $groupId) {
+            // グループから脱退
             $sql = 'delete from groupjoin where user_id = ? and group_id = ?';
+            $this->exec($sql, [$userId, $groupId]);
+
+            //　グループに投稿中の商品を削除
+            $sql = 'delete from giftgroup where giftgroup.gift_id in (select gift.id from gift where gift.user_id = ?) and giftgroup.group_id = ?';
             $this->exec($sql, [$userId, $groupId]);
 
             // グループに誰も所属していない場合そのグループを削除
