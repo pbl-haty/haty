@@ -3,6 +3,7 @@
     session_start();
     // user.phpを読み込む
     require_once __DIR__ . '/classes/user.php';
+    $user = new User();
 
     // ログイン中ではないが、クッキーに自動ログイントークンがあった場合
     if(!isset($_SESSION['uid']) && isset($_COOKIE['token'])){
@@ -10,8 +11,8 @@
         if(!empty($result)){
             //ログイン成功したのでセッションIDの振り直しとセッションへユーザーIDをセット
 		    session_regenerate_id(true);
-		    $_SESSION['uid'] = $result['uid'];
-		    $user->setLoginToken($result['uid']);
+		    $_SESSION['uid'] = $result['userid'];
+		    $user->setLoginToken($result['userid']);
             // ホーム画面に遷移する
             header('Location: home.php');
             exit(); 
@@ -23,8 +24,7 @@
         $login_email = $_POST['login_email'];
         $login_pass = $_POST['login_pass'];
 
-        // ユーザーオブジェクトを生成し、「authUser()メソッド」を呼び出し、認証結果を受け取る
-        $user = new User();
+        // 「authUser()メソッド」を呼び出し、認証結果を受け取る
         $result = $user->authUser($login_email);
 
         if(!empty($result)){
