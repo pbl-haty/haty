@@ -17,7 +17,7 @@
                     from giftgroup join gift on giftgroup.gift_id = gift.id join user on user.uid = gift.user_id
                     where giftgroup.group_id = ? and gift.user_id != ? and gift.applicant is null and gift.judge is null
                     order by gift.post desc, gift.id desc
-                    limit 3";
+                    limit 5";
             $stmt = $this->query($sql, [$groupId, $userId]);
             $items = $stmt->fetchAll();
             return $items;

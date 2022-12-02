@@ -1,0 +1,80 @@
+body{
+    background-color: #FEFEFE;
+    text-align: center;
+    margin: 50px 0px;
+    display: block;
+}
+.btn-create{
+    width: calc(80vw - 100px);
+    height: 40px;
+    margin-top: 110px;
+    font-size: 20px;
+}
+@media screen and (min-width: 960px) {
+    .btn-create{
+        margin-top: 50px;
+        width: calc(80vw - 800px);
+    }
+}
+#NA-effect{
+    width: calc(100vw - 100px);
+    height: 30px;
+    text-indent: 20px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+@media screen and (min-width: 960px) {
+    #NA-effect{
+        width: calc(100vw - 1000px);
+    }
+}
+#NA-effect::placeholder{
+    text-indent: 20px;
+}
+#NA-effect:focus{
+    outline: 0;
+    border-color: blue;
+}
+
+.autologin-div {
+    margin: 0 50px;
+    text-align: left;
+}
+
+.lnk-sakusei-div{
+    margin: 0 10px;
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+@media screen and (min-width: 960px) {
+    .lnk-sakusei-div{
+        margin: 0 300px;
+    }
+}
+
+.lnk-sakusei{
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-style{
+    min-width: 70px;
+    text-align: center;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #efefef;
+    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    color: #585858;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.btn-style:active {
+    box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
+}

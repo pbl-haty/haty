@@ -1,0 +1,333 @@
+.home_padding{
+    overflow: hidden;
+}
+@media screen and (min-width: 960px) {
+    .home_padding {
+        padding: 100px;
+        overflow: hidden;
+    }
+}
+.home_title {
+    padding: 10px 20px;
+    width: calc(100% - 40px);
+    vertical-align: middle;
+}
+@media screen and (min-width: 960px) {
+    .home_title {
+        margin: -150px 0 0 190px;
+    }
+}
+
+
+.home_1 {
+    display: flex;
+    padding: 30px 20px;
+    margin-top: 150px;
+}
+
+.position{
+    padding:3px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.home_groupname {
+    max-width: calc(100% - 160px);
+    min-width: calc(100% - 360px);
+    margin: 0;
+    margin-left: 20px;
+    font-size: 60px;
+    text-align: left;
+    color: #000000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (min-width: 960px) {
+    .home_groupname {
+        font-size: 20px;
+        min-width: calc(30% - 360px);
+    }
+}
+
+.home_groupicon {
+    border: 3px solid black;
+    width: 120px;
+    height: 120px;
+    color: #ffffff;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media screen and (min-width: 960px) {
+    .home_groupicon {
+        border: 1px solid black;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.display {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+}
+/* @media screen and (min-width: 960px) {
+    .display {
+        margin: 0;
+    }
+} */
+
+
+.detail_display {
+    text-decoration: none;
+    color: #000000;
+    margin: 0 4px;
+}
+
+.gift-display-image {
+    height: calc((100vw - 70px) / 3);
+    width: calc((100vw - 70px) / 3);
+    object-fit: cover;
+    border: 1px solid gray;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+}
+
+@media screen and (min-width: 960px) {
+    .gift-display-image {
+        height: calc((100vw - 700px) / 5);
+        width: calc((100vw - 700px) / 5);
+    }
+}
+
+.gift-display-icon {
+    width: 80px;
+    height: 80px;
+    color: #ffffff;
+    border: 3px solid black;
+    background-color: #FEFEFE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+@media screen and (min-width: 960px) {
+    .gift-display-icon {
+        height: calc(15px + 5*(100vw - 960px) / 120);
+        width: calc(15px + 5*(100vw - 960px) / 120);
+    }
+}
+
+.trade_look_1 {
+    text-align: center;
+}
+
+.trade_look {
+    display: inline-block;
+    padding: 30px 0;
+    width: 200px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 40px;
+    text-decoration: none;
+    color: #000000;
+}
+
+@media screen and (min-width: 960px) {
+    .trade_look {
+        padding: 10px 10px 30px 10px;
+        width: 70px;
+        height: 10px;
+        font-size: 15px;
+        margin-left:50px ;
+    }
+}
+
+
+.detail_look_1 {
+    text-align: center;
+}
+@media screen and (min-width: 960px) {
+    .detail_look_1 {
+        margin-bottom: 150px;
+    }
+}
+
+.detail_look {
+    display: inline-block;
+    padding: 30px 0;
+    margin: 30px 0;
+    width: calc(100% - 40px);
+    border: 1px solid grey;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 40px;
+    text-decoration: none;
+    color: #000000;
+}
+@media screen and (min-width: 960px) {
+    .detail_look {
+        padding: 5px 0;
+        margin: 5px 0 50px 0;
+        width: calc(100% - 700px);
+        font-size:20px;
+    }
+}
+
+
+.detail_look:active {
+    -ms-transform: translateY(5px);
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+
+/* .group_itiran {
+    margin: 0;
+    display: block;
+    padding: 0.5em;
+    color: #494949;
+    background: #f3ebe2;
+    border-left: solid 10px #ec8e29;
+    font-size: 70px;
+    width: 60%;
+} */
+
+.group-option {
+    width: 100%;
+    margin-left: auto;
+    display: flex;
+    padding-right: 20px;
+}
+
+@media screen and (min-width: 960px) {
+    .group-option {
+        margin: -150px 0 150px 0;
+    }
+}
+
+.group-option-move-create {
+    width: 100px;
+    margin: 0 200px 0 180px;
+    text-decoration: none;
+    color: #000;
+}
+
+@media screen and (min-width: 960px) {
+    .group-option-move-create {
+        margin: 0 auto 0 auto;
+    }
+}
+
+.group-option-move-join {
+    width: 100px;
+    margin: 0 200px 0 100px;
+    text-decoration: none;
+    color: #000;
+}
+
+@media screen and (min-width: 960px) {
+    .group-option-move-join {
+        margin: 0 auto 0 auto;
+    }
+}
+
+.group-option-image {
+    width: 100px;
+}
+
+@media screen and (min-width: 960px) {
+    .group-option-image {
+        width: 50px;
+    }
+}
+
+.group-option-text {
+    font-size: 30px;
+    text-align: center;
+    width: 100px;
+    margin: 10px 0 0 auto;
+}
+
+@media screen and (min-width: 960px) {
+    .group-option-text {
+        font-size: 20px;
+        width: 100px;
+        margin: 10px 0 0 -25px;
+    }
+}
+
+
+hr {
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #bbb inset;
+}
+@media screen and (min-width: 960px) {
+    hr {
+        display: none;
+    }
+}
+
+
+.prompt_1 {
+    text-align: center;
+    font-size: 50px;
+    color: rgba(119, 29, 29, 0.534);
+}
+
+.prompt_2 {
+    text-align: center;
+    font-size: 50px;
+    color: rgba(119, 29, 29, 0.534);
+}
+@media screen and (min-width: 960px) {
+    .prompt_2 {
+        margin-right: 400px;
+    }
+}
+
+.home-image-title {
+    height: 90px;
+    font-size: 30px;
+    border-radius: 0 0 10px 10px;
+    border: 1px solid gray;
+    width: calc((100vw - 70px) / 3);
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+}
+@media screen and (min-width: 960px) {
+    .home-image-title {
+        height: 50px;
+        font-size: 15px;
+        width: calc((100vw - 700px) / 5);
+    }
+}
+
+
+.home-image-title-span {
+    text-align: center;
+    width: calc(100% - 100px);
+    padding: 0 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@media screen and (min-width: 960px) {
+    .home-image-title-span {
+        width: calc(100% - 10px);
+        padding: 0 20px;
+    }
+}
