@@ -1,10 +1,11 @@
 body {
    position: fixed;
    height: 100%;
+   -webkit-text-size-adjust: 100%;
 }
 
 #help_all{
-   margin: 10px 20px 0 20px;
+   margin: 30px 7px 0 7px;
    height: 100%;
 }
 
@@ -14,7 +15,7 @@ body {
    font-size: 25px;
    text-align: center;
    height:50px;
-   width: 270px;
+   width: 30%;
    display: inline-block;
    border-width: 1px 1px 0px 1px;
    border-style: solid;
@@ -38,7 +39,7 @@ body {
    height:100%;
 }
 #tabbody div {
-   font-size: 25px;
+   font-size: 40px;
    border: 1px solid black;
    margin: 0;
    padding: 1em;
@@ -49,9 +50,13 @@ body {
    height: 80%;
 }
 
-
+.span{
+   line-height: 60px;
+}
 .help_answer {
    margin-left: 40px;
+   padding: 15px;
+   line-height: 50px;
 }
 
 #tabbody div:focus {
@@ -63,12 +68,14 @@ body {
 #tabcontrol a:nth-child(1),
 #tabbody div:nth-child(1) {
    background-color: #ffffdd;
+   text-decoration: none;
 }
 
 /* 2つ目のタブとその中身用の配色 */
 #tabcontrol a:nth-child(2),
 #tabbody div:nth-child(2) {
    background-color: #ddffdd;
+   text-decoration: none;
 }
 
 
@@ -76,4 +83,5 @@ body {
 #tabcontrol a:nth-child(3),
 #tabbody div:nth-child(3) {
    background-color: #ddddff;
+   text-decoration: none;
 }
