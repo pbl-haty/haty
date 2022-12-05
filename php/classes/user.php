@@ -35,7 +35,7 @@
             // テーブルへトークンを保存
             $sql = "insert into user_token(token, userid) values (?, ?)";
             $stmt = $this->exec($sql, [$token, $user_id]);
-            // クッキーへトークンを保存
+            // クッキーへトークンを保存（1週間保持）
             setcookie('token', $token, time() + 60 * 60 * 24 * 7, '/');
         }
 
@@ -169,7 +169,7 @@
                 setcookie(session_name(), '', time() - 42000, '/');
             }
             //自動ログイントークンを削除
-            setcookie('token', '', time()-42000, '/');
+            setcookie('token', '', time() - 42000, '/');
             session_destroy();
         }
     }
