@@ -3,27 +3,51 @@
     session_start();
     // user.phpを読み込む
     require_once __DIR__ . '/classes/user.php';
+    $user = new User();
+
+    // ログイン中ではないが、クッキーに自動ログイントークンがあった場合
+    if(!isset($_SESSION['uid']) && isset($_COOKIE['token'])){
+        $result = $user->auto_login();
+        if(!empty($result)){
+            //ログイン成功したのでセッションIDの振り直しとセッションへユーザーIDをセット
+		    session_regenerate_id(true);
+		    $_SESSION['uid'] = $result['userid'];
+		    $user->setLoginToken($result['userid']);
+            // ホーム画面に遷移する
+            header('Location: home.php');
+            exit(); 
+        }
+    }
 
     // ログインボタンが押されたとき
     if(isset($_POST['login'])){
         $login_email = $_POST['login_email'];
         $login_pass = $_POST['login_pass'];
 
-        // ユーザーオブジェクトを生成し、「authUser()メソッド」を呼び出し、認証結果を受け取る
-        $user = new User();
+        // 「authUser()メソッド」を呼び出し、認証結果を受け取る
         $result = $user->authUser($login_email);
 
-        if(password_verify($login_pass, $result['password'])){  // password_verify関数でハッシュの認証
-            // ユーザー情報をセッションに保存する
-            $_SESSION['uid'] = $result['uid'];
-            $_SESSION['name'] = $result['name'];
-            $_SESSION['comment'] = $result['comment'];
-            $_SESSION['icon'] = $result['icon'];
-            $_SESSION['mailaddress'] = $result['mailaddress'];
-            
-            // ホーム画面に遷移する
-            header('Location: home.php');
-            exit();
+        if(!empty($result)){
+            if(password_verify($login_pass, $result['password'])){  // password_verify関数でハッシュの認証
+                // ユーザー情報をセッションに保存する
+			    session_regenerate_id(true);
+                $_SESSION['uid'] = $result['uid'];
+                $_SESSION['name'] = $result['name'];
+                $_SESSION['comment'] = $result['comment'];
+                $_SESSION['icon'] = $result['icon'];
+                $_SESSION['mailaddress'] = $result['mailaddress'];
+                // 自動ログインにチェックが入っているとき
+                if(isset($_POST['autologin'])){
+                    //自動ログイントークンの生成
+			        $user->setLoginToken($result['uid']);
+                }
+                
+                // ホーム画面に遷移する
+                header('Location: home.php');
+                exit();       
+            }else{
+                $errorMessage = 'メールアドレスとパスワードが<br>正しいか確認してください。';
+            }
         }else{
             $errorMessage = 'メールアドレスとパスワードが<br>正しいか確認してください。';
         }
@@ -76,10 +100,11 @@
         </div>
         <input type="password" class="input-form" name="login_pass" maxlenght="64" required>
 
-        <!-- <div class="autologin-div">
-            <input type="checkbox" id="login" class="login">
-            <label for="login">次回から自動ログイン</label>
-        </div> -->
+        <div class="autologin-div">
+            <label>
+                <input type="checkbox" id="login" class="autologin" name="autologin">次回から自動ログイン
+            </label>
+        </div>
 
         <input type="submit" class="btn-login" id="check" name="login" value="ログイン">
         <br>
