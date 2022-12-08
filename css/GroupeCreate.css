@@ -91,9 +91,6 @@ body{
     letter-spacing: 0.12em;
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
-.must input{
-    caret-color: transparent;
-}
 .must input:valid {
     background: #fff;
 }
