@@ -120,7 +120,7 @@ if (!$holding_flag) {
                 <!-- 交換会名入力 -->
                 <div>
                     <div class="flex-title">
-                        <h1>グループ名</h1>
+                        <h1>交換会名</h1>
                         <p>最大30文字</p>
                     </div>
                     <input type="text" class=exchange-title-name name="trade_name" maxlength="30" required>

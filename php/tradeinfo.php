@@ -173,6 +173,12 @@
 
             <!-- 現在日時が交換会期限を超えているか判定 -->
             <?php if($trade_info['end_date'] < $current_date){ ?>
+                <!-- 交換会に参加しているか判定 -->
+                <?php if(isset($post_goods_info)){ ?>
+                    <div class="prompt_2">
+                        <h4 class="msg-size">あなたはこの交換会に<br>参加していません。</h4>
+                    </div>
+                <?php }else{ ?>
                 <!-- 交換会に三人以上参加しているか確認 -->
                 <?php
                     $num_participants = $trade->getNumofGoods($trade_id);
@@ -307,7 +313,7 @@
                 </div>
               
             <!-- 交換会が開催期間内の場合 -->
-            <?php } } }else{ ?>
+            <?php } } } }else{ ?>
                 <!-- まだログインしているユーザーが交換会に参加していない場合 -->
                 <?php if(empty($post_goods_info)){ ?>
                     <form method="POST" action="" class="trade-form" enctype="multipart/form-data">

@@ -72,20 +72,21 @@
 <body>
 
     <br>
-
     <!-- 登録完了のメッセージを受け取っていない時 -->
-    <?php
-        if($signUpMessage == ''){
-    ?>
-        <div class="prompt_2">
-            <p><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></p>
-        </div>
-
+    <?php if($signUpMessage == ''){ ?>
         <div class="lnk-sakusei-div">
             <a href="login.php" class="lnk-sakusei btn-style">ログイン</a>
         </div>
 
         <h1 class="login_title">アカウント作成</h1>
+
+        <!-- エラーメッセージがあるとき -->
+        <?php if(!empty($errorMessage)){ ?>
+            <div class="prompt_2">
+                <p><?php echo $errorMessage; ?></p>
+                <?php $errorMessage = ''; ?>
+            </div>
+        <?php } ?>
 
         <form action="" method="POST" class="create-form">
             <div>
@@ -123,7 +124,7 @@
         }else{
     ?>
         <h1><?php echo htmlspecialchars($signUpMessage, ENT_QUOTES); ?></h1>
-        <h2>この画面は数秒後にホーム画面に遷移します。</h2>
+        <h2>この画面は数秒後に<br>ホーム画面に遷移します。</h2>
     <?php
         header( "refresh:3;url=home.php" );
         }

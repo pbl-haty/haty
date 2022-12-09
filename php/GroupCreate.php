@@ -67,6 +67,7 @@
             <p class="precautions">最大30文字</p>
         </div>
         <div class="must">
+            <p class="instructions">パスワードはグループに招待する時に必要になります。<br>忘れないように気を付けてください！</p>
             <input class="text-box" type="password" name="group_pass" maxlength="30" required>
         </div>
 
