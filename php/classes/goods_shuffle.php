@@ -29,8 +29,8 @@
     }
 
     // trade.phpを読み込み、トレードオブジェクトを生成
-    require_once __DIR__ . '/classes/trade.php';
-    require_once __DIR__ . '/classes/notifi.php';
+    require_once __DIR__ . '/trade.php';
+    require_once __DIR__ . '/notifi.php';
     $trade = new Trade();
     $notifi = new notifi();
 

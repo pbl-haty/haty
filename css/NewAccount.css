@@ -138,3 +138,12 @@ textarea:focus {
 input{
     background: #fafafa;
 }
+/* エラーメッセージ */
+.prompt_2 {
+    text-align: center;
+    font-weight: bold;
+    color: rgba(119, 29, 29, 0.534);
+}
+.prompt_2 p{
+    font-size: 40px;
+}

@@ -76,12 +76,13 @@
                         echo "{$view['groupname']}の交換会が開催されました。";
                         break;
                     case 3:
+                        $date = date('Y-m-d', strtotime('-1 day'. $view['time']));
                         // トレードIDから交換会の情報を取得
                         $tradeInfo = $trade->gettradeInfo($view['group_send']);
                         // 所属しているグループごとで確認
                         foreach($tradeInfo as $eachtradeInfo){
                             // 通知の日付から交換会が開催期間中か判定
-                            if($eachtradeInfo['end_date'] == date("Y-m-d",strtotime("-1 day"))) {
+                            if($eachtradeInfo['end_date'] == $date) {
                                 $tradeId = $eachtradeInfo['trade_id'];
                                 break;
                             }
