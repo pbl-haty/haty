@@ -3,6 +3,17 @@
     padding: 0 30px;
 }
 
+.display-date{
+    font-size: 28px;
+    text-align: center;
+}
+
+.date-title{
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+}
+
 .exchange {
     font-size: 32px;
 }
@@ -91,6 +102,10 @@
     display: none;
 }
 
+.exchange-tody {
+    font-size: 27px;
+}
+
 .exchanege-theme-button {
     margin-top: 40px;
     font-size: 50px;
@@ -119,7 +134,7 @@ input {
 }
 
 .exchange-finish {
-    margin: 80px 0px 50px 0;
+    margin: 80px 0px 50px 20px;
     font-size: 50px;
     font-weight: bold;
 }

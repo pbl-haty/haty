@@ -60,15 +60,21 @@ const today = new Date(now);
 const afterOneWeek = new Date(now + 1 * 7 * 24 * 60 * 60 * 1000 - 60 * 60 * 24 * 1000); // 一週間後
 const afterTwoWeek = new Date(now + 2 * 7 * 24 * 60 * 60 * 1000 - 60 * 60 * 24 * 1000); // 二週間後
 const afterThreeWeek = new Date(now + 3 * 7 * 24 * 60 * 60 * 1000 - 60 * 60 * 24 * 1000); // 三週間後
-const afterOnemonth = new Date(now + 1 * 7 * 24 * 60 * 60 * 1000 * 4 - 60 * 60 * 24 * 1000); // 一か月後
+const afterOnemonth = new Date(now + 4 * 7 * 24 * 60 * 60 * 1000 - 60 * 60 * 24 * 1000); // 一か月後
+
+const afterOneWeektm = new Date(now + (1 * 7 + 1) * 24 * 60 * 60 * 1000 - 60 * 60 * 24 * 1000); // 一週間後 + 1
+const afterTwoWeektm = new Date(now + (2 * 7 + 1) * 24 * 60 * 60 * 1000 - 60 * 60 * 24 * 1000); // 二週間後 + 1
+const afterThreeWeektm = new Date(now + (3 * 7 + 1) * 24 * 60 * 60 * 1000 - 60 * 60 * 24 * 1000); // 三週間後 + 1
+const afterOnemonthtm = new Date(now + (4 * 7 + 1) * 24 * 60 * 60 * 1000 - 60 * 60 * 24 * 1000); // 一か月後 + 1
 const daycheck = new Date(now + document.getElementById("setDate").value);
 
 document.getElementById('today').textContent = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()} (${weekdays[today.getDay()]})`;
-document.getElementById('after1week').textContent = `${afterOneWeek.getFullYear()}/${afterOneWeek.getMonth() + 1}/${afterOneWeek.getDate()} (${weekdays[afterOneWeek.getDay()]})`;
-document.getElementById('after2weeks').textContent = `${afterTwoWeek.getFullYear()}/${afterTwoWeek.getMonth() + 1}/${afterTwoWeek.getDate()} (${weekdays[afterOneWeek.getDay()]})`;
-document.getElementById('after3weeks').textContent = `${afterThreeWeek.getFullYear()}/${afterThreeWeek.getMonth() + 1}/${afterThreeWeek.getDate()} (${weekdays[afterOneWeek.getDay()]})`;
-document.getElementById('after1month').textContent = `${afterOnemonth.getFullYear()}/${afterOnemonth.getMonth() + 1}/${afterOnemonth.getDate()} (${weekdays[afterOneWeek.getDay()]})`;
-document.getElementById('daycheck').textContent = `${daycheck.getFullYear()}/${daycheck.getMonth() + 1}/${daycheck.getDate()} (${weekdays[afterOneWeek.getDay()]})`;
+document.getElementById('paday').textContent = `${afterOneWeek.getFullYear()}/${afterOneWeek.getMonth() + 1}/${afterOneWeek.getDate()} (${weekdays[afterOneWeek.getDay()]})`;
+document.getElementById('exday').textContent = `${afterOneWeektm.getFullYear()}/${afterOneWeektm.getMonth() + 1}/${afterOneWeektm.getDate()} (${weekdays[afterOneWeektm.getDay()]})`;
+document.getElementById('after1week').textContent = `${afterOneWeektm.getFullYear()}/${afterOneWeektm.getMonth() + 1}/${afterOneWeektm.getDate()} (${weekdays[afterOneWeektm.getDay()]})`;
+document.getElementById('after2weeks').textContent = `${afterTwoWeektm.getFullYear()}/${afterTwoWeektm.getMonth() + 1}/${afterTwoWeektm.getDate()} (${weekdays[afterTwoWeektm.getDay()]})`;
+document.getElementById('after3weeks').textContent = `${afterThreeWeektm.getFullYear()}/${afterThreeWeektm.getMonth() + 1}/${afterThreeWeektm.getDate()} (${weekdays[afterThreeWeektm.getDay()]})`;
+document.getElementById('after1month').textContent = `${afterOnemonthtm.getFullYear()}/${afterOnemonthtm.getMonth() + 1}/${afterOnemonthtm.getDate()} (${weekdays[afterOnemonthtm.getDay()]})`;
 // 初期値設定
 document.getElementById('end_date').value = `${afterOneWeek.getFullYear()}/${afterOneWeek.getMonth() + 1}/${afterOneWeek.getDate()}`;
 
@@ -88,15 +94,51 @@ function onRadioButtonChange() {
     let radio4 = document.getElementById("radio4");
     let radio5 = document.getElementById("radio5");
     let end_date = document.getElementById("end_date");
+    let paday = document.getElementById("paday");
+    let exday = document.getElementById("exday");
+    let setData = document.getElementById("setDate");
+  
+    //　日曜日か判定
+    if(weekdays[afterOneWeek.getDay() + 1] === undefined) {
+        weekday = weekdays[0];
+    } else {
+        weekday = weekdays[afterOneWeek.getDay() + 1];
+    }
+
     if (radio1.checked) {
         end_date.value = `${afterOneWeek.getFullYear()}/${afterOneWeek.getMonth() + 1}/${afterOneWeek.getDate()}`;
+        paday.textContent = `${afterOneWeek.getFullYear()}/${afterOneWeek.getMonth() + 1}/${afterOneWeek.getDate()} (${weekdays[afterOneWeek.getDay()]})`;
+        exday.textContent = `${afterOneWeektm.getFullYear()}/${afterOneWeektm.getMonth() + 1}/${afterOneWeektm.getDate()} (${weekdays[afterOneWeektm.getDay()]})`;
     } else if (radio2.checked) {
         end_date.value = `${afterTwoWeek.getFullYear()}/${afterTwoWeek.getMonth() + 1}/${afterTwoWeek.getDate()}`;
+        paday.textContent = `${afterTwoWeek.getFullYear()}/${afterTwoWeek.getMonth() + 1}/${afterTwoWeek.getDate()} (${weekdays[afterTwoWeek.getDay()]})`;
+        exday.textContent = `${afterTwoWeektm.getFullYear()}/${afterTwoWeektm.getMonth() + 1}/${afterTwoWeektm.getDate()} (${weekdays[afterTwoWeektm.getDay()]})`;
     } else if (radio3.checked) {
         end_date.value = `${afterThreeWeek.getFullYear()}/${afterThreeWeek.getMonth() + 1}/${afterThreeWeek.getDate()}`;
+        paday.textContent = `${afterThreeWeek.getFullYear()}/${afterThreeWeek.getMonth() + 1}/${afterThreeWeek.getDate()} (${weekdays[afterThreeWeek.getDay()]})`;
+        exday.textContent = `${afterThreeWeektm.getFullYear()}/${afterThreeWeektm.getMonth() + 1}/${afterThreeWeektm.getDate()} (${weekdays[afterThreeWeektm.getDay()]})`;
     } else if (radio4.checked) {
         end_date.value = `${afterOnemonth.getFullYear()}/${afterOnemonth.getMonth() + 1}/${afterOnemonth.getDate()}`;
+        paday.textContent = `${afterOnemonth.getFullYear()}/${afterOnemonth.getMonth() + 1}/${afterOnemonth.getDate()} (${weekdays[afterOnemonth.getDay()]})`;
+        exday.textContent = `${afterOnemonthtm.getFullYear()}/${afterOnemonthtm.getMonth() + 1}/${afterOnemonthtm.getDate()} (${weekdays[afterOnemonthtm.getDay()]})`;
     } else if (radio5.checked) {
-        end_date.value = `${daycheck.getFullYear()}/${daycheck.getMonth() + 1}/${daycheck.getDate()}`;
+        const setvalue = new Date(setData.value);
+        //　１日か判定
+        back = new Date(setvalue - 60 * 60 * 24 * 1000);
+
+        paday.textContent = `${back.getFullYear()}/${back.getMonth() + 1}/${back.getDate()} (${weekdays[back.getDay()]})`;
+        exday.textContent = `${setvalue.getFullYear()}/${setvalue.getMonth() + 1}/${setvalue.getDate()} (${weekdays[setvalue.getDay()]})`;
+        end_date.value = `${back.getFullYear()}/${back.getMonth() + 1}/${back.getDate()} (${weekdays[back.getDay()]})`;
     }
 }
+
+// 日付変更時にテキストも変更
+function changeDate() { 
+    let setData = document.getElementById("setDate");
+    const setvalue = new Date(setData.value);
+
+    back = new Date(setvalue - 60 * 60 * 24 * 1000);
+    paday.textContent = `${back.getFullYear()}/${back.getMonth() + 1}/${back.getDate()} (${weekdays[back.getDay()]})`;
+    exday.textContent = `${setvalue.getFullYear()}/${setvalue.getMonth() + 1}/${setvalue.getDate()} (${weekdays[setvalue.getDay()]})`;
+    end_date.value = `${back.getFullYear()}/${back.getMonth() + 1}/${back.getDate()} (${weekdays[back.getDay()]})`;
+};

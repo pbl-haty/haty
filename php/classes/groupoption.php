@@ -88,17 +88,28 @@
             $sql = 'delete from groupjoin where user_id = ? and group_id = ?';
             $this->exec($sql, [$userId, $groupId]);
 
+            //  グループに投稿中の商品データを取得
+            $sql = 'select gift.id 
+                    from gift join giftgroup on giftgroup.gift_id  = gift.id 
+                    where gift.user_id = ? and giftgroup.group_id = ?';
+            $stmt = $this->query($sql, [$userId, $groupId]);
+            $items = $stmt->fetchAll();
+
             //　グループに投稿中の商品を削除
             $sql = 'delete from giftgroup where giftgroup.gift_id in (select gift.id from gift where gift.user_id = ?) and giftgroup.group_id = ?';
             $this->exec($sql, [$userId, $groupId]);
+
+            //　ギフトがどこにも投稿されていないか判定
+            $sql = 'delete from gift where not exists (select giftgroup.gift_id from giftgroup where giftgroup.gift_id = gift.id)';
+            $this->exec($sql, []);
 
             // グループに誰も所属していない場合そのグループを削除
             $sql = 'select * 
                     from groupdb join groupjoin on groupdb.id = groupjoin.group_id
                     where groupdb.id = ?';
             $stmt = $this->query($sql, [$groupId]);
-            $items = $stmt->fetchAll();
-            if(empty($items)) {
+            $item = $stmt->fetch();
+            if(empty($item)) {
                 $sql = 'delete from groupdb where id = ?';
                 $this->exec($sql, [$groupId]);
             }
