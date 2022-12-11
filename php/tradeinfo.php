@@ -174,7 +174,7 @@
             <!-- 現在日時が交換会期限を超えているか判定 -->
             <?php if($trade_info['end_date'] < $current_date){ ?>
                 <!-- 交換会に参加しているか判定 -->
-                <?php if(isset($post_goods_info)){ ?>
+                <?php if(empty($post_goods_info)){ ?>
                     <div class="prompt_2">
                         <h4 class="msg-size">あなたはこの交換会に<br>参加していません。</h4>
                     </div>
