@@ -30,8 +30,8 @@
             if (empty($group_conf)) {
                 echo '<div class = prompt_1>';
                 echo '<h4>URLが間違っているか<br>既に解散されたグループです。</h4>';
+                echo '<a class="prompt_home" href="home.php">ホームに戻る</a>';
                 echo '</div>';
-                echo '<a href="home.php">ホームに戻る</a>';
             } else {
 
         ?>

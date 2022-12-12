@@ -110,6 +110,10 @@
             $stmt = $this->query($sql, [$groupId]);
             $item = $stmt->fetch();
             if(empty($item)) {
+                $sql = 'delete from trade_goods where trade_goods.trade_id in (select trade.trade_id from trade where trade.group_id = ?)';
+                $this->exec($sql, [$groupId]);
+                $sql = 'delete from trade where group_id = ?';
+                $this->exec($sql, [$groupId]);
                 $sql = 'delete from groupdb where id = ?';
                 $this->exec($sql, [$groupId]);
             }

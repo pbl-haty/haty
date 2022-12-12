@@ -128,7 +128,7 @@ function onRadioButtonChange() {
 
         paday.textContent = `${back.getFullYear()}/${back.getMonth() + 1}/${back.getDate()} (${weekdays[back.getDay()]})`;
         exday.textContent = `${setvalue.getFullYear()}/${setvalue.getMonth() + 1}/${setvalue.getDate()} (${weekdays[setvalue.getDay()]})`;
-        end_date.value = `${back.getFullYear()}/${back.getMonth() + 1}/${back.getDate()} (${weekdays[back.getDay()]})`;
+        end_date.value = `${back.getFullYear()}/${back.getMonth() + 1}/${back.getDate()}`;
     }
 }
 
@@ -140,5 +140,5 @@ function changeDate() {
     back = new Date(setvalue - 60 * 60 * 24 * 1000);
     paday.textContent = `${back.getFullYear()}/${back.getMonth() + 1}/${back.getDate()} (${weekdays[back.getDay()]})`;
     exday.textContent = `${setvalue.getFullYear()}/${setvalue.getMonth() + 1}/${setvalue.getDate()} (${weekdays[setvalue.getDay()]})`;
-    end_date.value = `${back.getFullYear()}/${back.getMonth() + 1}/${back.getDate()} (${weekdays[back.getDay()]})`;
+    end_date.value = `${back.getFullYear()}/${back.getMonth() + 1}/${back.getDate()}`;
 };
