@@ -31,8 +31,8 @@
             if (empty($giftgroup) || $gift_info['user_id'] != $userId) {
                 echo '<div class = prompt_1>';
                 echo '<h4>URLが間違っているか<br>投稿が削除されたギフトです。</h4>';
+                echo '<a class="prompt_home" href="home.php">ホームに戻る</a>';
                 echo '</div>';
-                echo '<a href="home.php">ホームに戻る</a>';
             } else {
 
         ?>
