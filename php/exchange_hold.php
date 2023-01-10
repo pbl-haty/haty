@@ -149,7 +149,6 @@ if (!$holding_flag) {
                 <div>
                     <div class="flex-title">
                         <h1>説明文</h1>
-                        <p>最大400文字</p>
                     </div>
                     <input type="hidden" id="explain_check" name="explain_check" value="Ok">
                     <input class="exchange-exit" type="radio" id="explain-disp" name="explain" onclick="buttonClick_explain()" checked>あり
