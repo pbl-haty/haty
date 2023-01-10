@@ -9,8 +9,8 @@ body, html {
 .bx-wrapper {
     margin-bottom: 30px !important;
     max-width: none !important;
-    width: 90% !important;
-    margin-left: 5vw !important;
+    width: 95% !important;
+    margin-left: 2.5vw !important;
 }
 
 .bx-wrapper .bx-controls-direction a {
@@ -21,11 +21,13 @@ body, html {
 .bx-wrapper .bx-next {
     background-position: -100px 0px !important;
     background-size: 300% !important;
+    right: -25px !important;
 }
 
 .bx-wrapper .bx-prev {
     background-position: 0px 0px !important;
     background-size: 300% !important;
+    left: -30px !important;
 }
 
 .gift_detail {
@@ -708,8 +710,8 @@ textarea {
 
 .slider img {
     max-width: none;
-    width: calc(90vw - 40px);
-    height: calc(90vw - 40px);
+    width: calc(95vw - 40px);
+    height: calc(95vw - 40px);
     object-fit: cover;
     padding-left: 2px;
 }
@@ -721,11 +723,10 @@ textarea {
 }
 
 .slider-none img {
-    width: calc(90vw - 40px);
-    height: calc(90vw - 40px);
+    width: calc(95vw - 40px);
+    height: calc(95vw - 40px);
     object-fit: cover;
-    padding-right: 40px;
-    margin-left: 5vw;
+    margin-left: 2.5vw;
 }
 
 .prompt_1 {

@@ -159,7 +159,22 @@ textarea:focus {
     width: 100%;
     font-size: 30px;
     padding: 30px 20px;
-  }
+}
+
+.pull-check {
+    position: relative;
+}
+
+.pull-check::after {
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 17px solid black;
+    content: "";
+    position: absolute;
+    right: 45px;
+    top: 39px;
+    width: 0;
+}
 
 .example-category option {
     font-size: 15px;

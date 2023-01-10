@@ -98,9 +98,9 @@
                 <h1 class="content-margin">カテゴリ</h1>
             </div>
        
-            <div class="content-check">
+            <div class="content-check pull-check">
                 <select name="category" class="example-category">
-                    <option value="-1" class="category-content-center">選択してください</option>;
+                    <option value="-1" class="category-content-center">選択してください</option>
                     <?php
                         $gift_category = $post->giftcategory();
                         $cnt = 0;
