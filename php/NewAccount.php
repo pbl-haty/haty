@@ -13,9 +13,9 @@
     // アカウント登録ボタンが押されたとき
     if(isset($_POST['signup'])){
         if(!filter_var($_POST['signup_email'], FILTER_VALIDATE_EMAIL)){     // 入力されたメールアドレスのチェック
-            $errorMessage = "正しいメールアドレスを入力してください。";
+            $errorMessage = "正しいメールアドレスを入力してください。<br> メールアドレスの最大文字数は100文字です。";
         }elseif($_POST['password'] != $_POST['password2']){                 // 入力されたそれぞれのパスワードのチェック
-            $errorMessage = "入力されたパスワードに誤りがあります。";
+            $errorMessage = "入力されたパスワードに誤りがあります。<br>パスワードの最大文字数は64文字です。";
         }else{
             $signup_name = $_POST['signup_name'];
             $signup_email = $_POST['signup_email'];
@@ -99,14 +99,12 @@
             <div>
                 <div class="content-flex">
                     <h1>メールアドレス</h1>
-                    <p>最大100文字</p>
                 </div>
                 <input type="email" class="input-form" name="signup_email" maxlength="100" required>
             </div>
             <div>
                 <div class="content-flex">
                     <h1>パスワード</h1>
-                    <p>最大64文字</p>
                 </div>
                 <input type="password" class="input-form" name="password" maxlength="64" required>
             </div>
