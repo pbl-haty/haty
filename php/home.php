@@ -59,12 +59,6 @@ $userId = $_SESSION['uid'];
 
                 <div class="home_title">
                     <div class="display">
-                        <a href="group_list.php?groupid=<?php echo $join['group_id']; ?>" class="home_list">
-                            <div class="display2">
-                                <img class="home_groupicon" src="data:;base64,<?php echo $img; ?>">
-                                <p class="home_groupname"><?= $join['groupname'] ?></p>
-                            </div>
-                        </a>
                         <?php
                         // トレードIDから交換会の情報を取得
                         $tradeInfo = $trade->gettradeInfo($join['group_id']);
@@ -79,13 +73,26 @@ $userId = $_SESSION['uid'];
                         }
                         // 開催期間中なら交換会ページ（tradeinfo.php）に遷移するボタンを表示
                         if (isset($tradeId)) { ?>
+                            <a href="group_list.php?groupid=<?php echo $join['group_id']; ?>" class="home_list">
+                                <div class="display3">
+                                    <img class="home_groupicon" src="data:;base64,<?php echo $img; ?>">
+                                    <p class="home_groupname"><?= $join['groupname'] ?></p>
+                                </div>
+                            </a>
                             <div class="trade_look_1">
                                 <a href="tradeinfo.php?trade_id=<?php echo $tradeId; ?>" class=trade_look>交換会<br>ページへ</a>
                             </div>
                         <?php
                             // 交換会のトレードIDを破棄
                             unset($tradeId);
-                        } ?>
+                        }else{ ?>
+                            <a href="group_list.php?groupid=<?php echo $join['group_id']; ?>" class="home_list">
+                                <div class="display2">
+                                    <img class="home_groupicon" src="data:;base64,<?php echo $img; ?>">
+                                    <p class="home_groupname"><?= $join['groupname'] ?></p>
+                                </div>
+                            </a>
+                        <?php } ?>
                     </div>
                     <?php // ギフトが送られているか判定・・・B
                     $gift_group = $group->giftgroup((int)$join['group_id'], $userId);
