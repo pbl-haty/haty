@@ -17,7 +17,7 @@
     if(isset($_POST['edit_btn'])){
         // 入力された情報をもとに分岐
         if(password_verify($_POST['current_password'], $result['password']) == FALSE){
-            $errorMessage = "入力した現在のパスワードが<br>間違っています。";
+            $errorMessage = "入力した現在のパスワードが<br>間違っています。<br>パスワードの最大文字数は64文字です。";
         }elseif($_POST['new_password1'] != $_POST['new_password2']){
             $errorMessage = "パスワードが一致していません。";
         }elseif($_POST['current_password'] == $_POST['new_password1']){
@@ -40,19 +40,6 @@
 
 <body>
     <div class="password_edit">
-        <!-- エラーメッセージもしくは変更完了メッセージの表示 -->
-        <?PHP if(!empty($errorMessage)){ ?>
-            <div class="prompt_2">
-                <p><?php echo $errorMessage;?></p>
-                <?php $errorMessage =""; ?>
-        </div>
-        <?php }elseif(!empty($completionMessage)){ ?>
-            <div class="prompt_3">
-                <p><?php echo $completionMessage;?></p>
-                <a href="MyPage.php">マイページへ戻る</a>
-                <?php $completionMessage ="";?>
-            </div>
-        <?php } ?>
         <!-- パスワード変更フォーム -->
         <form method="POST" action="" class="password_edit_form">
 
@@ -64,15 +51,26 @@
                 <div class="edit_password_title">
                     <h1 class="pass_title">パスワード変更</h1>
                 </div>
+                <!-- エラーメッセージもしくは変更完了メッセージの表示 -->
+                <?PHP if(!empty($errorMessage)){ ?>
+                    <div class="prompt_2">
+                        <p><?php echo $errorMessage;?></p>
+                        <?php $errorMessage =""; ?>
+                    </div>
+                <?php }elseif(!empty($completionMessage)){ ?>
+                    <div class="prompt_3">
+                        <p><?php echo $completionMessage;?></p>
+                        <a href="MyPage.php">マイページへ戻る</a>
+                        <?php $completionMessage ="";?>
+                    </div>
+                <?php } ?>
                 <div class="password_input">
                     <div class="content-flex">
                         <h1>現在のパスワード</h1>
-                        <p>最大64文字</p>
                     </div>
                     <input type="password" class="edit_password_place" name="current_password" maxlength="64" required>
                     <div class="content-flex">
                         <h1>新しいパスワード</h1>
-                        <p>最大64文字</p>
                     </div>
                     <input type="password" class="edit_password_place" name="new_password1" maxlength="64" required>
                     <div class="content-flex">

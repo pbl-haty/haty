@@ -100,14 +100,12 @@
                 <div class="edit_input">
                     <div class="flex-content">
                         <h1>メールアドレス</h1>
-                        <p>最大100文字</p>
                     </div>
                     <input type="email" name="email_edit" class="email_edit" maxlength="100" value=<?php echo $result['mailaddress'] ?>>
                 </div>
                 <div class="edit_input">
                     <div class="flex-content">
                         <h1>コメント</h1>
-                        <p>最大400文字</p>
                     </div>
                     <textarea name="comment_edit" class="comment_edit" maxlength="400"><?php echo $result['comment'] ?></textarea>
                 </div>

@@ -28,7 +28,7 @@
             
             header('Location: home.php');
         } else {
-            $errlog = 'パスワードが一致しません';
+            $errlog = 'パスワードが一致しません。<br>パスワードの最大文字数は30文字です。';
         }
     }
 
@@ -45,6 +45,10 @@
         </div>
 
         <h1 class="file-title">グループ作成</h1>
+
+        <div class ="prompt_2">
+            <h4><?= $errlog ?></h4>
+        </div>
 
         <div class="icon-flame" id="icon-flame">
             <img class="icon-img" src="../static/group.png" id="icon-flame2">
@@ -64,7 +68,6 @@
 
         <div class="flex-title">
             <h1 class="input-title">パスワード</h1>
-            <p class="precautions">最大30文字</p>
         </div>
         <div class="must">
             <p class="instructions">パスワードはグループに招待する時に必要になります。<br>忘れないように気を付けてください！</p>
@@ -76,10 +79,6 @@
         </div>
         <div class="must">
             <input class="text-box" type="password" name="group_repass" maxlength="30" required>
-        </div>
-
-        <div class ="prompt_2">
-            <h4><?= $errlog ?></h4>
         </div>
 
 
