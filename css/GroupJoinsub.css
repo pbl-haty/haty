@@ -23,10 +23,10 @@ body{
     cursor: pointer;
     transition: all 0.3s ease;
     outline: none;
-    border-radius: 5px;
+    border-radius: 20px;
     border: none;
     background: #efefef;
-    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    /* box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff; */
     color: #585858;
     text-decoration: none;
 }
