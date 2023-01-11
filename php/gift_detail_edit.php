@@ -167,7 +167,7 @@ if (isset($_POST['giftpost'])) {
             <div class="title-flex">
                 <h1 class="content-margin">カテゴリ</h1>
             </div>
-            <div class="content-check">
+            <div class="content-check pull-check">
                 <select name="category" class="example-category">
                     <option value="-1" class="category-content-center">選択してください</option>
                     <?php
@@ -203,10 +203,16 @@ if (isset($_POST['giftpost'])) {
                 if (empty($group_join)) {
                     echo '<div class ="prompt_2"><h4>グループに所属していません。</h4></div>';
                 } else {
+
+                    if(count($group_join) > 6) {
+                        echo '<div class="group-checkbox">';
+                    }
+
                     $cnt = 0;
                     $cnt2 = 0;
                     foreach ($group_join as $join) {
                         $img = base64_encode($join['icon']);
+                        if(count($group_join) <= 6) {
                 ?>
                         <div class="trade-box <?php if ($cnt % 2 == 0) {
                                                     echo 'margin-r';
@@ -227,8 +233,32 @@ if (isset($_POST['giftpost'])) {
                             </label>
                         </div>
 
+                        <?php
+                            } else {
+                        ?>
+
+                            <div class="multiple_check">
+                                <input type="checkbox" id="groupname-<?= $cnt ?>" name="groupname[]" class="groupcheck" value="<?= $join['group_id'] ?>"
+                                <?php 
+                                    if(!empty($gift_group[$cnt2]['group_id']) && (int)$gift_group[$cnt2]['group_id'] == $join['group_id']) {
+                                        echo "checked";
+                                        $cnt2++;
+                                    }
+                                ?>
+                                >
+                                <label for="groupname-<?= $cnt ?>">
+                                    <img class="trade_icon multiple_icon" src="data:;base64,<?= $img ?>">
+                                    <p class="trade_name_multiple"><?= $join['groupname'] ?></p>
+                                </label>
+                            </div>
+
+
                 <?php
+                            }
                         $cnt++;
+                    }
+                    if(count($group_join) > 6) {
+                        echo '</div>';
                     }
                 }
                 ?>
