@@ -88,8 +88,8 @@
 
     <div class="nav-wrap">
         <div class="scroll-nav user_nav">
-            <label class="tab_item user_nav_item" for="tab_0" id="tab_item_0">投稿中</label>|
-            <label class="tab_item user_nav_item" for="tab_1" id="tab_item_1">お気に入り</label>|
+            <label class="tab_item user_nav_item" for="tab_0" id="tab_item_0">投稿中</label>
+            <label class="tab_item user_nav_item" for="tab_1" id="tab_item_1">お気に入り</label>
             <label class="tab_item user_nav_item" for="tab_2" id="tab_item_2">取引履歴</label>
         </div>
     </div>

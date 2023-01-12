@@ -241,7 +241,7 @@ if (empty($giftgroup)) {
                                         <?php if (empty($gift_info['applicant'])) { ?>
                                             <button type="submit" class="request_sentence" name="applygift">"欲しい"</button>
                                         <?php } elseif ($gift_info['applicant'] == $userId) { ?>
-                                            <button type="submit" class="request_sentence" name="cancelgift">"欲しい"<br>をキャンセル</button>
+                                            <button type="submit" class="request_sentence" name="cancelgift">"欲しい"<br>を取り消し</button>
                                         <?php } ?>
                                     </form>
                             <?php }
