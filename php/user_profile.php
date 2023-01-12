@@ -25,6 +25,8 @@
     $groupid = $user->getGroupId($userid);
     // 表示するユーザー情報を取得
     $get_user = $user->getUser($user_profile_id);
+    // 取引回数の取得
+    $tradecount = $getdata->getTradeCount($userid, $user_profile_id);
 
     if(empty($groupid)){
         $errorMessage = "このユーザーを表示することは<br>出来ません。";
@@ -75,6 +77,7 @@
         ">
         <div class="user-nameid">
             <p class="user-info"><?= $get_user['name'] ?></p>
+            <p class="user-info user-mailaddress">過去の取引回数：<?php echo $tradecount; ?>回</p>
         </div>
     </div>
 

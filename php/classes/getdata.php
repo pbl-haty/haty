@@ -133,4 +133,21 @@
             $items = $stmt->fetchAll();
             return $items;
         }
+
+        // 過去のギフトの取引情報を取得
+        public function getTradeCount($user_id, $applicant_id){
+            $sql = "select id
+                    from gift
+                    where user_id = ? and applicant = ? and judge = 1";
+            $stmt = $this->query($sql, [$user_id, $applicant_id]);
+            $count1 = count($stmt->fetchAll());
+            $sql = "select id
+                    from gift
+                    where user_id = ? and applicant = ? and judge = 1";
+            $stmt = $this->query($sql, [$applicant_id, $user_id]);
+            $count2 = count($stmt->fetchAll());
+            $cnt = $count1 + $count2;
+            return $cnt;
+        }
+
     }
