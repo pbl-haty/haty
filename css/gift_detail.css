@@ -176,9 +176,9 @@ input[name="tab_item"] {
 .request_sentence {
     border-radius: 60px;
     font-size: 50px;
-    padding: 1em 1em;
+    padding: 1em 0.5em;
     margin: 0 auto;
-    width: 500px;
+    width: 400px;
     color: #FFFAFA;
     background-color: #668ad8;
 }

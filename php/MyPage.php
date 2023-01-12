@@ -75,8 +75,10 @@
         <div class="nav-wrap">
             <div class="scroll-nav">
                 <label class="tab_item" for="tab_0" id="tab_item_0">投稿中</label>
-                <label class="tab_item" for="tab_1" id="tab_item_1">申請送信</label>
-                <label class="tab_item" for="tab_2" id="tab_item_2">申請受取</label>
+                <!-- <label class="tab_item" for="tab_1" id="tab_item_1">申請送信</label> -->
+                <label class="tab_item" for="tab_1" id="tab_item_1">欲しいリスト</label>
+                <!-- <label class="tab_item" for="tab_2" id="tab_item_2">申請受取</label> -->
+                <label class="tab_item" for="tab_2" id="tab_item_2">あげるリスト</label>
                 <label class="tab_item" for="tab_3" id="tab_item_3">お気に入り</label>
                 <label class="tab_item" for="tab_4" id="tab_item_4">取引履歴</label>
             </div>
