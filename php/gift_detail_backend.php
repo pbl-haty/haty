@@ -42,4 +42,7 @@
         $gift->deleteGood($giftId, $userId);
     }elseif(isset($_POST['done_button'])){
         $gift->doneGift($giftId);
+        if($userId != $gift_info['applicant']) {
+            $notifi->notifi_gift($userId, $gift_info['applicant'], 8, $giftId);
+        }
     }
