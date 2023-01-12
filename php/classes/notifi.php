@@ -20,7 +20,7 @@
                             left join user on notice.user_send = user.uid
                             left join pattern on notice.pattern_id = pattern.id
                             left join gift on notice.gift_id = gift.id
-                        where notice.user_rece = ? and pattern.id not in (1, 4, 5)
+                        where notice.user_rece = ? and pattern.id not in (1, 4, 5, 8)
                     )
                     union all
                     (
@@ -33,7 +33,7 @@
                             left join user on notice.user_send = user.uid
                             left join pattern on notice.pattern_id = pattern.id
                             left join gift on notice.gift_id = gift.id
-                        where notice.user_rece = ? and pattern.id in (1, 4,  5)
+                        where notice.user_rece = ? and pattern.id in (1, 4,  5, 8)
                         group by pattern.id, notice.user_send, notice.gift_id, notice.not_con
                     )
                     order by time desc";
@@ -59,7 +59,7 @@
         }
 
         // データベースに通知を追加
-        // パターン１,4,5（申請, いいね, コメント）
+        // パターン１,4,5,8（申請, いいね, コメント, 完了）
         public function notifi_gift($user_send, $user_rece, $pattern, $giftId){
             $sql = 'insert into notice(user_send, user_rece, pattern_id, gift_id) values(?, ?, ?, ?)';
             $this->exec($sql, [$user_send, $user_rece, $pattern, $giftId]);

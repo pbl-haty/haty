@@ -116,6 +116,12 @@
                         echo "<div class='notifi-vertical'><p class='notif-time'>{$view['time']}</p><p class='notif-comment'>";
                         echo "{$view['name']}が{$view['groupname']}に参加しました。";
                         break;
+                    case 8:
+                        echo "href='gift_detail.php?id={$view['gift_id']}'>";
+                        echo "<div class='notifi-img-back'><img class='notifi-img' src='data:;base64,{$img}'></div>";
+                        echo "<div class='notifi-vertical'><p class='notif-time'>{$view['time']}</p><p class='notif-comment'>";
+                        echo "{$view['name']}と{$view['gift_name']}の取引が完了しました。";
+                        break;
                 }
                 echo "</p></div></a><hr class='notifi-border'>";
             }
