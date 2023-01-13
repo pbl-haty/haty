@@ -120,9 +120,6 @@
                             <!-- ギフト詳細画面遷移 -->
                             <div>
                                 <img class="gift-display-image" src="data:;base64,<?php echo $img; ?>">
-                                <div class="home-image-title">
-                                        <p class="home-image-title-span"><?= $gift['gift_name'] ?></p>
-                                </div>
                             </div>
                         </a>
 
