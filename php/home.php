@@ -110,9 +110,6 @@ $userId = $_SESSION['uid'];
                                             <img class="gift-display-icon" src="data:;base64,<?php echo $icon; ?>">
                                         </div>
                                     </div>
-                                    <div class="home-image-title">
-                                        <p class="home-image-title-span"><?= $gift['gift_name'] ?></p>
-                                    </div>
                                 </div>
                             </a>
 
