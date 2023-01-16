@@ -32,13 +32,13 @@
             $sql = "(
                         select gift.id, gift.gift_name, gift.image, gift.post
                         from gift
-                        where gift.applicant = ? and gift.judge is not null
+                        where gift.applicant = ? and gift.judge = 2
                     )
                     union all
                     (
                         select gift.id, gift.gift_name, gift.image, gift.post
                         from gift
-                        where gift.user_id = ? and gift.judge is not null
+                        where gift.user_id = ? and gift.judge = 2
                     )
                     order by post desc, id desc";
             $stmt = $this->query($sql, [$userId, $userId]);
@@ -61,7 +61,7 @@
         public function myapplicationlist($userId){
             $sql = "select gift.id, gift.gift_name, gift.image, gift.post
                     from gift
-                    where gift.judge is null and gift.applicant = ?
+                    where gift.judge != 2 and gift.applicant = ?
                     order by gift.post desc, gift.id desc";
             $stmt = $this->query($sql, [$userId]);
             $items = $stmt->fetchAll();
@@ -94,7 +94,7 @@
         public function yourapplicationlist($userId){
             $sql = "select gift.id, gift.gift_name, gift.image, gift.post
                     from gift
-                    where gift.user_id = ? and gift.judge is null and gift.applicant is not null
+                    where gift.user_id = ? and gift.judge != 2 and gift.applicant is not null
                     order by gift.post desc, gift.id desc";
             $stmt = $this->query($sql, [$userId]);
             $items = $stmt->fetchAll();
@@ -127,7 +127,7 @@
         public function getJudgeGiftlist($user_id, $group_id){
             $sql = "select gift.id, gift.gift_name, gift.image, gift.post
                     from gift join giftgroup on gift.id = giftgroup.gift_id
-                    where gift.user_id = ? and gift.judge is not null and giftgroup.group_id in (".implode(",",$group_id).");
+                    where gift.user_id = ? and gift.judge = 2 and giftgroup.group_id in (".implode(",",$group_id).");
                     order by gift.post desc, gift.id desc";
             $stmt = $this->query($sql, [$user_id]);
             $items = $stmt->fetchAll();
@@ -138,12 +138,12 @@
         public function getTradeCount($user_id, $applicant_id){
             $sql = "select id
                     from gift
-                    where user_id = ? and applicant = ? and judge = 1";
+                    where user_id = ? and applicant = ? and judge = 2";
             $stmt = $this->query($sql, [$user_id, $applicant_id]);
             $count1 = count($stmt->fetchAll());
             $sql = "select id
                     from gift
-                    where user_id = ? and applicant = ? and judge = 1";
+                    where user_id = ? and applicant = ? and judge = 2";
             $stmt = $this->query($sql, [$applicant_id, $user_id]);
             $count2 = count($stmt->fetchAll());
             $cnt = $count1 + $count2;
