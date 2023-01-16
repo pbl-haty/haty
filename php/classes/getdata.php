@@ -125,11 +125,19 @@
 
         // ログイン中のユーザーと同じグループに投稿されていて、取引が終了しているギフト一覧を取得
         public function getJudgeGiftlist($user_id, $group_id){
-            $sql = "select gift.id, gift.gift_name, gift.image, gift.post
-                    from gift join giftgroup on gift.id = giftgroup.gift_id
-                    where gift.user_id = ? and gift.judge = 2 and giftgroup.group_id in (".implode(",",$group_id).");
-                    order by gift.post desc, gift.id desc";
-            $stmt = $this->query($sql, [$user_id]);
+            $sql = "(
+                        select gift.id, gift.gift_name, gift.image, gift.post
+                        from gift join giftgroup on gift.id = giftgroup.gift_id
+                        where gift.user_id = ? and gift.judge = 2 and giftgroup.group_id in (".implode(",",$group_id).")
+                    )
+                    union
+                    (
+                        select gift.id, gift.gift_name, gift.image, gift.post
+                        from gift join giftgroup on gift.id = giftgroup.gift_id
+                        where gift.applicant = ? and gift.judge = 2 and giftgroup.group_id in (".implode(",",$group_id).")
+                    )
+                    order by post desc, id desc";
+            $stmt = $this->query($sql, [$user_id, $user_id]);
             $items = $stmt->fetchAll();
             return $items;
         }
