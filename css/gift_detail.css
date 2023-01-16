@@ -2,7 +2,8 @@ body {
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-body, html {
+body,
+html {
     margin-bottom: 0 !important;
 }
 
@@ -43,6 +44,7 @@ body, html {
 .btn_right {
     text-align: right;
 }
+
 /* タブ切り替え */
 .tabs {
     background-color: #fff;
@@ -176,7 +178,7 @@ input[name="tab_item"] {
 .request_sentence {
     border-radius: 60px;
     font-size: 50px;
-    padding: 1em 0.5em;
+    padding: 1em 0.5em 0.5em 0.5em;
     margin: 0 auto;
     width: 400px;
     color: #FFFAFA;
@@ -188,6 +190,29 @@ input[name="tab_item"] {
     -webkit-transform: translateY(5px);
     transform: translateY(5px);
     box-shadow: none;
+}
+
+.cancel_sentence {
+    border-radius: 60px;
+    font-size: 50px;
+    padding: 1em 0.5em;
+    margin: 0 auto;
+    width: 400px;
+    color: #FFFAFA;
+    background-color: #668ad8;
+}
+
+.cansel_sentence:active {
+    -ms-transform: translateY(5px);
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+.want-icon {
+    height: 150px;
+    width: 150px;
+    float:unset
 }
 
 .once_sentence {
@@ -433,15 +458,15 @@ input[name="tab_item"] {
     height: calc(100dvh - 500px);
     overflow-y: scroll;
     overflow-x: hidden;
-  /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
-  -ms-overflow-style: none;
-  /*Firefoxへの対応*/
-  scrollbar-width: none;
+    /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+    -ms-overflow-style: none;
+    /*Firefoxへの対応*/
+    scrollbar-width: none;
 }
 
- /*Google Chrome、Safariへの対応*/
- .chatting_place::-webkit-scrollbar{
-  display: none;
+/*Google Chrome、Safariへの対応*/
+.chatting_place::-webkit-scrollbar {
+    display: none;
 }
 
 .chatting_place .faceicon {

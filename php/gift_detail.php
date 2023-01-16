@@ -239,9 +239,9 @@ if (empty($giftgroup)) {
                                     <form class="gift_sentence" method="post">
                                         <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
                                         <?php if (empty($gift_info['applicant'])) { ?>
-                                            <button type="submit" class="request_sentence" name="applygift">ほしい！</button>
+                                            <button type="submit" class="request_sentence" name="applygift">ほしい！<img class="want-icon" src="../static/want.png"></button>
                                         <?php } elseif ($gift_info['applicant'] == $userId) { ?>
-                                            <button type="submit" class="request_sentence" name="cancelgift">キャンセル</button>
+                                            <button type="submit" class="cancel_sentence" name="cancelgift">キャンセル</button>
                                         <?php } ?>
                                     </form>
                             <?php }
