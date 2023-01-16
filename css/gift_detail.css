@@ -175,17 +175,22 @@ input[name="tab_item"] {
     font-size: 50px;
 }
 
+.request_sentence_pa{
+    margin: 0 auto;
+    display: flex;
+}
+
 .request_sentence {
-    border-radius: 60px;
+    border-radius: 0 60px 60px 0;
     font-size: 50px;
-    padding: 1em 0.5em 0.5em 0.5em;
+    padding: 1em 0.5em 1em 0;
     margin: 0 auto;
     width: 400px;
     color: #FFFAFA;
     background-color: #668ad8;
 }
 
-.request_sentence:active {
+.request_sentence_pa:active {
     -ms-transform: translateY(5px);
     -webkit-transform: translateY(5px);
     transform: translateY(5px);
@@ -202,7 +207,7 @@ input[name="tab_item"] {
     background-color: #668ad8;
 }
 
-.cansel_sentence:active {
+.cancel_sentence:active {
     -ms-transform: translateY(5px);
     -webkit-transform: translateY(5px);
     transform: translateY(5px);
@@ -212,7 +217,11 @@ input[name="tab_item"] {
 .want-icon {
     height: 150px;
     width: 150px;
-    float:unset
+    background-color: #668ad8;
+    border-radius: 60px 0 0 60px;
+    /* position: absolute; */
+    left:10px;
+    /* float:left */
 }
 
 .once_sentence {
