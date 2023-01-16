@@ -41,10 +41,10 @@
 }
 
 .group-icon {
+    border-radius: 50%;
     width: 100%;
     object-fit: cover;
     aspect-ratio: 1 / 1;
-    border-radius: 10px;
     border: 1px solid grey;
 }
 
@@ -69,6 +69,22 @@
     margin: 0px;
     font-size: 32px;
     margin-top: auto;
+}
+
+.trade-center {
+    text-align: center;
+    font-size: 40px;
+}
+
+.title-top {
+    display: flex;
+    display: flex;
+    align-items: center;
+}
+
+.title-content {
+    font-size: 50px;
+    margin: 45px 0 40px 40px;
 }
 
 .border {

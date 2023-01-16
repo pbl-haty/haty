@@ -11,6 +11,7 @@
     $userid = $_SESSION['uid'];
 
     $current_trade_array = [];
+    $non_current_trade_array = [];
     $past_trade_array = [];
     $current_date = date("Y-m-d");
 
@@ -18,11 +19,15 @@
     $groupid_array = $user->getGroupId($userid);
     foreach ($groupid_array as $groupid){
         $trade_info_array = $trade->gettradeInfo($groupid);
-        foreach ($trade_info_array as $trade_info){
-            if($trade_info['begin_date'] <= $current_date && $current_date <= $trade_info['end_date']){
-                array_push($current_trade_array, $trade_info); 
-            }else{
-                array_push($past_trade_array, $trade_info);
+        array_push($non_current_trade_array, $groupid);
+        if(!empty($trade_info_array)) {
+            foreach ($trade_info_array as $trade_info){
+                if($trade_info['begin_date'] <= $current_date && $current_date <= $trade_info['end_date']){
+                    array_push($current_trade_array, $trade_info); 
+                    array_pop($non_current_trade_array);
+                }else{
+                    array_push($past_trade_array, $trade_info);
+                }
             }
         }
     }
@@ -45,6 +50,9 @@
             <!--タブを切り替えて表示するコンテンツ-->
             <div class="panel tab-A is-show">
                 <?php if(!empty($current_trade_array)){
+
+                echo '<div class="title-top"><h1 class="title-content">開催中</h1></div>';
+
                 foreach ($current_trade_array as $current_trade){ ?>
                 <a href="tradeinfo.php?trade_id=<?php echo $current_trade['trade_id']; ?>" class="panel-group">
                     <div class="group-icon-space"> 
@@ -60,11 +68,31 @@
                     </div>
                 </a>
                 <hr class="border">
-                <?php } }else{ ?>
+                <?php } } else{ ?>
                     <div class="prompt_2">
                             <h4 class="msg-size">現在交換会が<br>開催されていません。</h4>
                     </div>
                 <?php } ?>
+                <?php if(!empty($non_current_trade_array)) {
+                
+                echo '<div class="title-top"><h1 class="title-content">未開催</h1></div>';
+
+                foreach ($non_current_trade_array as $non_trade_array){ ?>
+                <a href="exchange_hold.php?group_id=<?php echo $non_trade_array ?>" class="panel-group">
+                    <div class="group-icon-space"> 
+                        <?php
+                        $group_info = $groupmember->groupconf($non_trade_array);
+                        $group_icon_image = base64_encode($group_info['icon']);
+                        ?>
+                        <img src="data:;base64,<?php echo $group_icon_image; ?>" class="group-icon">
+                    </div>
+                    <div class="trade-info-space">
+                        <p class="trade-name"><?php echo $group_info['groupname'] ?></p>
+                        <p class="trade-date trade-center">交換会を開催する<p>
+                    </div>
+                </a>
+                <hr class="border">
+                <?php } } ?>
             </div>
             
             <div class="panel tab-B">
