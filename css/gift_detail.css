@@ -623,6 +623,10 @@ html {
     box-sizing: inherit;
 }
 
+header {
+    box-sizing: unset;
+}
+
 ::before,
 ::after {
     text-decoration: inherit;
