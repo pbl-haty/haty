@@ -430,7 +430,7 @@ input[name="tab_item"] {
 .chatting_place {
     width: 100%;
     height: calc(100vh - 600px);
-    height: calc(100dvh - 500px);
+    height: calc(100dvh - 445px);
     overflow-y: scroll;
     overflow-x: hidden;
   /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
