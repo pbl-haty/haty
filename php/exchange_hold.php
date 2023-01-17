@@ -180,13 +180,21 @@ if (!$holding_flag) {
                 <div>
                     <div class="flex-title">
                         <h1>テーマ</h1>
+                        <div id="content">
+                            <div id="button" class="info-center">
+                                <img class="infomation" src="../static/infomation.png">
+                            </div>
+                        </div>
                         <p>最大30文字</p>
                     </div>
+                    <div id="pop_up" style="display:none;" class="explain-hint">
+                        <p class="pop_up_msg">交換するギフトのお題を<br>最大３つまで決めることができます。</p>
+                    </div>
+
                     <input type="hidden" id="theme_check" name="theme_check" value="Ok">
                     <input class="exchange-exit" type="radio" id="disp" name="theme" onclick="buttonClick_theme()" checked>あり
                     <input class="exchange-none" type="radio" id="hide" name="theme" onclick="buttonClick_theme()">なし
                     <div id="sub-form">
-                        <p>交換会で交換する物のテーマを入力してください（最大3つ）</p>
                         <div id="inputArea">
                             <input type="text" name="theme[]" class="exchange-theme-area" placeholder="（例）3000円以下、身に着けるもの、季節もの 等" maxlength="30">
                             <button type="button" id="add" class="exchanege-theme-button">追加</button>
@@ -204,23 +212,22 @@ if (!$holding_flag) {
                     <input class="exchange-exit" type="radio" id="explain-disp" name="explain" onclick="buttonClick_explain()" checked>あり
                     <input class="exchange-none" type="radio" id="explain-hide" name="explain" onclick="buttonClick_explain()">なし
                     <div id="explain-form">
-                        <p>説明文を入力してください</p>
                         <textarea class="exchange-explain-area" id="explain-area" wrap="hard" name="explain" maxlength="400"></textarea><br>
                     </div>
                 </div>
 
                 <!-- 終了日入力 -->
                 <div>
-                    <div style="display:flex;">
+                    <div class="exchange-title">
                         <p class="exchange-finish">交換日</p>
                         <div id="content">
-                            <div id="button">
+                            <div id="button2" class="info-center">
                                 <img class="infomation" src="../static/infomation.png">
                             </div>
                         </div>
                     </div>
-                    <div id="pop_up" style="display:none;" class="explain-hint">
-                        <p>交換を実施する日を<br>下記からひとつ選択してください。</p>
+                    <div id="pop_up2" style="display:none;" class="explain-hint">
+                        <p class="pop_up_msg">交換会参加可能期間はギフトを<br>投稿して参加する期間になっており<br>実際に誰と交換するかは<br>交換会実施予定日に表示されます。</p>
                     </div>
                     <p class="date-title">交換会参加可能期間</p>
                     <p class="display-date"><span id="today" class="exchange-tody"></span><span> ～ </span><span id="paday" class="exchange-tody"></span></p>

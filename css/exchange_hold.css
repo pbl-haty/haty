@@ -19,7 +19,6 @@
 }
 
 .exchange-title {
-    margin-top: 180px;
     font-size: 50px;
 }
 
@@ -48,6 +47,7 @@
 }
 
 .exchange-explain-area {
+    margin: 30px 0 0 0;
     width: 100%;
     height: 300px;
     border-radius: 20px;
@@ -83,7 +83,7 @@
 .exchange-theme-area {
     width: 100%;
     border-radius: 20px;
-    margin-bottom: 15px;
+    margin-top: 30px;
     border: 2px solid black;
     text-indent: 20px;
     font-size: 30px;
@@ -134,26 +134,59 @@ input {
 }
 
 .exchange-finish {
-    margin: 80px 0px 50px 20px;
+    margin: 0px 0px 0px 20px;
     font-size: 50px;
     font-weight: bold;
 }
 .infomation{
     height: 50px;
     width: 50px;
-    margin:80px 0 40px 20px;
+    margin: 0px 0 0px 30px;
 }
+
 #pop_up{
+    line-height: 1.5;
+    width: calc(100% - 108px);
+    position: absolute;
+    z-index: 1;
     text-align: center;
     background: #fff;
-    padding: 60px 20px;
+    padding: 30px 20px;
     margin: auto;
     border: 4px double #ccc;
     margin-bottom:70px;
 }
 
+#pop_up2{
+    line-height: 1.5;
+    width: calc(100% - 108px);
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    background: #fff;
+    padding: 30px 20px;
+    margin: auto;
+    border: 4px double #ccc;
+    margin-bottom:70px;
+}
+
+.pop_up_msg {
+    font-size: 35px;
+}
+
 .exchange-calendar {
     font-size: 40px;
+}
+
+.exchange-title {
+    display: flex;
+    align-items: center;
+    margin: 80px 0 50px 0;
+}
+
+.info-center {
+    display: flex;
+    align-items: center;
 }
 
 .exchange-finishtime {

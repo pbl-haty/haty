@@ -156,3 +156,17 @@ $(document).on('click', function(e) {
 		}
 	}
 });
+
+$(document).on('click', function(e) {
+	// ２．クリックされた場所の判定
+	if(!$(e.target).closest('#pop_up2').length && !$(e.target).closest('#button2').length){
+		$('#pop_up2').fadeOut(0);
+	}else if($(e.target).closest('#button2').length){
+		// ３．ポップアップの表示状態の判定
+		if($('#pop_up2').is(':hidden')){
+			$('#pop_up2').fadeIn(0);
+		}else{
+			$('#pop_up2').fadeOut(0);
+		}
+	}
+});
