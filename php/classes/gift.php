@@ -122,9 +122,22 @@
             return $stmt->fetchAll();
         }
 
-        // 取引を終了させる
+        // 取引を許可する
         public function doneGift($gift_id){
             $sql = "update gift set judge = 1 where id = ?";
+            $result = $this->exec($sql, [$gift_id]);
+            if($result){
+                // ギフトの取引が許可出来た場合
+                return '';
+            }else{
+                // 何かしらの原因で失敗した場合
+                return 'ギフトの取引を許可出来ませんでした。';
+            }
+        }
+
+        // 取引を終了させる
+        public function thxGift($gift_id){
+            $sql = "update gift set judge = 2 where id = ?";
             $result = $this->exec($sql, [$gift_id]);
             if($result){
                 // ギフトの取引が完了出来た場合

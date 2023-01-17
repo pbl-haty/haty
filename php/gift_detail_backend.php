@@ -45,4 +45,9 @@
         if($userId != $gift_info['applicant']) {
             $notifi->notifi_gift($userId, $gift_info['applicant'], 8, $giftId);
         }
+    }elseif(isset($_POST['thxgift'])){
+        $gift->thxGift($giftId);
+        if($userId != $gift_info['user_id']) {
+            $notifi->notifi_gift($userId, $gift_info['user_id'], 9, $giftId);
+        }
     }
