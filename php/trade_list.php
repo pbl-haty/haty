@@ -11,6 +11,7 @@
     $userid = $_SESSION['uid'];
 
     $current_trade_array = [];
+    $non_current_trade_array = [];
     $past_trade_array = [];
     $current_date = date("Y-m-d");
 
