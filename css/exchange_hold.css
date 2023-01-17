@@ -215,3 +215,31 @@ input {
     font-size: 35px;
     margin: auto 0 0 auto;
 }
+
+.content-check {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pull-check {
+    position: relative;
+}
+
+.pull-check::after {
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 17px solid black;
+    content: "";
+    position: absolute;
+    right: 45px;
+    top: 39px;
+    width: 0;
+}
+
+.example-group option {
+    font-size: 15px;
+}
+
+.group-content-center {
+    text-align: center;
+}

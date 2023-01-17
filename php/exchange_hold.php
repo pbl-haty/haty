@@ -10,34 +10,61 @@ require_once __DIR__ . '/classes/groupdetail.php';
 require_once __DIR__ . '/classes/groupmember.php';
 $group = new GroupDetail();
 $groupmember = new GroupMember();
+// user.phpを読み込む
+require_once __DIR__ . '/classes/user.php';
+$user = new User();
 
 // メッセージの初期化
 $msg = "";
 // 交換会開催中フラグ
 $holding_flag = false;
 
-// グループIDを取得
-$groupId = $_GET['group_id'];
-// グループIDがあるか確認
-if (empty($groupId)) {
-    $msg = "このグループでは<br>交換会を開催することは<br>出来ません。";
-}
-
-// tradeテーブルに情報があるか、グループIDで確認
-$tradeInfo = $trade->gettradeInfo($groupId);
-$current_date = date("Y-m-d");
-// 終了期間自由選択の開始日、終了日を指定
-$onedaylater = date("Y-m-d", strtotime("+2 day", strtotime($current_date)));
-$fourweekslater = date("Y-m-d",strtotime("+4 weeks -1day", strtotime($current_date)));
-if (!empty($tradeInfo)) {
-    foreach ($tradeInfo as $eachtradeInfo) {
-        // 現在の日付から交換会が開催期間中か判定
-        if ($eachtradeInfo['begin_date'] <= $current_date && $current_date <= $eachtradeInfo['end_date']) {
-            $holding_flag = true;
-            break;
+// グループIDを取得, tradeテーブルに情報があるか、グループIDで確認
+if(!empty($_GET['group_id'])) {
+    $groupId = $_GET['group_id'];
+    $tradeInfo = $trade->gettradeInfo($groupId);
+    $current_date = date("Y-m-d");
+    // 終了期間自由選択の開始日、終了日を指定
+    $onedaylater = date("Y-m-d", strtotime("+2 day", strtotime($current_date)));
+    $fourweekslater = date("Y-m-d",strtotime("+4 weeks -1day", strtotime($current_date)));
+    if (!empty($tradeInfo)) {
+        foreach ($tradeInfo as $eachtradeInfo) {
+            // 現在の日付から交換会が開催期間中か判定
+            if ($eachtradeInfo['begin_date'] <= $current_date && $current_date <= $eachtradeInfo['end_date']) {
+                $holding_flag = true;
+                break;
+            }
         }
     }
+} else {
+    $current_trade_array = [];
+    $non_current_trade_array = [];
+    $past_trade_array = [];
+    $current_date = date("Y-m-d");
+
+    // ユーザーIDから所属しているグループIDを取得する
+    $groupid_array = $user->getGroupId($userid);
+    foreach ($groupid_array as $groupid){
+        $trade_info_array = $trade->gettradeInfo($groupid);
+        array_push($non_current_trade_array, $groupid);
+        if(!empty($trade_info_array)) {
+            foreach ($trade_info_array as $trade_info){
+                if($trade_info['begin_date'] <= $current_date && $current_date <= $trade_info['end_date']){
+                    array_push($current_trade_array, $trade_info); 
+                    array_pop($non_current_trade_array);
+                }else{
+                    array_push($past_trade_array, $trade_info);
+                }
+            }
+        }
+    }
+
+    if(empty($non_current_trade_array)) {
+        $msg = "全てのグループで交換会が実施されています。";
+    }
+
 }
+
 
 // 交換会が開催出来る場合
 if (!$holding_flag) {
@@ -68,6 +95,9 @@ if (!$holding_flag) {
         }
 
         // 開催に必要な情報をtradeテーブルに挿入し、トレードIDを取得
+        if(!empty($_POST['group'])) {
+            $groupId = $_POST['group'];
+        }
         $trade_id = $trade->createTrade($groupId, $trade_name, $theme1, $theme2, $theme3, $trade_explain, $end_date);
 
         // tradeテーブルに追加出来たか判定
@@ -117,6 +147,26 @@ if (!$holding_flag) {
         <br>
         <div class="all-content">
             <form method="post" action="" class="exchange">
+                <?php if(!empty($non_current_trade_array)) { ?>
+                    <div>
+                    <div class="flex-title">
+                        <h1>グループ</h1>
+                    </div>
+                    <div class="content-check pull-check">
+                        <select name="group" class="example-group">
+                            <option value="-1" class="group-content-center">選択してください</option>
+                            <?php
+                                $gift_category = $post->giftcategory();
+                                foreach ($non_current_trade_array as $group_Id) {
+                                    $group_info = $groupmember->groupconf($past_trade['group_id']);
+                                    echo '<option value="' . $group_Id . '">' . $group_info['groupname'] . '</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+
+                <?php } ?>
                 <!-- 交換会名入力 -->
                 <div>
                     <div class="flex-title">

@@ -90,6 +90,25 @@
     display: block;
 }
 
+.hold-move-tag{
+    text-decoration: none;
+    color: #000000;
+}
+
+.hold-move1{
+    margin: 30px auto 0 auto;
+    border: 1px solid gray;
+    border-radius: 15px;
+    color: black;
+    position: relative;
+    width: calc(100% - 80px);
+    font-size: 40px;
+    padding: 30px 20px;
+    text-decoration: none;
+    text-align: center;
+    background: #fafafa;
+}
+
 /* エラーメッセージの表示 */
 .prompt_2 {
     padding: 30px;

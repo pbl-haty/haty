@@ -19,11 +19,15 @@
     $groupid_array = $user->getGroupId($userid);
     foreach ($groupid_array as $groupid){
         $trade_info_array = $trade->gettradeInfo($groupid);
-        foreach ($trade_info_array as $trade_info){
-            if($trade_info['begin_date'] <= $current_date && $current_date <= $trade_info['end_date']){
-                array_push($current_trade_array, $trade_info); 
-            }else{
-                array_push($past_trade_array, $trade_info);
+        array_push($non_current_trade_array, $groupid);
+        if(!empty($trade_info_array)) {
+            foreach ($trade_info_array as $trade_info){
+                if($trade_info['begin_date'] <= $current_date && $current_date <= $trade_info['end_date']){
+                    array_push($current_trade_array, $trade_info); 
+                    array_pop($non_current_trade_array);
+                }else{
+                    array_push($past_trade_array, $trade_info);
+                }
             }
         }
     }
@@ -45,6 +49,13 @@
         
             <!--タブを切り替えて表示するコンテンツ-->
             <div class="panel tab-A is-show">
+
+                <?php if(!empty($non_current_trade_array)) { ?>
+                    <a href="exchange_hold.php" class="hold-move-tag">
+                        <p class="hold-move1">交換会を開催する<p>
+                    </a>
+                <?php } ?>
+
                 <?php if(!empty($current_trade_array)){
                 foreach ($current_trade_array as $current_trade){ ?>
                 <a href="tradeinfo.php?trade_id=<?php echo $current_trade['trade_id']; ?>" class="panel-group">
