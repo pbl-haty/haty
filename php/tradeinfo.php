@@ -346,16 +346,18 @@ if (isset($_POST['done_receipt'])) {
                     <div class="form-hint">
                         <div class="title-flex">
                             <p class="title-flex-tag1">任意</p>
-                            <h1 class="content-margin">交換物のヒント</h1>
+                            <div style="display:flex;">
+                                <h1 class="content-margin">交換物のヒント</h1>
+                                <div id="content">
+                                    <div id="button">
+                                        <img class="infomation" src="../static/infomation.png">
+                                    </div>
+                                </div>
+                            </div>
                             <p class="title-flex-tag2">最大30文字</p>
                         </div>
-                        <div id="content">
-                            <div id="button">
-                                <img class="infomation" src="../static/infomation.png">
-                            </div>
-                            <div id="pop_up" style="display:none;" class="explain-hint">
-                                <p>交換が実施されるまでに、グループのメンバーに表示される交換物のヒント（特徴）を書いてみましょう！</p>
-                            </div>
+                        <div id="pop_up" style="display:none;" class="explain-hint">
+                            <p>交換が実施されるまでに、グループのメンバーに表示される交換物のヒント（特徴）を書いてみましょう！</p>
                         </div>
                         <input type="text" class="form-box" name="goods_hint" maxlength="30" value="" placeholder="（例）形・色の特徴など">
                     </div>

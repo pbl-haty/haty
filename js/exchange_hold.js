@@ -150,9 +150,9 @@ $(document).on('click', function(e) {
 	}else if($(e.target).closest('#button').length){
 		// ３．ポップアップの表示状態の判定
 		if($('#pop_up').is(':hidden')){
-			$('#pop_up').fadeIn();
+			$('#pop_up').fadeIn(0);
 		}else{
-			$('#pop_up').fadeOut();
+			$('#pop_up').fadeOut(0);
 		}
 	}
 });

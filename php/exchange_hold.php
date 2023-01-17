@@ -161,20 +161,21 @@ if (!$holding_flag) {
 
                 <!-- 終了日入力 -->
                 <div>
-                    <p class="exchange-finish">交換日</p>
-                    <p>交換を実施する日を下記からひとつ選択してください。</p>
-                    <div id="content">
-                        <div id="button">
-                            <img class="infomation" src="../static/infomation.png">
-                        </div>
-                        <div id="pop_up" style="display:none;" class="explain-hint">
-                            <p class="date-title">交換会参加可能期間</p>
-                            <p class="display-date"><span id="today" class="exchange-tody"></span><span> ～ </span><span id="paday" class="exchange-tody"></span></p>
-                            <p class="date-title">交換実施予定日</p>
-                            <p class="display-date"><span id="exday" class="exchange-tody"></span></p>
+                    <div style="display:flex;">
+                        <p class="exchange-finish">交換日</p>
+                        <div id="content">
+                            <div id="button">
+                                <img class="infomation" src="../static/infomation.png">
+                            </div>
+                            <div id="pop_up" style="display:none;" class="explain-hint">
+                                <p>交換を実施する日を<br>下記からひとつ選択してください。</p>
+                            </div>
                         </div>
                     </div>
-                    
+                    <p class="date-title">交換会参加可能期間</p>
+                    <p class="display-date"><span id="today" class="exchange-tody"></span><span> ～ </span><span id="paday" class="exchange-tody"></span></p>
+                    <p class="date-title">交換実施予定日</p>
+                    <p class="display-date"><span id="exday" class="exchange-tody"></span></p>
 
                     <input type="hidden" id="end_date" name="end_date" value="">
                     <input type="radio" id="radio1" name="finishday" value="1週間後" class="exchange-finishday" onclick="onRadioButtonChange();hihyoji()" checked="checked">1週間後:<span id="after1week"></span><br>

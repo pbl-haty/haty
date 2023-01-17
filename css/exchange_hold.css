@@ -141,9 +141,16 @@ input {
 .infomation{
     height: 50px;
     width: 50px;
-    margin:0 0 40px 0;
+    margin:80px 0 40px 40px;
 }
 #pop_up{
+    text-align: center;
+    background: #fff;
+    padding: 60px 20px;
+    margin: auto;
+    width: 550px;
+    border: 4px double #ccc;
+    box-shadow: 2px 2px 5px 1px #999;
     margin-bottom:70px;
 }
 
