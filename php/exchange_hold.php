@@ -167,10 +167,10 @@ if (!$holding_flag) {
                             <div id="button">
                                 <img class="infomation" src="../static/infomation.png">
                             </div>
-                            <div id="pop_up" style="display:none;" class="explain-hint">
-                                <p>交換を実施する日を<br>下記からひとつ選択してください。</p>
-                            </div>
                         </div>
+                    </div>
+                    <div id="pop_up" style="display:none;" class="explain-hint">
+                        <p>交換を実施する日を<br>下記からひとつ選択してください。</p>
                     </div>
                     <p class="date-title">交換会参加可能期間</p>
                     <p class="display-date"><span id="today" class="exchange-tody"></span><span> ～ </span><span id="paday" class="exchange-tody"></span></p>
