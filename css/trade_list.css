@@ -44,7 +44,7 @@
     width: 100%;
     object-fit: cover;
     aspect-ratio: 1 / 1;
-    border-radius: 10px;
+    border-radius: 50%;
     border: 1px solid grey;
 }
 
@@ -88,6 +88,25 @@
 
 .panel.is-show {
     display: block;
+}
+
+.hold-move-tag{
+    text-decoration: none;
+    color: #000000;
+}
+
+.hold-move1{
+    margin: 30px auto 30px auto;
+    border: 1px solid gray;
+    border-radius: 15px;
+    color: black;
+    position: relative;
+    width: calc(100% - 80px);
+    font-size: 40px;
+    padding: 30px 20px;
+    text-decoration: none;
+    text-align: center;
+    background: #fafafa;
 }
 
 /* エラーメッセージの表示 */

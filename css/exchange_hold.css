@@ -228,3 +228,44 @@ input {
     font-size: 35px;
     margin: auto 0 0 auto;
 }
+
+.content-check {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pull-check {
+    position: relative;
+}
+
+.pull-check::after {
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 17px solid black;
+    content: "";
+    position: absolute;
+    right: 45px;
+    top: 39px;
+    width: 0;
+}
+
+.example-group {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid gray;
+    border-radius: 15px;
+    color: black;
+    position: relative;
+    width: 100%;
+    font-size: 30px;
+    padding: 30px 20px;
+}
+
+.example-group option {
+    font-size: 15px;
+}
+
+.group-content-center {
+    text-align: center;
+}

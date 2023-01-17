@@ -26,7 +26,7 @@ input[name="tab_item"] {
 .scroll-nav {
     padding: 0px 20px;
     border-radius: 15px;
-    width: 1250px;
+    width: 1500px;
     -webkit-overflow-scrolling: touch;
     display: flex;
 }
@@ -34,7 +34,7 @@ input[name="tab_item"] {
 .scroll-nav label {
     text-align: center;
     font-size: 40px;
-    width: 250px;
+    width: 300px;
     padding: 40px 0;
     background-color: white;
     color: gray;
