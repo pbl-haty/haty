@@ -52,7 +52,7 @@
 
                 <?php if(!empty($non_current_trade_array)) { ?>
                     <a href="exchange_hold.php" class="hold-move-tag">
-                        <p class="hold-move1">交換会を開催する<p>
+                        <p class="hold-move1">交換会を開催する</p>
                     </a>
                 <?php } ?>
 

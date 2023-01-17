@@ -23,10 +23,6 @@ $holding_flag = false;
 if(!empty($_GET['group_id'])) {
     $groupId = $_GET['group_id'];
     $tradeInfo = $trade->gettradeInfo($groupId);
-    $current_date = date("Y-m-d");
-    // 終了期間自由選択の開始日、終了日を指定
-    $onedaylater = date("Y-m-d", strtotime("+2 day", strtotime($current_date)));
-    $fourweekslater = date("Y-m-d",strtotime("+4 weeks -1day", strtotime($current_date)));
     if (!empty($tradeInfo)) {
         foreach ($tradeInfo as $eachtradeInfo) {
             // 現在の日付から交換会が開催期間中か判定
@@ -43,7 +39,7 @@ if(!empty($_GET['group_id'])) {
     $current_date = date("Y-m-d");
 
     // ユーザーIDから所属しているグループIDを取得する
-    $groupid_array = $user->getGroupId($userid);
+    $groupid_array = $user->getGroupId($userId);
     foreach ($groupid_array as $groupid){
         $trade_info_array = $trade->gettradeInfo($groupid);
         array_push($non_current_trade_array, $groupid);
@@ -65,6 +61,10 @@ if(!empty($_GET['group_id'])) {
 
 }
 
+$current_date = date("Y-m-d");
+// 終了期間自由選択の開始日、終了日を指定
+$onedaylater = date("Y-m-d", strtotime("+2 day", strtotime($current_date)));
+$fourweekslater = date("Y-m-d",strtotime("+4 weeks -1day", strtotime($current_date)));
 
 // 交換会が開催出来る場合
 if (!$holding_flag) {
@@ -156,9 +156,8 @@ if (!$holding_flag) {
                         <select name="group" class="example-group">
                             <option value="-1" class="group-content-center">選択してください</option>
                             <?php
-                                $gift_category = $post->giftcategory();
                                 foreach ($non_current_trade_array as $group_Id) {
-                                    $group_info = $groupmember->groupconf($past_trade['group_id']);
+                                    $group_info = $groupmember->groupconf($group_Id);
                                     echo '<option value="' . $group_Id . '">' . $group_info['groupname'] . '</option>';
                                 }
                             ?>
