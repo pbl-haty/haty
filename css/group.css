@@ -34,7 +34,7 @@
     width: calc( ( 100vw - 70px ) / 3);
     object-fit: cover;
     border: 1px solid gray;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 .group-option {
@@ -146,14 +146,14 @@ hr {
     margin:450px auto 0 auto;
     border: 1px solid gray;
     border-radius: 15px;
-    color: black;
+    color: white;
     position: relative;
     width: calc(100% - 80px);
     font-size: 40px;
     padding: 30px 20px;
     text-decoration: none;
     text-align: center;
-    background: #fafafa;
+    background: #0077ff;
 }
 .hold-move2{
     margin:450px auto 0 auto;
@@ -167,6 +167,7 @@ hr {
     padding: 30px 20px;
     text-decoration: none;
     text-align: center;
+    background: #fafafa;
 }
 
 .gift-display-icon{

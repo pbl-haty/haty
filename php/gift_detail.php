@@ -80,30 +80,34 @@ if (empty($giftgroup)) {
         <br>
         <div class="gift_detail">
             <div class="tabs">
-                <input id="all" type="radio" name="tab_item" <?php if(empty($_POST['tab-comment'])) { echo 'checked'; } ?>>
+                <input id="all" type="radio" name="tab_item" <?php if (empty($_POST['tab-comment'])) {
+                                                                    echo 'checked';
+                                                                } ?>>
                 <label id="button" class="tab_item" for="all">ギフト詳細</label>
-                <input id="comment" type="radio" name="tab_item" <?php if(!empty($_POST['tab-comment'])) { echo 'checked'; } ?>>
+                <input id="comment" type="radio" name="tab_item" <?php if (!empty($_POST['tab-comment'])) {
+                                                                        echo 'checked';
+                                                                    } ?>>
                 <label class="tab_item" for="comment" id="scroll-btn">コメント</label>
                 <div class="tab_content" id="all_content" style="display: none;">
                     <div class="tab_content_description">
                         <div class="gift_detail_main">
                             <!-- <h2 class="syosai">ギフト詳細</h2> -->
                             <?php
-                                $gift_addimage = $gift->getaddimage($giftId);
-                                if (empty($gift_addimage)) {
-                                    echo '<ul class="slider-none">';
-                                } else {
-                                    echo '<ul class="slider">';
-                                }
+                            $gift_addimage = $gift->getaddimage($giftId);
+                            if (empty($gift_addimage)) {
+                                echo '<ul class="slider-none">';
+                            } else {
+                                echo '<ul class="slider">';
+                            }
                             ?>
-                                <li><img class="gift_display_detail" src="data:;base64,<?php echo $gift_image; ?>" alt=""></li>
+                            <li><img class="gift_display_detail" src="data:;base64,<?php echo $gift_image; ?>" alt=""></li>
                             <?php
-                                foreach ($gift_addimage as $addimage) {
-                                    $addimg = base64_encode($addimage['image']);
+                            foreach ($gift_addimage as $addimage) {
+                                $addimg = base64_encode($addimage['image']);
                             ?>
-                                    <li><img class="gift_display_detail" src="data:;base64,<?= $addimg ?>" alt=""></li>
+                                <li><img class="gift_display_detail" src="data:;base64,<?= $addimg ?>" alt=""></li>
                             <?php
-                                }
+                            }
                             ?>
                             </ul>
 
@@ -128,11 +132,11 @@ if (empty($giftgroup)) {
                                             <?php } ?>
                                         </form>
                                         <?php
-                                            if ($userId == $gift_info['user_id']) {
-                                                echo "<p class='cnt-good'>$good</p>";
-                                            } else {
-                                                echo "<p class='cnt-margin'></p>";
-                                            }
+                                        if ($userId == $gift_info['user_id']) {
+                                            echo "<p class='cnt-good'>$good</p>";
+                                        } else {
+                                            echo "<p class='cnt-margin'></p>";
+                                        }
                                         ?>
                                     </div>
                                 </div>
@@ -142,7 +146,7 @@ if (empty($giftgroup)) {
                                 <!-- ギフトの修正ボタン -->
                                 <div class="edit_button_frame">
                                     <?php if ($userId == $gift_info['user_id']) { ?>
-                                        <a href="gift_detail_edit.php?id=<?php echo $giftId; ?>" class="btn-style">編集</a> 
+                                        <a href="gift_detail_edit.php?id=<?php echo $giftId; ?>" class="btn-style">編集</a>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -206,7 +210,7 @@ if (empty($giftgroup)) {
                                     }
                                     ?>
                                 </p>
-                            </div>     
+                            </div>
 
                             <?php if ($userId == $gift_info['user_id']) {
                                 if (isset($gift_info['applicant']) && empty($gift_info['judge'])) {
@@ -275,9 +279,12 @@ if (empty($giftgroup)) {
                                     <form class="gift_sentence" method="post">
                                         <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
                                         <?php if (empty($gift_info['applicant'])) { ?>
-                                            <button type="submit" class="request_sentence" name="applygift">ほしい！</button>
+                                            <button type="submit" class="request_sentence_pa" name="applygift">
+                                                <img class="want-icon" src="../static/want.png">
+                                                <p class="request_sentence">ほしい！</p>
+                                            </button>
                                         <?php } elseif ($gift_info['applicant'] == $userId) { ?>
-                                            <button type="submit" class="request_sentence" name="cancelgift">キャンセル</button>
+                                            <button type="submit" class="cancel_sentence" name="cancelgift">キャンセル</button>
                                         <?php } ?>
                                     </form>
                             <?php 
@@ -304,13 +311,13 @@ if (empty($giftgroup)) {
                 <!--吹き出しはじまり-->
                 <div class="tab_content" id="comment_content" style="display: none;">
                     <div class="tab_content_description">
-                            <div class="chatting_place" id="scroll">
-                                <!-- コメントのループ -->
-                                <?php foreach ($comment_all as $comment) {
-                                    // コメントを投稿したユーザの画像処理
-                                    if($comment['uid'] != $userId) {
-                                        $comment_icon = base64_encode($comment['icon']);
-                                ?>
+                        <div class="chatting_place" id="scroll">
+                            <!-- コメントのループ -->
+                            <?php foreach ($comment_all as $comment) {
+                                // コメントを投稿したユーザの画像処理
+                                if ($comment['uid'] != $userId) {
+                                    $comment_icon = base64_encode($comment['icon']);
+                            ?>
                                     <div class="onechat">
                                         <div class="faceicon">
                                             <!-- アイコン選択でプロフィール画面に遷移 -->
@@ -324,8 +331,8 @@ if (empty($giftgroup)) {
                                             </div>
                                         </div>
                                     </div>
-                                <?php 
-                                        } else {
+                                <?php
+                                } else {
                                 ?>
                                     <div class="onechat">
                                         <div class="my-says-top">
@@ -335,23 +342,23 @@ if (empty($giftgroup)) {
                                             </div>
                                         </div>
                                     </div>
-                                <?php
-                                        }
-                                    } 
-                                ?>
-                            </div>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </div>
 
-                            <br>
-                            <!--吹き出し終わり-->
+                        <br>
+                        <!--吹き出し終わり-->
 
-                            <!-- コメント入力 -->
-                            <!-- <p class="comment_nyuryoku">コメントを入力</p> -->
-                            <form class="comment-flex" method="post" submit="check()">
-                                <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
-                                <input type="hidden" name="tab-comment" value="tab">
-                                <textarea id="text_area" class="comment_box" name="comment" placeholder="（例）・ギフト状態を確認したい ・ギフトの画像を追加して欲しい など"></textarea>
-                                <div class="btn_right"><button type="submit" class="comment-send_btn" name="send_comment">送信</button></div>
-                            </form>                  
+                        <!-- コメント入力 -->
+                        <!-- <p class="comment_nyuryoku">コメントを入力</p> -->
+                        <form class="comment-flex" method="post" submit="check()">
+                            <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
+                            <input type="hidden" name="tab-comment" value="tab">
+                            <textarea id="text_area" class="comment_box" name="comment" placeholder="（例）・ギフト状態を確認したい ・ギフトの画像を追加して欲しい など"></textarea>
+                            <div class="btn_right"><button type="submit" class="comment-send_btn" name="send_comment">送信</button></div>
+                        </form>
                     </div>
                 </div>
             </div>

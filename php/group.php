@@ -89,7 +89,7 @@ if(!empty($tradeInfo)){
             </a>
         <?php }else{ ?>
             <a href="exchange_hold.php?group_id=<?php echo $groupId; ?>" class="hold-move-tag">
-                <p class="hold-move1">交換会を開催する<p>
+                <p class="hold-move2">交換会を開催する<p>
             </a>
         <?php } ?>
 

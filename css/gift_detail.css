@@ -2,7 +2,8 @@ body {
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-body, html {
+body,
+html {
     margin-bottom: 0 !important;
 }
 
@@ -43,6 +44,7 @@ body, html {
 .btn_right {
     text-align: right;
 }
+
 /* タブ切り替え */
 .tabs {
     background-color: #fff;
@@ -173,7 +175,31 @@ input[name="tab_item"] {
     font-size: 50px;
 }
 
+.request_sentence_pa {
+    margin: 0 auto;
+    display: flex;
+    background: #668ad8;
+    border-radius: 60px;
+}
+
 .request_sentence {
+    border-radius: 0 60px 60px 0;
+    font-size: 50px;
+    padding: 1em 1em 1em 0;
+    margin: 0 auto;
+    width: 400px;
+    color: #FFFAFA;
+    background-color: #668ad8;
+}
+
+.request_sentence_pa:active {
+    -ms-transform: translateY(5px);
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+.cancel_sentence {
     border-radius: 60px;
     font-size: 50px;
     padding: 1em 0.5em;
@@ -183,11 +209,21 @@ input[name="tab_item"] {
     background-color: #668ad8;
 }
 
-.request_sentence:active {
+.cancel_sentence:active {
     -ms-transform: translateY(5px);
     -webkit-transform: translateY(5px);
     transform: translateY(5px);
     box-shadow: none;
+}
+
+.want-icon {
+    height: 150px;
+    width: 150px;
+    background-color: #668ad8;
+    border-radius: 60px 0 0 60px;
+    /* position: absolute; */
+    left: 10px;
+    /* float:left */
 }
 
 .once_sentence {
@@ -433,15 +469,15 @@ input[name="tab_item"] {
     height: calc(100dvh - 445px);
     overflow-y: scroll;
     overflow-x: hidden;
-  /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
-  -ms-overflow-style: none;
-  /*Firefoxへの対応*/
-  scrollbar-width: none;
+    /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+    -ms-overflow-style: none;
+    /*Firefoxへの対応*/
+    scrollbar-width: none;
 }
 
- /*Google Chrome、Safariへの対応*/
- .chatting_place::-webkit-scrollbar{
-  display: none;
+/*Google Chrome、Safariへの対応*/
+.chatting_place::-webkit-scrollbar {
+    display: none;
 }
 
 .chatting_place .faceicon {
