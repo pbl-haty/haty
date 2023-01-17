@@ -1,36 +1,44 @@
-.trade{
+.trade {
     margin-top: 140px;
     font-size: 40px;
     padding: 40px;
     -webkit-text-size-adjust: 100%;
 }
-.display-date{
+
+.display-date {
     font-size: 28px;
 }
-.trade-title{
+
+.trade-title {
     text-align: center;
 }
-.trade-title h1{
+
+.trade-title h1 {
     padding: 10px;
     word-break: break-all;
 }
-.date-title{
+
+.date-title {
     font-weight: bold;
     font-size: 32px;
 }
-.participant{
+
+.participant {
     margin-top: 100px;
 }
-.participant ul{
+
+.participant ul {
     display: flex;
-	overflow-x: scroll;
-	margin: 0;	
-	padding: 0;
+    overflow-x: scroll;
+    margin: 0;
+    padding: 0;
 }
-.participant li{
+
+.participant li {
     list-style: none;
     margin: 0 10px;
 }
+
 .img-icon {
     width: 80px;
     height: 80px;
@@ -38,16 +46,20 @@
     border-radius: 100%;
     border: solid 1px gray;
 }
-.trade-theme{
+
+.trade-theme {
     margin-top: 80px
 }
-.trade-theme p{
+
+.trade-theme p {
     font-size: 0.8em;
 }
-.trade-explain{
+
+.trade-explain {
     margin-top: 80px;
 }
-.readmore{
+
+.readmore {
     position: relative;
     box-sizing: border-box;
     /*以下お好み*/
@@ -57,16 +69,19 @@
     border-radius: 15px;
     margin: 15px 0px;
 }
-.readmore ul{
-    margin : 0 auto;
+
+.readmore ul {
+    margin: 0 auto;
 }
-.readmore li{
+
+.readmore li {
     font-size: 0.8em;
     padding: 10px 0;
     overflow-wrap: break-word;
     word-break: break-all;
 }
-.readmore-content{
+
+.readmore-content {
     position: relative;
     overflow: hidden;
     font-size: 0.8em;
@@ -74,6 +89,7 @@
     /*高さの初期値*/
     height: 200px;
 }
+
 .readmore-content::before {
     display: block;
     position: absolute;
@@ -83,11 +99,12 @@
     content: "";
     /*以下お好み グラデーションの色と高さ 高さはreadmoreのheight以下にすること*/
     height: 50px;
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 50%, #fff 100%);
-    background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 50%, #fff 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.8) 50%, #fff 100%);
+    background: linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.8) 50%, #fff 100%);
 }
+
 /* 続きを読むボタン */
-.readmore-label{
+.readmore-label {
     display: table;
     bottom: 5px;
     position: absolute;
@@ -102,53 +119,65 @@
     border-radius: 10px;
     color: #000;
 }
-.readmore-label:before{
+
+.readmore-label:before {
     content: '続きを読む';
 }
-.readmore-check{
+
+.readmore-check {
     display: none;
 }
+
 /*チェック時にボタンを非表示*/
-.readmore-check:checked ~ .readmore-label{
+.readmore-check:checked~.readmore-label {
     position: static;
     transform: translateX(0);
     -webkit-transform: translateX(0);
     /* 「続きを読む」を押した後、元に戻す必要がない場合は、上のオプションを消してこの1行だけにする */
     /* display: none; */
 }
-.readmore-check:checked ~ .readmore-label:before{
+
+.readmore-check:checked~.readmore-label:before {
     content: '閉じる';
 }
+
 /*チェック時に高さを自動に戻す*/
-.readmore-check:checked ~ .readmore-content{
+.readmore-check:checked~.readmore-content {
     height: 100%;
 }
+
 /*チェック時グラデーション等を削除*/
-.readmore-check:checked ~ .readmore-content::before {
+.readmore-check:checked~.readmore-content::before {
     display: none;
 }
+
 /* 投稿フォーム */
-.trade-form{
+.trade-form {
     margin-top: 180px;
     margin-bottom: 150px;
     font-size: 40px;
 }
-.trade-edit-form{
+
+.trade-edit-form {
     margin-top: 30px;
     margin-bottom: 150px;
     font-size: 40px;
 }
-.trade-form h2{
+
+.trade-form h2 {
     text-align: center;
     word-break: break-all;
 }
+
 .trade-form-title:first-letter {
     color: #eb6100;
     font-size: 1.5em;
 }
-.form-image{
+
+.form-image {
     margin-top: 80px;
 }
+
 .upload-label {
     width: 100%;
     display: inline-block;
@@ -159,12 +188,15 @@
     border: 1px gray solid;
     text-align: center;
 }
+
 .upload-label input {
     display: none;
 }
+
 .input {
     display: none;
 }
+
 .sample-img {
     border: 1px solid gray;
     border-radius: 20px;
@@ -174,66 +206,78 @@
     height: calc(40vw - 20px);
     text-align: center;
 }
+
 .sample-img-size {
     width: calc(40vw - 20px);
     height: calc(40vw - 20px);
     object-fit: cover;
 }
+
 .open {
-	cursor:pointer;
+    cursor: pointer;
 }
+
 #pop-up {
-	display: none;
+    display: none;
 }
+
 .overlay {
-	display: none;
+    display: none;
 }
-#pop-up:checked + .overlay {
-	display: block;
-	position: fixed;
-	width: 100%;
-	height: 100vh;
-	top: 0;
-	left: 0;
-	z-index: 9999;
-	background: rgba(0, 0, 0, 0.6);
+
+#pop-up:checked+.overlay {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.6);
 }
+
 .window {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	width: 90vw;
-	max-width: 360px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90vw;
+    max-width: 360px;
     padding: 20px;
-	height: 300px;
-	background-color: #fff;
-	border-radius: 4px;
-	align-items: center;
-	transform: translate(-50%, -50%);
+    height: 300px;
+    background-color: #fff;
+    border-radius: 4px;
+    align-items: center;
+    transform: translate(-50%, -50%);
 }
+
 .close {
-	position: absolute;
-	top: 4px;
-	right: 4px;
-	cursor:pointer;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    cursor: pointer;
 }
-.form-name{
+
+.form-name {
     margin-top: 80px;
 }
-.form-box{
+
+.form-box {
     width: calc(100vw - 120px);
     border-radius: 20px;
     font-size: 1.0em;
     border: 1px solid gray;
     padding: 20px;
 }
-.form-hint{
+
+.form-hint {
     margin-top: 80px;
 }
-.form-hint p{
+
+.form-hint p {
     word-break: break-all;
 }
-.tradeinfo-button{
+
+.tradeinfo-button {
     display: block;
     margin: 180px auto 0 auto;
     height: 115px;
@@ -249,25 +293,29 @@
     letter-spacing: 0.12em;
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
+
 /* エラーメッセージの表示 */
 .prompt_2 {
     padding: 30px;
     color: rgba(119, 29, 29, 0.534);
 }
+
 .msg-size {
     height: 42px;
     color: rgba(119, 29, 29, 0.534);
     text-align: center;
 }
+
 /* 交換会終了後の表示 */
-.after-trade{
+.after-trade {
     margin-top: 150px;
     margin-bottom: 150px;
     font-size: 40px;
     text-align: center;
     display: block;
 }
-.btn-switch{
+
+.btn-switch {
     font-size: 40px;
     width: 250px;
     padding: 30px 0;
@@ -276,26 +324,30 @@
     border: 1px gray solid;
     border-radius: 20px;
 }
-.send-to{
+
+.send-to {
     padding: 50px;
     margin-top: 20px;
     margin-left: 10%;
     display: flex;
 }
-.send-to-name{
+
+.send-to-name {
     font-size: 50px;
     margin: auto 20px;
     overflow-wrap: break-word;
     word-break: break-all;
 }
-.img-icon-a{
+
+.img-icon-a {
     width: 120px;
     height: 120px;
     object-fit: cover;
     border-radius: 100%;
     border: solid 2px black;
 }
-.sending-confirmation{
+
+.sending-confirmation {
     display: block;
     margin: 80px auto 0 auto;
     width: 40%;
@@ -307,7 +359,8 @@
     box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
     color: #585858;
 }
-.sending-button{
+
+.sending-button {
     display: block;
     margin: 80px auto 0 auto;
     height: 115px;
@@ -320,69 +373,84 @@
     border: 1px solid #0077ff;
     color: white;
 }
-.img-gift{
+
+.img-gift {
     width: calc(100vw - 80px);
     height: calc(100vw - 80px);
     object-fit: cover;
     margin-top: 20px;
 }
-.send-me{
+
+.send-me {
     display: block;
 }
-.send-you{
+
+.send-you {
     display: block;
 }
-.gift-name-font{
+
+.gift-name-font {
     font-size: 60px;
 }
+
 /* 投稿後の交換物の表示 */
-.post-goods{
+.post-goods {
     margin-top: 250px;
     margin-bottom: 150px;
     text-align: center;
 }
-.post-image{
+
+.post-image {
     width: calc(90vw - 40px);
     height: calc(90vw - 40px);
     object-fit: cover;
 }
-.goods-info h3{
+
+.goods-info h3 {
     text-align: left;
 }
-.ul-block{
-    box-shadow: 0 2px 6px 2px rgba(60,64,67,0.149), 0 3px 6px 0 rgba(60,64,67,0.302);
+
+.ul-block {
+    box-shadow: 0 2px 6px 2px rgba(60, 64, 67, 0.149), 0 3px 6px 0 rgba(60, 64, 67, 0.302);
     border-radius: 8px;
     position: absolute;
     background-color: #fff;
     width: 400px;
     z-index: 10;
 }
-.ul-block li{
+
+.ul-block li {
     overflow: inherit;
     word-wrap: break-word;
     padding: 10px 20px;
 }
+
 /*編集画面のサイズ調整用*/
-.tradeinfo-edit{
+.tradeinfo-edit {
     padding: 40px;
 }
-.trade-box{
+
+.trade-box {
     display: flex;
     margin-bottom: 30px;
 }
-.trade-left{
+
+.trade-left {
     margin-bottom: 0px;
     font-size: 50px;
 }
-.trade-right{
+
+.trade-right {
     margin: auto 0 0 auto;
     font-size: 0.8em;
 }
-.title-flex{
+
+.title-flex {
     display: flex;
     margin: 60px 0 30px 0;
 }
-.title-flex-tag1{
+
+.title-flex-tag1 {
     margin: 0;
     text-align: center;
     font-size: 40px;
@@ -390,19 +458,40 @@
     color: #fff;
     padding: 20px 30px;
 }
-.content-margin{
+
+.content-margin {
     margin: auto 0 auto 20px;
     font-size: 50px;
     text-align: left;
 }
-.title-flex-tag2{
+
+.infomation {
+    height: 50px;
+    width: 50px;
+    margin:0 0 40px 20px;
+}
+
+#pop_up {
+    text-align: center;
+    background: #fff;
+    padding: 60px 20px;
+    margin: auto;
+    width: 550px;
+    border: 4px double #ccc;
+    box-shadow: 2px 2px 5px 1px #999;
+}
+
+.title-flex-tag2 {
     font-size: 0.8em;
     margin: auto 0 0 auto;
 }
-.explain-hint{
+
+.explain-hint {
     font-size: 0.7em;
-    line-height: 50px
+    line-height: 50px;
+    margin-bottom:10px;
 }
+
 /* エラー表記 */
 .prompt_3 {
     padding: 0 20px;
@@ -411,17 +500,20 @@
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
 }
-.no-participant{
+
+.no-participant {
     padding: 0 20px;
     text-align: center;
     font-size: 50px;
     color: rgba(119, 29, 29, 0.534);
 }
-.prompt_3 h4{
+
+.prompt_3 h4 {
     overflow-wrap: break-word;
     word-break: break-all;
 }
-.prompt_3 a{
+
+.prompt_3 a {
     color: blue;
     font-size: 42px;
 }

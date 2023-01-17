@@ -28,7 +28,7 @@ $tradeInfo = $trade->gettradeInfo($groupId);
 $current_date = date("Y-m-d");
 // 終了期間自由選択の開始日、終了日を指定
 $onedaylater = date("Y-m-d", strtotime("+2 day", strtotime($current_date)));
-$fourweekslater = date("Y-m-d",strtotime("+4 weeks -1day", strtotime($current_date)));
+$fourweekslater = date("Y-m-d", strtotime("+4 weeks -1day", strtotime($current_date)));
 if (!empty($tradeInfo)) {
     foreach ($tradeInfo as $eachtradeInfo) {
         // 現在の日付から交換会が開催期間中か判定
@@ -92,7 +92,6 @@ if (!$holding_flag) {
     // 過去の交換会情報がある場合
 } else {
     $msg = '現在このグループでは<br>交換会が開催されており、<br>新たに開催することは出来ません。';
-   
 }
 
 
@@ -102,6 +101,7 @@ if (!$holding_flag) {
 
 <link rel="stylesheet" href="../css/exchange_hold.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js?ver=1.11.3'></script>
 <title>公開会開催</title>
 </head>
 
@@ -163,11 +163,18 @@ if (!$holding_flag) {
                 <div>
                     <p class="exchange-finish">交換日</p>
                     <p>交換を実施する日を下記からひとつ選択してください。</p>
-
-                    <p class="date-title">交換会参加可能期間</p>
-                    <p class="display-date"><span id="today" class="exchange-tody"></span><span> ～ </span><span id="paday" class="exchange-tody"></span></p>
-                    <p class="date-title">交換実施予定日</p>
-                    <p class="display-date"><span id="exday" class="exchange-tody"></span></p>
+                    <div id="content">
+                        <div id="button">
+                            <img class="infomation" src="../static/infomation.png">
+                        </div>
+                        <div id="pop_up" style="display:none;" class="explain-hint">
+                            <p class="date-title">交換会参加可能期間</p>
+                            <p class="display-date"><span id="today" class="exchange-tody"></span><span> ～ </span><span id="paday" class="exchange-tody"></span></p>
+                            <p class="date-title">交換実施予定日</p>
+                            <p class="display-date"><span id="exday" class="exchange-tody"></span></p>
+                        </div>
+                    </div>
+                    
 
                     <input type="hidden" id="end_date" name="end_date" value="">
                     <input type="radio" id="radio1" name="finishday" value="1週間後" class="exchange-finishday" onclick="onRadioButtonChange();hihyoji()" checked="checked">1週間後:<span id="after1week"></span><br>

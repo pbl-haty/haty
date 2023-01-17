@@ -138,6 +138,14 @@ input {
     font-size: 50px;
     font-weight: bold;
 }
+.infomation{
+    height: 50px;
+    width: 50px;
+    margin:0 0 40px 0;
+}
+#pop_up{
+    margin-bottom:70px;
+}
 
 .exchange-calendar {
     font-size: 40px;
