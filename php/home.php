@@ -47,7 +47,7 @@ $userId = $_SESSION['uid'];
     if (empty($group_join)) {
         echo '<hr>';
         echo '<div class ="prompt_1">';
-        echo '<h4>グループを作成して友達とギフトを贈りあおう！</h4>';
+        echo '<h4>グループを作成して<br>友達とギフトを贈りあおう！</h4>';
         echo '</div>';
     } else {
         foreach ($group_join as $join) {
