@@ -61,7 +61,7 @@
         public function myapplicationlist($userId){
             $sql = "select gift.id, gift.gift_name, gift.image, gift.post
                     from gift
-                    where gift.judge != 2 and gift.applicant = ?
+                    where (gift.judge != 2 or gift.judge is null) and gift.applicant = ?
                     order by gift.post desc, gift.id desc";
             $stmt = $this->query($sql, [$userId]);
             $items = $stmt->fetchAll();
@@ -94,7 +94,7 @@
         public function yourapplicationlist($userId){
             $sql = "select gift.id, gift.gift_name, gift.image, gift.post
                     from gift
-                    where gift.user_id = ? and gift.judge != 2 and gift.applicant is not null
+                    where (gift.judge != 2 or gift.judge is null) and gift.user_id = ? and gift.applicant is not null
                     order by gift.post desc, gift.id desc";
             $stmt = $this->query($sql, [$userId]);
             $items = $stmt->fetchAll();
