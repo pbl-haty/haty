@@ -233,7 +233,7 @@ input[name="tab_item"] {
     background-color: #4db56a;
 }
 
-.done_button:active {
+.done_button_pa:active {
     -ms-transform: translateY(5px);
     -webkit-transform: translateY(5px);
     transform: translateY(5px);
