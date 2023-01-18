@@ -234,28 +234,13 @@ if (empty($giftgroup)) {
 
                                         <form method="post">
                                             <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
-                                            <button type="submit" class="done_button" name="done_button">取引許可</button>
+                                            <button type="submit" class="done_button_pa" name="done_button">
+                                                <img class="transaction-icon" src="../static/transaction.png">
+                                                <p class="done_button">取引許可</p>
+                                            </button>
                                         </form>
                                     </div>
-                                <?php } else if($gift_info['judge'] == 2) { 
-                                        // 申請者の情報を取得
-                                        $applicant_info = $user->getUser($gift_info['applicant']);
-                                        $applicant_icon = base64_encode($applicant_info['icon']);
-                                        $applicant_name = $applicant_info['name'];
-                                ?>
-                                    <hr>
-                                    <div class="done_button_space">
-                                        <div class="applicant_info">
-                                            <div class="applicant_icon">
-                                                <a href="user_profile.php?id=<?php echo $gift_info['applicant']; ?>">
-                                                    <img src="data:;base64,<?php echo $applicant_icon; ?>">
-                                                    <p><?php echo $applicant_name; ?> さん</p>
-                                                </a>
-                                            </div>
-                                            <p>から「ありがとう！」が届いています。</p>
-                                        </div>
-                                    </div>
-                                <?php } else if(isset($gift_info['applicant']) && $gift_info['judge'] == 1) { 
+                                <?php } else if ($gift_info['judge'] == 2) {
                                     // 申請者の情報を取得
                                     $applicant_info = $user->getUser($gift_info['applicant']);
                                     $applicant_icon = base64_encode($applicant_info['icon']);
@@ -270,10 +255,28 @@ if (empty($giftgroup)) {
                                                     <p><?php echo $applicant_name; ?> さん</p>
                                                 </a>
                                             </div>
-                                        <p>と受け渡しを完了しましょう。</p>
+                                            <p>から「ありがとう！」が届いています。</p>
                                         </div>
                                     </div>
-                            <?php }
+                                <?php } else if (isset($gift_info['applicant']) && $gift_info['judge'] == 1) {
+                                    // 申請者の情報を取得
+                                    $applicant_info = $user->getUser($gift_info['applicant']);
+                                    $applicant_icon = base64_encode($applicant_info['icon']);
+                                    $applicant_name = $applicant_info['name'];
+                                ?>
+                                    <hr>
+                                    <div class="done_button_space">
+                                        <div class="applicant_info">
+                                            <div class="applicant_icon">
+                                                <a href="user_profile.php?id=<?php echo $gift_info['applicant']; ?>">
+                                                    <img src="data:;base64,<?php echo $applicant_icon; ?>">
+                                                    <p><?php echo $applicant_name; ?> さん</p>
+                                                </a>
+                                            </div>
+                                            <p>と受け渡しを完了しましょう。</p>
+                                        </div>
+                                    </div>
+                                <?php }
                             } else {
                                 if (empty($gift_info['judge'])) { ?>
                                     <form class="gift_sentence" method="post">
@@ -287,89 +290,92 @@ if (empty($giftgroup)) {
                                             <button type="submit" class="cancel_sentence" name="cancelgift">キャンセル</button>
                                         <?php } ?>
                                     </form>
-                            <?php 
-                                } else if($gift_info['judge'] == 1) { ?>
+                                <?php
+                                } else if ($gift_info['judge'] == 1) { ?>
                                     <hr>
                                     <div class="done_button_space">
                                         <div class="applicant_info">
                                             <p>コメントでやり取りをし、受け取り後「ありがとう！」ボタンを押しましょう。</p>
-                                    </div>
-
-                                    <form class="gift_sentence" method="post">
-                                        <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
-                                        <button type="submit" class="request_sentence" name="thxgift">ありがとう！</button>
-                                    </form>
-                            <?php 
-                                }
-                            }
-                            ?>
-                        </div>
-                    </div>
-                </div>
-                <!-- <hr> -->
-
-                <!--吹き出しはじまり-->
-                <div class="tab_content" id="comment_content" style="display: none;">
-                    <div class="tab_content_description">
-                        <div class="chatting_place" id="scroll">
-                            <!-- コメントのループ -->
-                            <?php foreach ($comment_all as $comment) {
-                                // コメントを投稿したユーザの画像処理
-                                if ($comment['uid'] != $userId) {
-                                    $comment_icon = base64_encode($comment['icon']);
-                            ?>
-                                    <div class="onechat">
-                                        <div class="faceicon">
-                                            <!-- アイコン選択でプロフィール画面に遷移 -->
-                                            <a href="user_profile.php?id=<?php echo $comment['uid']; ?>"><img src="data:;base64,<?php echo $comment_icon; ?>" alt=""></a>
                                         </div>
-                                        <div class="says-top">
-                                            <p class="comment_username"><?php echo $comment['name']; ?></p>
-                                            <div class="says">
-                                                <p><?php echo $comment['comment']; ?></p>
-                                                <p class="comment_postdata"><?php echo $comment['post']; ?></p>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                        <form class="gift_sentence" method="post">
+                                            <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
+                                            <button type="submit" class="request_sentence_pa" name="thxgift">
+                                                <img class="want-icon" src="../static/thanks.png">
+                                                <p class="request_sentence">ありがとう！</p>
+                                            </button>
+                                        </form>
                                 <?php
-                                } else {
-                                ?>
-                                    <div class="onechat">
-                                        <div class="my-says-top">
-                                            <div class="my-says">
-                                                <p><?php echo $comment['comment']; ?></p>
-                                                <p class="comment_postdata"><?php echo $comment['post']; ?></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                            <?php
                                 }
                             }
-                            ?>
+                                ?>
+                                    </div>
                         </div>
+                    </div>
+                    <!-- <hr> -->
 
-                        <br>
-                        <!--吹き出し終わり-->
+                    <!--吹き出しはじまり-->
+                    <div class="tab_content" id="comment_content" style="display: none;">
+                        <div class="tab_content_description">
+                            <div class="chatting_place" id="scroll">
+                                <!-- コメントのループ -->
+                                <?php foreach ($comment_all as $comment) {
+                                    // コメントを投稿したユーザの画像処理
+                                    if ($comment['uid'] != $userId) {
+                                        $comment_icon = base64_encode($comment['icon']);
+                                ?>
+                                        <div class="onechat">
+                                            <div class="faceicon">
+                                                <!-- アイコン選択でプロフィール画面に遷移 -->
+                                                <a href="user_profile.php?id=<?php echo $comment['uid']; ?>"><img src="data:;base64,<?php echo $comment_icon; ?>" alt=""></a>
+                                            </div>
+                                            <div class="says-top">
+                                                <p class="comment_username"><?php echo $comment['name']; ?></p>
+                                                <div class="says">
+                                                    <p><?php echo $comment['comment']; ?></p>
+                                                    <p class="comment_postdata"><?php echo $comment['post']; ?></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <div class="onechat">
+                                            <div class="my-says-top">
+                                                <div class="my-says">
+                                                    <p><?php echo $comment['comment']; ?></p>
+                                                    <p class="comment_postdata"><?php echo $comment['post']; ?></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </div>
 
-                        <!-- コメント入力 -->
-                        <!-- <p class="comment_nyuryoku">コメントを入力</p> -->
-                        <form class="comment-flex" method="post" submit="check()">
-                            <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
-                            <input type="hidden" name="tab-comment" value="tab">
-                            <textarea id="text_area" class="comment_box" name="comment" placeholder="（例）・ギフト状態を確認したい ・ギフトの画像を追加して欲しい など"></textarea>
-                            <div class="btn_right"><button type="submit" class="comment-send_btn" name="send_comment">送信</button></div>
-                        </form>
+                            <br>
+                            <!--吹き出し終わり-->
+
+                            <!-- コメント入力 -->
+                            <!-- <p class="comment_nyuryoku">コメントを入力</p> -->
+                            <form class="comment-flex" method="post" submit="check()">
+                                <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
+                                <input type="hidden" name="tab-comment" value="tab">
+                                <textarea id="text_area" class="comment_box" name="comment" placeholder="（例）・ギフト状態を確認したい ・ギフトの画像を追加して欲しい など"></textarea>
+                                <div class="btn_right"><button type="submit" class="comment-send_btn" name="send_comment">送信</button></div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        <?php
-    }
-        ?>
+            <?php
+        }
+            ?>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-        <script src="../js/gift_detail.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+            <script src="../js/gift_detail.js"></script>
 
 
     </body>
