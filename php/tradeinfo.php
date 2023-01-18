@@ -124,18 +124,25 @@ if (isset($_POST['done_receipt'])) {
                     <ul>
                         <?php for ($i = 0; $i < count($participants_list); $i++) { ?>
                             <?php $img = base64_encode($participants_list[$i]['icon']); ?>
-                            <li>
+                            <li class="ul-participant">
                                 <img class="img-icon" src="data:;base64,<?php echo $img; ?>" onclick="click_icon_event(<?php echo $i ?>)">
-                                <ul class="ul-block" id="drop<?php echo $i ?>" style="display:none">
-                                    <li class="dropdown__item"><?php echo $participants_list[$i]['name'] ?></li>
-                                    <!-- ヒントが設定されているとき -->
-                                    <?php if (isset($participants_list[$i]['goods_hint'])) { ?>
-                                        <li class="dropdown__item">ヒント：<?php echo $participants_list[$i]['goods_hint'] ?></li>
-                                    <?php } ?>
-                                </ul>
                             </li>
                         <?php } ?>
                     </ul>
+                    <div class="hint-position">
+                        <?php for ($i = 0; $i < count($participants_list); $i++) { ?>
+                            <ul class="ul-block" id="drop<?php echo $i ?>" style="display:none">
+                                <li class="dropdown__item"><?php echo $participants_list[$i]['name'] ?></li>
+                                <!-- ヒントが設定されているとき -->
+                                <?php 
+                                    if (!empty($participants_list[$i]['goods_hint'])) {
+                                        echo "<li class='dropdown__item'>ヒント ： {$participants_list[$i]['goods_hint']}</li>";
+                                    } else {
+                                        echo "<li class='dropdown__item'>ヒントが設定されていません。</li>";
+                                    }?>
+                            </ul>
+                        <?php } ?>
+                    </div>
                 <?php } ?>
             </div>
 
@@ -349,7 +356,7 @@ if (isset($_POST['done_receipt'])) {
                             <div style="display:flex;">
                                 <h1 class="content-margin">交換物のヒント</h1>
                                 <div id="content">
-                                    <div id="button">
+                                    <div id="button" class="info-center">
                                         <img class="infomation" src="../static/infomation.png">
                                     </div>
                                 </div>
@@ -357,7 +364,7 @@ if (isset($_POST['done_receipt'])) {
                             <p class="title-flex-tag2">最大30文字</p>
                         </div>
                         <div id="pop_up" style="display:none;" class="explain-hint">
-                            <p>交換が実施されるまでに、グループのメンバーに表示される交換物のヒント（特徴）を書いてみましょう！</p>
+                            <p class="pop_up_msg">交換が実施されるまでにグループの<br>メンバーに表示される交換物の<br>ヒント(特徴)を書いてみましょう！</p>
                         </div>
                         <input type="text" class="form-box" name="goods_hint" maxlength="30" value="" placeholder="（例）形・色の特徴など">
                     </div>
@@ -387,7 +394,6 @@ if (isset($_POST['done_receipt'])) {
     </div>
 <?php } ?>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script src="../js/tradeinfo-a.js"></script>
-<script src="../js/tradeinfo-b.js"></script>
+<script src="../js/tradeinfo.js"></script>
 <script type="text/javascript" src="../js/giftpost.js"></script>
 </body>

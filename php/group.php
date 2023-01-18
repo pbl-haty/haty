@@ -85,7 +85,7 @@ if(!empty($tradeInfo)){
         <br>
         <?php if(isset($tradeId)){ ?>
             <a href="tradeinfo.php?trade_id=<?php echo $tradeId; ?>" class="hold-move-tag">
-                <p class="hold-move1">交換会開催中！<p>
+                <p class="hold-move1 hold-move-on">交換会開催中！<p>
             </a>
         <?php }else{ ?>
             <a href="exchange_hold.php?group_id=<?php echo $groupId; ?>" class="hold-move-tag">
