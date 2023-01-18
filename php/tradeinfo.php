@@ -124,18 +124,25 @@ if (isset($_POST['done_receipt'])) {
                     <ul>
                         <?php for ($i = 0; $i < count($participants_list); $i++) { ?>
                             <?php $img = base64_encode($participants_list[$i]['icon']); ?>
-                            <li>
+                            <li class="ul-participant">
                                 <img class="img-icon" src="data:;base64,<?php echo $img; ?>" onclick="click_icon_event(<?php echo $i ?>)">
-                                <ul class="ul-block" id="drop<?php echo $i ?>" style="display:none">
-                                    <li class="dropdown__item"><?php echo $participants_list[$i]['name'] ?></li>
-                                    <!-- ヒントが設定されているとき -->
-                                    <?php if (isset($participants_list[$i]['goods_hint'])) { ?>
-                                        <li class="dropdown__item">ヒント ： <?php echo $participants_list[$i]['goods_hint'] ?></li>
-                                    <?php } ?>
-                                </ul>
                             </li>
                         <?php } ?>
                     </ul>
+                    <div class="hint-position">
+                        <?php for ($i = 0; $i < count($participants_list); $i++) { ?>
+                            <ul class="ul-block" id="drop<?php echo $i ?>" style="display:none">
+                                <li class="dropdown__item"><?php echo $participants_list[$i]['name'] ?></li>
+                                <!-- ヒントが設定されているとき -->
+                                <?php 
+                                    if (!empty($participants_list[$i]['goods_hint'])) {
+                                        echo "<li class='dropdown__item'>ヒント ： {$participants_list[$i]['goods_hint']}</li>";
+                                    } else {
+                                        echo "<li class='dropdown__item'>ヒントが設定されていません。</li>";
+                                    }?>
+                            </ul>
+                        <?php } ?>
+                    </div>
                 <?php } ?>
             </div>
 
@@ -387,7 +394,6 @@ if (isset($_POST['done_receipt'])) {
     </div>
 <?php } ?>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script src="../js/tradeinfo-a.js"></script>
-<script src="../js/tradeinfo-b.js"></script>
+<script src="../js/tradeinfo.js"></script>
 <script type="text/javascript" src="../js/giftpost.js"></script>
 </body>
