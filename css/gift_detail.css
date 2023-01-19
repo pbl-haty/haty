@@ -254,7 +254,7 @@ input[name="tab_item"] {
     margin: 0 auto;
     width: 400px;
     color: #FFFAFA;
-    background-color: #668ad8;
+    background-color: #4db56a;
 }
 
 .request_sentence_pa:active {
@@ -271,7 +271,7 @@ input[name="tab_item"] {
     margin: 0 auto;
     width: 400px;
     color: #FFFAFA;
-    background-color: #668ad8;
+    background-color: #e60033
 }
 
 .cancel_sentence:active {
@@ -284,7 +284,7 @@ input[name="tab_item"] {
 .want-icon {
     height: 150px;
     width: 150px;
-    background-color: #668ad8;
+    background-color: #4db56a;
     border-radius: 60px 0 0 60px;
     left: 10px;
 }

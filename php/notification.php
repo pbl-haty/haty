@@ -120,7 +120,7 @@
                         echo "href='gift_detail.php?id={$view['gift_id']}'>";
                         echo "<div class='notifi-img-back'><img class='notifi-img' src='data:;base64,{$img}'></div>";
                         echo "<div class='notifi-vertical'><p class='notif-time'>{$view['time']}</p><p class='notif-comment'>";
-                        echo "{$view['name']}が{$view['gift_name']}の取引を許可しました。";
+                        echo "{$view['name']}が{$view['gift_name']}の取引を開始しました。";
                         break;
                     case 9:
                         echo "href='gift_detail.php?id={$view['gift_id']}'>";

@@ -229,14 +229,14 @@ if (empty($giftgroup)) {
                                                 </a>
                                             </div>
                                             <p>が申請しています。</p>
-                                            <p>コメントでやり取りをし、受け渡しが可能な場合許可ボタンを押しましょう。</p>
+                                            <p>コメントでやり取りをし、受け渡しが<br>可能な場合「取引開始」ボタンを押しましょう。</p>
                                         </div>
 
                                         <form method="post">
                                             <input type="hidden" name="giftid" value="<?php echo $giftId; ?>">
                                             <button type="submit" class="done_button_pa" name="done_button">
                                                 <img class="transaction-icon" src="../static/transaction.png">
-                                                <p class="done_button">取引許可</p>
+                                                <p class="done_button">取引開始</p>
                                             </button>
                                         </form>
                                     </div>
@@ -295,7 +295,7 @@ if (empty($giftgroup)) {
                                     <hr>
                                     <div class="done_button_space">
                                         <div class="applicant_info">
-                                            <p>コメントでやり取りをし、受け取り後「ありがとう！」ボタンを押しましょう。</p>
+                                            <p>コメントでやり取りをし、受け取り後<br>「ありがとう！」ボタンを押しましょう。</p>
                                         </div>
 
                                         <form class="gift_sentence" method="post">
