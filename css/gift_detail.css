@@ -535,8 +535,8 @@ input[name="tab_item"] {
 /* 以下、チャット */
 .chatting_place {
     width: 100%;
-    height: calc(100vh - 605px);
-    height: calc(100dvh - 450px);
+    height: calc(100vh - 615px);
+    height: calc(100dvh - 460px);
     overflow-y: scroll;
     overflow-x: hidden;
     /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
