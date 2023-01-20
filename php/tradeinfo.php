@@ -232,7 +232,7 @@ if (isset($_POST['done_receipt'])) {
                                     <img class="img-icon-a" src="data:;base64,<?php echo $pass_icon; ?>">
                                     <p class="send-to-name"><?php echo $pass_info['name']; ?></p>
                                 </div>
-                                <?php if (isset($post_goods_info['goods_hint'])) { ?>
+                                <?php if (isset($pass_info['goods_hint'])) { ?>
                                         <p class="send-to-hint">ヒント : <?php echo $pass_info['goods_hint']; ?></p>
                                 <?php } ?>
                             </div>
@@ -244,8 +244,8 @@ if (isset($_POST['done_receipt'])) {
                                     <img class="img-icon-a" src="data:;base64,<?php echo $receive_icon; ?>">
                                     <p class="send-to-name"><?php echo $receive_info['name']; ?></p>
                                 </div>
-                                <?php if (isset($post_goods_info['goods_hint'])) { ?>
-                                        <p class="send-to-hint">ヒント : <?php echo $pass_info['goods_hint']; ?></p>
+                                <?php if (isset($receive_info['goods_hint'])) { ?>
+                                        <p class="send-to-hint">ヒント : <?php echo $receive_info['goods_hint']; ?></p>
                                 <?php } ?>
                                 <?php if ($receive_info['confirm'] == 0) {  ?>
                                     <form method="POST" action="">
