@@ -31,7 +31,14 @@
             }
         }
     }
-?>
+    // ソートしたい要素の値を配列に入れる
+    foreach ($past_trade_array as $trade_Detail => $Detail) {
+    $ArrDate[] = $Detail['end_date'];
+    $ArrId[] = $Detail['trade_id'];
+    }
+    // ソートする
+    array_multisort($ArrDate, SORT_DESC, SORT_NUMERIC, $ArrId, SORT_DESC, SORT_STRING, $past_trade_array);
+  ?>
     <link rel="stylesheet" href="../css/trade_list.css">
     <title>交換会一覧</title>
 </head>
