@@ -219,8 +219,8 @@ if (isset($_POST['done_receipt'])) {
                         <div class="after-trade">
                             <div>
                                 <div>
-                                    <button class="btn-switch" id="b0" onclick="click_list_event(0)">貰う物・人</button>
-                                    <button class="btn-switch" id="b1" onclick="click_list_event(1)">渡す物・人</button>
+                                    <button class="btn-switch" id="b0" onclick="click_list_event(0)">もらう</button>
+                                    <button class="btn-switch" id="b1" onclick="click_list_event(1)">わたす</button>
                                     <button class="btn-switch" id="b2" onclick="click_list_event(2)">その他</button>
                                 </div>
                             </div>
@@ -232,6 +232,9 @@ if (isset($_POST['done_receipt'])) {
                                     <img class="img-icon-a" src="data:;base64,<?php echo $pass_icon; ?>">
                                     <p class="send-to-name"><?php echo $pass_info['name']; ?></p>
                                 </div>
+                                <?php if (isset($post_goods_info['goods_hint'])) { ?>
+                                        <p class="send-to-hint">ヒント : <?php echo $pass_info['goods_hint']; ?></p>
+                                <?php } ?>
                             </div>
 
                             <div class="send-me" id="p0">
@@ -241,6 +244,9 @@ if (isset($_POST['done_receipt'])) {
                                     <img class="img-icon-a" src="data:;base64,<?php echo $receive_icon; ?>">
                                     <p class="send-to-name"><?php echo $receive_info['name']; ?></p>
                                 </div>
+                                <?php if (isset($post_goods_info['goods_hint'])) { ?>
+                                        <p class="send-to-hint">ヒント : <?php echo $pass_info['goods_hint']; ?></p>
+                                <?php } ?>
                                 <?php if ($receive_info['confirm'] == 0) {  ?>
                                     <form method="POST" action="">
                                         <button type="submit" class="sending-button" name="done_receipt">受け取り完了</button>
@@ -353,7 +359,7 @@ if (isset($_POST['done_receipt'])) {
                     <div class="form-hint">
                         <div class="title-flex">
                             <p class="title-flex-tag1">任意</p>
-                            <div style="display:flex;">
+                            <div class="title-flex-align">
                                 <h1 class="content-margin">交換物のヒント</h1>
                                 <div id="content">
                                     <div id="button" class="info-center">

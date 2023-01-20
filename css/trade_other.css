@@ -72,11 +72,12 @@
 } */
   
 .balloon1-top p {
-    font-size: 32px;
+    font-size: 30px;
     word-wrap: break-word;
     margin: 0;
-    padding: 0 5px;
+    padding: 20px 5px;
     width: 250px;
+    line-height: 1.5;
 }
 
 
@@ -84,7 +85,7 @@
 .arrow1 {
     position: relative; /*ボックスの位置指定 */
     width: 100%; /* ボックスの横幅を指定する */
-    height: 50px; /* ボックスの高さを指定する */
+    height: 70px; /* ボックスの高さを指定する */
     /* background: #666666;ボックスの背景色を指定する */
     margin-bottom: 10px;
     background-color: #668ad8;
@@ -93,9 +94,9 @@
     position: absolute; /* 三角形の位置指定 */
     content: ""; /* 三角形のコンテンツ */
     top: -30px; /* 上部から配置の基準位置を決める */
-    right: -70px; /* 右から配置の基準位置を決める */
+    right: -69px; /* 右から配置の基準位置を決める */
     /* border-color:transparent; 境界線の色をなしにする */
-    border-top: 80px solid transparent;
+    border-top: 100px solid transparent;
     border-left: 70px solid #668ad8;
 }
 
@@ -110,7 +111,7 @@
 }
 
 .goods-name{
-    height: 50px;
+    height: 70px;
     font-size: 30px;
     border-radius: 0 0 10px 10px;
     display: flex;
@@ -126,6 +127,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin: 0;
 }
 
 .border{

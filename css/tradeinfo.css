@@ -334,15 +334,22 @@
 .send-to {
     padding: 50px;
     margin-top: 20px;
-    margin-left: 10%;
     display: flex;
 }
 
 .send-to-name {
     font-size: 50px;
-    margin: auto 20px;
+    margin: auto 55px;
     overflow-wrap: break-word;
     word-break: break-all;
+}
+
+.send-to-hint {
+    font-size: 50px;
+    margin: auto 45px;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    text-align: left;
 }
 
 .img-icon-a {
@@ -506,6 +513,11 @@
 .title-flex-tag2 {
     font-size: 0.8em;
     margin: auto 0 15px auto;
+}
+
+.title-flex-align {
+    display: flex;
+    align-items: center;
 }
 
 .explain-hint {
